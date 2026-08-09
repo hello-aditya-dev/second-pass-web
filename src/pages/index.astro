@@ -9,9 +9,9 @@ import { publishedArticles, formatDate } from "@/lib/content";
 const articles = await publishedArticles();
 const lead = articles.find((item) => item.data.featured) ?? articles[0];
 const rest = articles.filter((item) => item.id !== lead?.id);
-const now = rest.filter((item) => item.data.format === "NOW").slice(0, 4);
+const now = rest.filter((item) => item.data.format === "NOW").slice(0, 5);
 const analysis = rest.filter((item) => item.data.format !== "NOW").slice(0, 3);
-const research = rest.filter((item) => item.data.section === "Research").slice(0, 2);
+const research = rest.filter((item) => item.data.section === "Research" || item.data.format === "PROOF").slice(0, 2);
 ---
 <BaseLayout>
   <div class="shell edition-line" data-pagefind-ignore>
@@ -27,7 +27,7 @@ const research = rest.filter((item) => item.data.section === "Research").slice(0
         <h1><a href={`/articles/${lead.data.slug}`}>{lead.data.title}</a></h1>
         <p class="lead-dek">{lead.data.dek}</p>
         <div class="story-meta">
-          {lead.data.author} / {formatDate(lead.data.publishedAt)} / {lead.data.demo ? "DEMO" : "PUBLISHED"}
+          {lead.data.author} / {formatDate(lead.data.publishedAt)}{lead.data.demo ? " / DEMO" : ""}
         </div>
       </article>
 
@@ -96,7 +96,7 @@ const research = rest.filter((item) => item.data.section === "Research").slice(0
     </div>
   </section>
 
-  <section class="shell section-block">
+  <section class="shell section-block section-proof">
     <SectionHead
       title="/ PROOF"
       description="Research and methodology where the evidence itself is part of the story."

@@ -17,4 +17,4 @@ export const SITE = {
 } as const;
 
 export const siteUrl = () =>
-  import.meta.env.PUBLIC_SITE_URL || "https://example.com";
+  import.meta.env.PUBLIC_SITE_URL || "https://second-pass.vercel.app";

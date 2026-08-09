@@ -10,7 +10,7 @@ const escapeXml = (value: string) =>
   })[char] ?? char);
 
 export async function GET({ site }: { site?: URL }) {
-  const origin = site?.origin ?? "https://example.com";
+  const origin = site?.origin ?? "https://second-pass.vercel.app";
   const cutoff = Date.now() - 2 * 24 * 60 * 60 * 1000;
   const recent = (await publishedArticles()).filter(
     (item) => !item.data.demo && item.data.publishedAt.valueOf() >= cutoff

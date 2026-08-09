@@ -3,7 +3,7 @@ import path from "node:path";
 
 const raw = process.argv[2];
 if (!raw) {
-  console.error("Usage: npm run article:new -- story-slug");
+  console.error("Usage: bun run article:new -- story-slug");
   process.exit(1);
 }
 const slug = raw
@@ -42,7 +42,7 @@ tags: []
 adPolicy: "light"
 sources:
   - label: "REPLACE primary source"
-    url: "https://example.com"
+    url: "https://second-pass.vercel.app"
     type: "primary"
     note: "REPLACE what this source supports."
 changeLog: []

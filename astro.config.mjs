@@ -2,7 +2,7 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 
-const site = process.env.PUBLIC_SITE_URL || "http://localhost:3000";
+const site = process.env.PUBLIC_SITE_URL || "https://second-pass.vercel.app";
 
 export default defineConfig({
   site,

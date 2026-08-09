@@ -1,5 +1,5 @@
 export function GET({ site }: { site?: URL }) {
-  const origin = site?.origin ?? "https://example.com";
+  const origin = site?.origin ?? "https://second-pass.vercel.app";
   return new Response(
 `User-agent: *
 Allow: /

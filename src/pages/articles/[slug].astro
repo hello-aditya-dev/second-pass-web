@@ -91,15 +91,17 @@ const meaningfulHeadings = headings.filter((heading) => heading.depth === 2);
       )}
     </section>
 
-    <section class="change-log">
-      <div class="kicker">/ CHANGE LOG</div>
-      {article.data.changeLog.map((item) => (
-        <div class="change-row">
-          <div class="source-type">{formatDate(item.at)}<br />{item.type}</div>
-          <p>{item.note}</p>
-        </div>
-      ))}
-    </section>
+    {article.data.changeLog.length > 0 && (
+      <section class="change-log">
+        <div class="kicker">/ CHANGE LOG</div>
+        {article.data.changeLog.map((item) => (
+          <div class="change-row">
+            <div class="source-type">{formatDate(item.at)}<br />{item.type}</div>
+            <p>{item.note}</p>
+          </div>
+        ))}
+      </section>
+    )}
 
     <div class="article-end">/ END — {article.data.slug}</div>
   </article>

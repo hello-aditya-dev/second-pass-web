@@ -9,7 +9,7 @@ import AdBreak from "@/components/AdBreak.astro";
       <h1>Numbers with their assumptions still attached.</h1>
       <p>
         These are product foundations, not fabricated live datasets. Real values enter only through
-        the newsroom's source-backed data workflow.
+        the newsroom's source-backed data workflow. Each product preserves source, date, method, and assumptions.
       </p>
     </header>
 
@@ -17,20 +17,25 @@ import AdBreak from "@/components/AdBreak.astro";
       <section id="model-pricing" class="data-module">
         <span class="number">01 / FOUNDATION</span>
         <h3>Model Pricing Index</h3>
-        <p>Provider, model/version, input/output/cache pricing, context, effective date, source.</p>
+        <p>Provider, model/version, input/output/cache pricing, context, effective date, source. Historical pricing with version-level provenance.</p>
       </section>
       <section id="accelerators" class="data-module">
         <span class="number">02 / FOUNDATION</span>
         <h3>Accelerator Index</h3>
-        <p>Vendor, SKU, memory, bandwidth, interconnect, power, availability, source.</p>
+        <p>Vendor, SKU, memory, bandwidth, interconnect, power, availability, source. Architecture-level comparison context, not just peak specs.</p>
       </section>
       <section id="benchmarks" class="data-module">
         <span class="number">03 / FOUNDATION</span>
         <h3>Benchmark Registry</h3>
-        <p>Metric, workload, hardware, software, precision, test operator, methodology, source.</p>
+        <p>Metric, workload, hardware, software, precision, test operator, methodology, source. Who ran the test, and under what conditions.</p>
       </section>
     </div>
 
-    <AdBreak fallback="brief" label="DATA PRODUCT / FUTURE SPONSOR SLOT" />
+    <div style="max-width:var(--reading);margin-top:38px;font:1.05rem/1.55 var(--reader);color:var(--graphite)">
+      <p>When a data product launches, it will be versioned, sourced, and auditable. No invented production
+      data will appear. The newsroom data workflow determines when each product receives real entries.</p>
+    </div>
+
+    <AdBreak fallback="data" label="DATA PRODUCT / FUTURE WHOLE-PRODUCT SPONSOR" />
   </section>
 </BaseLayout>

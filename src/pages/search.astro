@@ -6,12 +6,12 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
     <header class="route-head">
       <div class="kicker">SEARCH</div>
       <h1>Find the mechanism, not just the headline.</h1>
-      <p>Static search is powered by Pagefind after the production build.</p>
+      <p>Static search is powered by Pagefind after the production build. During development, the index is not yet available.</p>
     </header>
 
     <div class="search-box">
       <label class="kicker" for="search-input">QUERY</label>
-      <input id="search-input" type="search" autocomplete="off" placeholder="memory bandwidth, inference cost, CVE…" />
+      <input id="search-input" type="search" autocomplete="off" placeholder="memory bandwidth, inference cost, CVE…" aria-describedby="search-status" />
       <p class="search-status" id="search-status">Type to search.</p>
       <div class="search-results" id="search-results" aria-live="polite"></div>
     </div>
@@ -23,6 +23,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
       const status = document.querySelector("#search-status");
       const root = document.querySelector("#search-results");
       let pagefind;
+      let debounceTimer;
 
       const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({
         "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
@@ -35,7 +36,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
           await pagefind.init();
           return pagefind;
         } catch {
-          status.textContent = "Search index is available after `npm run build`.";
+          status.textContent = "Search index is available after `bun run build`.";
           return null;
         }
       }
@@ -47,17 +48,35 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
           root.innerHTML = "";
           return;
         }
-        const pf = await ensurePagefind();
-        if (!pf) return;
-        const search = await pf.search(query);
-        const data = await Promise.all(search.results.slice(0, 12).map((r) => r.data()));
-        status.textContent = `${search.results.length} result${search.results.length === 1 ? "" : "s"}`;
-        root.innerHTML = data.map((item) => `
-          <article class="search-result">
-            <h2><a href="${esc(item.url)}">${esc(item.meta.title || "Untitled")}</a></h2>
-            <p>${item.excerpt || ""}</p>
-          </article>
-        `).join("");
+
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(async () => {
+          status.textContent = "Searching…";
+          const pf = await ensurePagefind();
+          if (!pf) return;
+          const search = await pf.search(query);
+          if (search.results.length === 0) {
+            status.textContent = "No results found.";
+            root.innerHTML = '<div class="empty-state">No stories match this query. Try different terms or browse sections.</div>';
+            return;
+          }
+          const data = await Promise.all(search.results.slice(0, 12).map((r) => r.data()));
+          status.textContent = `${search.results.length} result${search.results.length === 1 ? "" : "s"}`;
+          root.innerHTML = data.map((item) => `
+            <article class="search-result">
+              <h2><a href="${esc(item.url)}">${esc(item.meta.title || "Untitled")}</a></h2>
+              <p>${item.excerpt || ""}</p>
+            </article>
+          `).join("");
+        }, 200);
+      });
+
+      input?.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          event.target.value = "";
+          status.textContent = "Type to search.";
+          root.innerHTML = "";
+        }
       });
     })();
   </script>

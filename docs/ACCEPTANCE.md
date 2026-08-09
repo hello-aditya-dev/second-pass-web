@@ -43,9 +43,9 @@ Check:
 
 ## Technical
 - clean install
-- `npm run content:audit`
-- `npm run check`
-- `npm run build`
+- `bun run content:audit`
+- `bun run check`
+- `bun run build`
 - zero build errors
 - no accidental secrets
 - demo status visible

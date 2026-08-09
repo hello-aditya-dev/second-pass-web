@@ -10,7 +10,7 @@ human-approved content
 CMS or content adapter
       |
       v
-publication-web
+publication (second-pass-web)
       |
       v
 reader / search / newsletter / ads
@@ -20,9 +20,9 @@ The public application must never require the private newsroom repository at run
 
 ## App
 
-Next.js App Router.
+Astro static-first with Content Collections.
 
-Server Components are the default.
+Server rendering is the default. Zero client JS unless an island is specifically needed.
 
 ## Content
 
@@ -34,8 +34,8 @@ a CMS adapter implements the same conceptual shape.
 
 ## Core layers
 
-### `src/app`
-Routes, metadata, server rendering.
+### `src/pages`
+Routes, metadata, static rendering.
 
 ### `src/components`
 Reusable editorial UI.

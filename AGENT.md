@@ -108,9 +108,9 @@ Only human-approved content may use `status: published`.
 ## Completion
 
 Before finishing:
-- `npm run content:audit`
-- `npm run check`
-- `npm run build`
+- `bun run content:audit`
+- `bun run check`
+- `bun run build`
 - update `CURRENT_STATE.md`
 
 Do not claim verification you did not run.

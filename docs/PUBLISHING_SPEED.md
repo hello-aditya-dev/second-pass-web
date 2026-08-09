@@ -5,12 +5,12 @@ After editorial approval, public publishing should take minutes.
 
 ## Git-native launch pipeline
 1. newsroom creates human-approved public package
-2. `npm run article:new -- story-slug`
+2. `bun run article:new -- story-slug`
 3. fill MDX
 4. add safe media to `public/media/story-slug/`
-5. `npm run content:audit`
-6. `npm run check`
-7. `npm run build`
+5. `bun run content:audit`
+6. `bun run check`
+7. `bun run build`
 8. commit `publish: story-slug`
 9. push/deploy
 

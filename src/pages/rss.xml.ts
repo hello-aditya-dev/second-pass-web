@@ -8,7 +8,7 @@ export async function GET(context: { site?: URL }) {
   return rss({
     title: SITE.plainName,
     description: SITE.description,
-    site: context.site ?? "https://example.com",
+    site: context.site ?? "https://second-pass.vercel.app",
     items: articles.slice(0, 50).map((item) => ({
       title: item.data.title,
       description: item.data.dek,

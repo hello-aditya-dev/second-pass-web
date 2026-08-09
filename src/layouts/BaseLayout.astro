@@ -28,13 +28,14 @@ const imageUrl = new URL(image, siteUrl()).toString();
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#f2efe7" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" href="/mark.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="alternate" type="application/rss+xml" title={`${SITE.plainName} RSS`} href="/rss.xml" />
     {noindex && <meta name="robots" content="noindex,nofollow" />}
     <meta property="og:type" content={ogType} />
