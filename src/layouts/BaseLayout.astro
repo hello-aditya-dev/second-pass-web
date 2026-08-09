@@ -10,7 +10,12 @@ interface Props {
   canonical?: string;
   ogType?: "website" | "article";
   image?: string;
+  imageAlt?: string;
   noindex?: boolean;
+  publishedTime?: string;
+  modifiedTime?: string;
+  articleSection?: string;
+  articleTags?: string[];
 }
 const {
   title,
@@ -18,7 +23,12 @@ const {
   canonical = Astro.url.pathname,
   ogType = "website",
   image = "/og-default.svg",
-  noindex = false
+  imageAlt,
+  noindex = false,
+  publishedTime,
+  modifiedTime,
+  articleSection,
+  articleTags = []
 } = Astro.props;
 
 // Centralized prelaunch mode (fail-safe): prelaunch is the default.
@@ -29,6 +39,11 @@ const shouldNoindex = noindex || prelaunch;
 const fullTitle = title ? `${title} — ${SITE.plainName}` : `${SITE.name} — ${SITE.tagline}`;
 const canonicalUrl = new URL(canonical, siteUrl()).toString();
 const imageUrl = new URL(image, siteUrl()).toString();
+
+// Determine OG image dimensions
+const isOgPng = image.includes("/social/") && image.endsWith(".png");
+const ogWidth = isOgPng ? "1200" : undefined;
+const ogHeight = isOgPng ? "630" : undefined;
 ---
 <!doctype html>
 <html lang="en">
@@ -41,18 +56,33 @@ const imageUrl = new URL(image, siteUrl()).toString();
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" href="/mark.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="alternate" type="application/rss+xml" title={`${SITE.plainName} RSS`} href="/rss.xml" />
     {shouldNoindex && <meta name="robots" content="noindex,nofollow" />}
+
     <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={SITE.name} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={imageUrl} />
+    {imageAlt && <meta property="og:image:alt" content={imageAlt} />}
+    {ogWidth && <meta property="og:image:width" content={ogWidth} />}
+    {ogHeight && <meta property="og:image:height" content={ogHeight} />}
+
+    {ogType === "article" && publishedTime && <meta property="article:published_time" content={publishedTime} />}
+    {ogType === "article" && modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+    {ogType === "article" && articleSection && <meta property="article:section" content={articleSection} />}
+    {ogType === "article" && articleTags.map(tag => <meta property="article:tag" content={tag} />)}
+
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imageUrl} />
+
     <slot name="head" />
   </head>
   <body data-analytics={import.meta.env.PUBLIC_ANALYTICS_ENABLED === "true" && !prelaunch ? "true" : undefined}>

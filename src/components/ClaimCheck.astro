@@ -1,0 +1,83 @@
+---
+/**
+ * ClaimCheck — Vendor claim vs independent result comparison.
+ * Vendor claims are always visibly labeled.
+ */
+interface Props {
+  vendorClaim: string;
+  testConditions?: string;
+  independentResult?: string;
+  status?: "vendor_claim" | "confirmed" | "partially_confirmed" | "refuted" | "not_tested";
+}
+const {
+  vendorClaim,
+  testConditions,
+  independentResult = "Not yet available",
+  status = "vendor_claim"
+} = Astro.props;
+
+const statusLabels: Record<string, string> = {
+  vendor_claim: "VENDOR CLAIM",
+  confirmed: "CONFIRMED",
+  partially_confirmed: "PARTIALLY CONFIRMED",
+  refuted: "REFUTED",
+  not_tested: "NOT TESTED"
+};
+---
+<div class="claim-check" role="region" aria-label="Claim check">
+  <div class="kicker">/ CLAIM CHECK</div>
+  <div class="claim-row">
+    <div class="claim-label">VENDOR CLAIM</div>
+    <div class="claim-value">{vendorClaim}</div>
+  </div>
+  {testConditions && (
+    <div class="claim-row">
+      <div class="claim-label">TEST CONDITIONS</div>
+      <div class="claim-value">{testConditions}</div>
+    </div>
+  )}
+  <div class="claim-row">
+    <div class="claim-label">INDEPENDENT RESULT</div>
+    <div class="claim-value">{independentResult}</div>
+  </div>
+  <div class="claim-row">
+    <div class="claim-label">STATUS</div>
+    <div class="claim-value claim-status" data-status={status}>{statusLabels[status] || status}</div>
+  </div>
+</div>
+
+<style>
+  .claim-check {
+    margin: 2rem 0;
+    border-top: 3px solid var(--ink);
+    border-bottom: 1px solid var(--rule);
+    padding: 16px 0 18px;
+  }
+  .claim-row {
+    display: grid;
+    grid-template-columns: 160px minmax(0, 1fr);
+    gap: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .claim-row:last-child { border-bottom: none; }
+  .claim-label {
+    font: .68rem var(--mono);
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--graphite);
+    padding-top: 2px;
+  }
+  .claim-value {
+    font: .95rem/1.4 var(--reader);
+  }
+  .claim-status[data-status="vendor_claim"] { color: var(--graphite); font-style: italic; }
+  .claim-status[data-status="confirmed"] { color: var(--blue-dark); font-weight: 700; }
+  .claim-status[data-status="partially_confirmed"] { color: var(--blue-dark); }
+  .claim-status[data-status="refuted"] { color: #b91c1c; font-weight: 700; }
+  .claim-status[data-status="not_tested"] { color: var(--graphite); font-style: italic; }
+
+  @media (max-width: 720px) {
+    .claim-row { grid-template-columns: 1fr; gap: 4px; }
+  }
+</style>

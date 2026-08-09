@@ -1,0 +1,41 @@
+---
+/**
+ * Metric — A single key metric display.
+ */
+interface Props {
+  value: string;
+  label: string;
+  context?: string;
+}
+const { value, label, context } = Astro.props;
+---
+<div class="metric" role="figure" aria-label={`${value} ${label}`}>
+  <span class="metric-value">{value}</span>
+  <span class="metric-label">{label}</span>
+  {context && <span class="metric-context">{context}</span>}
+</div>
+
+<style>
+  .metric {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 10px 0;
+    border-top: 2px solid var(--ink);
+  }
+  .metric-value {
+    font: 700 1.8rem/1 var(--display);
+    letter-spacing: -.03em;
+  }
+  .metric-label {
+    font: .68rem var(--mono);
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--graphite);
+  }
+  .metric-context {
+    font: .82rem/1.3 var(--reader);
+    color: var(--graphite);
+    margin-top: 4px;
+  }
+</style>

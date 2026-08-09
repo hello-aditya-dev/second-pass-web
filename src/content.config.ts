@@ -33,7 +33,9 @@ const articles = defineCollection({
       note: z.string()
     })).default([]),
     seoTitle: z.string().optional(),
-    seoDescription: z.string().optional()
+    seoDescription: z.string().optional(),
+    socialStat: z.string().optional(),
+    socialStatLabel: z.string().optional()
   })
 });
 

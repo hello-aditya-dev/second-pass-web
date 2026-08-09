@@ -1,0 +1,72 @@
+---
+interface Props {
+  slug: string;
+  title: string;
+}
+const { slug, title } = Astro.props;
+const siteOrigin = import.meta.env.PUBLIC_SITE_URL || "https://second-pass.vercel.app";
+const articleUrl = `${siteOrigin}/articles/${slug}`;
+const encodedUrl = encodeURIComponent(articleUrl);
+const encodedTitle = encodeURIComponent(title);
+---
+<nav class="article-share" aria-label="Share this article">
+  <button class="share-btn" data-share="copy" data-url={articleUrl}>COPY LINK</button>
+  <a class="share-link" href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`} target="_blank" rel="noopener noreferrer">LINKEDIN</a>
+  <a class="share-link" href={`https://x.com/intent/post?url=${encodedUrl}&text=${encodedTitle}`} target="_blank" rel="noopener noreferrer">X</a>
+  <button class="share-btn" data-share="native">SHARE</button>
+</nav>
+
+<script is:inline>
+  document.querySelectorAll('.share-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const action = btn.dataset.share;
+      const url = btn.dataset.url || window.location.href;
+
+      if (action === 'copy') {
+        try {
+          await navigator.clipboard.writeText(url);
+          const original = btn.textContent;
+          btn.textContent = 'COPIED';
+          setTimeout(() => { btn.textContent = original; }, 1500);
+        } catch { /* clipboard not available */ }
+      }
+
+      if (action === 'native' && navigator.share) {
+        try {
+          await navigator.share({ url });
+        } catch { /* user cancelled or not supported */ }
+      }
+    });
+  });
+</script>
+
+<style>
+  .article-share {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+    padding-top: 14px;
+    border-top: 1px solid var(--rule);
+  }
+  .share-btn, .share-link {
+    font: .68rem var(--mono);
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--graphite);
+    cursor: pointer;
+    transition: border-color .15s ease, color .15s ease;
+  }
+  .share-btn:hover, .share-link:hover {
+    border-color: var(--ink);
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .share-link {
+    display: inline-flex;
+    align-items: center;
+  }
+</style>

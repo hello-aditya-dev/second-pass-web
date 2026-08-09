@@ -1,0 +1,33 @@
+---
+/**
+ * AssumptionList — List of assumptions stated explicitly.
+ * Transparency-first: assumptions should never be hidden.
+ */
+interface Props {
+  assumptions: string[];
+}
+const { assumptions } = Astro.props;
+---
+<div class="assumption-list" role="list" aria-label="Assumptions">
+  <div class="kicker">/ ASSUMPTIONS</div>
+  <ul>
+    {assumptions.map(a => <li>{a}</li>)}
+  </ul>
+</div>
+
+<style>
+  .assumption-list {
+    margin: 1.5rem 0;
+    border-left: 3px solid var(--rule);
+    padding-left: 18px;
+  }
+  .assumption-list ul {
+    margin: 8px 0 0;
+    padding-left: 1.1rem;
+  }
+  .assumption-list li {
+    font: .92rem/1.45 var(--reader);
+    color: var(--graphite);
+    margin-bottom: 6px;
+  }
+</style>

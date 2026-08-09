@@ -6,6 +6,7 @@ import EvidencePanel from "@/components/EvidencePanel.astro";
 import AdBreak from "@/components/AdBreak.astro";
 import NewsletterCTA from "@/components/NewsletterCTA.astro";
 import ReadingProgress from "@/components/ReadingProgress.astro";
+import ArticleShare from "@/components/ArticleShare.astro";
 import { publishedArticles, formatDate } from "@/lib/content";
 import { articleSchema } from "@/lib/schema";
 
@@ -21,12 +22,27 @@ const { article } = Astro.props;
 const { Content, headings } = await render(article);
 const schema = articleSchema(article);
 const meaningfulHeadings = headings.filter((heading) => heading.depth === 2);
+
+// Determine article-specific OG image
+const ogImage = article.data.hero
+  ? article.data.hero
+  : `/social/${article.data.slug}/og.png`;
+
+const ogImageAlt = article.data.heroAlt
+  ? article.data.heroAlt
+  : `${article.data.title} — SECOND / PASS`;
 ---
 <BaseLayout
   title={article.data.seoTitle ?? article.data.title}
   description={article.data.seoDescription ?? article.data.dek}
   canonical={`/articles/${article.data.slug}`}
   ogType="article"
+  image={ogImage}
+  imageAlt={ogImageAlt}
+  publishedTime={article.data.publishedAt.toISOString()}
+  modifiedTime={(article.data.updatedAt ?? article.data.publishedAt).toISOString()}
+  articleSection={article.data.section}
+  articleTags={article.data.tags}
 >
   <Fragment slot="head">
     <script is:inline type="application/ld+json" set:html={JSON.stringify(schema).replaceAll("<", "\\u003c")} />
@@ -104,6 +120,8 @@ const meaningfulHeadings = headings.filter((heading) => heading.depth === 2);
     )}
 
     <div class="article-end">/ END — {article.data.slug}</div>
+
+    <ArticleShare slug={article.data.slug} title={article.data.title} />
   </article>
 
   <div class="shell">

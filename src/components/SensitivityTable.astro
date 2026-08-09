@@ -1,0 +1,60 @@
+---
+/**
+ * SensitivityTable — Show how changes in inputs affect the result.
+ * Horizontal scroll on mobile, never breaks page width.
+ */
+interface Props {
+  title?: string;
+  headers: string[];
+  rows: string[][];
+}
+const { title = "SENSITIVITY", headers, rows } = Astro.props;
+---
+<div class="sensitivity-table" role="region" aria-label={title}>
+  <div class="kicker">/ {title}</div>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          {headers.map(h => <th>{h}</th>)}
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map(row => (
+          <tr>
+            {row.map(cell => <td>{cell}</td>)}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<style>
+  .sensitivity-table {
+    margin: 1.5rem 0;
+  }
+  .table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .sensitivity-table table {
+    width: 100%;
+    min-width: 400px;
+    border-collapse: collapse;
+    font: .82rem/1.35 var(--display);
+  }
+  .sensitivity-table th {
+    border-bottom: 2px solid var(--ink);
+    padding: 8px 10px;
+    text-align: left;
+    font: .67rem var(--mono);
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    background: var(--paper-2);
+  }
+  .sensitivity-table td {
+    border-bottom: 1px solid var(--rule);
+    padding: 8px 10px;
+  }
+</style>

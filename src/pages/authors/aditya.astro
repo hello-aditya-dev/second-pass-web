@@ -1,0 +1,153 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { publishedArticles } from "@/lib/content";
+import StoryCard from "@/components/StoryCard.astro";
+
+const author = {
+  name: "Aditya",
+  role: "Founder & Editor",
+  publisher: "SECOND / PASS",
+  bio: `Aditya is the founder and editor of SECOND / PASS.
+
+He covers AI infrastructure, compute, modern software systems, security, research and source-backed technical data.
+
+His work focuses on primary sources, reproducible calculations, clear technical explanations and the economic consequences of changes in computing infrastructure.`,
+  coverage: ["AI", "COMPUTE", "SYSTEMS", "SECURITY", "RESEARCH", "DATA"],
+  method: `Primary sources first.
+Vendor claims are labeled.
+Calculations state their assumptions.
+Corrections remain visible.`
+};
+
+const siteOrigin = import.meta.env.PUBLIC_SITE_URL || "https://second-pass.vercel.app";
+const authorUrl = `${siteOrigin}/authors/aditya`;
+
+// Get articles by this author
+const allArticles = await publishedArticles();
+const authorArticles = allArticles.filter(a => a.data.author === "Aditya");
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: author.name,
+  url: authorUrl,
+  jobTitle: author.role,
+  worksFor: {
+    "@type": "Organization",
+    name: author.publisher,
+    url: siteOrigin
+  }
+};
+---
+<BaseLayout
+  title={`${author.name} — ${author.role}`}
+  description={`Founder and editor of SECOND / PASS. AI infrastructure, compute, systems, security, research and source-backed technical data.`}
+  canonical="/authors/aditya"
+>
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema).replaceAll("<", "\\u003c")} />
+  </Fragment>
+
+  <section class="shell route">
+    <header class="route-head author-head">
+      <div class="kicker">/ AUTHOR</div>
+      <h1>{author.name}</h1>
+      <p class="author-role">{author.role}, {author.publisher}</p>
+    </header>
+
+    <div class="author-body">
+      <div class="author-bio">
+        {author.bio.split("\n\n").map(para => (
+          <p>{para}</p>
+        ))}
+      </div>
+
+      <div class="author-coverage">
+        <div class="kicker">/ COVERAGE</div>
+        <div class="coverage-list">
+          {author.coverage.map(topic => (
+            <span class="coverage-item">{topic}</span>
+          ))}
+        </div>
+      </div>
+
+      <div class="author-method">
+        <div class="kicker">/ METHOD</div>
+        <div class="method-text">
+          {author.method.split("\n").map(line => (
+            <p>{line}</p>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    {authorArticles.length > 0 && (
+      <div class="author-articles">
+        <div class="kicker">/ RECENT</div>
+        <div class="story-grid">
+          {authorArticles.slice(0, 6).map(article => (
+            <StoryCard article={article} />
+          ))}
+        </div>
+      </div>
+    )}
+  </section>
+</BaseLayout>
+
+<style>
+  .author-head h1 {
+    margin: 10px 0 8px;
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: .88;
+    letter-spacing: -.075em;
+    font-weight: 620;
+  }
+  .author-role {
+    margin: 0;
+    font: 1.1rem/1.4 var(--reader);
+    color: var(--graphite);
+  }
+  .author-body {
+    max-width: var(--reading);
+    margin: 32px 0 48px;
+    display: grid;
+    gap: 28px;
+  }
+  .author-bio p {
+    margin: 0 0 1em;
+    font: 1.12rem/1.6 var(--reader);
+    color: var(--ink);
+  }
+  .author-coverage {
+    border-top: 2px solid var(--ink);
+    padding-top: 14px;
+  }
+  .coverage-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .coverage-item {
+    font: .72rem var(--mono);
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--rule);
+    color: var(--graphite);
+  }
+  .author-method {
+    border-top: 2px solid var(--ink);
+    padding-top: 14px;
+  }
+  .method-text p {
+    margin: 0 0 4px;
+    font: .92rem/1.5 var(--reader);
+    color: var(--graphite);
+  }
+  .author-articles {
+    margin-top: 48px;
+    border-top: 3px solid var(--ink);
+    padding-top: 14px;
+  }
+</style>

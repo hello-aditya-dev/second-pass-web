@@ -1,0 +1,59 @@
+---
+/**
+ * CalculationBlock — Structured calculation display for technical articles.
+ * Accessible, static, printable, mobile-safe, visually restrained.
+ */
+interface Props {
+  label?: string;
+  expression?: string;
+  result: string;
+  resultLabel?: string;
+  sensitivity?: string;
+}
+const { label = "CALCULATION", expression, result, resultLabel, sensitivity } = Astro.props;
+---
+<div class="calc-block" role="math" aria-label={`${label}: ${result}`}>
+  <div class="kicker">/ {label}</div>
+  {expression && <div class="calc-expression">{expression}</div>}
+  <div class="calc-result">
+    <span class="calc-result-value">{result}</span>
+    {resultLabel && <span class="calc-result-label">{resultLabel}</span>}
+  </div>
+  {sensitivity && <div class="calc-sensitivity">{sensitivity}</div>}
+</div>
+
+<style>
+  .calc-block {
+    margin: 2rem 0;
+    border-top: 3px solid var(--blue);
+    border-bottom: 1px solid var(--rule);
+    padding: 16px 0 18px;
+    background: linear-gradient(to right, var(--blue-ghost), transparent);
+  }
+  .calc-expression {
+    margin: 8px 0 12px;
+    font: .92rem/1.5 var(--mono);
+    color: var(--graphite);
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .calc-result {
+    margin: 10px 0 6px;
+  }
+  .calc-result-value {
+    font: 700 1.6rem/1.2 var(--display);
+    letter-spacing: -.03em;
+  }
+  .calc-result-label {
+    margin-left: 8px;
+    font: .72rem var(--mono);
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--graphite);
+  }
+  .calc-sensitivity {
+    margin-top: 8px;
+    font: .82rem/1.4 var(--reader);
+    color: var(--graphite);
+  }
+</style>

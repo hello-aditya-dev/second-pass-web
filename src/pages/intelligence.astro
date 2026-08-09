@@ -22,6 +22,12 @@ const formsEnabled = import.meta.env.PUBLIC_COMMERCIAL_FORMS_ENABLED === "true";
           combined into a deliverable shaped around a specific decision.
           We do not promise findings in advance.
         </p>
+        <div class="sprint-process">
+          <span class="process-step">01 / QUESTION</span>
+          <span class="process-step">02 / SCOPE</span>
+          <span class="process-step">03 / RESEARCH</span>
+          <span class="process-step">04 / BRIEFING</span>
+        </div>
       </div>
     </div>
 
@@ -211,6 +217,18 @@ const formsEnabled = import.meta.env.PUBLIC_COMMERCIAL_FORMS_ENABLED === "true";
     margin: 0;
     font: 1rem/1.5 var(--reader);
     color: var(--graphite);
+  }
+  .sprint-process {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 14px;
+  }
+  .process-step {
+    font: .68rem var(--mono);
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--ink);
   }
   .intelligence-capabilities {
     display: grid;

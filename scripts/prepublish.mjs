@@ -22,6 +22,7 @@ const ROOT = import.meta.dirname
 const steps = [
   { name: "article:verify", cmd: `node scripts/verify-article.mjs ${slug}` },
   { name: "content:audit", cmd: "node scripts/content-audit.mjs" },
+  { name: "social:generate", cmd: `node scripts/generate-social-assets.mjs ${slug}` },
   { name: "astro check", cmd: "bun run check" },
   { name: "build", cmd: "bun run build:astro" },
   { name: "pagefind", cmd: "bun run search:index" }
@@ -59,7 +60,6 @@ const buildDir = existsSync(vercelStatic) && existsSync(join(vercelStatic, "inde
 if (!failed) {
   console.log(`\n── HTML inspection for ${slug} ──`);
 
-  // Astro static output: articles are at /articles/<slug>/index.html
   const htmlPath = join(buildDir, "articles", slug, "index.html");
 
   try {
@@ -75,6 +75,13 @@ if (!failed) {
         { label: "meta description", test: /name="description"/.test(html) },
         { label: "canonical link", test: /rel="canonical"/.test(html) },
         { label: "JSON-LD", test: /application\/ld\+json/.test(html) },
+        { label: "Person author JSON-LD", test: /"@type"\s*:\s*"Person"/.test(html) },
+        { label: "Organization publisher JSON-LD", test: /"@type"\s*:\s*"Organization"/.test(html) },
+        { label: "og:image", test: /property="og:image"/.test(html) },
+        { label: "og:image:alt", test: /property="og:image:alt"/.test(html) },
+        { label: "article:published_time", test: /property="article:published_time"/.test(html) },
+        { label: "article:section", test: /property="article:section"/.test(html) },
+        { label: "og:site_name", test: /property="og:site_name"/.test(html) },
         { label: "source anatomy (FIRST PASS)", test: /first-pass|FIRST PASS/i.test(html) },
         { label: "no example.com", test: !html.includes("example.com") }
       ];
@@ -94,6 +101,29 @@ if (!failed) {
   }
 }
 
+// OG asset verification
+if (!failed) {
+  console.log(`\n── OG asset verification ──`);
+  const ogPng = join(ROOT, "public", "social", slug, "og.png");
+  const portraitPng = join(ROOT, "public", "social", slug, "portrait.png");
+  const squarePng = join(ROOT, "public", "social", slug, "square.png");
+
+  const assetChecks = [
+    { label: "OG PNG (1200×630)", path: ogPng },
+    { label: "Portrait PNG (1080×1350)", path: portraitPng },
+    { label: "Square PNG (1080×1080)", path: squarePng }
+  ];
+
+  for (const ac of assetChecks) {
+    if (existsSync(ac.path)) {
+      console.log(`  ✓ ${ac.label}`);
+    } else {
+      console.error(`  ✗ ${ac.label} missing`);
+      failed = true;
+    }
+  }
+}
+
 // Pagefind verification
 if (!failed) {
   console.log(`\n── Pagefind verification ──`);
@@ -103,6 +133,29 @@ if (!failed) {
     failed = true;
   } else {
     console.log(`  ✓ pagefind.js exists at ${pagefindJs}`);
+  }
+}
+
+// Metadata verification
+if (!failed) {
+  console.log(`\n── Metadata verification ──`);
+  const htmlPath = join(buildDir, "articles", slug, "index.html");
+  if (existsSync(htmlPath)) {
+    const html = readFileSync(htmlPath, "utf8");
+    const metaChecks = [
+      { label: "twitter:card", test: /name="twitter:card"/.test(html) },
+      { label: "twitter:image", test: /name="twitter:image"/.test(html) },
+      { label: "favicon links", test: /rel="icon"/.test(html) },
+      { label: "manifest link", test: /rel="manifest"/.test(html) }
+    ];
+    for (const mc of metaChecks) {
+      if (mc.test) {
+        console.log(`  ✓ ${mc.label}`);
+      } else {
+        console.error(`  ✗ ${mc.label}`);
+        failed = true;
+      }
+    }
   }
 }
 
