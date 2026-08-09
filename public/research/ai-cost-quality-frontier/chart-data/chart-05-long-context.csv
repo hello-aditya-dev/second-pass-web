@@ -1,0 +1,4 @@
+provider_configuration,input_multiplier,output_multiplier,threshold
+OpenAI GPT-5.6 Sol,2.0,1.5,>272k input tokens
+xAI Grok 4.5,2.0,2.0,>=200k input tokens
+Anthropic Claude Opus 5,1.0,1.0,full 1M context at standard rate

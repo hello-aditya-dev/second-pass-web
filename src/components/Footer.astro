@@ -1,5 +1,7 @@
 ---
 import { SITE } from "@/lib/site";
+
+const prelaunch = import.meta.env.SITE_PRELAUNCH !== "false";
 ---
 <footer class="site-footer" data-pagefind-ignore>
   <div class="shell footer-grid">
@@ -31,6 +33,6 @@ import { SITE } from "@/lib/site";
   </div>
   <div class="shell footer-bottom">
     <span>© 2026 SECOND / PASS</span>
-    <span>Pre-launch · Demo content is marked</span>
+    <span>{prelaunch ? "Pre-launch · Demo content is marked" : "Primary sources · Original calculations · Visible corrections"}</span>
   </div>
 </footer>

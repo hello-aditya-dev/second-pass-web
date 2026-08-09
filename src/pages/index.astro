@@ -12,11 +12,13 @@ const rest = articles.filter((item) => item.id !== lead?.id);
 const now = rest.filter((item) => item.data.format === "NOW").slice(0, 5);
 const analysis = rest.filter((item) => item.data.format !== "NOW").slice(0, 3);
 const research = rest.filter((item) => item.data.section === "Research" || item.data.format === "PROOF").slice(0, 2);
+
+const prelaunch = import.meta.env.SITE_PRELAUNCH !== "false";
 ---
 <BaseLayout>
   <div class="shell edition-line" data-pagefind-ignore>
-    <span>TECHNICAL INTELLIGENCE / PRE-LAUNCH</span>
-    <span>DEMO STORIES ARE MARKED</span>
+    <span>TECHNICAL INTELLIGENCE{prelaunch ? " / PRE-LAUNCH" : ""}</span>
+    <span>{prelaunch ? "DEMO STORIES ARE MARKED" : "PRIMARY SOURCES · ORIGINAL CALCULATIONS"}</span>
   </div>
 
   {lead ? (

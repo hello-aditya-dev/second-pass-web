@@ -6,7 +6,7 @@ section: "Compute"
 format: "DEEP"
 author: "Second Pass Editorial"
 publishedAt: 2026-08-09T06:00:00Z
-status: "published"
+status: "draft"
 firstPass:
   - "This is a torture-test fixture, not a real article. It exists to verify layout resilience."
   - "Headlines, tokens, tables, and code blocks are intentionally extreme."

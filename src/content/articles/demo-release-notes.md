@@ -6,7 +6,7 @@ section: "Systems"
 format: "NOW"
 author: "Second Pass Editorial"
 publishedAt: 2026-08-07T12:00:00Z
-status: "published"
+status: "draft"
 firstPass:
   - "Announcements describe the product promise."
   - "Release notes and documentation often reveal the engineering constraints."

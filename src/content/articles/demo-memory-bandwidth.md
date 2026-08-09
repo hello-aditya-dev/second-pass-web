@@ -6,7 +6,7 @@ section: "Compute"
 format: "SECOND PASS"
 author: "Second Pass Editorial"
 publishedAt: 2026-08-09T05:00:00Z
-status: "published"
+status: "draft"
 firstPass:
   - "Headline arithmetic throughput is only one constraint in accelerator performance."
   - "Memory capacity, bandwidth, interconnect, utilization, and software can move the real bottleneck."

@@ -1,0 +1,623 @@
+---
+title: "The cheapest AI model is often not the cheapest system"
+dek: "Token prices can differ by 25× and still be economically secondary. The unit that matters is the cost of an accepted outcome—after retries, verification, human review, latency and failure."
+slug: "cheapest-ai-model-not-cheapest-system"
+section: "AI"
+format: "SECOND PASS"
+author: "Aditya"
+publishedAt: 2026-08-09
+status: "published"
+firstPass:
+  - "A model price is not a system cost. The denominator that matters is the accepted business outcome."
+  - "GPT-5.6 Sol is 25× Luna on current short-context token rates, but on a 10k-input/1k-output example the absolute premium is $0.0768 per attempt."
+  - "At a $4.50 human-review event, reducing review incidence by 1.71 percentage points offsets that entire $0.0768 premium."
+  - "Prompt caching can become cheaper from the second eligible use under 1.25× write / 0.10× read pricing; one-hour 2× writes require three uses."
+  - "Routing should choose among configurations and escalation paths—not model names—and should be trained on the organization's own acceptance and failure data."
+featured: true
+demo: false
+tags:
+  - "AI inference economics"
+  - "model routing"
+  - "LLM cost"
+  - "prompt caching"
+  - "AI infrastructure"
+adPolicy: "none"
+sources:
+  - label: "OpenAI — API Pricing"
+    url: "https://developers.openai.com/api/docs/pricing"
+    type: "primary"
+    note: "Public list pricing; accessed 2026-08-09."
+  - label: "OpenAI — GPT-5.6 Sol"
+    url: "https://developers.openai.com/api/docs/models/gpt-5.6-sol"
+    type: "primary"
+    note: "Sol long-context threshold and cache-write rule; accessed 2026-08-09."
+  - label: "OpenAI — GPT-5.6 Luna"
+    url: "https://developers.openai.com/api/docs/models/gpt-5.6-luna"
+    type: "primary"
+    note: "Luna pricing and threshold; accessed 2026-08-09."
+  - label: "Anthropic — Claude Pricing"
+    url: "https://docs.anthropic.com/en/docs/about-claude/pricing"
+    type: "primary"
+    note: "Claude prices, cache multipliers, Batch, Fast, 1M context, tokenizer note; accessed 2026-08-09."
+  - label: "Anthropic — What's New in Sonnet 5"
+    url: "https://docs.anthropic.com/en/docs/about-claude/models/whats-new-sonnet-5"
+    type: "primary"
+    note: "Sonnet 5 introductory/standard price dates and tokenizer change; effective 2026-09-01."
+  - label: "Google — Gemini API Pricing"
+    url: "https://ai.google.dev/gemini-api/docs/pricing"
+    type: "primary"
+    note: "Standard/Batch/Flex/Priority/cache pricing; accessed 2026-08-09."
+  - label: "xAI — API Pricing"
+    url: "https://docs.x.ai/developers/pricing"
+    type: "primary"
+    note: "Grok 4.5 short/long-context pricing; accessed 2026-08-09."
+  - label: "xAI — Batch API"
+    url: "https://docs.x.ai/developers/advanced-api-usage/batch-api"
+    type: "primary"
+    note: "Grok 4.5 currently unsupported by Batch; accessed 2026-08-09."
+  - label: "AWS — EC2 Capacity Blocks Pricing"
+    url: "https://aws.amazon.com/ec2/capacityblocks/pricing/"
+    type: "primary"
+    note: "Observable H200 cloud-rental reference; accessed 2026-08-09."
+  - label: "NVIDIA — H200 GPU"
+    url: "https://www.nvidia.com/en-us/data-center/h200/"
+    type: "primary"
+    note: "H200 memory, bandwidth, maximum TDP; accessed 2026-08-09."
+  - label: "IEA — Energy and AI"
+    url: "https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary"
+    type: "primary"
+    note: "Data-centre electricity projections; accessed 2026-08-09."
+  - label: "Ong et al. — RouteLLM"
+    url: "https://arxiv.org/abs/2406.18665"
+    type: "paper"
+    note: "Learned strong/weak LLM routing with preference data."
+  - label: "Chen et al. — FrugalGPT"
+    url: "https://arxiv.org/abs/2305.05176"
+    type: "paper"
+    note: "LLM cascades and cost-quality routing."
+  - label: "Xu et al. — SeqRoute"
+    url: "https://arxiv.org/abs/2605.25424"
+    type: "paper"
+    note: "Budget-aware sequential routing formulation."
+  - label: "Zhang et al. — Budget-Aware Agentic Routing"
+    url: "https://arxiv.org/abs/2602.21227"
+    type: "paper"
+    note: "Agentic routing as sequential/path-dependent."
+changeLog:
+  - at: 2026-08-09
+    type: "published"
+    note: "Initial publication."
+seoTitle: "The cheapest AI model is often not the cheapest system"
+seoDescription: "A quantitative framework for AI inference cost that includes success, retries, human review, caching, batch processing and routing—not just token price."
+socialStat: "1.71 pp"
+socialStatLabel: "review-rate reduction offsets the worked token premium"
+---
+
+# The cheapest AI model is often not the cheapest system
+
+**SECTION / AI**
+**FORMAT / SECOND PASS**
+**AUTHOR / Aditya — Founder & Editor**
+**PUBLISHER / SECOND / PASS**
+**PUBLISHED / 2026-08-09**
+
+A production AI system does not sell tokens. It tries to complete work.
+
+That sounds obvious. Most cost comparisons still begin one level too low.
+
+Suppose one model costs $1 and succeeds half the time. Another costs $3 and succeeds every time. The first model is cheaper per attempt. It is not necessarily cheaper per completed task.
+
+Production systems add more layers. A failed answer may be retried. A weak answer may need a repair call. A tool invocation may fail. A reviewer may spend three minutes checking an output that a stronger model could have made reviewable on the first pass. An interactive request may violate an SLA even when the answer is correct.
+
+The billing meter records tokens. The organization pays for outcomes.
+
+## / FIRST PASS
+
+**01 / $ per million tokens is a billing unit, not an economic output unit.** Tokenizers differ, output is often priced far above input, and retries, tools, verification and people sit outside the token line item.
+
+**02 / The comparison unit should be a configuration, not a model name.** Context band, cache state, Batch, service tier, reasoning setting and region can change the price of the same named model. ([OpenAI pricing](https://developers.openai.com/api/docs/pricing), [Anthropic pricing](https://docs.anthropic.com/en/docs/about-claude/pricing), [Gemini pricing](https://ai.google.dev/gemini-api/docs/pricing), [xAI pricing](https://docs.x.ai/developers/pricing))
+
+**03 / A large token-price gap can vanish against human labor.** GPT-5.6 Sol currently costs 25× Luna per short-context input and output token. On a 10k-input/1k-output example, that is a $0.0768 difference per attempt. ([OpenAI pricing](https://developers.openai.com/api/docs/pricing))
+
+**04 / At $4.50 per review, only 1.71 percentage points of avoided review are needed to pay for that $0.0768.** This is a break-even threshold, not a claim that any particular model achieves it.
+
+**05 / The practical router is an escalation policy.** Cache hits, deterministic rules, small models, stronger models, verifiers and humans should be treated as actions in a system, not as one permanent model choice.
+
+---
+
+## The wrong denominator
+
+Provider price pages are useful. They answer a precise question: what will this API bill for this configuration?
+
+They do not answer: what does it cost to obtain a usable result?
+
+Start with a per-attempt cost:
+
+24182
+C_{\text{direct}} =
+C_{\text{input}} +
+C_{\text{cached}} +
+C_{\text{output}} +
+C_{\text{tools}} +
+C_{\text{retrieval}}
+24183
+
+Now add the pieces that appear after the API responds:
+
+24182
+C_{\text{system}} =
+C_{\text{direct}}
++
+C_{\text{retry}}
++
+C_{\text{review}}
++
+C_{\text{failure}}
++
+P_L(L)
+24183
+
+where $P_L(L)$ is a workload-specific latency penalty.
+
+A simple quality-adjusted metric is:
+
+24182
+QAC = \frac{E[C]}{P(S)}
+24183
+
+where $S$ means success.
+
+That is useful but incomplete. "Success" is not one universal event. A syntactically valid JSON object can still be wrong. A correct answer can still require review. An answer can pass a benchmark and fail an enterprise policy.
+
+For production work, SECOND / PASS uses a stricter terminal event:
+
+24182
+A = \text{correct, policy-compliant and accepted}
+24183
+
+The denominator becomes the **accepted outcome**.
+
+24182
+\boxed{CAO = \frac{E[C_{\text{system}}]}{P(A)}}
+24183
+
+Call it **Cost per Accepted Outcome**.
+
+This is not a replacement for quality measurement. It is a way to make the denominator explicit.
+
+## A 25× price gap that costs eight cents
+
+Current OpenAI short-context list pricing puts GPT-5.6 Sol at $5/M input and $30/M output. GPT-5.6 Luna is $0.20/M input and $1.20/M output. Sol is therefore 25× Luna on each of those token rates. ([OpenAI pricing](https://developers.openai.com/api/docs/pricing), [GPT-5.6 Sol](https://developers.openai.com/api/docs/models/gpt-5.6-sol), [GPT-5.6 Luna](https://developers.openai.com/api/docs/models/gpt-5.6-luna))
+
+Use an illustrative analyst-style request:
+
+- 10,000 input tokens
+- 1,000 output tokens
+- short-context pricing
+- no cache
+- no tools
+- no retries yet
+
+The direct token costs are:
+
+24182
+C_{\text{Luna}} =
+10{,}000\frac{0.20}{10^6}
++
+1{,}000\frac{1.20}{10^6}
+=
+\$0.0032
+24183
+
+24182
+C_{\text{Sol}} =
+10{,}000\frac{5.00}{10^6}
++
+1{,}000\frac{30.00}{10^6}
+=
+\$0.0800
+24183
+
+Sol costs 25× more in relative terms.
+
+The absolute difference is:
+
+24182
+\Delta C = \$0.0800-\$0.0032=\$0.0768
+24183
+
+That number is the useful one.
+
+### / CALCULATION
+
+**QUESTION**
+
+How much human review must the more expensive model avoid to pay for its additional token cost?
+
+**ASSUMPTIONS**
+
+- same nominal 10k input / 1k output request shape
+- Luna direct token cost = $0.0032
+- Sol direct token cost = $0.0800
+- one review = three minutes
+- loaded reviewer cost = $90/hour
+- review event therefore costs $4.50
+- no claim is made about actual review rates
+
+**EQUATION**
+
+24182
+\Delta r_{\text{review}} =
+\frac{C_{\text{Sol}}-C_{\text{Luna}}}{C_{\text{one review}}}
+24183
+
+24182
+=
+\frac{0.0768}{4.50}
+=
+0.01707
+24183
+
+**RESULT**
+
+**1.71 percentage points.**
+
+**SO WHAT?**
+
+If the more expensive configuration reduces review incidence by more than 1.71 points under these assumptions, its extra token spend is fully offset by avoided reviewer time—even before assigning a dollar cost to failed outputs.
+
+**CAVEAT**
+
+This does not establish that Sol has a lower review rate. That must be measured on the organization's workload.
+
+![Break-even curve showing required review-rate reduction declining as the cost of human review rises; the marked $4.50 review cost requires a 1.71 percentage-point reduction.](/research/ai-cost-quality-frontier/charts/chart-01-review-break-even.svg)
+
+*Caption: How much review reduction pays for the 25× token-price gap? At a $4.50 review event, 1.71 pp of avoided review pays for the $0.0768 token premium.*
+
+The important result is not that one OpenAI model beats another. The important result is the scale mismatch. Model tokens can be measured in fractions of a dollar while professional review is measured in dollars.
+
+That is why percentage comparisons on token rates can look large while their business effect is small.
+
+## What happens when review is actually in the cost stack?
+
+Take the same illustrative task and add a scenario—not an empirical claim:
+
+- Luna review rate: 10%
+- Sol review rate: 5%
+- review cost: $4.50
+
+Then:
+
+24182
+C_{\text{Luna,total}} = 0.0032 + 0.10(4.50) = \$0.4532
+24183
+
+24182
+C_{\text{Sol,total}} = 0.0800 + 0.05(4.50) = \$0.3050
+24183
+
+Under those assumptions, the configuration with 25× higher token rates has **32.7% lower model-plus-review cost**.
+
+That is a scenario result. It is intentionally not labelled "Sol is cheaper." Change the review rates and the answer changes.
+
+![Stacked bars showing Luna's lower token cost but higher assumed review cost, resulting in a higher total than Sol.](/research/ai-cost-quality-frontier/charts/chart-04-cost-composition.svg)
+
+*Caption: A more expensive model can be a cheaper system. Under the stated assumptions, totals are $0.4532 vs $0.3050.*
+
+The engineering question is therefore not "which model has the cheapest API?" It is:
+
+> How much does each configuration change acceptance, repair, retry and review probabilities on the workload we actually run?
+
+The break-even equations tell the team how much improvement is required before it spends money measuring it.
+
+## Token prices are not even a stable cross-model denominator
+
+There is another problem with a pure $/M-token table: one million tokens is not necessarily the same amount of text.
+
+Anthropic documents that Claude 4.7-and-later models use a newer tokenizer and that Claude Sonnet 5 can produce approximately 30% more tokens for the same text than Sonnet 4.6, with the exact change depending on content and workload shape. ([Anthropic pricing](https://docs.anthropic.com/en/docs/about-claude/pricing), [Sonnet 5 pricing](https://docs.anthropic.com/en/docs/about-claude/models/whats-new-sonnet-5))
+
+That is enough to invalidate a common shortcut:
+
+> "Model A is 20% cheaper per token, therefore it is 20% cheaper for the same prompt."
+
+The correct comparison requires tokenizing or measuring the workload under each billing system.
+
+This is also why the public DATA artifact in this package stores provider prices without pretending that identical nominal token counts are identical text.
+
+## The model is not the economic object
+
+The price pages show something else: the name of the model does not uniquely define its economics.
+
+OpenAI GPT-5.6 moves to a long-context band above 272k input tokens. For Sol, input price doubles and output price rises 1.5× for the full request. Batch pricing is half the standard token rate. OpenAI also exposes Fast mode at a premium. ([OpenAI pricing](https://developers.openai.com/api/docs/pricing), [GPT-5.6 Sol](https://developers.openai.com/api/docs/models/gpt-5.6-sol))
+
+Anthropic prices cache writes, cache hits, Batch and Fast separately. Claude 4.6-and-later models include the full 1M-token context window at standard per-token pricing. Claude Sonnet 5 also has a scheduled price change: introductory $2/M input and $10/M output through August 31, 2026, then $3/M and $15/M beginning September 1. ([Anthropic pricing](https://docs.anthropic.com/en/docs/about-claude/pricing), [Sonnet 5 pricing](https://docs.anthropic.com/en/docs/about-claude/models/whats-new-sonnet-5))
+
+Google exposes Standard, Batch, Flex and Priority tiers, plus context-cache token charges and cache-storage charges. ([Gemini pricing](https://ai.google.dev/gemini-api/docs/pricing))
+
+xAI's Grok 4.5 changes from $2/$6 short-context input/output rates to $4/$12 once input reaches the 200k long-context threshold. Its Batch API currently does not support Grok 4.5. ([xAI pricing](https://docs.x.ai/developers/pricing), [xAI Batch](https://docs.x.ai/developers/advanced-api-usage/batch-api))
+
+So the atom of analysis is closer to:
+
+24182
+a=(model,\ context,\ cache,\ tier,\ batch,\ reasoning,\ region)
+24183
+
+not simply `model`.
+
+![Bars show OpenAI input at 2× and output at 1.5×, xAI input/output at 2×, and Anthropic at 1×.](/research/ai-cost-quality-frontier/charts/chart-05-long-context.svg)
+
+*Caption: There is no universal long-context premium. OpenAI and xAI apply explicit long-context price multipliers; Anthropic states Claude 4.6+ includes the full 1M context at standard pricing.*
+
+## Caching has a simple break-even test
+
+OpenAI's current GPT-5.6 cache write price is 1.25× the uncached input rate and cached input is 0.10×. Anthropic's five-minute cache uses the same multipliers; its one-hour cache write is 2× base input. ([OpenAI pricing](https://developers.openai.com/api/docs/pricing), [Anthropic pricing](https://docs.anthropic.com/en/docs/about-claude/pricing))
+
+Normalize uncached input cost to 1.
+
+Without caching, $N$ identical eligible prefix uses cost:
+
+24182
+C_{\text{no cache}}=N
+24183
+
+With a 1.25× cache write and 0.10× reads:
+
+24182
+C_{\text{cache}}=1.25+0.10(N-1)
+24183
+
+Caching is cheaper when:
+
+24182
+1.25+0.10(N-1)<N
+24183
+
+24182
+N>1.278
+24183
+
+### / CALCULATION
+
+**RESULT**
+
+The 1.25×/0.10× structure becomes cheaper from the **second eligible use**.
+
+For a one-hour Anthropic write:
+
+24182
+2.00+0.10(N-1)<N
+24183
+
+24182
+N>2.111
+24183
+
+so the theoretical break-even is the **third eligible use**.
+
+**CAVEAT**
+
+TTL, minimum cacheable length, prefix stability and cache misses can erase the theoretical saving.
+
+![Three cost lines; uncached rises one unit per use while cached lines rise slowly after an upfront write cost.](/research/ai-cost-quality-frontier/charts/chart-02-cache-reuse.svg)
+
+*Caption: Prompt caching can pay back after two or three eligible uses. Theoretical integer break-even is use 2 for 1.25× writes, use 3 for 2× writes.*
+
+The operational lesson is straightforward: teams should measure **eligible stable-prefix reuse**, not ask vaguely whether "caching is worth it."
+
+## Batch is not a model optimization
+
+OpenAI, Anthropic and Google currently publish Batch rates that are 50% below standard input/output token rates for the configurations used in our snapshot. ([OpenAI pricing](https://developers.openai.com/api/docs/pricing), [Anthropic pricing](https://docs.anthropic.com/en/docs/about-claude/pricing), [Gemini pricing](https://ai.google.dev/gemini-api/docs/pricing))
+
+That creates a discontinuity larger than many prompt-level micro-optimizations.
+
+For work that does not need an immediate response—offline enrichment, evaluation, indexing, nightly analysis—the relevant comparison is not:
+
+> Model A vs Model B.
+
+It is:
+
+> synchronous configuration A vs asynchronous configuration A.
+
+![Paired bars for six configurations showing every Batch bar at half the corresponding Standard bar.](/research/ai-cost-quality-frontier/charts/chart-03-batch-cost.svg)
+
+*Caption: For eligible asynchronous work, Batch halves token charges. Each included provider/configuration publishes a 50% Standard-to-Batch token-price reduction.*
+
+The chart uses the same **nominal** 10k-input / 1k-output token counts for each configuration. It is not a same-text cross-provider benchmark because tokenizers differ.
+
+## Routing is an escalation problem
+
+Research on LLM routing already shows that dynamic selection can reduce cost on benchmark workloads. FrugalGPT explored cascades; RouteLLM learned strong-versus-weak routing from preference data; newer work treats routing as budget-aware or sequential. ([RouteLLM](https://arxiv.org/abs/2406.18665)–[Agentic Routing](https://arxiv.org/abs/2602.21227))
+
+The production version should be even broader than "choose model A or B."
+
+A useful policy can choose among:
+
+1. cached result
+2. deterministic rule
+3. specialist classifier
+4. low-cost general model
+5. verifier
+6. stronger model
+7. human review
+
+The state changes after every action.
+
+A failed tool call is information. A verifier rejection is information. A nearly exhausted latency budget is information.
+
+For request $x$, define an action $a$ and terminal accepted event $A$. A simple one-step policy chooses:
+
+24182
+a^*(x)=\arg\min_a E[C_{\text{system}}(a,x)]
+24183
+
+subject to:
+
+24182
+P(A\mid a,x)\ge q_{\min}(x)
+24183
+
+and:
+
+24182
+P(L>L_{\text{SLA}})\le\epsilon
+24183
+
+For multi-step agents, the more faithful formulation is sequential:
+
+24182
+V(s)=\min_a E[c(s,a)+V(s')]
+24183
+
+where the state $s$ includes the request, previous outputs, verifier signals, cumulative spend and remaining latency or budget.
+
+This matters because the cheapest first action can be the expensive policy if it creates retries downstream. The most expensive first action can be wasteful if an inexpensive deterministic or small-model path would have handled the request.
+
+The router should learn the **marginal value of escalation**.
+
+## What the organization has to measure
+
+Public price data supplies only one side of the equation.
+
+A production evaluation should record, by workload class and configuration:
+
+- direct token cost
+- tool and retrieval cost
+- accepted rate
+- retry rate
+- repair-call rate
+- review incidence
+- review duration
+- tool failure rate
+- timeout rate
+- p50/p95/p99 latency
+- false-positive and false-negative cost where applicable
+- terminal failure loss
+
+Do not substitute a general benchmark score for these fields.
+
+Benchmarks can help screen candidates. They cannot tell a company how often its compliance analyst rejects an answer, how expensive a code-agent rollback is, or whether an additional 800 ms breaches a revenue-bearing SLA.
+
+## / CLAIM CHECK
+
+**CLAIM**
+
+"A stronger model is cheaper overall."
+
+**WHAT WAS ACTUALLY MEASURED?**
+
+Current public token prices and our break-even arithmetic.
+
+**WHAT WAS NOT MEASURED?**
+
+Production acceptance, review, retry or failure rates for the models in the worked example.
+
+**EVIDENCE STATUS**
+
+The threshold calculation is reproducible. The performance condition is workload-specific and unknown.
+
+**SECOND / PASS**
+
+Do not buy the conclusion. Measure whether your workload crosses the threshold.
+
+## The practical decision rule
+
+For a candidate escalation from configuration $i$ to $j$, calculate:
+
+24182
+\Delta C_{\text{direct}}=C_j-C_i
+24183
+
+Then estimate avoided downstream cost:
+
+24182
+\Delta C_{\text{downstream}}=
+\Delta C_{\text{retry}}
++
+\Delta C_{\text{review}}
++
+\Delta C_{\text{failure}}
++
+\Delta P_L
+24183
+
+Escalation is economically justified when:
+
+24182
+\boxed{
+\Delta C_{\text{downstream}} > \Delta C_{\text{direct}}
+}
+24183
+
+subject to minimum quality, policy and latency constraints.
+
+That equation is intentionally simple. It turns "use a better model on hard tasks" into a measurable test.
+
+The routing implementation can become sophisticated later. The first version can be rules:
+
+- cache when a stable prefix will be reused
+- batch whenever latency has negligible business value
+- send deterministic work to deterministic systems
+- use the lowest-cost configuration that clears measured acceptance constraints
+- escalate on verifier failure or calibrated uncertainty
+- require humans where failure loss justifies them
+- re-evaluate the policy when prices, model versions or workload mix change
+
+## What remains unknown
+
+This analysis does not provide a universal quality ranking.
+
+It does not provide a cross-provider latency table.
+
+It does not claim that a benchmark point maps to a percentage point of business success.
+
+It does not infer enterprise discounts from public list prices.
+
+It does not compute owned-GPU TCO from a cloud rental rate. AWS currently lists H200 Capacity Blocks as an observable rental price, and NVIDIA publishes H200 memory, bandwidth and maximum TDP specifications, but neither provides the workload throughput, utilization, engineering cost and hardware purchase terms required for a defensible owned-fleet break-even. ([AWS Capacity Blocks](https://aws.amazon.com/ec2/capacityblocks/pricing/), [NVIDIA H200](https://www.nvidia.com/en-us/data-center/h200/))
+
+The IEA's data-centre electricity projections are relevant to infrastructure strategy, but data-centre electricity is not equivalent to AI-inference electricity per request. ([IEA Energy and AI](https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary))
+
+Those questions remain in the research program.
+
+## The second pass
+
+The first pass at AI inference economics is a table of token prices.
+
+The second pass asks what the organization is actually buying.
+
+Once human review, retries, failure and latency enter the model, relative token-price gaps can become much less important than they look. Caching and Batch can change economics without changing models at all. Context bands and service tiers can change the cost of a named model without changing its name.
+
+The core unit should therefore be the **accepted outcome**, and the core technical system should be a **router over configurations and escalation actions**.
+
+A company does not need a perfect global model of AI economics to act on this.
+
+It needs a small workload-specific dataset and a break-even question:
+
+> What improvement would make the more expensive action cheaper overall?
+
+Measure that threshold first.
+
+Then route.
+
+---
+
+## RELATED / PROOF
+
+[**How we model accepted-outcome cost and sequential routing →**](/articles/cheapest-ai-model-not-cheapest-system-proof)
+
+Formal notation, retry derivations, review break-even equations, latency penalties, uncertainty treatment and self-hosting boundaries.
+
+## RELATED / DATA
+
+[**AI Inference Price Surface v0.1 — 2026-08-09 →**](/articles/ai-inference-price-surface-v0-1)
+
+Configuration-level public list prices with cache, Batch, context-band and effective-date metadata.
+
+---
+
+## / INTELLIGENCE
+
+Making a model, routing, infrastructure, or deployment decision?
+
+SECOND / PASS runs source-backed research sprints that apply this framework to a specific workload.
+
+**START A RESEARCH BRIEF →**

@@ -6,7 +6,7 @@ section: "Research"
 format: "PROOF"
 author: "Second Pass Editorial"
 publishedAt: 2026-08-05T09:00:00Z
-status: "published"
+status: "draft"
 firstPass:
   - "The abstract is a summary, not a methodology audit."
   - "Benchmark configuration can materially change the interpretation of a result."

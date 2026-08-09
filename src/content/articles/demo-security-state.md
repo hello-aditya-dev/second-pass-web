@@ -6,7 +6,7 @@ section: "Security"
 format: "PROOF"
 author: "Second Pass Editorial"
 publishedAt: 2026-08-06T10:00:00Z
-status: "published"
+status: "draft"
 firstPass:
   - "Severity and observed exploitation are different facts."
   - "Exploit availability does not by itself establish compromise."

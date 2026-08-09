@@ -6,7 +6,7 @@ section: "AI"
 format: "DEEP"
 author: "Second Pass Editorial"
 publishedAt: 2026-08-08T08:30:00Z
-status: "published"
+status: "draft"
 firstPass:
   - "Published input and output token prices are only two variables in a production cost model."
   - "Caching and workload shape can materially alter effective cost."
