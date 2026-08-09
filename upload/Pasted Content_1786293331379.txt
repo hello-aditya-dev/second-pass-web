@@ -1,0 +1,2387 @@
+# Z.ai — SECOND / PASS RENDER-INTEGRITY + PUBLIC-LAUNCH HARDENING
+
+Work directly in the existing repository:
+
+`witejackel-eng/second-pass-web`
+
+Existing production project:
+
+`second-pass`
+
+Current production URL:
+
+`https://second-pass.vercel.app`
+
+This is NOT a redesign.
+
+This is NOT another infrastructure phase.
+
+This is a surgical publication-quality and launch-hardening pass.
+
+The first real SECOND / PASS research package has already been published into the codebase, but live inspection found several rendering and launch defects that must be fixed before distribution or indexing.
+
+Your job is to:
+
+1. inspect the current production implementation;
+2. fix all article-rendering defects;
+3. tighten the flagship article where necessary;
+4. fix attribution/conversion issues;
+5. harden the publishing pipeline so these defects fail CI/prepublish in future;
+6. verify every current real article visually and technically;
+7. remove public demo/prelaunch state;
+8. set the site live/indexable;
+9. deploy to the EXISTING Vercel project;
+10. verify actual production output;
+11. return a precise acceptance report.
+
+Do not stop after describing the problems.
+
+Do not return recommendations only.
+
+Do not ask me to manually fix MDX.
+
+Do not create a new project.
+
+Do not redesign unrelated pages.
+
+Do not add new infrastructure.
+
+────────────────────────────────────────
+0. CONTEXT
+────────────────────────────────────────
+
+SECOND / PASS is a technical intelligence publication.
+
+Core proposition:
+
+“The first pass tells you what happened.
+The second pass tells you what it means.”
+
+Editorial positioning:
+
+technical journalism
++
+primary-source research
++
+engineering analysis
++
+mathematics
++
+economic consequence
+
+The publication promise is effectively:
+
+SECOND / PASS CHECKS THE NUMBERS.
+
+Therefore mathematical rendering, units, assumptions and citations must be exceptionally clean.
+
+The visual language is already locked:
+
+Paper       #F2EFE7
+Ink         #11110F
+Graphite    #5A5953
+Rule        #C9C3B7
+Signal Blue #2F5BFF
+Blue Dark   #1736A5
+
+Typography:
+
+Bricolage Grotesque Variable
+Newsreader Variable
+system mono
+
+Do not change these.
+
+────────────────────────────────────────
+
+1. CURRENT REAL ARTICLES
+   ────────────────────────────────────────
+
+The current real publication set includes:
+
+FLAGSHIP:
+
+`/articles/cheapest-ai-model-not-cheapest-system`
+
+PROOF:
+
+`/articles/cheapest-ai-model-not-cheapest-system-proof`
+
+DATA:
+
+`/articles/ai-inference-price-surface-v0-1`
+
+NOW:
+
+`/articles/no-universal-long-context-premium`
+
+`/articles/prompt-cache-second-use-break-even`
+
+`/articles/sonnet-5-price-effective-date`
+
+Treat all six as production content.
+
+────────────────────────────────────────
+2. KNOWN LIVE DEFECTS
+────────────────────────────────────────
+
+These defects have already been observed in live production.
+
+Do not waste time disputing whether they exist.
+
+Confirm them, then fix them.
+
+────────────────────────────────────────
+2A. BROKEN MATHEMATICAL SERIALIZATION
+────────────────────────────────────────
+
+The flagship and some NOW articles contain malformed rendered math.
+
+Examples observed in live output include literal sentinel-like numbers such as:
+
+`24182`
+`24183`
+`24190`
+`24191`
+
+around equations.
+
+Examples of broken output patterns include approximately:
+
+```text
+24182
+C_{\text{Luna}} =
+...
+24183
+```
+
+and:
+
+```text
+24190
+C_{\text{uncached}}=N
+24191
+```
+
+There are also raw LaTeX fragments appearing as ordinary text or giant headings.
+
+This is publication-blocking.
+
+Find the root cause.
+
+Do not merely hide the numbers with CSS.
+
+Fix the MDX/math transformation so the article source is semantically correct.
+
+Expected usage:
+
+INLINE MATH:
+
+```md
+$N$
+```
+
+DISPLAY MATH:
+
+```md
+$$
+C_{\text{cached}} = 1.25 + 0.10(N-1)
+$$
+```
+
+Normal English containing prices must NOT be sent through math mode.
+
+BAD:
+
+```md
+$2 per million input tokens and $10 per million output tokens
+```
+
+GOOD:
+
+```md
+$2/M input and $10/M output
+```
+
+or plain prose:
+
+```text
+$2 per million input tokens and $10 per million output tokens
+```
+
+Only mathematical expressions belong inside KaTeX delimiters.
+
+────────────────────────────────────────
+2B. NORMAL PROSE IS BEING PARSED AS MATH
+────────────────────────────────────────
+
+Observed especially in the Sonnet 5 NOW article.
+
+Normal phrases such as:
+
+`$2 per million input tokens and $10 ...`
+
+are currently being treated as mathematical expressions.
+
+This produces letter-by-letter KaTeX rendering.
+
+Fix the source.
+
+Rules:
+
+* currency prose stays prose;
+* mathematical variables stay math;
+* equations stay display math;
+* do not use KaTeX simply to style prices.
+
+Verify every article for this.
+
+────────────────────────────────────────
+2C. DUPLICATE ARTICLE TITLE
+────────────────────────────────────────
+
+The article template already renders:
+
+title
+dek
+author
+publication date
+FIRST PASS
+
+But the article MDX body currently repeats some of these.
+
+The flagship currently repeats its H1 in the body.
+
+The NOW articles also repeat their title as another H1.
+
+Remove body-level duplicate H1s.
+
+Every article should have exactly ONE public H1.
+
+The renderer owns the article H1.
+
+MDX should begin with article content, not another title.
+
+────────────────────────────────────────
+2D. DUPLICATE ARTICLE METADATA
+────────────────────────────────────────
+
+The flagship currently contains body copy similar to:
+
+```text
+SECTION / AI
+FORMAT / SECOND PASS
+AUTHOR / Aditya — Founder & Editor
+PUBLISHER / SECOND / PASS
+PUBLISHED / 2026-08-09
+```
+
+This is redundant because the article renderer already presents metadata.
+
+Remove this from the body.
+
+Frontmatter remains the source of metadata.
+
+────────────────────────────────────────
+2E. DUPLICATE FIRST PASS
+────────────────────────────────────────
+
+The article renderer already renders FIRST PASS from frontmatter.
+
+The flagship body also contains another:
+
+`/ FIRST PASS`
+
+section.
+
+This currently produces TOC output approximately like:
+
+```text
+01 / FIRST PASS
+02 / / FIRST PASS
+```
+
+Remove the duplicate body FIRST PASS.
+
+There should be exactly one FIRST PASS.
+
+The renderer owns it.
+
+Fix the TOC as a consequence.
+
+────────────────────────────────────────
+3. FLAGSHIP EDITORIAL TIGHTENING
+────────────────────────────────────────
+
+Do not rewrite the flagship from scratch.
+
+The research and argument are strong.
+
+The goal is to improve progressive disclosure.
+
+Target:
+
+roughly 10–15% less cognitive weight in the main article.
+
+Do NOT remove:
+
+accepted-outcome framework
+
+25× token-price example
+
+$0.0768 premium
+
+$4.50 review event
+
+1.71 percentage-point break-even
+
+cache break-even
+
+Batch economics
+
+configuration-level pricing
+
+routing concept
+
+limitations
+
+CLAIM CHECK
+
+PROOF link
+
+DATA link
+
+INTELLIGENCE CTA
+
+BRIEF CTA
+
+────────────────────────────────────────
+3A. MOVE DENSE ROUTING FORMALISM TO PROOF
+────────────────────────────────────────
+
+The flagship currently contains formal one-step and sequential routing equations.
+
+The article should retain the CONCEPT:
+
+REQUEST
+↓
+CACHE / DETERMINISTIC RULE?
+↓
+LOW-COST CONFIGURATION
+↓
+VERIFY
+↓
+ESCALATE
+↓
+STRONGER CONFIGURATION
+↓
+HUMAN
+
+The article should retain the simple practical rule:
+
+```text
+Escalate when:
+
+avoided downstream cost
+>
+additional direct model cost
+```
+
+or formally:
+
+$$
+\Delta C_{\text{downstream}}
+
+>
+
+\Delta C_{\text{direct}}
+$$
+
+But move the denser Bellman/sequential formulation and full routing notation to `/PROOF`.
+
+The flagship should link clearly:
+
+`INSPECT THE FULL ROUTING FORMULATION →`
+
+Do not delete the formal work.
+
+Move it.
+
+────────────────────────────────────────
+3B. SIMPLE INTUITION BEFORE EQUATION
+────────────────────────────────────────
+
+Preserve the SECOND / PASS progressive-disclosure pattern:
+
+simple intuition
+→
+real example
+→
+equation
+→
+result
+→
+consequence
+→
+caveat
+
+Do not start sections with raw notation where a one-sentence explanation can establish the idea first.
+
+────────────────────────────────────────
+4. BUILD PROPER / CALCULATION PRESENTATION
+────────────────────────────────────────
+
+Inspect whether an existing reusable component already exists.
+
+If not, create ONE small static Astro component:
+
+`CalculationBlock.astro`
+
+Do not create a new design system.
+
+The component should support:
+
+QUESTION
+
+ASSUMPTIONS
+
+EQUATION
+
+RESULT
+
+SO WHAT?
+
+CAVEAT
+
+Visual direction:
+
+thin rules
+paper background
+mono labels
+Bricolage heading/result
+Newsreader explanation
+Signal Blue for the important result only
+
+No shadows.
+No gradients.
+No rounded SaaS card styling.
+
+Example visual hierarchy:
+
+```text
+/ CALCULATION
+────────────────────────────
+
+QUESTION
+
+How much review must the expensive model avoid?
+
+ASSUMPTIONS
+
+Luna cost         $0.0032
+Sol cost          $0.0800
+Review event      $4.50
+
+EQUATION
+
+Δr = (0.0800 − 0.0032) / 4.50
+
+RESULT
+
+1.71 percentage points
+
+SO WHAT?
+
+...
+
+CAVEAT
+
+...
+```
+
+Use it for the central flagship calculation.
+
+Also use it for the cache break-even article if useful.
+
+Do not convert math to images.
+
+────────────────────────────────────────
+5. BUILD PROPER / CLAIM CHECK PRESENTATION
+────────────────────────────────────────
+
+Inspect current component inventory first.
+
+If no suitable component exists, create:
+
+`ClaimCheck.astro`
+
+Minimal static component only.
+
+Fields:
+
+CLAIM
+
+WHAT WAS ACTUALLY MEASURED?
+
+WHAT WAS NOT MEASURED?
+
+EVIDENCE STATUS
+
+SECOND / PASS
+
+Visual style:
+
+editorial evidence object
+
+not:
+
+warning alert
+SaaS card
+marketing banner
+
+Use it for the existing flagship CLAIM CHECK.
+
+────────────────────────────────────────
+6. FIX THE LONG-CONTEXT NOW ARTICLE
+────────────────────────────────────────
+
+URL:
+
+`/articles/no-universal-long-context-premium`
+
+The article is already strong.
+
+Do NOT expand it significantly.
+
+Remove duplicate title H1.
+
+Add one compact analytical table if not already present:
+
+Columns approximately:
+
+Provider/configuration
+Long-context trigger
+Input multiplier
+Output multiplier
+
+Current research framework approximately:
+
+OpenAI GPT-5.6
+
+> 272K input
+> 2× input
+> 1.5× output
+
+xAI Grok 4.5
+≥200K input
+2× input
+2× output
+
+Anthropic Claude 4.6+
+full 1M context at standard pricing
+1×
+1×
+
+REVERIFY current primary sources before using these values.
+
+If any value has changed, update article + table + change log appropriately.
+
+The key conclusion should remain:
+
+There is no universal `long_context_multiplier`.
+
+Do not turn this NOW article into a long analysis.
+
+────────────────────────────────────────
+7. FIX THE PROMPT-CACHE NOW ARTICLE
+────────────────────────────────────────
+
+URL:
+
+`/articles/prompt-cache-second-use-break-even`
+
+This is highly valuable but currently damaged by malformed equations.
+
+Fix all math.
+
+Remove duplicate H1.
+
+Present the core result cleanly:
+
+NORMAL:
+
+$$
+C_{\text{uncached}} = N
+$$
+
+CACHE:
+
+$$
+C_{\text{cached}} = 1.25 + 0.10(N-1)
+$$
+
+BREAK-EVEN:
+
+$$
+1.25 + 0.10(N-1) < N
+$$
+
+which gives:
+
+$$
+N > 1.278
+$$
+
+INTEGER RESULT:
+
+2 eligible uses.
+
+Then show Anthropic one-hour cache:
+
+$$
+2.00 + 0.10(N-1) < N
+$$
+
+which gives:
+
+$$
+N > 2.111
+$$
+
+INTEGER RESULT:
+
+3 eligible uses.
+
+Keep caveat:
+
+TTL
+minimum cacheable length
+prefix stability
+cache misses
+eligible reuse
+
+The central operational metric should remain approximately:
+
+eligible prefix tokens
+×
+reuse count
+×
+probability of reuse inside TTL
+
+Do not overcomplicate.
+
+────────────────────────────────────────
+8. FIX THE SONNET 5 PRICE-EFFECTIVE-DATE ARTICLE
+────────────────────────────────────────
+
+URL:
+
+`/articles/sonnet-5-price-effective-date`
+
+Remove duplicate H1.
+
+Fix all incorrectly math-rendered currency prose.
+
+Use a simple table:
+
+| Effective period | Input | Output | Batch input | Batch output |
+| ---------------- | ----: | -----: | ----------: | -----------: |
+| Through Aug 31   |  $2/M |  $10/M |        $1/M |         $5/M |
+| From Sep 1       |  $3/M |  $15/M |     $1.50/M |      $7.50/M |
+
+REVERIFY current Anthropic primary documentation.
+
+The article's most important concept is DATA DESIGN.
+
+Keep this contrast:
+
+BAD SCHEMA:
+
+```text
+model
+input_price
+output_price
+scraped_at
+```
+
+BETTER OBSERVATION:
+
+```text
+model
+effective_from
+effective_to
+input_price
+output_price
+source_accessed_at
+```
+
+Make these visually distinct with existing code/preformatted styling.
+
+Do not add another component solely for this.
+
+────────────────────────────────────────
+9. FIX THE FLAGSHIP CALCULATION
+────────────────────────────────────────
+
+Reproduce the current central arithmetic before rendering.
+
+Worked request:
+
+10,000 input tokens
+1,000 output tokens
+
+Current research inputs:
+
+GPT-5.6 Luna:
+
+$0.20/M input
+$1.20/M output
+
+GPT-5.6 Sol:
+
+$5.00/M input
+$30.00/M output
+
+Expected:
+
+Luna:
+
+$$
+10,000 \times \frac{0.20}{10^6}
++
+1,000 \times \frac{1.20}{10^6}
+==============================
+
+0.0032
+$$
+
+Sol:
+
+$$
+10,000 \times \frac{5.00}{10^6}
++
+1,000 \times \frac{30.00}{10^6}
+===============================
+
+0.0800
+$$
+
+Difference:
+
+$$
+\Delta C = 0.0800 - 0.0032 = 0.0768
+$$
+
+Review event:
+
+3 minutes at $90/hour
+
+$$
+C_{\text{review}} = 4.50
+$$
+
+Break-even:
+
+$$
+\Delta r =
+\frac{0.0768}{4.50}
+===================
+
+0.01707
+$$
+
+Therefore approximately:
+
+1.71 percentage points.
+
+Verify all current provider values from the existing primary sources before retaining them.
+
+If values have changed:
+
+do not preserve stale numbers merely to match the article.
+
+Update responsibly and record the change.
+
+────────────────────────────────────────
+10. DO NOT OVERSTATE THE 1.71 RESULT
+────────────────────────────────────────
+
+The article and social assets must continue to say:
+
+1.71 pp is a BREAK-EVEN THRESHOLD.
+
+It is NOT evidence that Sol actually reduces review incidence by 1.71 points.
+
+Do NOT accidentally write:
+
+"Sol reduces review by 1.71 pp."
+
+Correct framing:
+
+"At a $4.50 review event, a 1.71 percentage-point reduction in review incidence would offset the worked token premium."
+
+Preserve this distinction everywhere:
+
+article
+FIRST PASS
+caption
+OG
+social copy
+PROOF
+DATA links
+
+────────────────────────────────────────
+11. FIX ARTICLE FIGURE MARKUP
+────────────────────────────────────────
+
+The current flagship uses bare Markdown images followed by italic captions.
+
+Upgrade research charts to semantic:
+
+```html
+<figure>
+  <img ... />
+  <figcaption>...</figcaption>
+</figure>
+```
+
+or create a very small reusable `ResearchFigure.astro` component if genuinely useful.
+
+Requirements:
+
+meaningful alt text
+
+figcaption
+
+lazy loading where appropriate
+
+no layout shift
+
+mobile-safe
+
+SVG preferred for article rendering
+
+PNG fallback/social reuse
+
+Do not create JS chart rendering.
+
+────────────────────────────────────────
+12. CHART QA
+────────────────────────────────────────
+
+Visually inspect all five flagship charts.
+
+Verify:
+
+labels
+ticks
+legend
+caption
+units
+no clipping
+no tiny text
+Signal Blue not overused
+black/graphite contrast
+mobile behavior
+
+At narrow width:
+
+charts must scale within the article column.
+
+If an SVG contains tiny labels that become unreadable below ~400px:
+
+either:
+
+make the chart responsive and readable
+
+or provide a constrained horizontal-scroll figure container.
+
+Do not allow page-level horizontal overflow.
+
+────────────────────────────────────────
+13. FIX ARTICLE-BOTTOM /BRIEF ATTRIBUTION
+────────────────────────────────────────
+
+The article-bottom newsletter form currently reports:
+
+`utm_content=homepage-cta`
+
+This is wrong.
+
+The article-bottom CTA must send:
+
+`utm_content=article-bottom`
+
+Homepage CTA:
+
+`homepage-cta`
+
+Dedicated brief page:
+
+`brief-page`
+
+If NewsletterCTA currently hardcodes the source:
+
+make it accept a `source` prop.
+
+Example:
+
+```astro
+<NewsletterCTA source="article-bottom" />
+```
+
+Homepage:
+
+```astro
+<NewsletterCTA source="homepage-cta" />
+```
+
+Brief page:
+
+`brief-page`
+
+Do not break current Beehiiv integration.
+
+────────────────────────────────────────
+14. FIX /BRIEF BUTTON COPY CONSISTENCY
+────────────────────────────────────────
+
+The article-bottom form currently appears to render:
+
+`JOIN`
+
+while error/reset states may use:
+
+`JOIN / BRIEF`
+
+Use one consistent primary label:
+
+`JOIN / BRIEF`
+
+across:
+
+homepage
+article bottom
+brief page
+
+unless the current page layout genuinely requires a shorter variant.
+
+Prefer consistency.
+
+────────────────────────────────────────
+15. FIX / INTELLIGENCE CTA
+────────────────────────────────────────
+
+The flagship currently displays:
+
+`START A RESEARCH BRIEF →`
+
+but it is not reliably a working link.
+
+Make it a real link to:
+
+`/intelligence`
+
+Do not make it a giant marketing button.
+
+Keep it subtle.
+
+Example:
+
+```text
+/ INTELLIGENCE
+
+Making a model, routing, infrastructure or deployment decision?
+
+SECOND / PASS runs source-backed research sprints that apply this framework
+to a specific workload.
+
+START A RESEARCH BRIEF →
+```
+
+Link only the final CTA.
+
+────────────────────────────────────────
+16. EVIDENCE RAIL REFINEMENT
+────────────────────────────────────────
+
+Do NOT remove the excellent evidence system.
+
+The flagship currently has a very long right-hand evidence list.
+
+Improve hierarchy.
+
+Prefer:
+
+`/ KEY EVIDENCE`
+
+in the right rail.
+
+Show approximately 4–6 load-bearing sources.
+
+Examples:
+
+OpenAI pricing
+OpenAI GPT-5.6 Sol
+OpenAI GPT-5.6 Luna
+Anthropic pricing
+one relevant routing paper
+one infrastructure source if needed
+
+Then retain:
+
+`/ SOURCES`
+
+at the bottom with the complete source list.
+
+For short NOW articles, 2–4 evidence sources in the rail is ideal.
+
+Do not hide sources behind excessive UX.
+
+Do not create a database.
+
+Implementation can be simple.
+
+If modifying schema would be overkill, choose the first N most relevant sources consistently.
+
+Do not spend significant time on this if it threatens launch velocity.
+
+────────────────────────────────────────
+17. HARDEN PREPUBLISH — RENDER INTEGRITY
+────────────────────────────────────────
+
+This is one of the most important parts of this task.
+
+The research QA succeeded.
+
+The rendering QA failed.
+
+Upgrade:
+
+`scripts/prepublish.mjs`
+
+and/or supporting validation scripts so these classes of defects cannot ship again.
+
+For the target article, PREPUBLISH MUST FAIL when built output or source contains publication-breaking render defects.
+
+Add checks for:
+
+A. RAW SENTINELS
+
+Fail if public article output contains standalone/raw artifacts such as:
+
+24182
+24183
+24190
+24191
+
+Use careful matching so legitimate numbers embedded in unrelated data are not blindly rejected.
+
+Target the known render-artifact pattern.
+
+B. RAW LATEX IN BUILT BODY
+
+Fail on obvious unrendered constructs in article HTML/body such as:
+
+`\frac{`
+`\boxed{`
+`\text{`
+`\arg\min`
+`\Delta`
+
+when they are visibly emitted as raw text rather than rendered KaTeX.
+
+Do not flag escaped source inside legitimate code examples.
+
+C. DUPLICATE H1
+
+Built article should contain exactly ONE semantic article H1.
+
+Fail if more than one article H1 is rendered.
+
+D. DUPLICATE FIRST PASS
+
+Fail if more than one FIRST PASS heading/block is present.
+
+E. DUPLICATE FRONTMATTER METADATA IN BODY
+
+Fail on body-level patterns such as:
+
+SECTION /
+FORMAT /
+PUBLISHER /
+PUBLISHED /
+
+when these appear as a copied metadata block immediately after the renderer header.
+
+Do not block normal editorial uses of these words in unrelated contexts.
+
+F. MALFORMED ARTICLE LINKS
+
+Fail if public article contains:
+
+href=""
+href="#"
+localhost
+example.com
+sandbox:
+file://
+
+G. LOCAL PACKAGE PATHS
+
+Fail if body contains:
+
+../05_CHARTS/
+../04_DATA/
+/mnt/data/
+C:\
+
+H. PLACEHOLDERS
+
+Fail on publication-breaking:
+
+TODO
+TBD
+[DATE]
+[NUMBER]
+PLACEHOLDER
+
+I. BROKEN INTERNAL ARTICLE LINKS
+
+Verify internal `/articles/...` links correspond to built routes.
+
+J. MISSING CTA DESTINATION
+
+If `/ INTELLIGENCE` appears, ensure `/intelligence` link exists.
+
+────────────────────────────────────────
+18. ADD ARTICLE RENDER SMOKE TEST
+────────────────────────────────────────
+
+Create a lightweight script if useful:
+
+`scripts/render-audit.mjs`
+
+Do not add Playwright solely for this if HTML inspection is sufficient.
+
+Run against built article HTML.
+
+Report:
+
+H1 count
+
+FIRST PASS count
+
+raw LaTeX markers
+
+sentinel artifacts
+
+internal link validity
+
+image existence
+
+alt-text presence
+
+figcaption presence
+
+article-bottom CTA source
+
+noindex state
+
+canonical
+
+JSON-LD
+
+OG image
+
+The goal is deterministic publication QA.
+
+Add this to prepublish.
+
+────────────────────────────────────────
+19. VISUAL QA IS STILL REQUIRED
+────────────────────────────────────────
+
+Automated checks are not enough.
+
+Inspect actual rendered pages.
+
+Use:
+
+1440px
+1024px
+768px
+430px
+390px
+375px
+
+Priority:
+
+flagship
+cache NOW
+Sonnet NOW
+
+Verify:
+
+headlines
+FIRST PASS
+math
+figures
+captions
+evidence
+tables
+share controls
+sources
+newsletter
+footer
+
+No page-level horizontal overflow.
+
+No overlapping side rail.
+
+No clipped equations.
+
+No broken serif/grotesque hierarchy.
+
+────────────────────────────────────────
+20. PROOF ARTICLE QA
+────────────────────────────────────────
+
+The PROOF article is the most math-heavy page.
+
+Audit it more aggressively than any other article.
+
+Verify EVERY major equation renders in KaTeX.
+
+Search for:
+
+24182
+24183
+24190
+24191
+raw \frac
+raw \boxed
+raw \arg
+raw \min
+raw \Delta
+raw \text
+
+Inspect mobile.
+
+Long equations may horizontally scroll within an equation container.
+
+Never allow them to blow out the page.
+
+Do not remove necessary mathematics merely because it is hard to render.
+
+Fix the rendering.
+
+────────────────────────────────────────
+21. DATA ARTICLE QA
+────────────────────────────────────────
+
+Verify DATA page:
+
+snapshot clearly labeled
+
+CSV link works
+
+JSON link works
+
+table readable
+
+units explicit
+
+effective dates clear
+
+no broken download
+
+no malformed currency/math rendering
+
+table horizontal scroll contained on mobile
+
+No JS grid.
+
+No new database.
+
+────────────────────────────────────────
+22. FOOTER LAUNCH STATE
+────────────────────────────────────────
+
+Current production footer still says:
+
+`Pre-launch · Demo content is marked`
+
+Fix this.
+
+Make footer state depend on the same prelaunch logic as the rest of the site.
+
+When prelaunch:
+
+`Pre-launch · Demo content is marked`
+
+When public:
+
+prefer:
+
+`Primary sources · Original calculations · Visible corrections`
+
+Keep it subtle.
+
+Do not make it a marketing slogan.
+
+────────────────────────────────────────
+23. ROBOTS + INDEXING
+────────────────────────────────────────
+
+The site is currently still intentionally hidden from search.
+
+Observed live behavior includes:
+
+```html
+<meta name="robots" content="noindex,nofollow">
+```
+
+and:
+
+```text
+User-agent: *
+Disallow: /
+```
+
+Do NOT flip this immediately.
+
+Fix all render defects first.
+
+Only after all publication QA passes:
+
+set production:
+
+`SITE_PRELAUNCH=false`
+
+Then verify:
+
+article HTML does NOT contain:
+
+`noindex,nofollow`
+
+robots.txt does NOT contain:
+
+`Disallow: /`
+
+Sitemap remains valid.
+
+News sitemap remains valid if present.
+
+RSS remains valid.
+
+Pagefind remains valid.
+
+Do not remove the prelaunch safety mechanism from code.
+
+Only change the environment value.
+
+────────────────────────────────────────
+24. DEMO CONTENT
+────────────────────────────────────────
+
+Before public launch:
+
+search all article content.
+
+No article with:
+
+`demo: true`
+
+may remain:
+
+`status: published`
+
+Do not necessarily delete fixtures used for development.
+
+Set them to draft if needed.
+
+Production homepage, RSS, sitemap, section indexes and search must contain ZERO demo articles.
+
+────────────────────────────────────────
+25. PUBLICATION DATE
+────────────────────────────────────────
+
+Do not change publication date merely because this fix happens later the same day.
+
+Original publication date remains:
+
+2026-08-09
+
+If these corrections are made before the site becomes publicly indexable/distributed:
+
+do not create fake public correction entries for implementation defects that no public audience was intentionally sent to.
+
+If article text or substantive claims change:
+
+use appropriate change-log entry.
+
+Rendering-only fixes do not need editorial correction theater.
+
+────────────────────────────────────────
+26. SECURITY / PROVIDERS
+────────────────────────────────────────
+
+Do not disturb existing integrations.
+
+Verify:
+
+`/api/health`
+
+Expected:
+
+```json
+{
+  "status": "ok",
+  "brief": "configured",
+  "leads": "configured"
+}
+```
+
+Do not print:
+
+Beehiiv API key
+Resend API key
+Vercel secrets
+
+Verify:
+
+/brief
+
+/partner
+
+/intelligence
+
+continue working.
+
+Do not repeatedly generate test leads.
+
+────────────────────────────────────────
+27. BUILD PIPELINE
+────────────────────────────────────────
+
+Run:
+
+```bash
+bun install
+bun run content:audit
+bun run check
+bun run build
+```
+
+Then prepublish all six real articles.
+
+Run individually:
+
+```bash
+bun run prepublish -- cheapest-ai-model-not-cheapest-system
+bun run prepublish -- cheapest-ai-model-not-cheapest-system-proof
+bun run prepublish -- ai-inference-price-surface-v0-1
+bun run prepublish -- no-universal-long-context-premium
+bun run prepublish -- prompt-cache-second-use-break-even
+bun run prepublish -- sonnet-5-price-effective-date
+```
+
+ALL SIX must pass before public launch.
+
+If an article fails:
+
+fix the root cause.
+
+Do not bypass the check.
+
+────────────────────────────────────────
+28. SOCIAL ASSET REGENERATION
+────────────────────────────────────────
+
+If article title, social stat or presentation metadata changed, regenerate social assets.
+
+Run:
+
+```bash
+bun run social:generate -- cheapest-ai-model-not-cheapest-system
+bun run social:generate -- cheapest-ai-model-not-cheapest-system-proof
+bun run social:generate -- ai-inference-price-surface-v0-1
+bun run social:generate -- no-universal-long-context-premium
+bun run social:generate -- prompt-cache-second-use-break-even
+bun run social:generate -- sonnet-5-price-effective-date
+```
+
+Verify per article:
+
+OG 1200×630
+
+portrait 1080×1350
+
+square 1080×1080
+
+Flagship social wording must not imply measured model superiority.
+
+────────────────────────────────────────
+29. FLAGSHIP OG SAFETY
+────────────────────────────────────────
+
+If using:
+
+`1.71 pp`
+
+preferred label:
+
+`BREAK-EVEN REVIEW-RATE REDUCTION`
+
+or equivalent.
+
+Do NOT say:
+
+`SOL REDUCES REVIEW BY 1.71 PP`
+
+because that was not measured.
+
+────────────────────────────────────────
+30. HOMEPAGE
+────────────────────────────────────────
+
+Do not redesign homepage.
+
+Verify after launch:
+
+flagship remains the primary featured story.
+
+No demo story appears above it.
+
+PROOF and DATA are discoverable.
+
+NOW pieces populate NOW.
+
+No prelaunch marker.
+
+No empty state.
+
+────────────────────────────────────────
+31. ARTICLE-BOTTOM BRIEF UX
+────────────────────────────────────────
+
+Keep one article-bottom /BRIEF CTA.
+
+Do not add popups.
+
+Do not add sticky newsletter bars.
+
+Verify:
+
+button label
+
+form source
+
+successful response
+
+failure response
+
+email input accessibility
+
+privacy link
+
+Use:
+
+`article-bottom`
+
+for attribution.
+
+────────────────────────────────────────
+32. SEARCH
+────────────────────────────────────────
+
+After build, test Pagefind for:
+
+accepted outcome
+
+1.71
+
+prompt caching
+
+long context
+
+Sonnet 5
+
+Batch
+
+routing
+
+Expected relevant articles should appear.
+
+No demo articles.
+
+No QA docs.
+
+No internal publication package files.
+
+────────────────────────────────────────
+33. RSS + SITEMAP
+────────────────────────────────────────
+
+Verify live after public launch.
+
+RSS:
+
+real published articles only.
+
+Sitemap:
+
+real public routes only.
+
+No:
+
+demo articles
+
+internal QA
+
+distribution drafts
+
+temporary assets
+
+extraction directories
+
+────────────────────────────────────────
+34. SEO METADATA
+────────────────────────────────────────
+
+Verify each real article has:
+
+unique title
+
+unique description
+
+canonical
+
+og:type article
+
+og:title
+
+og:description
+
+og:image
+
+og:image:alt
+
+og:image width/height
+
+article:published_time
+
+article:section
+
+article tags
+
+twitter card
+
+Person author
+
+Organization publisher
+
+No social handles should be invented.
+
+────────────────────────────────────────
+35. ARTICLE AUTHOR
+────────────────────────────────────────
+
+Continue using:
+
+Aditya
+
+Founder & Editor
+
+SECOND / PASS
+
+Author page:
+
+`/authors/aditya`
+
+Verify new articles appear.
+
+Do not alter biography or invent credentials.
+
+────────────────────────────────────────
+36. PUBLIC LAUNCH SEQUENCE
+────────────────────────────────────────
+
+Execute in this order:
+
+1. inspect current repo;
+2. confirm known render defects;
+3. repair article source/math;
+4. remove duplicate body metadata;
+5. remove duplicate body H1/FIRST PASS;
+6. tighten flagship routing formalism;
+7. add minimal Calculation/Claim components if justified;
+8. improve NOW presentation;
+9. fix Intelligence CTA;
+10. fix newsletter attribution;
+11. harden prepublish/render QA;
+12. audit PROOF;
+13. audit DATA;
+14. run all builds;
+15. prepublish all six;
+16. visually inspect desktop/mobile;
+17. remove published demo content;
+18. regenerate social images;
+19. verify Beehiiv/Resend;
+20. verify homepage/search/RSS/sitemap;
+21. set `SITE_PRELAUNCH=false` in PRODUCTION;
+22. redeploy EXISTING Vercel project;
+23. verify actual production indexing state;
+24. verify live articles again;
+25. commit;
+26. return report.
+
+Do not invert this sequence.
+
+────────────────────────────────────────
+37. VERCEL
+────────────────────────────────────────
+
+Use the EXISTING:
+
+`second-pass`
+
+Vercel project.
+
+Do not create a new project.
+
+Production canonical remains:
+
+`https://second-pass.vercel.app`
+
+Do not change to secondpass.net until the domain is actually available and connected.
+
+Set production:
+
+`SITE_PRELAUNCH=false`
+
+only at the launch step.
+
+Do not expose environment values.
+
+────────────────────────────────────────
+38. LIVE VERIFICATION
+────────────────────────────────────────
+
+After deployment verify:
+
+https://second-pass.vercel.app/
+
+https://second-pass.vercel.app/articles/cheapest-ai-model-not-cheapest-system
+
+https://second-pass.vercel.app/articles/cheapest-ai-model-not-cheapest-system-proof
+
+https://second-pass.vercel.app/articles/ai-inference-price-surface-v0-1
+
+https://second-pass.vercel.app/articles/no-universal-long-context-premium
+
+https://second-pass.vercel.app/articles/prompt-cache-second-use-break-even
+
+https://second-pass.vercel.app/articles/sonnet-5-price-effective-date
+
+https://second-pass.vercel.app/ai
+
+https://second-pass.vercel.app/now
+
+https://second-pass.vercel.app/data
+
+https://second-pass.vercel.app/authors/aditya
+
+https://second-pass.vercel.app/brief
+
+https://second-pass.vercel.app/intelligence
+
+https://second-pass.vercel.app/partner
+
+https://second-pass.vercel.app/api/health
+
+https://second-pass.vercel.app/robots.txt
+
+https://second-pass.vercel.app/rss.xml
+
+https://second-pass.vercel.app/pagefind/pagefind.js
+
+sitemap URL(s)
+
+────────────────────────────────────────
+39. LIVE FLAGSHIP ACCEPTANCE
+────────────────────────────────────────
+
+The flagship passes only if:
+
+HTTP 200
+
+ONE H1
+
+ONE FIRST PASS
+
+NO duplicated metadata block
+
+NO 24182
+
+NO 24183
+
+NO 24190
+
+NO 24191
+
+NO raw visible \frac
+
+NO raw visible \boxed
+
+NO malformed KaTeX prose
+
+$0.0032 correct
+
+$0.0800 correct
+
+$0.0768 correct
+
+$4.50 correct
+
+1.71 percentage points correct
+
+five figures render
+
+captions render
+
+math readable
+
+PROOF link works
+
+DATA link works
+
+INTELLIGENCE link works
+
+BRIEF works
+
+sources work
+
+author works
+
+share controls work
+
+canonical correct
+
+indexable
+
+no demo marker
+
+no prelaunch footer
+
+mobile safe
+
+────────────────────────────────────────
+40. LIVE NOW ACCEPTANCE
+────────────────────────────────────────
+
+LONG CONTEXT:
+
+no duplicate H1
+
+compact comparison table
+
+primary-source claims current
+
+no malformed math
+
+links to flagship/DATA
+
+CACHE:
+
+no duplicate H1
+
+all equations render
+
+2-use result clear
+
+3-use result clear
+
+TTL caveat clear
+
+links work
+
+SONNET:
+
+no duplicate H1
+
+currency renders as normal prose/table
+
+effective-date table correct
+
+schema-design insight clear
+
+source links correct
+
+no malformed KaTeX
+
+────────────────────────────────────────
+41. HARDEN CONTENT COMPILER HANDOFF
+────────────────────────────────────────
+
+The long-term lesson from this release:
+
+research QA alone is not enough.
+
+Add documentation to the publication workflow stating that every future package must pass TWO gates:
+
+```text
+FACTUAL INTEGRITY
+
+sources
+calculations
+claims
+data
+
+↓ PASS
+
+RENDER INTEGRITY
+
+math
+tables
+charts
+headings
+links
+mobile
+metadata
+
+↓ PASS
+
+PUBLISH
+```
+
+Update:
+
+`docs/DISTRIBUTION_WORKFLOW.md`
+
+or the most appropriate existing operational document.
+
+Do not create excessive docs.
+
+────────────────────────────────────────
+42. DO NOT DO
+────────────────────────────────────────
+
+Do NOT:
+
+redesign the website
+
+change brand colors
+
+change typography
+
+add CMS
+
+add database
+
+add auth
+
+add React unnecessarily
+
+add Vue/Svelte
+
+add a chart library
+
+add Tailwind if not already used for this
+
+add new analytics
+
+add Sentry
+
+add social scheduler
+
+add ads
+
+add payment integration
+
+add dashboard
+
+add complex citation engine
+
+add footnote framework unless absolutely required
+
+build a custom editor
+
+change hosting
+
+migrate framework
+
+create animations
+
+create WebGL
+
+expand the current research
+
+run new latency studies
+
+run Monte Carlo
+
+build GPU TCO model
+
+research Topic 2
+
+This task is strictly:
+
+FIX
+HARDEN
+LAUNCH
+
+────────────────────────────────────────
+43. GIT HYGIENE
+────────────────────────────────────────
+
+Before commit:
+
+git status
+
+git diff
+
+git diff --stat
+
+Ensure no:
+
+.env
+
+API keys
+
+ZIP files
+
+temporary screenshots
+
+local logs
+
+node_modules
+
+extraction directories
+
+Commit preferably as:
+
+`fix: harden research rendering and launch publication`
+
+If a second commit is useful:
+
+`feat: take Second Pass public`
+
+Do not force-push.
+
+Do not rewrite history.
+
+────────────────────────────────────────
+44. FINAL ACCEPTANCE GATE
+────────────────────────────────────────
+
+RENDER:
+
+✓ no math sentinels
+✓ no raw LaTeX
+✓ currency prose correct
+✓ exactly one H1/article
+✓ exactly one FIRST PASS/article
+✓ no duplicated metadata
+✓ figures semantic
+✓ mobile safe
+
+EDITORIAL:
+
+✓ flagship lighter but argument intact
+✓ dense routing formalism moved to PROOF
+✓ 1.71 result correctly framed
+✓ NOW pieces concise
+✓ assumptions visible
+✓ caveats preserved
+
+CONVERSION:
+
+✓ Intelligence CTA linked
+✓ BRIEF attribution correct
+✓ JOIN / BRIEF consistent
+✓ Beehiiv configured
+✓ Resend configured
+
+PIPELINE:
+
+✓ render-integrity checks added
+✓ prepublish catches these defects
+✓ all six prepublish PASS
+✓ build PASS
+✓ Pagefind PASS
+
+LAUNCH:
+
+✓ no published demos
+✓ SITE_PRELAUNCH=false
+✓ no noindex
+✓ robots allows crawling
+✓ RSS public
+✓ sitemap public
+✓ footer live state
+✓ canonical correct
+
+LIVE:
+
+✓ all six articles 200
+✓ homepage 200
+✓ /brief 200
+✓ /intelligence 200
+✓ /partner 200
+✓ /api/health configured
+✓ OG assets 200
+
+────────────────────────────────────────
+45. FINAL RESPONSE FORMAT
+────────────────────────────────────────
+
+Return exactly:
+
+# SECOND / PASS — PUBLIC LAUNCH HARDENING
+
+## STATUS
+
+PASS / FAIL
+
+## MATH RENDERING
+
+Flagship:
+PASS / FAIL
+
+PROOF:
+PASS / FAIL
+
+Cache NOW:
+PASS / FAIL
+
+Sonnet NOW:
+PASS / FAIL
+
+Sentinel artifacts remaining:
+0 REQUIRED
+
+Raw LaTeX remaining:
+0 REQUIRED
+
+## ARTICLE STRUCTURE
+
+Duplicate H1 count:
+0 REQUIRED
+
+Duplicate FIRST PASS count:
+0 REQUIRED
+
+Duplicate metadata blocks:
+0 REQUIRED
+
+## FLAGSHIP
+
+Word-count before:
+Word-count after:
+
+Central argument preserved:
+YES / NO
+
+1.71 pp framing:
+PASS / FAIL
+
+Routing formalism:
+FLAGSHIP / PROOF split status
+
+## NOW ARTICLES
+
+Long-context:
+PASS / FAIL
+
+Cache:
+PASS / FAIL
+
+Sonnet:
+PASS / FAIL
+
+## CONVERSION
+
+INTELLIGENCE CTA:
+PASS / FAIL
+
+Article /BRIEF UTM:
+article-bottom / FAIL
+
+Button copy:
+PASS / FAIL
+
+## PIPELINE HARDENING
+
+render audit:
+PASS / FAIL
+
+sentinel detection:
+PASS / FAIL
+
+raw LaTeX detection:
+PASS / FAIL
+
+duplicate H1 detection:
+PASS / FAIL
+
+duplicate FIRST PASS detection:
+PASS / FAIL
+
+broken link detection:
+PASS / FAIL
+
+## PREPUBLISH
+
+Flagship:
+PASS / FAIL
+
+PROOF:
+PASS / FAIL
+
+DATA:
+PASS / FAIL
+
+Long-context NOW:
+PASS / FAIL
+
+Cache NOW:
+PASS / FAIL
+
+Sonnet NOW:
+PASS / FAIL
+
+## BUILD
+
+content:audit:
+PASS / FAIL
+
+check:
+PASS / FAIL
+
+build:
+PASS / FAIL
+
+Pagefind:
+PASS / FAIL
+
+## PROVIDERS
+
+Beehiiv:
+configured / not configured
+
+Resend:
+configured / not configured
+
+## INDEXING
+
+SITE_PRELAUNCH:
+false REQUIRED
+
+noindex:
+absent REQUIRED
+
+robots:
+public REQUIRED
+
+RSS:
+PASS / FAIL
+
+sitemap:
+PASS / FAIL
+
+## LIVE URLS
+
+Homepage:
+URL
+
+Flagship:
+URL
+
+PROOF:
+URL
+
+DATA:
+URL
+
+Long-context:
+URL
+
+Cache:
+URL
+
+Sonnet:
+URL
+
+Brief:
+URL
+
+Intelligence:
+URL
+
+Health:
+URL
+
+## MOBILE QA
+
+1440:
+PASS / FAIL
+
+1024:
+PASS / FAIL
+
+768:
+PASS / FAIL
+
+430:
+PASS / FAIL
+
+390:
+PASS / FAIL
+
+375:
+PASS / FAIL
+
+## GIT
+
+Commit:
+Branch:
+Working tree:
+
+## BLOCKERS
+
+None
+
+OR exact blocker.
+
+If EVERYTHING passes, end exactly with:
+
+`SECOND / PASS: PUBLICATION LIVE — DISTRIBUTE NOW`
+
+If anything publication-critical remains:
+
+`SECOND / PASS: LAUNCH BLOCKED — <exact blocker>`
+
+────────────────────────────────────────
+46. BEGIN
+────────────────────────────────────────
+
+Start immediately.
+
+Do not spend time creating another plan.
+
+Inspect
+→ fix root causes
+→ harden pipeline
+→ run every article
+→ visually QA
+→ remove demos
+→ make public
+→ deploy
+→ live verify
+→ report.
+
+The purpose of this task is to ensure that after it passes, I do not need to think about Topic 1 website engineering again.
+
+The publication must be safe to distribute immediately.
