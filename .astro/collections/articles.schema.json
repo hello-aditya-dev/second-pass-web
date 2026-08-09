@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "minLength": 8
+    },
+    "dek": {
+      "type": "string",
+      "minLength": 20
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "section": {
+      "type": "string",
+      "enum": [
+        "AI",
+        "Compute",
+        "Systems",
+        "Security",
+        "Research",
+        "Data"
+      ]
+    },
+    "format": {
+      "type": "string",
+      "enum": [
+        "NOW",
+        "SECOND PASS",
+        "DEEP",
+        "PROOF",
+        "DATA"
+      ]
+    },
+    "author": {
+      "type": "string"
+    },
+    "publishedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "review",
+        "published"
+      ]
+    },
+    "firstPass": {
+      "minItems": 2,
+      "maxItems": 5,
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "featured": {
+      "default": false,
+      "type": "boolean"
+    },
+    "demo": {
+      "default": false,
+      "type": "boolean"
+    },
+    "tags": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "hero": {
+      "type": "string"
+    },
+    "heroAlt": {
+      "type": "string"
+    },
+    "adPolicy": {
+      "default": "light",
+      "type": "string",
+      "enum": [
+        "none",
+        "light",
+        "standard"
+      ]
+    },
+    "sources": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "primary",
+              "secondary",
+              "dataset",
+              "paper",
+              "filing",
+              "advisory",
+              "other"
+            ]
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "label",
+          "type"
+        ]
+      }
+    },
+    "changeLog": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "published",
+              "update",
+              "clarification",
+              "correction"
+            ]
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "at",
+          "type",
+          "note"
+        ]
+      }
+    },
+    "seoTitle": {
+      "type": "string"
+    },
+    "seoDescription": {
+      "type": "string"
+    },
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "title",
+    "dek",
+    "slug",
+    "section",
+    "format",
+    "author",
+    "publishedAt",
+    "status",
+    "firstPass"
+  ]
+}
