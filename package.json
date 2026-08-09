@@ -20,6 +20,8 @@
     "distribute:url": "node scripts/distribute-url.mjs",
     "launch:verify": "node scripts/launch-verify.mjs",
     "render-audit": "node scripts/render-audit.mjs",
+    "content-source-audit": "node scripts/content-source-audit.mjs",
+    "currency-regression": "node scripts/currency-regression-test.mjs",
     "prepublish": "node scripts/prepublish.mjs"
   },
   "dependencies": {

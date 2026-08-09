@@ -657,3 +657,26 @@ button, input { font: inherit; }
     padding: 14px 0 16px;
   }
 }
+
+/* ── Math rendering ── */
+.article-body .katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin-block: 1.5em;
+  padding-block: 0.25em;
+}
+
+.article-body .katex-display > .katex {
+  text-align: left;
+}
+
+.article-body .katex {
+  font-size: 1em;
+}
+
+/* Prevent page-level overflow from long equations */
+.article-body .katex-display .katex-html {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}

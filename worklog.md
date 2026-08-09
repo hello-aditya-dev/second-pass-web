@@ -212,3 +212,226 @@ Stage Summary:
 - prepublish.mjs: hardened with render-audit gate after build
 - DISTRIBUTION_WORKFLOW.md: two-gate workflow documented
 - Found 1 real defect: proof article has unrendered \Delta in built HTML
+
+---
+Task ID: 2
+Agent: config-fix-agent
+Task: Fix Astro config, content collection glob, math pipeline, delete obsolete .md
+
+Work Log:
+- Read worklog.md to understand project history
+- Read current astro.config.mjs: missing MDX integration, remarkMath had no singleDollarTextMath option
+- Read current src/content.config.ts: glob pattern was "**/*.md" (misses .mdx files)
+- Fixed astro.config.mjs: added `import mdx from "@astrojs/mdx"`, added `mdx()` before `sitemap()` in integrations, changed `remarkMath` to `[[remarkMath, { singleDollarTextMath: false }]]` to prevent currency like $1, $3, $4.50 from being parsed as inline math
+- Fixed content.config.ts: changed glob pattern from `"**/*.md"` to `"**/*.{md,mdx}"` so MDX articles are loaded
+- Deleted 6 obsolete .md files that had broken sentinels (24182/24183/24190/24191) and duplicated structure: cheapest-ai-model-not-cheapest-system.md, cheapest-ai-model-not-cheapest-system-proof.md, ai-inference-price-surface-v0-1.md, no-universal-long-context-premium.md, prompt-cache-second-use-break-even.md, sonnet-5-price-effective-date.md
+- Kept demo-*.md and torture-*.md files intact
+- Searched all .mdx files for sentinels 24182, 24183, 24190, 24191: zero matches found
+- Ran `bun install` to update lockfile: 13 packages installed successfully
+
+Stage Summary:
+- astro.config.mjs: MDX integration enabled, remarkMath configured with singleDollarTextMath:false
+- content.config.ts: glob pattern includes .mdx files
+- 6 obsolete .md files deleted; .mdx files are canonical sources
+- Zero sentinel values in any .mdx source files
+- Lockfile updated via bun install
+
+---
+Task ID: 6
+Agent: general-purpose
+Task: Fix other 5 articles - currency safety, math, and structure
+
+Work Log:
+- Read worklog.md and all 5 target article MDX files
+- With singleDollarTextMath: false configured, escaped dollar signs in prose are unnecessary
+- Fixed cheapest-ai-model-not-cheapest-system-proof.mdx (PROOF):
+  - Line 300: \$0.20/\$1.20 per MTok → $0.20/$1.20 per MTok (prose)
+  - Line 301: \$5/\$30 per MTok → $5/$30 per MTok (prose)
+  - Line 350: \$100 failure event → $100 failure event (prose)
+  - Line 358: \$100 as a universal failure cost → $100 as a universal failure cost (prose)
+- Fixed ai-inference-price-surface-v0-1.mdx (DATA):
+  - Line 76: `\$0.20/M input` and `\$2/M input` → `$0.20/M input` and `$2/M input` (prose)
+- Verified no-universal-long-context-premium.mdx (NOW): zero \$ occurrences, no fixes needed
+- Verified prompt-cache-second-use-break-even.mdx (NOW): zero \$ occurrences, no fixes needed
+- Fixed sonnet-5-price-effective-date.mdx (NOW):
+  - Line 38: \$2 per million and \$10 per million → $2 per million and $10 per million (prose)
+  - Line 40: \$3 and \$15, \$1/\$5, \$1.50/\$7.50 → $3 and $15, $1/$5, $1.50/$7.50 (prose)
+  - Line 46: \$2/M | \$10/M | \$1/M | \$5/M → $2/M | $10/M | $1/M | $5/M (table = prose)
+  - Line 47: \$3/M | \$15/M | \$1.50/M | \$7.50/M → $3/M | $15/M | $1.50/M | $7.50/M (table = prose)
+- Structural verification across all 5 files:
+  - No duplicate H1 in body (none start with # Title)
+  - No `## / FIRST PASS` section in body
+  - No SECTION/FORMAT/PUBLISHER metadata block in body
+  - All equations use proper $$...$$ delimiters (no \[...\] or \(...\) remnants)
+  - Zero sentinels (24182/24183/24190/24191)
+  - Zero remaining \$ in any of the 5 files after fixes
+
+Stage Summary:
+- 5 articles audited, 3 fixed (16 individual \$ → $ changes), 2 clean (no changes needed)
+- All currency now safe by architecture (singleDollarTextMath: false)
+- All structural checks pass: no dupes, no sentinels, no metadata blocks, proper math delimiters
+
+---
+Task ID: 5
+Agent: general-purpose
+Task: Fix flagship article currency+structure (cheapest-ai-model-not-cheapest-system.mdx)
+
+Work Log:
+- Read worklog.md and flagship article (585 lines)
+- With singleDollarTextMath: false configured, escaped dollar signs in PROSE are unnecessary
+- Identified all 12 \$ occurrences in the article, classified each as prose or math-block:
+  - PROSE (7 occurrences, 6 lines):
+    - Line 70: \$1 → $1, \$3 → $3
+    - Line 138: \$5/M → $5/M, \$30/M → $30/M, \$0.20/M → $0.20/M, \$1.20/M → $1.20/M
+    - Line 188: \$0.0032 → $0.0032
+    - Line 189: \$0.0800 → $0.0800
+    - Line 191: \$90/hour → $90/hour
+    - Line 192: \$4.50 → $4.50
+    - Line 236: \$4.50 → $4.50
+  - MATH (5 occurrences, kept \$ as-is per LaTeX/KaTeX requirements):
+    - Line 157: \$0.0032 inside $$...$$ block (Luna direct cost equation)
+    - Line 166: \$0.0800 inside $$...$$ block (Sol direct cost equation)
+    - Line 174: \$0.0800-\$0.0032=\$0.0768 inside $$...$$ block (ΔC equation)
+    - Line 241: \$0.4532 inside $$...$$ block (Luna total cost equation)
+    - Line 245: \$0.3050 inside $$...$$ block (Sol total cost equation)
+- Applied all 7 prose fixes via MultiEdit
+- Structural verification:
+  - No duplicate H1 in body (body starts with prose, not # heading)
+  - No `## / FIRST PASS` section in body
+  - No SECTION/FORMAT/PUBLISHER metadata block in body
+  - All equations use proper $$...$$ delimiters
+  - Currency in prose uses plain $ (not \$)
+  - All math-block \$ preserved for LaTeX rendering
+- Post-fix grep confirmed: remaining \$ only in math blocks (lines 157, 166, 174, 241, 245)
+- Note: astro build fails due to pre-existing issue in PROOF article (line 68: $T_{\text{in}}(a,x)$ parsed as JSX by MDX acorn), not related to flagship changes
+
+Stage Summary:
+- Flagship article: 7 prose \$ → $ conversions applied across 6 lines
+- 5 math-block \$ occurrences preserved for correct KaTeX rendering
+- All structural checks pass: no duplicate H1, no FIRST PASS section, no metadata block, proper $$ delimiters
+- Currency in prose now safe by architecture (singleDollarTextMath: false)
+
+---
+Task ID: 6b
+Agent: general-purpose
+Task: Convert all inline math from $...$ to $$...$$ in all .mdx article files
+
+Work Log:
+- Read worklog.md and all 6 target .mdx article files
+- With singleDollarTextMath: false configured, single-dollar $...$ is NOT parsed as inline math; must use $$...$$ instead
+- Converted all inline math $...$ → $$...$$ across 3 files (4th-6th had no inline math):
+
+1. cheapest-ai-model-not-cheapest-system.mdx (FLAGSHIP) — 4 conversions:
+   - Line 108: $P_L(L)$ → $$P_L(L)$$
+   - Line 116: $S$ → $$S$$
+   - Line 308: $N$ → $$N$$
+   - Line 459: $i$ → $$i$$, $j$ → $$j$$
+
+2. cheapest-ai-model-not-cheapest-system-proof.mdx (PROOF) — 41 conversions:
+   - Lines 65–80: 16 notation definitions ($x$, $a$, $\pi$, $T_{\text{in}}(a,x)$, $T_{\text{out}}(a,x)$, $p_{\text{in}}(a)$, $p_{\text{out}}(a)$, $C_{\text{tool}}(a,x)$, $R(a,x)$, $t_R$, $w_R$, $F(a,x)$, $D_F(x)$, $L(a,x)$, $P_L(L)$, $A(a,x)$)
+   - Line 160: $\pi$ → $$\pi$$
+   - Line 200: $V(x)$ → $$V(x)$$
+   - Line 208: $p$ → $$p$$, $c$ → $$c$$
+   - Line 222: $k=1,\ldots,K$ → $$k=1,\ldots,K$$, $p_k$ → $$p_k$$, $k$ → $$k$$, $c_k$ → $$c_k$$
+   - Line 224: $k$ → $$k$$ (missed in initial scan, caught in verification)
+   - Line 267: $j$ → $$j$$, $\Delta C_{\text{direct}}>0$ → $$\Delta C_{\text{direct}}>0$$, $i$ → $$i$$
+   - Line 275: $j$ → $$j$$, $\Delta r_R$ → $$\Delta r_R$$
+   - Line 343: $D_F$ → $$D_F$$
+   - Line 350: $\Delta C=0.0768$ → $$\Delta C=0.0768$$ (kept $100 as currency)
+   - Line 400: $w$ → $$w$$, $r$ → $$r$$, $N$ → $$N$$
+   - Line 420: $w=1.25,r=0.10$ → $$w=1.25,r=0.10$$
+   - Line 428: $w=2.00,r=0.10$ → $$w=2.00,r=0.10$$
+   - Line 442: $x$ → $$x$$, $a$ → $$a$$, $A$ → $$A$$
+   - Line 475: $y$ → $$y$$, $v$ → $$v$$
+   - Line 490: $s$ → $$s$$
+   - Line 494: $i$ → $$i$$, $j$ → $$j$$
+   - Lines 517–523: 7 config variable definitions ($m$, $k$, $c$, $b$, $s$, $r$, $g$)
+   - Lines 542–546: 5 self-hosting variable definitions ($K$, $CRF(r,n)$, $F$, $u$, $\theta$)
+   - Line 573: $P_{\text{IT}}$ → $$P_{\text{IT}}$$
+
+3. prompt-cache-second-use-break-even.mdx (NOW — CACHE) — 2 conversions:
+   - Line 41: $N$ → $$N$$
+   - Line 63: $N>2.111$ → $$N>2.111$$
+
+4. ai-inference-price-surface-v0-1.mdx (DATA) — 0 conversions: only backtick-wrapped currency
+5. no-universal-long-context-premium.mdx (NOW) — 0 conversions: no inline math
+6. sonnet-5-price-effective-date.mdx (NOW) — 0 conversions: only currency in prose/tables
+
+- Currency safety verified: all $1, $3, $4.50, $5/M, $30/M etc. left as plain text (no closing $)
+- Post-fix scan: zero remaining single-dollar inline math patterns in all 6 files
+- astro check: 0 errors, 0 warnings, 0 hints
+- astro build: succeeds, all pages generated
+
+Stage Summary:
+- 47 inline math conversions across 3 files ($...$ → $$...$$)
+- 3 files required no changes (no inline math, only currency)
+- Zero remaining single-dollar inline math delimiters in any .mdx file
+- Build passes: 0 errors, all pages generated
+- Currency values preserved as plain $ text
+
+---
+Task ID: 8
+Agent: general-purpose
+Task: Fix KaTeX CSS delivery and add math CSS
+
+Work Log:
+- Read worklog.md and current BaseLayout.astro and global.css
+- Removed KaTeX CDN link from BaseLayout.astro <head>: `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />`
+- Confirmed local import `import "katex/dist/katex.min.css"` remains in frontmatter script section (line 6) for Astro build pipeline bundling
+- Appended restrained math CSS to global.css:
+  - .article-body .katex-display: overflow-x auto, margin-block 1.5em, padding-block 0.25em
+  - .article-body .katex-display > .katex: text-align left
+  - .article-body .katex: font-size 1em
+  - .article-body .katex-display .katex-html: max-width 100%, overflow-x auto (prevents page-level overflow)
+- Verified: no word-break: break-all or overflow-wrap: anywhere added to prose
+- Verified: CDN link completely removed from BaseLayout.astro
+- Verified: local katex import still present
+
+Stage Summary:
+- KaTeX CSS now delivered exclusively through local bundle (Astro build pipeline)
+- CDN dependency removed: no external request for KaTeX CSS
+- Math rendering CSS scoped to .article-body for overflow safety
+- Long equations scroll within their container, never break page layout
+
+---
+Task ID: 7
+Agent: general-purpose
+Task: Create content-source-audit.mjs and currency regression test
+
+Work Log:
+- Read worklog.md and existing scripts (render-audit.mjs, content-audit.mjs) for reference
+- Read project structure: articles dir, content schema, astro config, built HTML patterns
+- Created scripts/content-source-audit.mjs with 9 checks + source identity:
+  - Check 1: Duplicate slug across .md/.mdx (same basename, different extensions)
+  - Check 2: Duplicate slug in frontmatter (slug: field collisions)
+  - Check 3: Sentinel values (24182, 24183, 24190, 24191) in source files
+  - Check 4: Duplicate body H1 for renderer-owned real articles
+  - Check 5: Body metadata block (SECTION /, FORMAT /, AUTHOR /, PUBLISHER / patterns)
+  - Check 6: Body / FIRST PASS section in real articles
+  - Check 7: Raw LaTeX without math delimiters (\frac{, \boxed{, \arg\min, \Delta C)
+  - Check 8: Package/local paths (/mnt/data/, sandbox:, ../05_CHARTS/, file://, C:\)
+  - Check 9: Placeholders (TODO, TBD, [DATE], [NUMBER]) in published content
+  - Source identity: each real article mapped to single .mdx source file
+- Fixed Check 7 math block detection: corrected $$ toggle logic for even/odd $$ counts per line; added frontmatter skip to avoid false positives on frontmatter content
+- Created scripts/currency-regression-test.mjs:
+  - Writes temporary test MDX fixture with known currency patterns ($1, $3, $4.50, $0.0768, $5/M, $30/M) and math ($$N$$, $$C = \frac{x}{y}$$)
+  - Runs astro build to generate HTML
+  - Verifies 5 categories:
+    A. Currency appears as readable prose text (not parsed as math)
+    B. No KaTeX annotation wrapping currency phrases (and succeeds, per review, input and)
+    C. Math variable $$N$$ renders as KaTeX
+    D. Fraction $$C = \frac{x}{y}$$ renders as KaTeX (via annotation or mfrac element)
+    E. No raw LaTeX (\frac{, \boxed{) outside KaTeX spans in output
+  - Cleans up test fixture after verification
+- Added both scripts to package.json:
+  - "content-source-audit": "node scripts/content-source-audit.mjs"
+  - "currency-regression": "node scripts/currency-regression-test.mjs"
+- Tested content-source-audit.mjs: PASS (all 9 checks pass, 6 real articles identity verified)
+- Tested currency-regression-test.mjs: PASS (all 5 verifications pass)
+- Rebuilt site after currency test cleanup
+
+Stage Summary:
+- content-source-audit.mjs: 9 source-level checks + source identity, exits 0/1, tested PASS
+- currency-regression-test.mjs: 5 built-HTML verifications for currency/KaTeX safety, exits 0/1, tested PASS
+- Both scripts registered in package.json
+- No defects found in current source files

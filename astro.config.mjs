@@ -14,7 +14,7 @@ export default defineConfig({
   server: { port: 3000, host: "0.0.0.0" },
   integrations: [sitemap()],
   markdown: {
-    remarkPlugins: [remarkMath],
+    remarkPlugins: [[remarkMath, { singleDollarTextMath: false }]],
     rehypePlugins: [rehypeKatex],
     shikiConfig: {
       theme: "github-light-default",

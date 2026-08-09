@@ -20,13 +20,15 @@ const ROOT = import.meta.dirname
   : process.cwd();
 
 const steps = [
+  { name: "content-source-audit", cmd: "node scripts/content-source-audit.mjs" },
   { name: "article:verify", cmd: `node scripts/verify-article.mjs ${slug}` },
   { name: "content:audit", cmd: "node scripts/content-audit.mjs" },
-  { name: "social:generate", cmd: `node scripts/generate-social-assets.mjs ${slug}` },
   { name: "astro check", cmd: "bun run check" },
   { name: "build", cmd: "bun run build:astro" },
   { name: "render-audit", cmd: `node scripts/render-audit.mjs ${slug}` },
-  { name: "pagefind", cmd: "bun run search:index" }
+  { name: "social:generate", cmd: `node scripts/generate-social-assets.mjs ${slug}` },
+  { name: "pagefind", cmd: "bun run search:index" },
+  { name: "currency-regression", cmd: "node scripts/currency-regression-test.mjs" }
 ];
 
 let failed = false;
