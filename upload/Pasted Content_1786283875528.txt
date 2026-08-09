@@ -1,0 +1,3138 @@
+You are working as the production engineer, technical publication editor,
+data-publishing engineer and release manager for SECOND / PASS.
+
+I am attaching this publication package:
+
+second-pass-ai-cost-quality-frontier-publication-package(1).zip
+
+Repository:
+
+witejackel-eng/second-pass-web
+
+Production site:
+
+https://second-pass.vercel.app/
+
+Existing Vercel project:
+
+second-pass
+
+This is NOT a request for recommendations.
+
+Inspect the current repository, inspect the entire attached publication package,
+integrate it correctly into the existing SECOND / PASS architecture, verify every
+public artifact, publish the approved release, deploy it to the EXISTING Vercel
+project, verify the live site, and return a precise release report.
+
+Do not merely copy files.
+
+Do not redesign the publication.
+
+Do not create another project.
+
+Do not create another repository.
+
+Do not stop after implementation without deployment and live verification.
+
+────────────────────────────────────────────────────────────
+0. HUMAN PUBLICATION AUTHORIZATION
+────────────────────────────────────────────────────────────
+
+The package was previously marked:
+
+PUBLICATION PACKAGE: READY FOR HUMAN REVIEW
+
+This prompt is the explicit human approval to publish the verified public
+release.
+
+You MAY change approved public content from:
+
+status: review
+
+to:
+
+status: published
+
+ONLY after:
+
+- source verification passes
+- calculation verification passes
+- schema conversion passes
+- article verification passes
+- social assets are generated
+- Astro check passes
+- full build passes
+- prepublish passes
+
+Do NOT publish content that remains incomplete, unsupported, queued,
+experimental or explicitly internal.
+
+Do NOT infer that every file inside the ZIP belongs on the public website.
+
+────────────────────────────────────────────────────────────
+1. RELEASE OBJECTIVE
+────────────────────────────────────────────────────────────
+
+This is the first serious SECOND / PASS research package.
+
+Research program:
+
+AI inference economics and model routing
+
+Core public contribution:
+
+Token price is the wrong production denominator.
+
+The economically useful unit is closer to:
+
+COST PER ACCEPTED OUTCOME
+
+The primary article is:
+
+The cheapest AI model is often not the cheapest system
+
+This release should establish the actual SECOND / PASS publication model:
+
+simple explanation
+        ↓
+deep technical analysis
+        ↓
+/ PROOF
+        ↓
+/ DATA
+        ↓
+sources
+        ↓
+reproducibility
+
+The site must feel like:
+
+research laboratory
+×
+serious newspaper
+×
+engineering document
+
+Do not turn it into a generic blog.
+
+────────────────────────────────────────────────────────────
+2. FIRST: PRESERVE CURRENT WORK
+────────────────────────────────────────────────────────────
+
+Before editing:
+
+1. pull/fetch the latest repository state;
+2. inspect current main;
+3. inspect git status;
+4. do not overwrite newer work;
+5. do not reset history;
+6. do not force-push;
+7. do not delete unrelated files;
+8. do not recreate systems that already exist.
+
+Inspect at minimum:
+
+package.json
+src/content.config.ts
+src/content/articles/
+src/pages/articles/[slug].astro
+src/lib/content.ts
+src/lib/schema.ts
+src/layouts/BaseLayout.astro
+src/components/
+src/styles/
+scripts/prepublish.mjs
+scripts/verify-article.mjs
+scripts/content-audit.mjs
+scripts/generate-social-assets.mjs
+scripts/distribute-url.mjs
+scripts/launch-verify.mjs
+src/pages/index.astro
+src/pages/now/
+src/pages/ai/
+src/pages/data/
+src/pages/research/
+src/components/Footer.astro
+
+Understand the current architecture before making changes.
+
+────────────────────────────────────────────────────────────
+3. UNPACK THE PUBLICATION PACKAGE SAFELY
+────────────────────────────────────────────────────────────
+
+Extract the attached ZIP into a TEMPORARY working directory.
+
+Do NOT extract the package directly over the repository.
+
+Read these FIRST:
+
+00_MANIFEST.md
+01_EDITORIAL_DECISION.md
+13_SITE_HANDOFF.md
+11_QA/PUBLICATION_GATE.md
+11_QA/FACT_CHECK.md
+11_QA/CLAIM_LEDGER.md
+11_QA/CALCULATION_LEDGER.md
+11_QA/SOURCE_LEDGER.md
+
+Then inspect ALL remaining files.
+
+Treat:
+
+SOURCE_LEDGER
+CLAIM_LEDGER
+CALCULATION_LEDGER
+FACT_CHECK
+PUBLICATION_GATE
+
+as authoritative QA support for this release.
+
+Do not casually rewrite the research.
+
+────────────────────────────────────────────────────────────
+4. PUBLIC VS INTERNAL FILES
+────────────────────────────────────────────────────────────
+
+PUBLIC WEBSITE CONTENT CANDIDATES:
+
+02_FLAGSHIP/
+cheapest-ai-model-not-cheapest-system.mdx
+
+03_PROOF/
+cheapest-ai-model-not-cheapest-system-proof.mdx
+
+04_DATA/
+ai-inference-price-surface.mdx
+
+08_NOW/drafts/
+no-universal-long-context-premium.mdx
+prompt-cache-second-use-break-even.mdx
+sonnet-5-price-effective-date.mdx
+
+PUBLIC STATIC DATA:
+
+04_DATA/
+ai-inference-price-surface-v0.1.csv
+ai-inference-price-surface-v0.1.json
+
+04_DATA/DATA_DICTIONARY.md
+may be exposed as a download/reference document if useful.
+
+PUBLIC CHART ASSETS:
+
+05_CHARTS/*.svg
+05_CHARTS/*.png
+
+PUBLIC CHART DATA WHERE USEFUL:
+
+05_CHARTS/data/*.csv
+
+
+NOT PUBLIC ARTICLE CONTENT:
+
+01_EDITORIAL_DECISION.md
+02_FLAGSHIP/article-notes.md
+07_FOLLOWUPS/*
+08_NOW/now-queue.md
+09_DISTRIBUTION/*
+10_SOCIAL/*
+11_QA/*
+12_RESEARCH_BACKLOG.md
+
+These may be retained in an appropriate INTERNAL documentation location
+if the repository already has a suitable pattern, but do NOT expose them as
+public pages.
+
+Do NOT put QA ledgers into public search.
+
+Do NOT put internal distribution planning into Pagefind.
+
+Do NOT expose the research backlog.
+
+────────────────────────────────────────────────────────────
+5. DO NOT BLINDLY TRUST PACKAGE ROUTE RECOMMENDATIONS
+────────────────────────────────────────────────────────────
+
+The package contains route recommendations such as:
+
+/ai/...
+/proof/...
+/data/...
+
+BUT the current website already has an established article architecture.
+
+Do NOT create duplicate article-routing systems just to follow those
+recommendations literally.
+
+The existing publication route is currently based around:
+
+/articles/<slug>
+
+Use the existing route architecture unless the current repository has since
+changed.
+
+Therefore expected canonical article routes are approximately:
+
+/articles/cheapest-ai-model-not-cheapest-system
+
+/articles/cheapest-ai-model-not-cheapest-system-proof
+
+/articles/ai-inference-price-surface-v0-1
+
+/articles/no-universal-long-context-premium
+
+/articles/prompt-cache-second-use-break-even
+
+/articles/sonnet-5-price-effective-date
+
+Section pages such as:
+
+/ai
+/data
+/now
+
+should discover/filter these through existing collection logic.
+
+Do NOT duplicate the same content under multiple canonical URLs.
+
+────────────────────────────────────────────────────────────
+6. CRITICAL: ADAPT FRONTMATTER TO THE LIVE SCHEMA
+────────────────────────────────────────────────────────────
+
+The package frontmatter was generated independently from the current
+repository schema.
+
+DO NOT simply paste it.
+
+Convert every public MDX file to the CURRENT repository schema.
+
+At the time this release was prepared, the live schema expects approximately:
+
+title
+dek
+slug
+section
+format
+author
+publishedAt
+updatedAt?
+status
+firstPass
+featured
+demo
+tags
+hero?
+heroAlt?
+adPolicy
+sources[]
+changeLog[]
+seoTitle?
+seoDescription?
+socialStat?
+socialStatLabel?
+
+Inspect the current schema again before implementation.
+
+Specific incompatibilities that MUST be repaired:
+
+A. PACKAGE:
+
+publishedAt: ""
+
+INVALID for production.
+
+Set the human-approved publication date.
+
+For this release use the actual release date:
+
+2026-08-09
+
+unless deployment occurs after midnight in the configured publication timezone,
+in which case use the actual publication date.
+
+Do not fabricate an earlier publication date.
+
+
+B. PACKAGE:
+
+updatedAt: ""
+
+Do not use blank-string updated dates.
+
+For a first publication either:
+
+omit updatedAt
+
+OR
+
+use it only if content was materially changed after publication.
+
+
+C. PACKAGE:
+
+adPolicy: "editorial"
+
+The current site schema does not accept this value.
+
+For these launch articles use:
+
+adPolicy: "none"
+
+unless the current schema/site has since deliberately changed.
+
+Reason:
+
+this is editorial launch material;
+the flagship already contains a subtle intelligence CTA;
+the article template already appends /BRIEF;
+we do not need an artificial ad break.
+
+
+D. PACKAGE:
+
+sources:
+  - "S1"
+  - "S4"
+
+The site expects STRUCTURED SOURCE OBJECTS.
+
+Convert each source ID using:
+
+11_QA/SOURCE_LEDGER.md
+
+Example shape:
+
+sources:
+  - label: "OpenAI — API Pricing"
+    url: "https://developers.openai.com/api/docs/pricing"
+    type: "primary"
+    note: "Public list pricing; accessed 2026-08-09."
+
+Use the correct supported type enum.
+
+Do this for EVERY source used by each article.
+
+Do not invent source URLs.
+
+
+E. PACKAGE:
+
+changeLog:
+  - "2026-08-09: Initial review package."
+
+Convert to current structured shape.
+
+For launch:
+
+changeLog:
+  - at: 2026-08-09
+    type: published
+    note: "Initial publication."
+
+Use schema-valid syntax.
+
+
+F. PACKAGE:
+
+seo:
+  title:
+  description:
+
+The current schema uses:
+
+seoTitle:
+seoDescription:
+
+Convert correctly.
+
+
+G. NOW drafts may be missing required `dek`.
+
+Add a concise dek where required by the schema.
+
+Do not change their thesis.
+
+
+H. section capitalization must exactly match the current enum.
+
+Use:
+
+AI
+Compute
+Systems
+Security
+Research
+Data
+
+not arbitrary variants.
+
+
+I. format must exactly match:
+
+NOW
+SECOND PASS
+DEEP
+PROOF
+DATA
+
+
+J. author:
+
+Aditya
+
+Do not change to:
+
+Second Pass Editorial
+SECOND / PASS Team
+Admin
+AI
+Z.ai
+
+
+K. demo:
+
+false
+
+
+L. status:
+
+published
+
+ONLY after the respective article passes its publication gate.
+
+────────────────────────────────────────────────────────────
+7. APPROVED PUBLICATION SET
+────────────────────────────────────────────────────────────
+
+The intended release set is:
+
+PRIMARY RELEASE:
+
+1.
+The cheapest AI model is often not the cheapest system
+format: SECOND PASS
+featured: true
+
+2.
+How to model the cost of an accepted AI outcome
+format: PROOF
+featured: false
+
+3.
+AI Inference Price Surface v0.1
+format: DATA
+featured: false
+
+
+SECONDARY RELEASE:
+
+The following three NOW pieces MAY also be published in this release,
+but ONLY after individually re-verifying their volatile claims against
+their cited PRIMARY sources:
+
+4.
+There is no universal long-context premium
+
+5.
+Prompt caching can become cheaper on the second eligible use
+
+6.
+Claude Sonnet 5's price changes on September 1. Your dataset should know that.
+
+If any NOW piece has become stale, changed, unsupported or misleading:
+
+DO NOT publish it unchanged.
+
+Update it from the PRIMARY source.
+
+Record the change in its change log.
+
+If its central claim is no longer true:
+
+leave it as review/draft
+and report the blocker.
+
+Do not invent a replacement story.
+
+────────────────────────────────────────────────────────────
+8. VOLATILE FACT RE-VERIFICATION
+────────────────────────────────────────────────────────────
+
+Before publication, independently verify volatile claims used in the release.
+
+Use PRIMARY sources only for current technical facts.
+
+At minimum re-check:
+
+OpenAI pricing
+GPT-5.6 Sol pricing/configuration
+GPT-5.6 Luna pricing/configuration
+OpenAI cache pricing
+OpenAI Batch pricing
+OpenAI long-context threshold
+
+Anthropic pricing
+Claude cache multipliers
+Batch pricing
+Sonnet 5 temporary/future pricing
+effective date of Sonnet 5 price transition
+documented tokenizer statement
+
+Google Gemini pricing
+Batch pricing
+
+xAI pricing
+Grok 4.5 context threshold
+Grok 4.5 Batch support status
+
+Do not use vendor A to establish vendor B's numbers.
+
+Research papers can remain primary research references for routing concepts.
+
+If a source changed between dataset snapshot and publication:
+
+PRESERVE the historical 2026-08-09 dataset as a dated snapshot if it was
+correct on that date.
+
+Do NOT silently rewrite historical observations.
+
+Instead:
+
+- preserve snapshot semantics;
+- update the article if it claims something is currently true;
+- distinguish "snapshot 2026-08-09" from "current as of publication";
+- add change-log context where necessary.
+
+────────────────────────────────────────────────────────────
+9. REPRODUCE THE CENTRAL CALCULATION
+────────────────────────────────────────────────────────────
+
+The flagship's central worked result is important enough to verify independently.
+
+Reproduce from source inputs:
+
+10,000 input tokens
+1,000 output tokens
+
+GPT-5.6 Sol short-context pricing
+GPT-5.6 Luna short-context pricing
+
+Confirm:
+
+direct token-price ratio;
+absolute cost per request;
+absolute premium;
+the $0.0768 difference;
+the human-review scenario;
+the $4.50 review event;
+the 1.71 percentage-point break-even.
+
+Do NOT merely trust the prose.
+
+Check arithmetic independently.
+
+Check units.
+
+Check rounding.
+
+Check denominator.
+
+Check that 1.71 pp means PERCENTAGE POINTS, not 1.71%.
+
+If any calculation differs:
+
+stop publication of the affected claim,
+repair using the calculation ledger and verified prices,
+then rerun all dependent chart/data checks.
+
+────────────────────────────────────────────────────────────
+10. DATASET INTEGRATION
+────────────────────────────────────────────────────────────
+
+Publish the AI Inference Price Surface as a real static data artifact.
+
+Keep it STATIC-FIRST.
+
+No database.
+
+No API backend.
+
+No client-side data platform.
+
+Suggested public structure:
+
+public/downloads/ai-inference-price-surface-v0.1.csv
+
+public/downloads/ai-inference-price-surface-v0.1.json
+
+public/downloads/ai-inference-price-surface-v0.1-data-dictionary.md
+
+If the existing repository has a better established downloads convention,
+use it consistently.
+
+Update the DATA MDX download links accordingly.
+
+The data page must prominently show:
+
+AI Inference Price Surface v0.1
+
+SNAPSHOT / 2026-08-09
+
+and explain:
+
+- public list-price snapshot
+- configuration-level observations
+- not a model-quality ranking
+- tokenizers differ
+- enterprise discounts are not represented
+- temporal effective dates matter
+- data is not automatically live-updated
+
+Do NOT label this dataset:
+
+LIVE
+
+REAL-TIME
+
+CONTINUOUSLY UPDATED
+
+unless such functionality actually exists.
+
+────────────────────────────────────────────────────────────
+11. CHART ASSET INTEGRATION
+────────────────────────────────────────────────────────────
+
+The package includes five analytical charts in:
+
+SVG
+PNG
+
+and five source CSVs.
+
+Create a clean public asset location.
+
+Suggested:
+
+public/research/ai-cost-quality-frontier/charts/
+
+Move/copy:
+
+chart-01-review-break-even.svg
+chart-01-review-break-even.png
+
+chart-02-cache-reuse.svg
+chart-02-cache-reuse.png
+
+chart-03-batch-cost.svg
+chart-03-batch-cost.png
+
+chart-04-cost-composition.svg
+chart-04-cost-composition.png
+
+chart-05-long-context.svg
+chart-05-long-context.png
+
+And optionally:
+
+public/research/ai-cost-quality-frontier/chart-data/
+
+for the five chart CSVs.
+
+Do not leave broken relative package paths like:
+
+../05_CHARTS/...
+
+inside production MDX.
+
+Rewrite them to valid public paths.
+
+────────────────────────────────────────────────────────────
+12. VISUALLY INSPECT ALL FIVE CHARTS
+────────────────────────────────────────────────────────────
+
+Do not assume generated charts are visually acceptable because the QA script
+found the files.
+
+Inspect:
+
+- SVG output
+- PNG output
+- axis labels
+- legend
+- number formatting
+- title
+- caption
+- typography
+- contrast
+- clipping
+- whitespace
+- mobile readability
+
+They must fit SECOND / PASS:
+
+Paper       #F2EFE7
+Ink         #11110F
+Graphite    #5A5953
+Rule        #C9C3B7
+Signal Blue #2F5BFF
+
+No gradients.
+No neon.
+No unnecessary shadows.
+No generic dashboard styling.
+
+If the supplied chart styling is poor:
+
+regenerate the presentation layer from the provided CSV/data.
+
+DO NOT alter the underlying data merely to make the chart look better.
+
+Use SVG as primary article display where appropriate.
+
+Preserve PNG fallback.
+
+────────────────────────────────────────────────────────────
+13. FLAGSHIP CHART PLACEMENT
+────────────────────────────────────────────────────────────
+
+Use the package handoff placement:
+
+1. review break-even calculation
+→ chart-01-review-break-even
+
+2. illustrative model + review scenario
+→ chart-04-cost-composition
+
+3. provider configuration/context discussion
+→ chart-05-long-context
+
+4. prompt-cache calculation
+→ chart-02-cache-reuse
+
+5. Batch section
+→ chart-03-batch-cost
+
+Use semantic figures.
+
+Preferred markup pattern:
+
+<figure class="research-figure">
+  <img ... />
+  <figcaption>...</figcaption>
+</figure>
+
+Use meaningful alt text from chart-specs.md.
+
+Do not repeat the chart title verbatim three times.
+
+Figure captions should explain:
+
+what is observed
+what is derived
+what is assumed
+why it matters
+
+Use:
+
+loading="lazy"
+
+for below-the-fold figures where appropriate.
+
+Avoid cumulative layout shift.
+
+────────────────────────────────────────────────────────────
+14. CREATE ONLY MINIMAL HOUSE ARTICLE COMPONENTS IF NEEDED
+────────────────────────────────────────────────────────────
+
+Inspect the existing site first.
+
+If the site already supports attractive technical callouts, use them.
+
+If it does NOT, create the smallest useful reusable set required by this
+release and future SECOND / PASS research.
+
+Possible minimal set:
+
+CalculationBlock.astro
+ClaimCheck.astro
+ResearchFigure.astro
+DataDownload.astro
+
+Do NOT build a giant design system.
+
+Do NOT introduce a UI library.
+
+Do NOT introduce React just for these.
+
+Do NOT add client-side JavaScript unless necessary.
+
+They should be static Astro/MDX components.
+
+────────────────────────────────────────────────────────────
+15. / CALCULATION PRESENTATION
+────────────────────────────────────────────────────────────
+
+Calculation sections are a major SECOND / PASS editorial primitive.
+
+They should visually expose:
+
+QUESTION
+ASSUMPTIONS
+EQUATION
+RESULT
+SO WHAT?
+CAVEAT
+
+Do not style them like marketing cards.
+
+Use:
+
+thin rules
+paper background
+mono labels
+clear mathematical hierarchy
+Signal Blue only for key result/emphasis
+
+Math must remain selectable/readable.
+
+Do not convert equations to images.
+
+Long equations:
+
+scroll inside their own container on mobile;
+never cause page-level horizontal overflow.
+
+────────────────────────────────────────────────────────────
+16. / CLAIM CHECK PRESENTATION
+────────────────────────────────────────────────────────────
+
+The flagship has a / CLAIM CHECK section.
+
+Make it clearly distinguish:
+
+CLAIM
+WHAT WAS MEASURED
+WHAT WAS NOT MEASURED
+STATUS
+SECOND / PASS assessment
+
+Do not make it look like a warning alert.
+
+It is an evidence-status object.
+
+Use restrained editorial styling.
+
+────────────────────────────────────────────────────────────
+17. SOURCING SYSTEM
+────────────────────────────────────────────────────────────
+
+The package body currently contains source markers such as:
+
+([S1], [S4], [S6])
+
+Those IDs are meaningful in the research package but are not a reader-friendly
+citation system on the live site.
+
+Do NOT ship raw unlinked S1/S4 references if the website does not resolve them.
+
+Use the SOURCE_LEDGER to convert them.
+
+Preferred low-complexity solution:
+
+replace inline package source IDs with concise direct Markdown links to the
+precise source pages.
+
+Example:
+
+([OpenAI pricing](...), [Anthropic pricing](...))
+
+The right-side EvidencePanel / SOURCES section should simultaneously receive
+the structured frontmatter source objects.
+
+Avoid duplicate ugly source appendices.
+
+If the article body ends with a manual:
+
+[S1] ...
+[S2] ...
+[S3] ...
+
+and the site's EvidencePanel/SOURCES section already presents those sources:
+
+remove the duplicate manual appendix after confirming every source remains
+accessible through the site source system.
+
+Do not remove source access entirely.
+
+────────────────────────────────────────────────────────────
+18. PROOF PAGE
+────────────────────────────────────────────────────────────
+
+Publish:
+
+How to model the cost of an accepted AI outcome
+
+as:
+
+format: PROOF
+section: AI
+
+Do not create a separate page framework for PROOF.
+
+Use the existing article renderer with format-specific labeling.
+
+The PROOF must retain:
+
+notation
+accepted-outcome definition
+direct cost
+review cost
+failure cost
+retry model
+quality-adjusted formulation
+review break-even
+failure break-even
+latency penalty
+cache break-even
+sequential routing
+configuration-level pricing
+self-host boundary model
+energy limitations
+
+Do not simplify away the mathematics.
+
+But ensure:
+
+- every symbol is defined;
+- equations render correctly;
+- no malformed raw Markdown survives;
+- equations work on mobile;
+- source links are valid;
+- all assumptions remain labeled.
+
+At the top or near beginning, provide a clear relationship link:
+
+← READ THE MAIN ANALYSIS
+
+At the end:
+
+EXPLORE / DATA →
+
+and:
+
+READ / SECOND PASS →
+
+Use existing article relationships if present.
+
+Do not create unnecessary navigation infrastructure.
+
+────────────────────────────────────────────────────────────
+19. DATA PAGE
+────────────────────────────────────────────────────────────
+
+Publish:
+
+AI Inference Price Surface v0.1
+
+format: DATA
+section: Data
+
+The DATA page should include:
+
+SNAPSHOT / 2026-08-09
+
+configuration-level explanation
+
+comparison limitations
+
+download CSV
+
+download JSON
+
+data dictionary reference
+
+a compact readable table derived from the CSV
+
+Do NOT dump every verbose internal notes field into the visible table.
+
+Good visible columns:
+
+Provider
+Model
+Service tier
+Context band
+Input
+Cached input
+Cache write if relevant
+Output
+Batch
+Effective date
+
+Use exact units.
+
+Example header:
+
+USD / 1M TOKENS
+
+if that is the actual normalized unit.
+
+Wide table:
+
+contained horizontal scroll.
+
+No page-level horizontal overflow.
+
+Do not reduce font below legibility.
+
+If practical, sticky first column only if it remains clean on mobile.
+
+No JS data grid.
+
+No sorting/filter framework required for v0.1.
+
+────────────────────────────────────────────────────────────
+20. NOW ARTICLES
+────────────────────────────────────────────────────────────
+
+Each approved NOW article must:
+
+- receive a valid dek;
+- receive structured sources;
+- receive valid SEO fields;
+- receive publication date;
+- receive structured change log;
+- use adPolicy none;
+- receive social images;
+- pass prepublish;
+- have its volatile facts rechecked.
+
+NOW articles should remain concise.
+
+Do not expand them into long essays.
+
+Cross-link relevant NOW pieces to:
+
+flagship
+PROOF
+DATA
+
+when contextually appropriate.
+
+Examples:
+
+prompt-cache piece
+→ flagship calculation
+
+long-context piece
+→ DATA snapshot
+
+Sonnet effective-date piece
+→ DATA temporal-model explanation
+
+────────────────────────────────────────────────────────────
+21. SOCIAL METADATA
+────────────────────────────────────────────────────────────
+
+The current article renderer already supports article-specific social images.
+
+Use it.
+
+For the FLAGSHIP, use:
+
+socialStat: "1.71 pp"
+
+socialStatLabel:
+"review-rate reduction offsets the worked token premium"
+
+ONLY if the current verified calculation still supports it.
+
+Do not use:
+
+25× cheaper
+
+as the social headline in a way that suggests overall system superiority.
+
+The article's central message is specifically that token-price ratios alone are
+insufficient.
+
+Generate:
+
+1200×630 OG
+1080×1350 portrait
+1080×1080 square
+
+using the existing:
+
+bun run social:generate -- <slug>
+
+system.
+
+Generate social images for EVERY published real article.
+
+Do not replace the existing generator with an external API.
+
+────────────────────────────────────────────────────────────
+22. ARTICLE SOCIAL ASSET COPY
+────────────────────────────────────────────────────────────
+
+Flagship OG should prioritize approximately:
+
+SECOND / PASS
+
+AI / SECOND PASS
+
+THE CHEAPEST AI MODEL
+IS OFTEN NOT
+THE CHEAPEST SYSTEM
+
+1.71 pp
+
+REVIEW-RATE REDUCTION
+OFFSETS THE WORKED TOKEN PREMIUM
+
+PRIMARY SOURCES /
+ORIGINAL CALCULATIONS
+
+Do not overcrowd.
+
+If the current automatic generator renders this cleanly, keep it.
+
+If the headline clips, fix the generator generically rather than special-casing
+bad markup in the article.
+
+────────────────────────────────────────────────────────────
+23. ARTICLE UX
+────────────────────────────────────────────────────────────
+
+The flagship should work at three depths.
+
+60 SECONDS:
+
+headline
+dek
+FIRST PASS
+chart titles
+big results
+
+5 MINUTES:
+
+examples
+mechanisms
+calculations
+major caveats
+
+30 MINUTES:
+
+equations
+sources
+PROOF
+DATA
+methodology
+
+Do not hide critical findings behind interaction.
+
+No accordions for primary conclusions.
+
+No animation needed.
+
+No sticky social rail.
+
+No popup newsletter prompt.
+
+Reading comes first.
+
+────────────────────────────────────────────────────────────
+24. CTA CLEANUP
+────────────────────────────────────────────────────────────
+
+The current article template already appends the standard /BRIEF CTA.
+
+Avoid duplicate newsletter conversion blocks.
+
+The package flagship contains:
+
+/ INTELLIGENCE
+/ BRIEF
+
+Do this carefully:
+
+KEEP one subtle /INTELLIGENCE CTA near the end if it fits editorially.
+
+It should say approximately:
+
+/ INTELLIGENCE
+
+Making a model, routing, infrastructure or deployment decision?
+
+SECOND / PASS runs source-backed research sprints that apply this framework
+to a specific workload.
+
+START A RESEARCH BRIEF →
+
+Link to:
+
+/intelligence
+
+Do NOT add prices inside the article.
+
+Do NOT mention Razorpay.
+
+For /BRIEF:
+
+if the article template already appends the standard NewsletterCTA,
+remove/reduce the redundant body-level BRIEF sales block.
+
+There should not be three newsletter CTAs in one article.
+
+────────────────────────────────────────────────────────────
+25. BRIEF ISSUE
+────────────────────────────────────────────────────────────
+
+The ZIP includes:
+
+06_BRIEF/brief-issue.md
+
+Do NOT create another duplicate article route for this.
+
+The newsletter is powered by Beehiiv.
+
+The website's job is:
+
+- subscription
+- article
+- source pages
+- archive/linking where appropriate
+
+The Beehiiv issue draft should be retained as the approved dispatch copy.
+
+If this environment has an explicitly authenticated and safe Beehiiv content
+publishing capability:
+
+prepare the issue there as a DRAFT only unless sending is explicitly supported
+and this prompt clearly authorizes it.
+
+This prompt authorizes the WEBSITE release.
+
+It does NOT authorize accidentally emailing a subscriber list through an
+unknown/unverified API workflow.
+
+Therefore:
+
+DO NOT send a Beehiiv email automatically unless the environment has a
+known supported publication-send workflow and can show a safe preview first.
+
+Instead, return:
+
+BRIEF 001 — READY TO SEND
+
+with the exact subject, preheader and body from the package.
+
+Do not block website launch on Beehiiv issue sending.
+
+────────────────────────────────────────────────────────────
+26. DISTRIBUTION FILES
+────────────────────────────────────────────────────────────
+
+The ZIP includes native distribution drafts for:
+
+Hacker News
+Reddit
+X
+LinkedIn personal
+LinkedIn company
+Bluesky
+Threads
+DEV/Hashnode
+Medium
+direct outreach
+
+These are NOT website pages.
+
+Do not expose them through the public site.
+
+Do not index them.
+
+Do not automatically post to external social networks unless an explicit,
+authenticated integration is available AND external posting is clearly
+authorized.
+
+The task here is to make them launch-ready.
+
+After the production article URLs exist:
+
+replace any placeholder URLs with the real canonical URLs.
+
+Generate tracked links using:
+
+bun run distribute:url -- <slug> <channel>
+
+Prepare a final launch distribution sheet with:
+
+canonical URL
+HN URL
+Reddit URL
+LinkedIn URL
+X URL
+BRIEF URL
+direct outreach URL
+
+Do not modify the editorial copy merely to insert excessive tracking.
+
+────────────────────────────────────────────────────────────
+27. HOMEPAGE
+────────────────────────────────────────────────────────────
+
+After the flagship is published:
+
+ensure it becomes the primary/featured real story on the homepage.
+
+The homepage should immediately communicate that SECOND / PASS now contains
+real published research.
+
+Do NOT redesign the homepage.
+
+Do NOT add a giant launch banner.
+
+Do NOT create confetti/motion.
+
+Use the site's existing editorial hierarchy.
+
+The flagship should be featured.
+
+PROOF and DATA should appear naturally through their section/related content.
+
+NOW stories should populate NOW if published.
+
+────────────────────────────────────────────────────────────
+28. REMOVE DEMO CONTENT FROM PUBLIC PRODUCTION
+────────────────────────────────────────────────────────────
+
+Inventory all current:
+
+demo: true
+
+articles.
+
+For public launch:
+
+NO demo article may remain:
+
+status: published
+
+Do not necessarily delete useful fixture content.
+
+If needed for tests:
+
+set it to draft.
+
+Ensure homepage, section pages, RSS and search do not expose demos in
+production.
+
+No public reader should encounter:
+
+DEMO
+example.com
+placeholder source
+fake publication date
+fake author
+fake metric
+
+after launch.
+
+────────────────────────────────────────────────────────────
+29. PRELAUNCH → PUBLIC LAUNCH
+────────────────────────────────────────────────────────────
+
+The site currently uses fail-safe prelaunch mode.
+
+This release is intended to become the actual public launch.
+
+DO NOT flip prelaunch until all real content and launch checks are ready.
+
+Sequence:
+
+1. integrate content;
+2. validate content;
+3. remove published demos;
+4. generate social assets;
+5. run prepublish on every public article;
+6. verify providers;
+7. verify build;
+8. verify RSS;
+9. verify sitemap;
+10. verify Pagefind;
+11. verify homepage;
+12. THEN set production environment:
+
+SITE_PRELAUNCH=false
+
+Do not remove the fail-safe code.
+
+Only change the environment value for production launch.
+
+Do not hardcode:
+
+const prelaunch = false
+
+Keep the safety mechanism.
+
+────────────────────────────────────────────────────────────
+30. FOOTER LAUNCH STATE
+────────────────────────────────────────────────────────────
+
+The current footer contains the literal text:
+
+Pre-launch · Demo content is marked
+
+That cannot remain on the launched publication.
+
+Fix it.
+
+Preferred behavior:
+
+during prelaunch:
+
+Pre-launch · Demo content is marked
+
+during public mode:
+
+Primary sources · Original calculations · Visible corrections
+
+OR another equally restrained live-publication line consistent with the brand.
+
+Prefer environment-aware behavior rather than manually changing the text each
+time.
+
+Do not turn the footer into marketing copy.
+
+────────────────────────────────────────────────────────────
+31. ROBOTS / INDEXING
+────────────────────────────────────────────────────────────
+
+After:
+
+SITE_PRELAUNCH=false
+
+verify:
+
+article pages DO NOT contain:
+
+noindex,nofollow
+
+robots.txt allows indexing
+
+sitemap contains real articles
+
+RSS contains real published articles
+
+Pagefind indexes real articles
+
+canonical points to:
+
+https://second-pass.vercel.app
+
+for now.
+
+Do not change to secondpass.net until the domain actually exists and is
+connected.
+
+────────────────────────────────────────────────────────────
+32. AUTHOR
+────────────────────────────────────────────────────────────
+
+Use the existing:
+
+/authors/aditya
+
+author system.
+
+Do not recreate it.
+
+Ensure:
+
+Aditya
+Founder & Editor
+SECOND / PASS
+
+is associated with these articles.
+
+Ensure article JSON-LD resolves author as:
+
+Person
+
+and publisher separately as:
+
+Organization
+
+Do not invent:
+
+education
+work history
+credentials
+social profiles
+awards
+client history
+
+Ensure the new real articles appear on Aditya's RECENT list.
+
+────────────────────────────────────────────────────────────
+33. STRUCTURED DATA
+────────────────────────────────────────────────────────────
+
+Verify each published article outputs:
+
+Article/NewsArticle-equivalent site schema as currently designed
+
+Person author
+
+Organization publisher
+
+headline
+
+description
+
+datePublished
+
+dateModified where appropriate
+
+canonical URL
+
+article section
+
+tags
+
+image
+
+Ensure article metadata includes:
+
+og:type=article
+
+og:title
+
+og:description
+
+og:url
+
+og:image
+
+og:image:alt
+
+og:image:width=1200
+
+og:image:height=630
+
+article:published_time
+
+article:modified_time
+
+article:section
+
+article:tag
+
+twitter:card=summary_large_image
+
+twitter:image
+
+Do not invent social handles.
+
+────────────────────────────────────────────────────────────
+34. INTERNAL CROSS-LINKING
+────────────────────────────────────────────────────────────
+
+Create clear relationships without stuffing links.
+
+FLAGSHIP:
+
+→ PROOF
+→ DATA
+→ Intelligence
+→ /BRIEF
+
+PROOF:
+
+→ flagship
+→ DATA
+
+DATA:
+
+→ flagship
+→ PROOF/methodology
+
+NOW:
+
+→ relevant flagship or DATA artifact
+
+Use descriptive link copy.
+
+Do not use generic:
+
+click here
+
+────────────────────────────────────────────────────────────
+35. SEARCH / PAGEFIND
+────────────────────────────────────────────────────────────
+
+After publishing:
+
+rebuild Pagefind.
+
+Search terms to test:
+
+accepted outcome
+
+1.71
+
+prompt caching
+
+batch
+
+long context
+
+model routing
+
+AI inference
+
+At least the relevant article must appear.
+
+Internal QA docs must NOT appear.
+
+Distribution files must NOT appear.
+
+────────────────────────────────────────────────────────────
+36. RSS
+────────────────────────────────────────────────────────────
+
+Verify RSS contains:
+
+real published content
+
+correct title
+correct URL
+correct publication date
+correct description
+
+and excludes:
+
+draft
+review
+demo
+internal QA
+
+Open the live `/rss.xml` after deployment.
+
+────────────────────────────────────────────────────────────
+37. SITEMAP
+────────────────────────────────────────────────────────────
+
+Verify sitemap includes:
+
+flagship article
+PROOF article
+DATA article
+published NOW articles
+author page
+main section pages
+
+No internal package files.
+
+No raw QA docs.
+
+No temporary extraction paths.
+
+────────────────────────────────────────────────────────────
+38. /BRIEF INTEGRATION
+────────────────────────────────────────────────────────────
+
+Verify live:
+
+/brief
+
+still successfully renders and accepts subscriptions.
+
+Do not change the Beehiiv integration while publishing this research unless
+a real bug is discovered.
+
+Verify:
+
+/api/health
+
+returns:
+
+status: ok
+brief: configured
+leads: configured
+
+Do not print API keys.
+
+Do not log secrets.
+
+────────────────────────────────────────────────────────────
+39. COMMERCIAL FORMS
+────────────────────────────────────────────────────────────
+
+Verify:
+
+/partner
+/intelligence
+
+remain functional after release.
+
+Do not redesign them.
+
+Do not submit repeated unnecessary test leads.
+
+One safe test only if necessary.
+
+Confirm Resend still works.
+
+The flagship's /INTELLIGENCE CTA must link to:
+
+/intelligence
+
+────────────────────────────────────────────────────────────
+40. SOCIAL ASSET GENERATION
+────────────────────────────────────────────────────────────
+
+For every article that will become `published`, run:
+
+bun run social:generate -- <slug>
+
+Expected per slug:
+
+public/social/<slug>/og.png
+public/social/<slug>/portrait.png
+public/social/<slug>/square.png
+
+Visually inspect all flagship assets.
+
+For secondary NOW pieces, at minimum verify dimensions and no clipping.
+
+Do not commit broken social images.
+
+────────────────────────────────────────────────────────────
+41. PREPUBLISH EVERY PUBLISHED ARTICLE
+────────────────────────────────────────────────────────────
+
+Run individually:
+
+bun run prepublish -- cheapest-ai-model-not-cheapest-system
+
+bun run prepublish -- cheapest-ai-model-not-cheapest-system-proof
+
+bun run prepublish -- ai-inference-price-surface-v0-1
+
+And for each NOW piece that will be published:
+
+bun run prepublish -- no-universal-long-context-premium
+
+bun run prepublish -- prompt-cache-second-use-break-even
+
+bun run prepublish -- sonnet-5-price-effective-date
+
+ALL must pass.
+
+If one NOW article fails:
+
+do not block the primary flagship/PROOF/DATA release unless the failure
+indicates a systemic issue.
+
+Leave the failed NOW article unpublished and report it.
+
+────────────────────────────────────────────────────────────
+42. FULL VERIFICATION
+────────────────────────────────────────────────────────────
+
+After article-level verification run:
+
+bun install
+
+bun run content:audit
+
+bun run check
+
+bun run build
+
+Then verify built output.
+
+Do not rely only on exit code.
+
+Inspect generated HTML for flagship.
+
+Confirm:
+
+headline
+
+dek
+
+FIRST PASS
+
+all five charts
+
+calculation result
+
+1.71 pp
+
+source links
+
+PROOF link
+
+DATA link
+
+INTELLIGENCE CTA
+
+BRIEF CTA
+
+author
+
+publication date
+
+social metadata
+
+JSON-LD
+
+sources
+
+change log
+
+/END
+
+share utility
+
+────────────────────────────────────────────────────────────
+43. LAUNCH:VERIFY
+────────────────────────────────────────────────────────────
+
+Before final production deploy, run the equivalent of:
+
+SITE_PRELAUNCH=false bun run launch:verify
+
+with all required provider environment variables safely available.
+
+Do not print environment secrets.
+
+Resolve every true failure.
+
+If Pagefind is missing because launch:verify expects build output:
+
+run the correct build/search sequence and rerun.
+
+Launch verification must pass.
+
+────────────────────────────────────────────────────────────
+44. MOBILE QA
+────────────────────────────────────────────────────────────
+
+Test at least:
+
+1440px
+1024px
+820px
+768px
+430px
+390px
+375px
+
+Flagship is the priority.
+
+Inspect:
+
+headline wrapping
+
+dek
+
+FIRST PASS
+
+equations
+
+five charts
+
+captions
+
+CALCULATION blocks
+
+CLAIM CHECK
+
+tables
+
+source rail
+
+source list
+
+share utility
+
+NewsletterCTA
+
+INTELLIGENCE CTA
+
+footer
+
+No page-level horizontal overflow.
+
+Math may scroll inside its own bounded region.
+
+DATA table may scroll inside its own bounded region.
+
+No text smaller than reasonably readable.
+
+────────────────────────────────────────────────────────────
+45. ACCESSIBILITY
+────────────────────────────────────────────────────────────
+
+Verify:
+
+one H1 per article
+
+logical H2/H3 order
+
+alt text for charts
+
+keyboard-accessible links
+
+visible focus states
+
+meaningful link names
+
+table headers use proper semantics
+
+captions are associated with figures
+
+color contrast is acceptable
+
+Signal Blue is not the only information carrier
+
+No chart relies only on color to distinguish meaning where avoidable.
+
+────────────────────────────────────────────────────────────
+46. PERFORMANCE
+────────────────────────────────────────────────────────────
+
+Do not turn this research package into a heavy client app.
+
+Requirements:
+
+static-first
+no hydration unless necessary
+SVG where appropriate
+optimized PNG fallback
+lazy-load below-fold charts
+no third-party chart runtime
+no client-side chart library
+no data grid library
+no analytics bloat
+no CMS
+no database
+
+The research should remain CDN/static content.
+
+────────────────────────────────────────────────────────────
+47. LINK VERIFICATION
+────────────────────────────────────────────────────────────
+
+Verify all public outbound links used in:
+
+flagship
+PROOF
+DATA
+NOW articles
+
+No broken malformed package references.
+
+No raw:
+
+[S1]
+
+unless intentionally rendered by a functioning source-reference system.
+
+No:
+
+../05_CHARTS/
+
+No:
+
+[DATE]
+
+No:
+
+[NUMBER]
+
+No:
+
+example.com
+
+No local filesystem paths.
+
+No sandbox paths.
+
+No ZIP paths.
+
+No fake domains.
+
+────────────────────────────────────────────────────────────
+48. PLACEHOLDER SCAN
+────────────────────────────────────────────────────────────
+
+Search all PUBLIC files for:
+
+[DATE]
+[NUMBER]
+TODO
+TBD
+FIXME
+PLACEHOLDER
+example.com
+localhost
+S1]
+S2]
+S3]
+status: review
+publishedAt: ""
+updatedAt: ""
+adPolicy: "editorial"
+
+Resolve anything that is publication-blocking.
+
+Do not remove legitimate explanatory words merely because they match broadly.
+
+────────────────────────────────────────────────────────────
+49. DATA INTEGRITY
+────────────────────────────────────────────────────────────
+
+Verify:
+
+CSV row count
+JSON row count
+same configurations
+same values
+same units
+same snapshot date
+
+Confirm charts that depend on dataset values reproduce from their corresponding
+CSV.
+
+Do not manually edit chart numbers separately from source data.
+
+If chart data and article prose disagree:
+
+stop and reconcile from calculation/source ledgers.
+
+────────────────────────────────────────────────────────────
+50. SOCIAL STAT SAFETY
+────────────────────────────────────────────────────────────
+
+If using:
+
+socialStat: "1.71 pp"
+
+confirm article prose explicitly explains:
+
+what changes;
+what baseline is used;
+that it is a break-even threshold;
+that it is NOT measured model superiority.
+
+Social image must not imply:
+
+"Sol reduces review by 1.71 pp"
+
+because that has NOT been measured.
+
+It may say:
+
+1.71 pp
+BREAK-EVEN REVIEW-RATE REDUCTION
+
+or equivalent.
+
+Precision matters.
+
+────────────────────────────────────────────────────────────
+51. HOMEPAGE / SECTION QA
+────────────────────────────────────────────────────────────
+
+After real content is published verify:
+
+/
+
+shows flagship prominently.
+
+/ai
+
+shows relevant AI pieces.
+
+/now
+
+shows published NOW.
+
+/data
+
+shows the DATA piece.
+
+/research
+
+does not misleadingly duplicate PROOF unless that is current site taxonomy.
+
+/authors/aditya
+
+shows real published work.
+
+No empty broken cards.
+
+No demo labels.
+
+No weird chronology.
+
+────────────────────────────────────────────────────────────
+52. DISTRIBUTION URL GENERATION
+────────────────────────────────────────────────────────────
+
+After final production URLs are known, generate tracked URLs for the flagship.
+
+Run equivalent:
+
+bun run distribute:url -- cheapest-ai-model-not-cheapest-system hackernews
+
+bun run distribute:url -- cheapest-ai-model-not-cheapest-system reddit
+
+bun run distribute:url -- cheapest-ai-model-not-cheapest-system linkedin
+
+bun run distribute:url -- cheapest-ai-model-not-cheapest-system x
+
+bun run distribute:url -- cheapest-ai-model-not-cheapest-system brief
+
+bun run distribute:url -- cheapest-ai-model-not-cheapest-system direct
+
+Update the distribution launch sheet.
+
+Do not alter canonical URLs with UTM parameters.
+
+Canonical remains clean.
+
+────────────────────────────────────────────────────────────
+53. BRIEF 001 PACKAGING
+────────────────────────────────────────────────────────────
+
+Use the supplied BRIEF draft.
+
+Resolve:
+
+ISSUE / [NUMBER]
+
+to:
+
+ISSUE / 001
+
+Subject:
+
+The 25× AI price gap that can disappear in 1.71 points
+
+Preheader:
+
+Why cost per accepted outcome is a better production denominator than $/M tokens.
+
+Update READ / SECOND PASS link to the live flagship.
+
+Update INSPECT / PROOF link to live PROOF.
+
+Update EXPLORE / DATA link to live DATA.
+
+Do not automatically send unless a safe Beehiiv send workflow is explicitly
+available.
+
+Return the exact final Beehiiv-ready body.
+
+────────────────────────────────────────────────────────────
+54. DISTRIBUTION COPY FINALIZATION
+────────────────────────────────────────────────────────────
+
+Update the provided distribution drafts with:
+
+live canonical URL
+
+accurate article title
+
+current source/date qualification
+
+UTM URL for that channel
+
+Remove placeholder URL text.
+
+Do not change the tone into marketing hype.
+
+Hacker News:
+
+factual.
+
+Reddit:
+
+methodology-first.
+
+X:
+
+data-first.
+
+LinkedIn personal:
+
+research insight.
+
+LinkedIn company:
+
+institutional.
+
+Direct outreach:
+
+specific and short.
+
+────────────────────────────────────────────────────────────
+55. DO NOT PUBLISH FOLLOW-UP QUEUE
+────────────────────────────────────────────────────────────
+
+The six follow-up ideas in:
+
+07_FOLLOWUPS/queue.md
+
+are FUTURE WORK.
+
+Do not create fake completed articles from them.
+
+Do not automatically generate filler drafts.
+
+Do not block the release waiting for them.
+
+The user is moving on to the next research topic.
+
+The queue should remain future editorial inventory.
+
+────────────────────────────────────────────────────────────
+56. DO NOT FINISH DEFERRED RESEARCH
+────────────────────────────────────────────────────────────
+
+This release explicitly defers:
+
+controlled cross-provider latency testing
+
+production workload success-rate experiments
+
+owned-GPU TCO
+
+Monte Carlo extensions
+
+measured inference energy per accepted outcome
+
+Do NOT spend hours adding them now.
+
+Do NOT invent them.
+
+Do NOT delay launch for them.
+
+That work belongs to future SECOND / PASS releases.
+
+────────────────────────────────────────────────────────────
+57. PUBLICATION DATE / CHANGE HISTORY
+────────────────────────────────────────────────────────────
+
+For initial release:
+
+publishedAt: 2026-08-09
+
+changeLog:
+
+- at: 2026-08-09
+  type: published
+  note: "Initial publication."
+
+If you materially revise a claim because primary-source re-verification changed
+something before initial publication:
+
+the final launch article can still use initial publication date.
+
+Document the pre-publication adjustment in your implementation report.
+
+Do not create a misleading public "correction" for something never actually
+published.
+
+────────────────────────────────────────────────────────────
+58. GIT HYGIENE
+────────────────────────────────────────────────────────────
+
+Do not commit:
+
+the raw attached ZIP
+
+temporary extraction directory
+
+node_modules
+
+local logs
+
+secrets
+
+.env
+
+API keys
+
+Vercel credentials
+
+Beehiiv credentials
+
+Resend credentials
+
+temporary screenshots
+
+internal scratch files
+
+unless there is an intentional documentation destination.
+
+Before commit inspect:
+
+git status
+git diff
+git diff --stat
+
+One coherent release commit is preferred.
+
+Suggested commit:
+
+feat: publish first Second Pass research package
+
+If fixes are substantial enough to deserve a second commit:
+
+fix: harden first publication launch
+
+Do not rewrite Git history.
+
+────────────────────────────────────────────────────────────
+59. DEPLOYMENT
+────────────────────────────────────────────────────────────
+
+Deploy to the EXISTING Vercel project:
+
+second-pass
+
+Do not create a new Vercel project.
+
+Production canonical remains:
+
+https://second-pass.vercel.app
+
+until secondpass.net is actually connected.
+
+Ensure production environment has:
+
+SITE_PRELAUNCH=false
+
+PUBLIC_BRIEF_ENABLED=true
+
+PUBLIC_COMMERCIAL_FORMS_ENABLED=true
+
+Beehiiv configuration
+
+Resend configuration
+
+Do not expose any secret values.
+
+────────────────────────────────────────────────────────────
+60. LIVE VERIFICATION
+────────────────────────────────────────────────────────────
+
+After production deployment verify ACTUAL LIVE URLs.
+
+At minimum:
+
+https://second-pass.vercel.app/
+
+https://second-pass.vercel.app/articles/cheapest-ai-model-not-cheapest-system
+
+https://second-pass.vercel.app/articles/cheapest-ai-model-not-cheapest-system-proof
+
+https://second-pass.vercel.app/articles/ai-inference-price-surface-v0-1
+
+https://second-pass.vercel.app/ai
+
+https://second-pass.vercel.app/data
+
+https://second-pass.vercel.app/now
+
+https://second-pass.vercel.app/brief
+
+https://second-pass.vercel.app/authors/aditya
+
+https://second-pass.vercel.app/intelligence
+
+https://second-pass.vercel.app/partner
+
+https://second-pass.vercel.app/api/health
+
+https://second-pass.vercel.app/rss.xml
+
+https://second-pass.vercel.app/robots.txt
+
+https://second-pass.vercel.app/pagefind/pagefind.js
+
+and published NOW URLs if approved.
+
+Also verify direct static downloads.
+
+────────────────────────────────────────────────────────────
+61. LIVE ARTICLE VERIFICATION
+────────────────────────────────────────────────────────────
+
+For the flagship verify in production:
+
+HTTP 200
+
+correct canonical
+
+indexable
+
+correct article title
+
+correct dek
+
+FIRST PASS
+
+1.71 pp
+
+all five research figures
+
+valid alt text
+
+valid captions
+
+PROOF link
+
+DATA link
+
+INTELLIGENCE link
+
+author link
+
+sources
+
+change log
+
+share utility
+
+newsletter CTA
+
+OG image HTTP 200
+
+OG metadata
+
+Twitter metadata
+
+JSON-LD
+
+no demo marker
+
+no placeholder
+
+no malformed equation
+
+no broken source marker
+
+no horizontal overflow
+
+────────────────────────────────────────────────────────────
+62. LIVE SOCIAL CARD VERIFICATION
+────────────────────────────────────────────────────────────
+
+Fetch:
+
+/social/cheapest-ai-model-not-cheapest-system/og.png
+
+/social/cheapest-ai-model-not-cheapest-system/portrait.png
+
+/social/cheapest-ai-model-not-cheapest-system/square.png
+
+Verify dimensions:
+
+1200×630
+1080×1350
+1080×1080
+
+Inspect visually.
+
+The 1.71 pp wording must remain truthful.
+
+────────────────────────────────────────────────────────────
+63. LIVE DOWNLOAD VERIFICATION
+────────────────────────────────────────────────────────────
+
+Verify public downloads return 200:
+
+CSV
+
+JSON
+
+data dictionary if exposed
+
+Open the CSV.
+
+Open the JSON.
+
+Confirm no corruption.
+
+Confirm snapshot date.
+
+Confirm expected row count.
+
+No internal file paths.
+
+No source secrets.
+
+────────────────────────────────────────────────────────────
+64. HEALTH CHECK
+────────────────────────────────────────────────────────────
+
+Expected:
+
+{
+  "status": "ok",
+  "brief": "configured",
+  "leads": "configured"
+}
+
+If either provider is not configured:
+
+do NOT expose secrets.
+
+Report exact configuration class that failed.
+
+────────────────────────────────────────────────────────────
+65. SECURITY
+────────────────────────────────────────────────────────────
+
+Publishing content must not weaken the existing security posture.
+
+Verify:
+
+CSP/security headers still present
+
+X-Content-Type-Options
+
+frame protection
+
+referrer policy
+
+HSTS where appropriate
+
+mutation APIs no-store
+
+no API key in HTML
+
+no secret in JS bundle
+
+no secret in source map
+
+no secret in git diff
+
+no raw environment dump
+
+Do not "temporarily" expose provider keys for testing.
+
+────────────────────────────────────────────────────────────
+66. SEO
+────────────────────────────────────────────────────────────
+
+Verify flagship:
+
+indexable
+
+unique title
+
+unique description
+
+canonical
+
+Article structured data
+
+Person author
+
+Organization publisher
+
+published date
+
+section
+
+tags
+
+OG
+
+Twitter image
+
+sitemap inclusion
+
+RSS inclusion
+
+internal links
+
+author page
+
+Do not keyword-stuff.
+
+Do not generate FAQ schema.
+
+Do not add fake review schema.
+
+────────────────────────────────────────────────────────────
+67. EDITORIAL INTEGRITY
+────────────────────────────────────────────────────────────
+
+Do not make publication engineering subtly change the research.
+
+Specifically preserve:
+
+"1.71 pp is a break-even threshold, not a performance claim."
+
+"25× is the token-rate ratio in the stated configuration, not the total system
+cost ratio."
+
+"Public list price is not enterprise effective price."
+
+"Token counts are not necessarily text-equivalent across tokenizers."
+
+"Provider benchmark ≠ production success."
+
+"TDP ≠ inference energy."
+
+"Cloud rental ≠ owned GPU TCO."
+
+These distinctions are part of the product.
+
+────────────────────────────────────────────────────────────
+68. ENGINEERING FREEZE
+────────────────────────────────────────────────────────────
+
+After successful release:
+
+DO NOT propose:
+
+CMS
+database
+auth
+React migration
+analytics migration
+new hosting
+new framework
+dashboard
+social scheduler
+content API
+microservices
+new design system
+WebGL
+animations
+ad network
+payment integration
+
+The publishing system is now good enough.
+
+The user is moving to the next research topic.
+
+Only fix real launch blockers.
+
+────────────────────────────────────────────────────────────
+69. UPDATE PROJECT MEMORY
+────────────────────────────────────────────────────────────
+
+Update existing durable project documentation such as:
+
+CURRENT_STATE.md
+DECISIONS.md
+docs/OPERATIONS.md
+README.md
+
+only where needed.
+
+Record:
+
+First real research package published.
+
+Flagship:
+The cheapest AI model is often not the cheapest system
+
+Dataset:
+AI Inference Price Surface v0.1
+
+Snapshot:
+2026-08-09
+
+Author:
+Aditya
+
+Publication is now public/indexable.
+
+Demo content no longer public.
+
+Beehiiv configured.
+
+Resend configured.
+
+Do not dump the entire research package into project-memory files.
+
+Keep documentation operational.
+
+────────────────────────────────────────────────────────────
+70. CREATE RELEASE RECORD
+────────────────────────────────────────────────────────────
+
+Create:
+
+docs/releases/2026-08-09-ai-cost-quality-frontier.md
+
+Include:
+
+release title
+
+commit SHA
+
+production deployment
+
+published routes
+
+dataset version
+
+published NOW pieces
+
+source snapshot date
+
+prepublish results
+
+launch verification result
+
+known non-blocking limitations
+
+BRIEF status
+
+distribution-ready status
+
+This is useful durable provenance.
+
+Keep it concise.
+
+────────────────────────────────────────────────────────────
+71. FINAL ACCEPTANCE GATE
+────────────────────────────────────────────────────────────
+
+The release PASSES only if:
+
+CONTENT
+✓ flagship published
+✓ PROOF published
+✓ DATA published
+✓ approved NOW pieces verified/published or explicitly withheld with reason
+✓ no public demos
+✓ no placeholders
+
+RESEARCH
+✓ central calculation reproduced
+✓ sources reverified
+✓ units correct
+✓ snapshot semantics preserved
+✓ unsupported claims absent
+
+DATA
+✓ CSV public
+✓ JSON public
+✓ row integrity checked
+✓ snapshot clearly dated
+
+CHARTS
+✓ five flagship charts render
+✓ data agrees with article
+✓ alt text
+✓ mobile-safe
+
+ARTICLE UX
+✓ FIRST PASS
+✓ calculations
+✓ claim check
+✓ source links
+✓ PROOF/DATA cross-links
+✓ /INTELLIGENCE
+✓ /BRIEF
+✓ author
+✓ change log
+
+DISTRIBUTION
+✓ article-specific OG
+✓ portrait
+✓ square
+✓ tracked URLs ready
+✓ distribution drafts updated
+
+SEO
+✓ indexable
+✓ robots public
+✓ sitemap
+✓ RSS
+✓ canonical
+✓ JSON-LD
+✓ social metadata
+
+PROVIDERS
+✓ Beehiiv configured
+✓ Resend configured
+
+BUILD
+✓ content:audit
+✓ check
+✓ build
+✓ Pagefind
+✓ prepublish for each article
+✓ launch:verify
+
+LIVE
+✓ production deployment READY
+✓ live routes 200
+✓ live assets 200
+✓ health configured
+✓ no prelaunch marker
+
+────────────────────────────────────────────────────────────
+72. FINAL RESPONSE FORMAT
+────────────────────────────────────────────────────────────
+
+Return the final report in exactly these sections:
+
+# SECOND / PASS — FIRST RESEARCH RELEASE
+
+## RELEASE STATUS
+
+PASS / FAIL
+
+## LIVE PUBLICATION
+
+Flagship:
+URL
+
+PROOF:
+URL
+
+DATA:
+URL
+
+NOW:
+published URLs
+
+## CENTRAL CALCULATION
+
+Source inputs:
+Result:
+Independent reproduction:
+PASS / FAIL
+
+## SOURCE VERIFICATION
+
+OpenAI:
+PASS / FAIL
+
+Anthropic:
+PASS / FAIL
+
+Google:
+PASS / FAIL
+
+xAI:
+PASS / FAIL
+
+Routing research:
+PASS / FAIL
+
+Any changed source:
+exact explanation
+
+## DATA
+
+Dataset:
+Version:
+Snapshot:
+Rows:
+CSV URL:
+JSON URL:
+Integrity:
+PASS / FAIL
+
+## CHARTS
+
+01:
+PASS / FAIL
+
+02:
+PASS / FAIL
+
+03:
+PASS / FAIL
+
+04:
+PASS / FAIL
+
+05:
+PASS / FAIL
+
+## PUBLICATION UX
+
+FIRST PASS:
+CALCULATION:
+CLAIM CHECK:
+PROOF links:
+DATA links:
+Sources:
+Author:
+Share:
+BRIEF CTA:
+Intelligence CTA:
+
+PASS / FAIL
+
+## SOCIAL ASSETS
+
+OG:
+URL
+
+Portrait:
+URL
+
+Square:
+URL
+
+Dimensions:
+PASS / FAIL
+
+## BRIEF 001
+
+Status:
+READY TO SEND / BLOCKED
+
+Subject:
+Preheader:
+
+Do NOT send unless safely authorized.
+
+## DISTRIBUTION
+
+HN:
+READY / BLOCKED
+
+Reddit:
+READY / BLOCKED
+
+X:
+READY / BLOCKED
+
+LinkedIn:
+READY / BLOCKED
+
+Direct outreach:
+READY / BLOCKED
+
+## SEO + INDEXING
+
+robots:
+sitemap:
+RSS:
+Pagefind:
+canonical:
+JSON-LD:
+OG:
+indexable:
+
+PASS / FAIL
+
+## PROVIDERS
+
+Beehiiv:
+configured / not configured
+
+Resend:
+configured / not configured
+
+## BUILD
+
+content:audit:
+check:
+build:
+prepublish flagship:
+prepublish proof:
+prepublish data:
+prepublish NOW:
+launch:verify:
+
+## LIVE QA
+
+Homepage:
+AI:
+NOW:
+DATA:
+Author:
+Brief:
+Intelligence:
+Partner:
+Health:
+Downloads:
+
+## DEMO CLEANUP
+
+Published demo count:
+0 REQUIRED
+
+## GIT
+
+Commit:
+Branch:
+Working tree:
+Deployment:
+
+## DEFERRED RESEARCH
+
+List only the intentional non-blocking deferred items.
+
+## BLOCKERS
+
+None
+
+OR exact blockers.
+
+If EVERYTHING required passes, end with exactly:
+
+FIRST RESEARCH RELEASE: LIVE — MOVE TO NEXT TOPIC
+
+If anything publication-critical remains, end with:
+
+FIRST RESEARCH RELEASE: BLOCKED — <exact blocker>
+
+────────────────────────────────────────────────────────────
+73. BEGIN
+────────────────────────────────────────────────────────────
+
+Start now.
+
+First:
+
+inspect current repo
+→ unpack ZIP to temp
+→ read manifest/handoff/QA
+→ compare package frontmatter to current schema
+→ reverify volatile primary-source claims
+→ reproduce calculations
+→ integrate public content
+→ integrate charts/data
+→ adapt citations
+→ validate
+→ publish
+→ remove demos from production
+→ switch SITE_PRELAUNCH=false
+→ deploy
+→ live verify
+→ return release report
+
+Do not stop after planning.
+
+Do not ask me to manually move files.
+
+Do not ask me to manually rewrite frontmatter.
+
+Do not ask me to manually generate social images.
+
+Do not ask me to manually run tests.
+
+Complete the release end-to-end.

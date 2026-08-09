@@ -1,0 +1,10 @@
+---
+interface Props { points: string[]; }
+const { points } = Astro.props;
+---
+<section class="first-pass" id="first-pass" aria-labelledby="first-pass-title">
+  <h2 id="first-pass-title">FIRST PASS</h2>
+  <ul>
+    {points.map((point) => <li>{point}</li>)}
+  </ul>
+</section>

@@ -1,0 +1,2002 @@
+     1→You are working as the production engineer, technical publication editor,
+     2→data-publishing engineer and release manager for SECOND / PASS.
+     3→
+     4→I am attaching this publication package:
+     5→
+     6→second-pass-ai-cost-quality-frontier-publication-package(1).zip
+     7→
+     8→Repository:
+     9→
+    10→witejackel-eng/second-pass-web
+    11→
+    12→Production site:
+    13→
+    14→https://second-pass.vercel.app/
+    15→
+    16→Existing Vercel project:
+    17→
+    18→second-pass
+    19→
+    20→This is NOT a request for recommendations.
+    21→
+    22→Inspect the current repository, inspect the entire attached publication package,
+    23→integrate it correctly into the existing SECOND / PASS architecture, verify every
+    24→public artifact, publish the approved release, deploy it to the EXISTING Vercel
+    25→project, verify the live site, and return a precise release report.
+    26→
+    27→Do not merely copy files.
+    28→
+    29→Do not redesign the publication.
+    30→
+    31→Do not create another project.
+    32→
+    33→Do not create another repository.
+    34→
+    35→Do not stop after implementation without deployment and live verification.
+    36→
+    37→────────────────────────────────────────────────────────────
+    38→0. HUMAN PUBLICATION AUTHORIZATION
+    39→────────────────────────────────────────────────────────────
+    40→
+    41→The package was previously marked:
+    42→
+    43→PUBLICATION PACKAGE: READY FOR HUMAN REVIEW
+    44→
+    45→This prompt is the explicit human approval to publish the verified public
+    46→release.
+    47→
+    48→You MAY change approved public content from:
+    49→
+    50→status: review
+    51→
+    52→to:
+    53→
+    54→status: published
+    55→
+    56→ONLY after:
+    57→
+    58→- source verification passes
+    59→- calculation verification passes
+    60→- schema conversion passes
+    61→- article verification passes
+    62→- social assets are generated
+    63→- Astro check passes
+    64→- full build passes
+    65→- prepublish passes
+    66→
+    67→Do NOT publish content that remains incomplete, unsupported, queued,
+    68→experimental or explicitly internal.
+    69→
+    70→Do NOT infer that every file inside the ZIP belongs on the public website.
+    71→
+    72→────────────────────────────────────────────────────────────
+    73→1. RELEASE OBJECTIVE
+    74→────────────────────────────────────────────────────────────
+    75→
+    76→This is the first serious SECOND / PASS research package.
+    77→
+    78→Research program:
+    79→
+    80→AI inference economics and model routing
+    81→
+    82→Core public contribution:
+    83→
+    84→Token price is the wrong production denominator.
+    85→
+    86→The economically useful unit is closer to:
+    87→
+    88→COST PER ACCEPTED OUTCOME
+    89→
+    90→The primary article is:
+    91→
+    92→The cheapest AI model is often not the cheapest system
+    93→
+    94→This release should establish the actual SECOND / PASS publication model:
+    95→
+    96→simple explanation
+    97→        ↓
+    98→deep technical analysis
+    99→        ↓
+   100→/ PROOF
+   101→        ↓
+   102→/ DATA
+   103→        ↓
+   104→sources
+   105→        ↓
+   106→reproducibility
+   107→
+   108→The site must feel like:
+   109→
+   110→research laboratory
+   111→×
+   112→serious newspaper
+   113→×
+   114→engineering document
+   115→
+   116→Do not turn it into a generic blog.
+   117→
+   118→────────────────────────────────────────────────────────────
+   119→2. FIRST: PRESERVE CURRENT WORK
+   120→────────────────────────────────────────────────────────────
+   121→
+   122→Before editing:
+   123→
+   124→1. pull/fetch the latest repository state;
+   125→2. inspect current main;
+   126→3. inspect git status;
+   127→4. do not overwrite newer work;
+   128→5. do not reset history;
+   129→6. do not force-push;
+   130→7. do not delete unrelated files;
+   131→8. do not recreate systems that already exist.
+   132→
+   133→Inspect at minimum:
+   134→
+   135→package.json
+   136→src/content.config.ts
+   137→src/content/articles/
+   138→src/pages/articles/[slug].astro
+   139→src/lib/content.ts
+   140→src/lib/schema.ts
+   141→src/layouts/BaseLayout.astro
+   142→src/components/
+   143→src/styles/
+   144→scripts/prepublish.mjs
+   145→scripts/verify-article.mjs
+   146→scripts/content-audit.mjs
+   147→scripts/generate-social-assets.mjs
+   148→scripts/distribute-url.mjs
+   149→scripts/launch-verify.mjs
+   150→src/pages/index.astro
+   151→src/pages/now/
+   152→src/pages/ai/
+   153→src/pages/data/
+   154→src/pages/research/
+   155→src/components/Footer.astro
+   156→
+   157→Understand the current architecture before making changes.
+   158→
+   159→────────────────────────────────────────────────────────────
+   160→3. UNPACK THE PUBLICATION PACKAGE SAFELY
+   161→────────────────────────────────────────────────────────────
+   162→
+   163→Extract the attached ZIP into a TEMPORARY working directory.
+   164→
+   165→Do NOT extract the package directly over the repository.
+   166→
+   167→Read these FIRST:
+   168→
+   169→00_MANIFEST.md
+   170→01_EDITORIAL_DECISION.md
+   171→13_SITE_HANDOFF.md
+   172→11_QA/PUBLICATION_GATE.md
+   173→11_QA/FACT_CHECK.md
+   174→11_QA/CLAIM_LEDGER.md
+   175→11_QA/CALCULATION_LEDGER.md
+   176→11_QA/SOURCE_LEDGER.md
+   177→
+   178→Then inspect ALL remaining files.
+   179→
+   180→Treat:
+   181→
+   182→SOURCE_LEDGER
+   183→CLAIM_LEDGER
+   184→CALCULATION_LEDGER
+   185→FACT_CHECK
+   186→PUBLICATION_GATE
+   187→
+   188→as authoritative QA support for this release.
+   189→
+   190→Do not casually rewrite the research.
+   191→
+   192→────────────────────────────────────────────────────────────
+   193→4. PUBLIC VS INTERNAL FILES
+   194→────────────────────────────────────────────────────────────
+   195→
+   196→PUBLIC WEBSITE CONTENT CANDIDATES:
+   197→
+   198→02_FLAGSHIP/
+   199→cheapest-ai-model-not-cheapest-system.mdx
+   200→
+   201→03_PROOF/
+   202→cheapest-ai-model-not-cheapest-system-proof.mdx
+   203→
+   204→04_DATA/
+   205→ai-inference-price-surface.mdx
+   206→
+   207→08_NOW/drafts/
+   208→no-universal-long-context-premium.mdx
+   209→prompt-cache-second-use-break-even.mdx
+   210→sonnet-5-price-effective-date.mdx
+   211→
+   212→PUBLIC STATIC DATA:
+   213→
+   214→04_DATA/
+   215→ai-inference-price-surface-v0.1.csv
+   216→ai-inference-price-surface-v0.1.json
+   217→
+   218→04_DATA/DATA_DICTIONARY.md
+   219→may be exposed as a download/reference document if useful.
+   220→
+   221→PUBLIC CHART ASSETS:
+   222→
+   223→05_CHARTS/*.svg
+   224→05_CHARTS/*.png
+   225→
+   226→PUBLIC CHART DATA WHERE USEFUL:
+   227→
+   228→05_CHARTS/data/*.csv
+   229→
+   230→
+   231→NOT PUBLIC ARTICLE CONTENT:
+   232→
+   233→01_EDITORIAL_DECISION.md
+   234→02_FLAGSHIP/article-notes.md
+   235→07_FOLLOWUPS/*
+   236→08_NOW/now-queue.md
+   237→09_DISTRIBUTION/*
+   238→10_SOCIAL/*
+   239→11_QA/*
+   240→12_RESEARCH_BACKLOG.md
+   241→
+   242→These may be retained in an appropriate INTERNAL documentation location
+   243→if the repository already has a suitable pattern, but do NOT expose them as
+   244→public pages.
+   245→
+   246→Do NOT put QA ledgers into public search.
+   247→
+   248→Do NOT put internal distribution planning into Pagefind.
+   249→
+   250→Do NOT expose the research backlog.
+   251→
+   252→────────────────────────────────────────────────────────────
+   253→5. DO NOT BLINDLY TRUST PACKAGE ROUTE RECOMMENDATIONS
+   254→────────────────────────────────────────────────────────────
+   255→
+   256→The package contains route recommendations such as:
+   257→
+   258→/ai/...
+   259→/proof/...
+   260→/data/...
+   261→
+   262→BUT the current website already has an established article architecture.
+   263→
+   264→Do NOT create duplicate article-routing systems just to follow those
+   265→recommendations literally.
+   266→
+   267→The existing publication route is currently based around:
+   268→
+   269→/articles/<slug>
+   270→
+   271→Use the existing route architecture unless the current repository has since
+   272→changed.
+   273→
+   274→Therefore expected canonical article routes are approximately:
+   275→
+   276→/articles/cheapest-ai-model-not-cheapest-system
+   277→
+   278→/articles/cheapest-ai-model-not-cheapest-system-proof
+   279→
+   280→/articles/ai-inference-price-surface-v0-1
+   281→
+   282→/articles/no-universal-long-context-premium
+   283→
+   284→/articles/prompt-cache-second-use-break-even
+   285→
+   286→/articles/sonnet-5-price-effective-date
+   287→
+   288→Section pages such as:
+   289→
+   290→/ai
+   291→/data
+   292→/now
+   293→
+   294→should discover/filter these through existing collection logic.
+   295→
+   296→Do NOT duplicate the same content under multiple canonical URLs.
+   297→
+   298→────────────────────────────────────────────────────────────
+   299→6. CRITICAL: ADAPT FRONTMATTER TO THE LIVE SCHEMA
+   300→────────────────────────────────────────────────────────────
+   301→
+   302→The package frontmatter was generated independently from the current
+   303→repository schema.
+   304→
+   305→DO NOT simply paste it.
+   306→
+   307→Convert every public MDX file to the CURRENT repository schema.
+   308→
+   309→At the time this release was prepared, the live schema expects approximately:
+   310→
+   311→title
+   312→dek
+   313→slug
+   314→section
+   315→format
+   316→author
+   317→publishedAt
+   318→updatedAt?
+   319→status
+   320→firstPass
+   321→featured
+   322→demo
+   323→tags
+   324→hero?
+   325→heroAlt?
+   326→adPolicy
+   327→sources[]
+   328→changeLog[]
+   329→seoTitle?
+   330→seoDescription?
+   331→socialStat?
+   332→socialStatLabel?
+   333→
+   334→Inspect the current schema again before implementation.
+   335→
+   336→Specific incompatibilities that MUST be repaired:
+   337→
+   338→A. PACKAGE:
+   339→
+   340→publishedAt: ""
+   341→
+   342→INVALID for production.
+   343→
+   344→Set the human-approved publication date.
+   345→
+   346→For this release use the actual release date:
+   347→
+   348→2026-08-09
+   349→
+   350→unless deployment occurs after midnight in the configured publication timezone,
+   351→in which case use the actual publication date.
+   352→
+   353→Do not fabricate an earlier publication date.
+   354→
+   355→
+   356→B. PACKAGE:
+   357→
+   358→updatedAt: ""
+   359→
+   360→Do not use blank-string updated dates.
+   361→
+   362→For a first publication either:
+   363→
+   364→omit updatedAt
+   365→
+   366→OR
+   367→
+   368→use it only if content was materially changed after publication.
+   369→
+   370→
+   371→C. PACKAGE:
+   372→
+   373→adPolicy: "editorial"
+   374→
+   375→The current site schema does not accept this value.
+   376→
+   377→For these launch articles use:
+   378→
+   379→adPolicy: "none"
+   380→
+   381→unless the current schema/site has since deliberately changed.
+   382→
+   383→Reason:
+   384→
+   385→this is editorial launch material;
+   386→the flagship already contains a subtle intelligence CTA;
+   387→the article template already appends /BRIEF;
+   388→we do not need an artificial ad break.
+   389→
+   390→
+   391→D. PACKAGE:
+   392→
+   393→sources:
+   394→  - "S1"
+   395→  - "S4"
+   396→
+   397→The site expects STRUCTURED SOURCE OBJECTS.
+   398→
+   399→Convert each source ID using:
+   400→
+   401→11_QA/SOURCE_LEDGER.md
+   402→
+   403→Example shape:
+   404→
+   405→sources:
+   406→  - label: "OpenAI — API Pricing"
+   407→    url: "https://developers.openai.com/api/docs/pricing"
+   408→    type: "primary"
+   409→    note: "Public list pricing; accessed 2026-08-09."
+   410→
+   411→Use the correct supported type enum.
+   412→
+   413→Do this for EVERY source used by each article.
+   414→
+   415→Do not invent source URLs.
+   416→
+   417→
+   418→E. PACKAGE:
+   419→
+   420→changeLog:
+   421→  - "2026-08-09: Initial review package."
+   422→
+   423→Convert to current structured shape.
+   424→
+   425→For launch:
+   426→
+   427→changeLog:
+   428→  - at: 2026-08-09
+   429→    type: published
+   430→    note: "Initial publication."
+   431→
+   432→Use schema-valid syntax.
+   433→
+   434→
+   435→F. PACKAGE:
+   436→
+   437→seo:
+   438→  title:
+   439→  description:
+   440→
+   441→The current schema uses:
+   442→
+   443→seoTitle:
+   444→seoDescription:
+   445→
+   446→Convert correctly.
+   447→
+   448→
+   449→G. NOW drafts may be missing required `dek`.
+   450→
+   451→Add a concise dek where required by the schema.
+   452→
+   453→Do not change their thesis.
+   454→
+   455→
+   456→H. section capitalization must exactly match the current enum.
+   457→
+   458→Use:
+   459→
+   460→AI
+   461→Compute
+   462→Systems
+   463→Security
+   464→Research
+   465→Data
+   466→
+   467→not arbitrary variants.
+   468→
+   469→
+   470→I. format must exactly match:
+   471→
+   472→NOW
+   473→SECOND PASS
+   474→DEEP
+   475→PROOF
+   476→DATA
+   477→
+   478→
+   479→J. author:
+   480→
+   481→Aditya
+   482→
+   483→Do not change to:
+   484→
+   485→Second Pass Editorial
+   486→SECOND / PASS Team
+   487→Admin
+   488→AI
+   489→Z.ai
+   490→
+   491→
+   492→K. demo:
+   493→
+   494→false
+   495→
+   496→
+   497→L. status:
+   498→
+   499→published
+   500→
+   501→ONLY after the respective article passes its publication gate.
+   502→
+   503→────────────────────────────────────────────────────────────
+   504→7. APPROVED PUBLICATION SET
+   505→────────────────────────────────────────────────────────────
+   506→
+   507→The intended release set is:
+   508→
+   509→PRIMARY RELEASE:
+   510→
+   511→1.
+   512→The cheapest AI model is often not the cheapest system
+   513→format: SECOND PASS
+   514→featured: true
+   515→
+   516→2.
+   517→How to model the cost of an accepted AI outcome
+   518→format: PROOF
+   519→featured: false
+   520→
+   521→3.
+   522→AI Inference Price Surface v0.1
+   523→format: DATA
+   524→featured: false
+   525→
+   526→
+   527→SECONDARY RELEASE:
+   528→
+   529→The following three NOW pieces MAY also be published in this release,
+   530→but ONLY after individually re-verifying their volatile claims against
+   531→their cited PRIMARY sources:
+   532→
+   533→4.
+   534→There is no universal long-context premium
+   535→
+   536→5.
+   537→Prompt caching can become cheaper on the second eligible use
+   538→
+   539→6.
+   540→Claude Sonnet 5's price changes on September 1. Your dataset should know that.
+   541→
+   542→If any NOW piece has become stale, changed, unsupported or misleading:
+   543→
+   544→DO NOT publish it unchanged.
+   545→
+   546→Update it from the PRIMARY source.
+   547→
+   548→Record the change in its change log.
+   549→
+   550→If its central claim is no longer true:
+   551→
+   552→leave it as review/draft
+   553→and report the blocker.
+   554→
+   555→Do not invent a replacement story.
+   556→
+   557→────────────────────────────────────────────────────────────
+   558→8. VOLATILE FACT RE-VERIFICATION
+   559→────────────────────────────────────────────────────────────
+   560→
+   561→Before publication, independently verify volatile claims used in the release.
+   562→
+   563→Use PRIMARY sources only for current technical facts.
+   564→
+   565→At minimum re-check:
+   566→
+   567→OpenAI pricing
+   568→GPT-5.6 Sol pricing/configuration
+   569→GPT-5.6 Luna pricing/configuration
+   570→OpenAI cache pricing
+   571→OpenAI Batch pricing
+   572→OpenAI long-context threshold
+   573→
+   574→Anthropic pricing
+   575→Claude cache multipliers
+   576→Batch pricing
+   577→Sonnet 5 temporary/future pricing
+   578→effective date of Sonnet 5 price transition
+   579→documented tokenizer statement
+   580→
+   581→Google Gemini pricing
+   582→Batch pricing
+   583→
+   584→xAI pricing
+   585→Grok 4.5 context threshold
+   586→Grok 4.5 Batch support status
+   587→
+   588→Do not use vendor A to establish vendor B's numbers.
+   589→
+   590→Research papers can remain primary research references for routing concepts.
+   591→
+   592→If a source changed between dataset snapshot and publication:
+   593→
+   594→PRESERVE the historical 2026-08-09 dataset as a dated snapshot if it was
+   595→correct on that date.
+   596→
+   597→Do NOT silently rewrite historical observations.
+   598→
+   599→Instead:
+   600→
+   601→- preserve snapshot semantics;
+   602→- update the article if it claims something is currently true;
+   603→- distinguish "snapshot 2026-08-09" from "current as of publication";
+   604→- add change-log context where necessary.
+   605→
+   606→────────────────────────────────────────────────────────────
+   607→9. REPRODUCE THE CENTRAL CALCULATION
+   608→────────────────────────────────────────────────────────────
+   609→
+   610→The flagship's central worked result is important enough to verify independently.
+   611→
+   612→Reproduce from source inputs:
+   613→
+   614→10,000 input tokens
+   615→1,000 output tokens
+   616→
+   617→GPT-5.6 Sol short-context pricing
+   618→GPT-5.6 Luna short-context pricing
+   619→
+   620→Confirm:
+   621→
+   622→direct token-price ratio;
+   623→absolute cost per request;
+   624→absolute premium;
+   625→the $0.0768 difference;
+   626→the human-review scenario;
+   627→the $4.50 review event;
+   628→the 1.71 percentage-point break-even.
+   629→
+   630→Do NOT merely trust the prose.
+   631→
+   632→Check arithmetic independently.
+   633→
+   634→Check units.
+   635→
+   636→Check rounding.
+   637→
+   638→Check denominator.
+   639→
+   640→Check that 1.71 pp means PERCENTAGE POINTS, not 1.71%.
+   641→
+   642→If any calculation differs:
+   643→
+   644→stop publication of the affected claim,
+   645→repair using the calculation ledger and verified prices,
+   646→then rerun all dependent chart/data checks.
+   647→
+   648→────────────────────────────────────────────────────────────
+   649→10. DATASET INTEGRATION
+   650→────────────────────────────────────────────────────────────
+   651→
+   652→Publish the AI Inference Price Surface as a real static data artifact.
+   653→
+   654→Keep it STATIC-FIRST.
+   655→
+   656→No database.
+   657→
+   658→No API backend.
+   659→
+   660→No client-side data platform.
+   661→
+   662→Suggested public structure:
+   663→
+   664→public/downloads/ai-inference-price-surface-v0.1.csv
+   665→
+   666→public/downloads/ai-inference-price-surface-v0.1.json
+   667→
+   668→public/downloads/ai-inference-price-surface-v0.1-data-dictionary.md
+   669→
+   670→If the existing repository has a better established downloads convention,
+   671→use it consistently.
+   672→
+   673→Update the DATA MDX download links accordingly.
+   674→
+   675→The data page must prominently show:
+   676→
+   677→AI Inference Price Surface v0.1
+   678→
+   679→SNAPSHOT / 2026-08-09
+   680→
+   681→and explain:
+   682→
+   683→- public list-price snapshot
+   684→- configuration-level observations
+   685→- not a model-quality ranking
+   686→- tokenizers differ
+   687→- enterprise discounts are not represented
+   688→- temporal effective dates matter
+   689→- data is not automatically live-updated
+   690→
+   691→Do NOT label this dataset:
+   692→
+   693→LIVE
+   694→
+   695→REAL-TIME
+   696→
+   697→CONTINUOUSLY UPDATED
+   698→
+   699→unless such functionality actually exists.
+   700→
+   701→────────────────────────────────────────────────────────────
+   702→11. CHART ASSET INTEGRATION
+   703→────────────────────────────────────────────────────────────
+   704→
+   705→The package includes five analytical charts in:
+   706→
+   707→SVG
+   708→PNG
+   709→
+   710→and five source CSVs.
+   711→
+   712→Create a clean public asset location.
+   713→
+   714→Suggested:
+   715→
+   716→public/research/ai-cost-quality-frontier/charts/
+   717→
+   718→Move/copy:
+   719→
+   720→chart-01-review-break-even.svg
+   721→chart-01-review-break-even.png
+   722→
+   723→chart-02-cache-reuse.svg
+   724→chart-02-cache-reuse.png
+   725→
+   726→chart-03-batch-cost.svg
+   727→chart-03-batch-cost.png
+   728→
+   729→chart-04-cost-composition.svg
+   730→chart-04-cost-composition.png
+   731→
+   732→chart-05-long-context.svg
+   733→chart-05-long-context.png
+   734→
+   735→And optionally:
+   736→
+   737→public/research/ai-cost-quality-frontier/chart-data/
+   738→
+   739→for the five chart CSVs.
+   740→
+   741→Do not leave broken relative package paths like:
+   742→
+   743→../05_CHARTS/...
+   744→
+   745→inside production MDX.
+   746→
+   747→Rewrite them to valid public paths.
+   748→
+   749→────────────────────────────────────────────────────────────
+   750→12. VISUALLY INSPECT ALL FIVE CHARTS
+   751→────────────────────────────────────────────────────────────
+   752→
+   753→Do not assume generated charts are visually acceptable because the QA script
+   754→found the files.
+   755→
+   756→Inspect:
+   757→
+   758→- SVG output
+   759→- PNG output
+   760→- axis labels
+   761→- legend
+   762→- number formatting
+   763→- title
+   764→- caption
+   765→- typography
+   766→- contrast
+   767→- clipping
+   768→- whitespace
+   769→- mobile readability
+   770→
+   771→They must fit SECOND / PASS:
+   772→
+   773→Paper       #F2EFE7
+   774→Ink         #11110F
+   775→Graphite    #5A5953
+   776→Rule        #C9C3B7
+   777→Signal Blue #2F5BFF
+   778→
+   779→No gradients.
+   780→No neon.
+   781→No unnecessary shadows.
+   782→No generic dashboard styling.
+   783→
+   784→If the supplied chart styling is poor:
+   785→
+   786→regenerate the presentation layer from the provided CSV/data.
+   787→
+   788→DO NOT alter the underlying data merely to make the chart look better.
+   789→
+   790→Use SVG as primary article display where appropriate.
+   791→
+   792→Preserve PNG fallback.
+   793→
+   794→────────────────────────────────────────────────────────────
+   795→13. FLAGSHIP CHART PLACEMENT
+   796→────────────────────────────────────────────────────────────
+   797→
+   798→Use the package handoff placement:
+   799→
+   800→1. review break-even calculation
+   801→→ chart-01-review-break-even
+   802→
+   803→2. illustrative model + review scenario
+   804→→ chart-04-cost-composition
+   805→
+   806→3. provider configuration/context discussion
+   807→→ chart-05-long-context
+   808→
+   809→4. prompt-cache calculation
+   810→→ chart-02-cache-reuse
+   811→
+   812→5. Batch section
+   813→→ chart-03-batch-cost
+   814→
+   815→Use semantic figures.
+   816→
+   817→Preferred markup pattern:
+   818→
+   819→<figure class="research-figure">
+   820→  <img ... />
+   821→  <figcaption>...</figcaption>
+   822→</figure>
+   823→
+   824→Use meaningful alt text from chart-specs.md.
+   825→
+   826→Do not repeat the chart title verbatim three times.
+   827→
+   828→Figure captions should explain:
+   829→
+   830→what is observed
+   831→what is derived
+   832→what is assumed
+   833→why it matters
+   834→
+   835→Use:
+   836→
+   837→loading="lazy"
+   838→
+   839→for below-the-fold figures where appropriate.
+   840→
+   841→Avoid cumulative layout shift.
+   842→
+   843→────────────────────────────────────────────────────────────
+   844→14. CREATE ONLY MINIMAL HOUSE ARTICLE COMPONENTS IF NEEDED
+   845→────────────────────────────────────────────────────────────
+   846→
+   847→Inspect the existing site first.
+   848→
+   849→If the site already supports attractive technical callouts, use them.
+   850→
+   851→If it does NOT, create the smallest useful reusable set required by this
+   852→release and future SECOND / PASS research.
+   853→
+   854→Possible minimal set:
+   855→
+   856→CalculationBlock.astro
+   857→ClaimCheck.astro
+   858→ResearchFigure.astro
+   859→DataDownload.astro
+   860→
+   861→Do NOT build a giant design system.
+   862→
+   863→Do NOT introduce a UI library.
+   864→
+   865→Do NOT introduce React just for these.
+   866→
+   867→Do NOT add client-side JavaScript unless necessary.
+   868→
+   869→They should be static Astro/MDX components.
+   870→
+   871→────────────────────────────────────────────────────────────
+   872→15. / CALCULATION PRESENTATION
+   873→────────────────────────────────────────────────────────────
+   874→
+   875→Calculation sections are a major SECOND / PASS editorial primitive.
+   876→
+   877→They should visually expose:
+   878→
+   879→QUESTION
+   880→ASSUMPTIONS
+   881→EQUATION
+   882→RESULT
+   883→SO WHAT?
+   884→CAVEAT
+   885→
+   886→Do not style them like marketing cards.
+   887→
+   888→Use:
+   889→
+   890→thin rules
+   891→paper background
+   892→mono labels
+   893→clear mathematical hierarchy
+   894→Signal Blue only for key result/emphasis
+   895→
+   896→Math must remain selectable/readable.
+   897→
+   898→Do not convert equations to images.
+   899→
+   900→Long equations:
+   901→
+   902→scroll inside their own container on mobile;
+   903→never cause page-level horizontal overflow.
+   904→
+   905→────────────────────────────────────────────────────────────
+   906→16. / CLAIM CHECK PRESENTATION
+   907→────────────────────────────────────────────────────────────
+   908→
+   909→The flagship has a / CLAIM CHECK section.
+   910→
+   911→Make it clearly distinguish:
+   912→
+   913→CLAIM
+   914→WHAT WAS MEASURED
+   915→WHAT WAS NOT MEASURED
+   916→STATUS
+   917→SECOND / PASS assessment
+   918→
+   919→Do not make it look like a warning alert.
+   920→
+   921→It is an evidence-status object.
+   922→
+   923→Use restrained editorial styling.
+   924→
+   925→────────────────────────────────────────────────────────────
+   926→17. SOURCING SYSTEM
+   927→────────────────────────────────────────────────────────────
+   928→
+   929→The package body currently contains source markers such as:
+   930→
+   931→([S1], [S4], [S6])
+   932→
+   933→Those IDs are meaningful in the research package but are not a reader-friendly
+   934→citation system on the live site.
+   935→
+   936→Do NOT ship raw unlinked S1/S4 references if the website does not resolve them.
+   937→
+   938→Use the SOURCE_LEDGER to convert them.
+   939→
+   940→Preferred low-complexity solution:
+   941→
+   942→replace inline package source IDs with concise direct Markdown links to the
+   943→precise source pages.
+   944→
+   945→Example:
+   946→
+   947→([OpenAI pricing](...), [Anthropic pricing](...))
+   948→
+   949→The right-side EvidencePanel / SOURCES section should simultaneously receive
+   950→the structured frontmatter source objects.
+   951→
+   952→Avoid duplicate ugly source appendices.
+   953→
+   954→If the article body ends with a manual:
+   955→
+   956→[S1] ...
+   957→[S2] ...
+   958→[S3] ...
+   959→
+   960→and the site's EvidencePanel/SOURCES section already presents those sources:
+   961→
+   962→remove the duplicate manual appendix after confirming every source remains
+   963→accessible through the site source system.
+   964→
+   965→Do not remove source access entirely.
+   966→
+   967→────────────────────────────────────────────────────────────
+   968→18. PROOF PAGE
+   969→────────────────────────────────────────────────────────────
+   970→
+   971→Publish:
+   972→
+   973→How to model the cost of an accepted AI outcome
+   974→
+   975→as:
+   976→
+   977→format: PROOF
+   978→section: AI
+   979→
+   980→Do not create a separate page framework for PROOF.
+   981→
+   982→Use the existing article renderer with format-specific labeling.
+   983→
+   984→The PROOF must retain:
+   985→
+   986→notation
+   987→accepted-outcome definition
+   988→direct cost
+   989→review cost
+   990→failure cost
+   991→retry model
+   992→quality-adjusted formulation
+   993→review break-even
+   994→failure break-even
+   995→latency penalty
+   996→cache break-even
+   997→sequential routing
+   998→configuration-level pricing
+   999→self-host boundary model
+  1000→energy limitations
+  1001→
+  1002→Do not simplify away the mathematics.
+  1003→
+  1004→But ensure:
+  1005→
+  1006→- every symbol is defined;
+  1007→- equations render correctly;
+  1008→- no malformed raw Markdown survives;
+  1009→- equations work on mobile;
+  1010→- source links are valid;
+  1011→- all assumptions remain labeled.
+  1012→
+  1013→At the top or near beginning, provide a clear relationship link:
+  1014→
+  1015→← READ THE MAIN ANALYSIS
+  1016→
+  1017→At the end:
+  1018→
+  1019→EXPLORE / DATA →
+  1020→
+  1021→and:
+  1022→
+  1023→READ / SECOND PASS →
+  1024→
+  1025→Use existing article relationships if present.
+  1026→
+  1027→Do not create unnecessary navigation infrastructure.
+  1028→
+  1029→────────────────────────────────────────────────────────────
+  1030→19. DATA PAGE
+  1031→────────────────────────────────────────────────────────────
+  1032→
+  1033→Publish:
+  1034→
+  1035→AI Inference Price Surface v0.1
+  1036→
+  1037→format: DATA
+  1038→section: Data
+  1039→
+  1040→The DATA page should include:
+  1041→
+  1042→SNAPSHOT / 2026-08-09
+  1043→
+  1044→configuration-level explanation
+  1045→
+  1046→comparison limitations
+  1047→
+  1048→download CSV
+  1049→
+  1050→download JSON
+  1051→
+  1052→data dictionary reference
+  1053→
+  1054→a compact readable table derived from the CSV
+  1055→
+  1056→Do NOT dump every verbose internal notes field into the visible table.
+  1057→
+  1058→Good visible columns:
+  1059→
+  1060→Provider
+  1061→Model
+  1062→Service tier
+  1063→Context band
+  1064→Input
+  1065→Cached input
+  1066→Cache write if relevant
+  1067→Output
+  1068→Batch
+  1069→Effective date
+  1070→
+  1071→Use exact units.
+  1072→
+  1073→Example header:
+  1074→
+  1075→USD / 1M TOKENS
+  1076→
+  1077→if that is the actual normalized unit.
+  1078→
+  1079→Wide table:
+  1080→
+  1081→contained horizontal scroll.
+  1082→
+  1083→No page-level horizontal overflow.
+  1084→
+  1085→Do not reduce font below legibility.
+  1086→
+  1087→If practical, sticky first column only if it remains clean on mobile.
+  1088→
+  1089→No JS data grid.
+  1090→
+  1091→No sorting/filter framework required for v0.1.
+  1092→
+  1093→────────────────────────────────────────────────────────────
+  1094→20. NOW ARTICLES
+  1095→────────────────────────────────────────────────────────────
+  1096→
+  1097→Each approved NOW article must:
+  1098→
+  1099→- receive a valid dek;
+  1100→- receive structured sources;
+  1101→- receive valid SEO fields;
+  1102→- receive publication date;
+  1103→- receive structured change log;
+  1104→- use adPolicy none;
+  1105→- receive social images;
+  1106→- pass prepublish;
+  1107→- have its volatile facts rechecked.
+  1108→
+  1109→NOW articles should remain concise.
+  1110→
+  1111→Do not expand them into long essays.
+  1112→
+  1113→Cross-link relevant NOW pieces to:
+  1114→
+  1115→flagship
+  1116→PROOF
+  1117→DATA
+  1118→
+  1119→when contextually appropriate.
+  1120→
+  1121→Examples:
+  1122→
+  1123→prompt-cache piece
+  1124→→ flagship calculation
+  1125→
+  1126→long-context piece
+  1127→→ DATA snapshot
+  1128→
+  1129→Sonnet effective-date piece
+  1130→→ DATA temporal-model explanation
+  1131→
+  1132→────────────────────────────────────────────────────────────
+  1133→21. SOCIAL METADATA
+  1134→────────────────────────────────────────────────────────────
+  1135→
+  1136→The current article renderer already supports article-specific social images.
+  1137→
+  1138→Use it.
+  1139→
+  1140→For the FLAGSHIP, use:
+  1141→
+  1142→socialStat: "1.71 pp"
+  1143→
+  1144→socialStatLabel:
+  1145→"review-rate reduction offsets the worked token premium"
+  1146→
+  1147→ONLY if the current verified calculation still supports it.
+  1148→
+  1149→Do not use:
+  1150→
+  1151→25× cheaper
+  1152→
+  1153→as the social headline in a way that suggests overall system superiority.
+  1154→
+  1155→The article's central message is specifically that token-price ratios alone are
+  1156→insufficient.
+  1157→
+  1158→Generate:
+  1159→
+  1160→1200×630 OG
+  1161→1080×1350 portrait
+  1162→1080×1080 square
+  1163→
+  1164→using the existing:
+  1165→
+  1166→bun run social:generate -- <slug>
+  1167→
+  1168→system.
+  1169→
+  1170→Generate social images for EVERY published real article.
+  1171→
+  1172→Do not replace the existing generator with an external API.
+  1173→
+  1174→────────────────────────────────────────────────────────────
+  1175→22. ARTICLE SOCIAL ASSET COPY
+  1176→────────────────────────────────────────────────────────────
+  1177→
+  1178→Flagship OG should prioritize approximately:
+  1179→
+  1180→SECOND / PASS
+  1181→
+  1182→AI / SECOND PASS
+  1183→
+  1184→THE CHEAPEST AI MODEL
+  1185→IS OFTEN NOT
+  1186→THE CHEAPEST SYSTEM
+  1187→
+  1188→1.71 pp
+  1189→
+  1190→REVIEW-RATE REDUCTION
+  1191→OFFSETS THE WORKED TOKEN PREMIUM
+  1192→
+  1193→PRIMARY SOURCES /
+  1194→ORIGINAL CALCULATIONS
+  1195→
+  1196→Do not overcrowd.
+  1197→
+  1198→If the current automatic generator renders this cleanly, keep it.
+  1199→
+  1200→If the headline clips, fix the generator generically rather than special-casing
+  1201→bad markup in the article.
+  1202→
+  1203→────────────────────────────────────────────────────────────
+  1204→23. ARTICLE UX
+  1205→────────────────────────────────────────────────────────────
+  1206→
+  1207→The flagship should work at three depths.
+  1208→
+  1209→60 SECONDS:
+  1210→
+  1211→headline
+  1212→dek
+  1213→FIRST PASS
+  1214→chart titles
+  1215→big results
+  1216→
+  1217→5 MINUTES:
+  1218→
+  1219→examples
+  1220→mechanisms
+  1221→calculations
+  1222→major caveats
+  1223→
+  1224→30 MINUTES:
+  1225→
+  1226→equations
+  1227→sources
+  1228→PROOF
+  1229→DATA
+  1230→methodology
+  1231→
+  1232→Do not hide critical findings behind interaction.
+  1233→
+  1234→No accordions for primary conclusions.
+  1235→
+  1236→No animation needed.
+  1237→
+  1238→No sticky social rail.
+  1239→
+  1240→No popup newsletter prompt.
+  1241→
+  1242→Reading comes first.
+  1243→
+  1244→────────────────────────────────────────────────────────────
+  1245→24. CTA CLEANUP
+  1246→────────────────────────────────────────────────────────────
+  1247→
+  1248→The current article template already appends the standard /BRIEF CTA.
+  1249→
+  1250→Avoid duplicate newsletter conversion blocks.
+  1251→
+  1252→The package flagship contains:
+  1253→
+  1254→/ INTELLIGENCE
+  1255→/ BRIEF
+  1256→
+  1257→Do this carefully:
+  1258→
+  1259→KEEP one subtle /INTELLIGENCE CTA near the end if it fits editorially.
+  1260→
+  1261→It should say approximately:
+  1262→
+  1263→/ INTELLIGENCE
+  1264→
+  1265→Making a model, routing, infrastructure or deployment decision?
+  1266→
+  1267→SECOND / PASS runs source-backed research sprints that apply this framework
+  1268→to a specific workload.
+  1269→
+  1270→START A RESEARCH BRIEF →
+  1271→
+  1272→Link to:
+  1273→
+  1274→/intelligence
+  1275→
+  1276→Do NOT add prices inside the article.
+  1277→
+  1278→Do NOT mention Razorpay.
+  1279→
+  1280→For /BRIEF:
+  1281→
+  1282→if the article template already appends the standard NewsletterCTA,
+  1283→remove/reduce the redundant body-level BRIEF sales block.
+  1284→
+  1285→There should not be three newsletter CTAs in one article.
+  1286→
+  1287→────────────────────────────────────────────────────────────
+  1288→25. BRIEF ISSUE
+  1289→────────────────────────────────────────────────────────────
+  1290→
+  1291→The ZIP includes:
+  1292→
+  1293→06_BRIEF/brief-issue.md
+  1294→
+  1295→Do NOT create another duplicate article route for this.
+  1296→
+  1297→The newsletter is powered by Beehiiv.
+  1298→
+  1299→The website's job is:
+  1300→
+  1301→- subscription
+  1302→- article
+  1303→- source pages
+  1304→- archive/linking where appropriate
+  1305→
+  1306→The Beehiiv issue draft should be retained as the approved dispatch copy.
+  1307→
+  1308→If this environment has an explicitly authenticated and safe Beehiiv content
+  1309→publishing capability:
+  1310→
+  1311→prepare the issue there as a DRAFT only unless sending is explicitly supported
+  1312→and this prompt clearly authorizes it.
+  1313→
+  1314→This prompt authorizes the WEBSITE release.
+  1315→
+  1316→It does NOT authorize accidentally emailing a subscriber list through an
+  1317→unknown/unverified API workflow.
+  1318→
+  1319→Therefore:
+  1320→
+  1321→DO NOT send a Beehiiv email automatically unless the environment has a
+  1322→known supported publication-send workflow and can show a safe preview first.
+  1323→
+  1324→Instead, return:
+  1325→
+  1326→BRIEF 001 — READY TO SEND
+  1327→
+  1328→with the exact subject, preheader and body from the package.
+  1329→
+  1330→Do not block website launch on Beehiiv issue sending.
+  1331→
+  1332→────────────────────────────────────────────────────────────
+  1333→26. DISTRIBUTION FILES
+  1334→────────────────────────────────────────────────────────────
+  1335→
+  1336→The ZIP includes native distribution drafts for:
+  1337→
+  1338→Hacker News
+  1339→Reddit
+  1340→X
+  1341→LinkedIn personal
+  1342→LinkedIn company
+  1343→Bluesky
+  1344→Threads
+  1345→DEV/Hashnode
+  1346→Medium
+  1347→direct outreach
+  1348→
+  1349→These are NOT website pages.
+  1350→
+  1351→Do not expose them through the public site.
+  1352→
+  1353→Do not index them.
+  1354→
+  1355→Do not automatically post to external social networks unless an explicit,
+  1356→authenticated integration is available AND external posting is clearly
+  1357→authorized.
+  1358→
+  1359→The task here is to make them launch-ready.
+  1360→
+  1361→After the production article URLs exist:
+  1362→
+  1363→replace any placeholder URLs with the real canonical URLs.
+  1364→
+  1365→Generate tracked links using:
+  1366→
+  1367→bun run distribute:url -- <slug> <channel>
+  1368→
+  1369→Prepare a final launch distribution sheet with:
+  1370→
+  1371→canonical URL
+  1372→HN URL
+  1373→Reddit URL
+  1374→LinkedIn URL
+  1375→X URL
+  1376→BRIEF URL
+  1377→direct outreach URL
+  1378→
+  1379→Do not modify the editorial copy merely to insert excessive tracking.
+  1380→
+  1381→────────────────────────────────────────────────────────────
+  1382→27. HOMEPAGE
+  1383→────────────────────────────────────────────────────────────
+  1384→
+  1385→After the flagship is published:
+  1386→
+  1387→ensure it becomes the primary/featured real story on the homepage.
+  1388→
+  1389→The homepage should immediately communicate that SECOND / PASS now contains
+  1390→real published research.
+  1391→
+  1392→Do NOT redesign the homepage.
+  1393→
+  1394→Do NOT add a giant launch banner.
+  1395→
+  1396→Do NOT create confetti/motion.
+  1397→
+  1398→Use the site's existing editorial hierarchy.
+  1399→
+  1400→The flagship should be featured.
+  1401→
+  1402→PROOF and DATA should appear naturally through their section/related content.
+  1403→
+  1404→NOW stories should populate NOW if published.
+  1405→
+  1406→────────────────────────────────────────────────────────────
+  1407→28. REMOVE DEMO CONTENT FROM PUBLIC PRODUCTION
+  1408→────────────────────────────────────────────────────────────
+  1409→
+  1410→Inventory all current:
+  1411→
+  1412→demo: true
+  1413→
+  1414→articles.
+  1415→
+  1416→For public launch:
+  1417→
+  1418→NO demo article may remain:
+  1419→
+  1420→status: published
+  1421→
+  1422→Do not necessarily delete useful fixture content.
+  1423→
+  1424→If needed for tests:
+  1425→
+  1426→set it to draft.
+  1427→
+  1428→Ensure homepage, section pages, RSS and search do not expose demos in
+  1429→production.
+  1430→
+  1431→No public reader should encounter:
+  1432→
+  1433→DEMO
+  1434→example.com
+  1435→placeholder source
+  1436→fake publication date
+  1437→fake author
+  1438→fake metric
+  1439→
+  1440→after launch.
+  1441→
+  1442→────────────────────────────────────────────────────────────
+  1443→29. PRELAUNCH → PUBLIC LAUNCH
+  1444→────────────────────────────────────────────────────────────
+  1445→
+  1446→The site currently uses fail-safe prelaunch mode.
+  1447→
+  1448→This release is intended to become the actual public launch.
+  1449→
+  1450→DO NOT flip prelaunch until all real content and launch checks are ready.
+  1451→
+  1452→Sequence:
+  1453→
+  1454→1. integrate content;
+  1455→2. validate content;
+  1456→3. remove published demos;
+  1457→4. generate social assets;
+  1458→5. run prepublish on every public article;
+  1459→6. verify providers;
+  1460→7. verify build;
+  1461→8. verify RSS;
+  1462→9. verify sitemap;
+  1463→10. verify Pagefind;
+  1464→11. verify homepage;
+  1465→12. THEN set production environment:
+  1466→
+  1467→SITE_PRELAUNCH=false
+  1468→
+  1469→Do not remove the fail-safe code.
+  1470→
+  1471→Only change the environment value for production launch.
+  1472→
+  1473→Do not hardcode:
+  1474→
+  1475→const prelaunch = false
+  1476→
+  1477→Keep the safety mechanism.
+  1478→
+  1479→────────────────────────────────────────────────────────────
+  1480→30. FOOTER LAUNCH STATE
+  1481→────────────────────────────────────────────────────────────
+  1482→
+  1483→The current footer contains the literal text:
+  1484→
+  1485→Pre-launch · Demo content is marked
+  1486→
+  1487→That cannot remain on the launched publication.
+  1488→
+  1489→Fix it.
+  1490→
+  1491→Preferred behavior:
+  1492→
+  1493→during prelaunch:
+  1494→
+  1495→Pre-launch · Demo content is marked
+  1496→
+  1497→during public mode:
+  1498→
+  1499→Primary sources · Original calculations · Visible corrections
+  1500→
+  1501→OR another equally restrained live-publication line consistent with the brand.
+  1502→
+  1503→Prefer environment-aware behavior rather than manually changing the text each
+  1504→time.
+  1505→
+  1506→Do not turn the footer into marketing copy.
+  1507→
+  1508→────────────────────────────────────────────────────────────
+  1509→31. ROBOTS / INDEXING
+  1510→────────────────────────────────────────────────────────────
+  1511→
+  1512→After:
+  1513→
+  1514→SITE_PRELAUNCH=false
+  1515→
+  1516→verify:
+  1517→
+  1518→article pages DO NOT contain:
+  1519→
+  1520→noindex,nofollow
+  1521→
+  1522→robots.txt allows indexing
+  1523→
+  1524→sitemap contains real articles
+  1525→
+  1526→RSS contains real published articles
+  1527→
+  1528→Pagefind indexes real articles
+  1529→
+  1530→canonical points to:
+  1531→
+  1532→https://second-pass.vercel.app
+  1533→
+  1534→for now.
+  1535→
+  1536→Do not change to secondpass.net until the domain actually exists and is
+  1537→connected.
+  1538→
+  1539→────────────────────────────────────────────────────────────
+  1540→32. AUTHOR
+  1541→────────────────────────────────────────────────────────────
+  1542→
+  1543→Use the existing:
+  1544→
+  1545→/authors/aditya
+  1546→
+  1547→author system.
+  1548→
+  1549→Do not recreate it.
+  1550→
+  1551→Ensure:
+  1552→
+  1553→Aditya
+  1554→Founder & Editor
+  1555→SECOND / PASS
+  1556→
+  1557→is associated with these articles.
+  1558→
+  1559→Ensure article JSON-LD resolves author as:
+  1560→
+  1561→Person
+  1562→
+  1563→and publisher separately as:
+  1564→
+  1565→Organization
+  1566→
+  1567→Do not invent:
+  1568→
+  1569→education
+  1570→work history
+  1571→credentials
+  1572→social profiles
+  1573→awards
+  1574→client history
+  1575→
+  1576→Ensure the new real articles appear on Aditya's RECENT list.
+  1577→
+  1578→────────────────────────────────────────────────────────────
+  1579→33. STRUCTURED DATA
+  1580→────────────────────────────────────────────────────────────
+  1581→
+  1582→Verify each published article outputs:
+  1583→
+  1584→Article/NewsArticle-equivalent site schema as currently designed
+  1585→
+  1586→Person author
+  1587→
+  1588→Organization publisher
+  1589→
+  1590→headline
+  1591→
+  1592→description
+  1593→
+  1594→datePublished
+  1595→
+  1596→dateModified where appropriate
+  1597→
+  1598→canonical URL
+  1599→
+  1600→article section
+  1601→
+  1602→tags
+  1603→
+  1604→image
+  1605→
+  1606→Ensure article metadata includes:
+  1607→
+  1608→og:type=article
+  1609→
+  1610→og:title
+  1611→
+  1612→og:description
+  1613→
+  1614→og:url
+  1615→
+  1616→og:image
+  1617→
+  1618→og:image:alt
+  1619→
+  1620→og:image:width=1200
+  1621→
+  1622→og:image:height=630
+  1623→
+  1624→article:published_time
+  1625→
+  1626→article:modified_time
+  1627→
+  1628→article:section
+  1629→
+  1630→article:tag
+  1631→
+  1632→twitter:card=summary_large_image
+  1633→
+  1634→twitter:image
+  1635→
+  1636→Do not invent social handles.
+  1637→
+  1638→────────────────────────────────────────────────────────────
+  1639→34. INTERNAL CROSS-LINKING
+  1640→────────────────────────────────────────────────────────────
+  1641→
+  1642→Create clear relationships without stuffing links.
+  1643→
+  1644→FLAGSHIP:
+  1645→
+  1646→→ PROOF
+  1647→→ DATA
+  1648→→ Intelligence
+  1649→→ /BRIEF
+  1650→
+  1651→PROOF:
+  1652→
+  1653→→ flagship
+  1654→→ DATA
+  1655→
+  1656→DATA:
+  1657→
+  1658→→ flagship
+  1659→→ PROOF/methodology
+  1660→
+  1661→NOW:
+  1662→
+  1663→→ relevant flagship or DATA artifact
+  1664→
+  1665→Use descriptive link copy.
+  1666→
+  1667→Do not use generic:
+  1668→
+  1669→click here
+  1670→
+  1671→────────────────────────────────────────────────────────────
+  1672→35. SEARCH / PAGEFIND
+  1673→────────────────────────────────────────────────────────────
+  1674→
+  1675→After publishing:
+  1676→
+  1677→rebuild Pagefind.
+  1678→
+  1679→Search terms to test:
+  1680→
+  1681→accepted outcome
+  1682→
+  1683→1.71
+  1684→
+  1685→prompt caching
+  1686→
+  1687→batch
+  1688→
+  1689→long context
+  1690→
+  1691→model routing
+  1692→
+  1693→AI inference
+  1694→
+  1695→At least the relevant article must appear.
+  1696→
+  1697→Internal QA docs must NOT appear.
+  1698→
+  1699→Distribution files must NOT appear.
+  1700→
+  1701→────────────────────────────────────────────────────────────
+  1702→36. RSS
+  1703→────────────────────────────────────────────────────────────
+  1704→
+  1705→Verify RSS contains:
+  1706→
+  1707→real published content
+  1708→
+  1709→correct title
+  1710→correct URL
+  1711→correct publication date
+  1712→correct description
+  1713→
+  1714→and excludes:
+  1715→
+  1716→draft
+  1717→review
+  1718→demo
+  1719→internal QA
+  1720→
+  1721→Open the live `/rss.xml` after deployment.
+  1722→
+  1723→────────────────────────────────────────────────────────────
+  1724→37. SITEMAP
+  1725→────────────────────────────────────────────────────────────
+  1726→
+  1727→Verify sitemap includes:
+  1728→
+  1729→flagship article
+  1730→PROOF article
+  1731→DATA article
+  1732→published NOW articles
+  1733→author page
+  1734→main section pages
+  1735→
+  1736→No internal package files.
+  1737→
+  1738→No raw QA docs.
+  1739→
+  1740→No temporary extraction paths.
+  1741→
+  1742→────────────────────────────────────────────────────────────
+  1743→38. /BRIEF INTEGRATION
+  1744→────────────────────────────────────────────────────────────
+  1745→
+  1746→Verify live:
+  1747→
+  1748→/brief
+  1749→
+  1750→still successfully renders and accepts subscriptions.
+  1751→
+  1752→Do not change the Beehiiv integration while publishing this research unless
+  1753→a real bug is discovered.
+  1754→
+  1755→Verify:
+  1756→
+  1757→/api/health
+  1758→
+  1759→returns:
+  1760→
+  1761→status: ok
+  1762→brief: configured
+  1763→leads: configured
+  1764→
+  1765→Do not print API keys.
+  1766→
+  1767→Do not log secrets.
+  1768→
+  1769→────────────────────────────────────────────────────────────
+  1770→39. COMMERCIAL FORMS
+  1771→────────────────────────────────────────────────────────────
+  1772→
+  1773→Verify:
+  1774→
+  1775→/partner
+  1776→/intelligence
+  1777→
+  1778→remain functional after release.
+  1779→
+  1780→Do not redesign them.
+  1781→
+  1782→Do not submit repeated unnecessary test leads.
+  1783→
+  1784→One safe test only if necessary.
+  1785→
+  1786→Confirm Resend still works.
+  1787→
+  1788→The flagship's /INTELLIGENCE CTA must link to:
+  1789→
+  1790→/intelligence
+  1791→
+  1792→────────────────────────────────────────────────────────────
+  1793→40. SOCIAL ASSET GENERATION
+  1794→────────────────────────────────────────────────────────────
+  1795→
+  1796→For every article that will become `published`, run:
+  1797→
+  1798→bun run social:generate -- <slug>
+  1799→
+  1800→Expected per slug:
+  1801→
+  1802→public/social/<slug>/og.png
+  1803→public/social/<slug>/portrait.png
+  1804→public/social/<slug>/square.png
+  1805→
+  1806→Visually inspect all flagship assets.
+  1807→
+  1808→For secondary NOW pieces, at minimum verify dimensions and no clipping.
+  1809→
+  1810→Do not commit broken social images.
+  1811→
+  1812→────────────────────────────────────────────────────────────
+  1813→41. PREPUBLISH EVERY PUBLISHED ARTICLE
+  1814→────────────────────────────────────────────────────────────
+  1815→
+  1816→Run individually:
+  1817→
+  1818→bun run prepublish -- cheapest-ai-model-not-cheapest-system
+  1819→
+  1820→bun run prepublish -- cheapest-ai-model-not-cheapest-system-proof
+  1821→
+  1822→bun run prepublish -- ai-inference-price-surface-v0-1
+  1823→
+  1824→And for each NOW piece that will be published:
+  1825→
+  1826→bun run prepublish -- no-universal-long-context-premium
+  1827→
+  1828→bun run prepublish -- prompt-cache-second-use-break-even
+  1829→
+  1830→bun run prepublish -- sonnet-5-price-effective-date
+  1831→
+  1832→ALL must pass.
+  1833→
+  1834→If one NOW article fails:
+  1835→
+  1836→do not block the primary flagship/PROOF/DATA release unless the failure
+  1837→indicates a systemic issue.
+  1838→
+  1839→Leave the failed NOW article unpublished and report it.
+  1840→
+  1841→────────────────────────────────────────────────────────────
+  1842→42. FULL VERIFICATION
+  1843→────────────────────────────────────────────────────────────
+  1844→
+  1845→After article-level verification run:
+  1846→
+  1847→bun install
+  1848→
+  1849→bun run content:audit
+  1850→
+  1851→bun run check
+  1852→
+  1853→bun run build
+  1854→
+  1855→Then verify built output.
+  1856→
+  1857→Do not rely only on exit code.
+  1858→
+  1859→Inspect generated HTML for flagship.
+  1860→
+  1861→Confirm:
+  1862→
+  1863→headline
+  1864→
+  1865→dek
+  1866→
+  1867→FIRST PASS
+  1868→
+  1869→all five charts
+  1870→
+  1871→calculation result
+  1872→
+  1873→1.71 pp
+  1874→
+  1875→source links
+  1876→
+  1877→PROOF link
+  1878→
+  1879→DATA link
+  1880→
+  1881→INTELLIGENCE CTA
+  1882→
+  1883→BRIEF CTA
+  1884→
+  1885→author
+  1886→
+  1887→publication date
+  1888→
+  1889→social metadata
+  1890→
+  1891→JSON-LD
+  1892→
+  1893→sources
+  1894→
+  1895→change log
+  1896→
+  1897→/END
+  1898→
+  1899→share utility
+  1900→
+  1901→────────────────────────────────────────────────────────────
+  1902→43. LAUNCH:VERIFY
+  1903→────────────────────────────────────────────────────────────
+  1904→
+  1905→Before final production deploy, run the equivalent of:
+  1906→
+  1907→SITE_PRELAUNCH=false bun run launch:verify
+  1908→
+  1909→with all required provider environment variables safely available.
+  1910→
+  1911→Do not print environment secrets.
+  1912→
+  1913→Resolve every true failure.
+  1914→
+  1915→If Pagefind is missing because launch:verify expects build output:
+  1916→
+  1917→run the correct build/search sequence and rerun.
+  1918→
+  1919→Launch verification must pass.
+  1920→
+  1921→────────────────────────────────────────────────────────────
+  1922→44. MOBILE QA
+  1923→────────────────────────────────────────────────────────────
+  1924→
+  1925→Test at least:
+  1926→
+  1927→1440px
+  1928→1024px
+  1929→820px
+  1930→768px
+  1931→430px
+  1932→390px
+  1933→375px
+  1934→
+  1935→Flagship is the priority.
+  1936→
+  1937→Inspect:
+  1938→
+  1939→headline wrapping
+  1940→
+  1941→dek
+  1942→
+  1943→FIRST PASS
+  1944→
+  1945→equations
+  1946→
+  1947→five charts
+  1948→
+  1949→captions
+  1950→
+  1951→CALCULATION blocks
+  1952→
+  1953→CLAIM CHECK
+  1954→
+  1955→tables
+  1956→
+  1957→source rail
+  1958→
+  1959→source list
+  1960→
+  1961→share utility
+  1962→
+  1963→NewsletterCTA
+  1964→
+  1965→INTELLIGENCE CTA
+  1966→
+  1967→footer
+  1968→
+  1969→No page-level horizontal overflow.
+  1970→
+  1971→Math may scroll inside its own bounded region.
+  1972→
+  1973→DATA table may scroll inside its own bounded region.
+  1974→
+  1975→No text smaller than reasonably readable.
+  1976→
+  1977→────────────────────────────────────────────────────────────
+  1978→45. ACCESSIBILITY
+  1979→────────────────────────────────────────────────────────────
+  1980→
+  1981→Verify:
+  1982→
+  1983→one H1 per article
+  1984→
+  1985→logical H2/H3 order
+  1986→
+  1987→alt text for charts
+  1988→
+  1989→keyboard-accessible links
+  1990→
+  1991→visible focus states
+  1992→
+  1993→meaningful link names
+  1994→
+  1995→table headers use proper semantics
+  1996→
+  1997→captions are associated with figures
+  1998→
+  1999→color contrast is acceptable
+  2000→
+
+[showing lines 1-2000 of 3138; use offset=2001 with limit to continue reading]

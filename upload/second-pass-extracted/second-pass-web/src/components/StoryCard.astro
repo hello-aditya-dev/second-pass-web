@@ -1,0 +1,12 @@
+---
+import type { ArticleEntry } from "@/lib/content";
+import { formatDate } from "@/lib/content";
+interface Props { article: ArticleEntry; compact?: boolean; }
+const { article, compact = false } = Astro.props;
+---
+<article class={compact ? "story-row" : "story-card"}>
+  <div class="story-meta">{article.data.section} / {article.data.format}</div>
+  <h3><a href={`/articles/${article.data.slug}`}>{article.data.title}</a></h3>
+  {!compact && <p>{article.data.dek}</p>}
+  <div class="story-meta">{formatDate(article.data.publishedAt)}{article.data.demo ? " / DEMO" : ""}</div>
+</article>

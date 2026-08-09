@@ -1,0 +1,113 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import StoryCard from "@/components/StoryCard.astro";
+import SectionHead from "@/components/SectionHead.astro";
+import AdBreak from "@/components/AdBreak.astro";
+import NewsletterCTA from "@/components/NewsletterCTA.astro";
+import { publishedArticles, formatDate } from "@/lib/content";
+
+const articles = await publishedArticles();
+const lead = articles.find((item) => item.data.featured) ?? articles[0];
+const rest = articles.filter((item) => item.id !== lead?.id);
+const now = rest.filter((item) => item.data.format === "NOW").slice(0, 4);
+const analysis = rest.filter((item) => item.data.format !== "NOW").slice(0, 3);
+const research = rest.filter((item) => item.data.section === "Research").slice(0, 2);
+---
+<BaseLayout>
+  <div class="shell edition-line" data-pagefind-ignore>
+    <span>TECHNICAL INTELLIGENCE / PRE-LAUNCH</span>
+    <span>DEMO STORIES ARE MARKED</span>
+  </div>
+
+  {lead ? (
+    <section class="shell hero-grid">
+      <article class="lead">
+        <div class="lead-mark" aria-hidden="true"></div>
+        <div class="kicker">{lead.data.section} / {lead.data.format}</div>
+        <h1><a href={`/articles/${lead.data.slug}`}>{lead.data.title}</a></h1>
+        <p class="lead-dek">{lead.data.dek}</p>
+        <div class="story-meta">
+          {lead.data.author} / {formatDate(lead.data.publishedAt)} / {lead.data.demo ? "DEMO" : "PUBLISHED"}
+        </div>
+      </article>
+
+      <aside class="now-rail" aria-label="Now">
+        <div class="section-minihead">
+          <strong>/ NOW</strong>
+          <a class="mono" href="/now">ALL →</a>
+        </div>
+        {now.length ? now.map((item) => <StoryCard article={item} compact />) : (
+          rest.slice(0, 4).map((item) => <StoryCard article={item} compact />)
+        )}
+      </aside>
+    </section>
+  ) : (
+    <section class="shell route">
+      <div class="route-head">
+        <div class="kicker">SECOND / PASS</div>
+        <h1>No public stories yet.</h1>
+        <p>The product is ready for human-approved newsroom content.</p>
+      </div>
+    </section>
+  )}
+
+  <section class="shell section-block">
+    <SectionHead
+      title="/ SECOND PASS"
+      description="What changed underneath the first headline — mechanism, evidence, consequence."
+      href="/latest"
+    />
+    <div class="story-grid">
+      {analysis.map((item) => <StoryCard article={item} />)}
+    </div>
+  </section>
+
+  <div class="shell">
+    <AdBreak fallback="brief" />
+  </div>
+
+  <section class="data-band">
+    <div class="shell">
+      <SectionHead
+        title="/ DATA"
+        description="Reference products that keep the source, date, method, and assumptions attached."
+        href="/data"
+      />
+      <div class="data-grid">
+        <a class="data-module" href="/data#model-pricing">
+          <span class="number">01 / PLANNED</span>
+          <h3>Model Pricing Index</h3>
+          <p>Versioned API pricing, caching rules, effective dates, and provider conditions.</p>
+          <span class="mono">OPEN →</span>
+        </a>
+        <a class="data-module" href="/data#accelerators">
+          <span class="number">02 / PLANNED</span>
+          <h3>Accelerator Index</h3>
+          <p>GPU and accelerator specifications with architecture-level comparison context.</p>
+          <span class="mono">OPEN →</span>
+        </a>
+        <a class="data-module" href="/data#benchmarks">
+          <span class="number">03 / PLANNED</span>
+          <h3>Benchmark Registry</h3>
+          <p>Scores with workload, hardware, precision, methodology, and who ran the test.</p>
+          <span class="mono">OPEN →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell section-block">
+    <SectionHead
+      title="/ PROOF"
+      description="Research and methodology where the evidence itself is part of the story."
+      href="/research"
+    />
+    <div class="story-grid">
+      {(research.length ? research : rest.slice(-2)).map((item) => <StoryCard article={item} />)}
+    </div>
+  </section>
+
+  <div class="shell">
+    <NewsletterCTA />
+  </div>
+</BaseLayout>

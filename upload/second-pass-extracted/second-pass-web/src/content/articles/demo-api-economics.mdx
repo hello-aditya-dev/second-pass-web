@@ -1,0 +1,40 @@
+---
+title: "Demo: Token price is not the same thing as inference economics"
+dek: "Nominal API pricing is useful, but production cost comparisons also depend on caching, output shape, retries, latency targets, and billing rules."
+slug: "demo-api-economics"
+section: "AI"
+format: "DEEP"
+author: "Second Pass Editorial"
+publishedAt: 2026-08-08T08:30:00Z
+status: "published"
+firstPass:
+  - "Published input and output token prices are only two variables in a production cost model."
+  - "Caching and workload shape can materially alter effective cost."
+  - "Historical price comparisons need effective dates and source provenance."
+featured: false
+demo: true
+tags: ["inference", "pricing"]
+adPolicy: "light"
+sources: []
+changeLog:
+  - at: 2026-08-08T08:30:00Z
+    type: "published"
+    note: "Product demonstration article."
+---
+
+## / SECOND PASS
+
+A clean price table is attractive because every model appears comparable. That appearance can be
+misleading.
+
+Cached input, batch pricing, output length, retries, tool calls, latency objectives, context reuse,
+and provider billing semantics all affect real cost. A useful price database therefore has to
+store more than two numbers.
+
+## The data product matters
+
+SECOND / PASS should eventually preserve effective date, pricing conditions, source URL, model
+version, and historical records. That lets an old analysis remain historically coherent rather
+than silently inheriting today's prices.
+
+This page contains no live provider price.

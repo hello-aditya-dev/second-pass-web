@@ -1,0 +1,22 @@
+---
+import { SITE } from "@/lib/site";
+---
+<header class="masthead" data-pagefind-ignore>
+  <div class="shell masthead-main">
+    <a class="wordmark" href="/" aria-label="Second Pass home">
+      <span>SECOND</span><span class="slash">/</span><span>PASS</span>
+    </a>
+
+    <nav class="primary-nav" aria-label="Primary">
+      {SITE.topics.map((topic) => <a href={topic.href}>{topic.label}</a>)}
+    </nav>
+
+    <div class="header-actions">
+      <a href="/search" aria-label="Search"><span class="search-label">SEARCH</span> ⌕</a>
+      <a class="brief-link" href="/brief">/ BRIEF</a>
+    </div>
+  </div>
+  <nav class="topic-strip" aria-label="Topic navigation">
+    {SITE.topics.map((topic) => <a href={topic.href}>{topic.label}</a>)}
+  </nav>
+</header>

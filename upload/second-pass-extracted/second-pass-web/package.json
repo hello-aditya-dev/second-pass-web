@@ -1,0 +1,33 @@
+{
+  "name": "second-pass-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build:astro": "astro build",
+    "search:index": "pagefind --site dist",
+    "build": "npm run build:astro && npm run search:index",
+    "preview": "astro preview",
+    "check": "astro check",
+    "verify": "npm run check && npm run build",
+    "article:new": "node scripts/new-article.mjs",
+    "content:audit": "node scripts/content-audit.mjs"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "7.0.5",
+    "@astrojs/rss": "4.0.19",
+    "@astrojs/sitemap": "3.7.3",
+    "@fontsource-variable/bricolage-grotesque": "^5.2.10",
+    "@fontsource-variable/newsreader": "^5.2.10",
+    "astro": "7.1.6"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "pagefind": "1.5.2",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

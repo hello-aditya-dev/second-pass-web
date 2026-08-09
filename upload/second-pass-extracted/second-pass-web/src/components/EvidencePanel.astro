@@ -1,0 +1,26 @@
+---
+interface Source {
+  label: string;
+  url?: string;
+  type: string;
+  note?: string;
+}
+interface Props { sources: Source[]; }
+const { sources } = Astro.props;
+---
+<div class="evidence-stack">
+  <div class="kicker">/ EVIDENCE</div>
+  {sources.length === 0 ? (
+    <div class="evidence">
+      <strong>No public source record</strong>
+      <p>Demo material or source list pending.</p>
+    </div>
+  ) : sources.map((source) => (
+    <details class="evidence">
+      <summary>{source.label}</summary>
+      <p><span class="source-type">{source.type}</span></p>
+      {source.note && <p>{source.note}</p>}
+      {source.url && <a href={source.url} rel="noreferrer">Open source ↗</a>}
+    </details>
+  ))}
+</div>
