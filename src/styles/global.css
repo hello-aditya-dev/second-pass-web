@@ -405,6 +405,81 @@ button, input { font: inherit; }
   .footer-bottom { flex-direction: column; gap: 4px; }
 }
 
+/* ── BRIEF signup form ── */
+.brief-form { margin-top: 16px; }
+.brief-form-fields { display: flex; gap: 8px; max-width: 480px; }
+.brief-input {
+  flex: 1; border: 1px solid var(--ink); background: #fffdf7;
+  padding: 10px 12px; font-size: .92rem; font-family: var(--reader);
+  transition: border-color .15s ease;
+}
+.brief-input:focus { border-color: var(--blue); outline: none; box-shadow: 0 0 0 3px var(--blue-ghost); }
+.brief-submit {
+  background: var(--ink); color: var(--paper); border: none;
+  padding: 10px 18px; font-size: .78rem; font-weight: 760;
+  font-family: var(--display); cursor: pointer;
+  transition: background .15s ease;
+}
+.brief-submit:hover { background: var(--blue-dark); }
+.brief-submit:disabled { opacity: .6; cursor: not-allowed; }
+.brief-status { margin-top: 8px; font: .82rem/1.35 var(--reader); min-height: 1.2em; }
+.brief-success { color: var(--blue-dark); }
+.brief-error { color: #b91c1c; }
+.brief-consent { margin-top: 10px; font: .72rem/1.35 var(--reader); color: var(--graphite); }
+.brief-consent a { color: var(--blue-dark); text-decoration: underline; }
+.brief-disabled { font: .92rem/1.4 var(--reader); color: var(--graphite); }
+.brief-disabled a { color: var(--blue-dark); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
+/* ── Commercial forms ── */
+.commercial-form {
+  max-width: 930px; margin-top: 48px;
+  border-top: 3px solid var(--ink); padding-top: 24px;
+}
+.commercial-form h2 {
+  margin: 0 0 24px; font-size: clamp(1.8rem, 3vw, 3rem);
+  letter-spacing: -.055em;
+}
+.form-warning {
+  margin: 0 0 18px; padding: 10px 14px;
+  border-left: 3px solid var(--blue);
+  font: .88rem/1.4 var(--reader); color: var(--graphite);
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px; }
+.form-field { margin-bottom: 18px; }
+.form-field label {
+  display: block; margin-bottom: 5px;
+  font: .72rem var(--mono); text-transform: uppercase; letter-spacing: .04em;
+}
+.form-field input,
+.form-field textarea,
+.form-field select {
+  width: 100%; border: 1px solid var(--rule); background: #fffdf7;
+  padding: 10px 12px; font-size: .92rem; font-family: var(--reader);
+  transition: border-color .15s ease;
+}
+.form-field input:focus,
+.form-field textarea:focus,
+.form-field select:focus {
+  border-color: var(--blue); outline: none;
+  box-shadow: 0 0 0 3px var(--blue-ghost);
+}
+.form-field textarea { resize: vertical; min-height: 60px; }
+.form-field select { appearance: none; cursor: pointer; }
+.form-actions { display: flex; gap: 18px; align-items: center; margin-top: 24px; }
+.form-submit {
+  background: var(--ink); color: var(--paper); border: none;
+  padding: 12px 24px; font-size: .82rem; font-weight: 720;
+  font-family: var(--display); cursor: pointer;
+  transition: background .15s ease;
+}
+.form-submit:hover { background: var(--blue-dark); }
+.form-submit:disabled { opacity: .6; cursor: not-allowed; }
+.form-status { font: .88rem/1.35 var(--reader); min-height: 1.2em; }
+.form-success { color: var(--blue-dark); }
+.form-error { color: #b91c1c; }
+.form-note { margin-top: 18px; font: .78rem/1.35 var(--reader); color: var(--graphite); max-width: 640px; }
+
 /* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -413,4 +488,10 @@ button, input { font: inherit; }
     animation-iteration-count: 1 !important;
     transition-duration: .01ms !important;
   }
+}
+
+/* ── Form responsive ── */
+@media (max-width: 720px) {
+  .form-row { grid-template-columns: 1fr; }
+  .brief-form-fields { flex-direction: column; }
 }

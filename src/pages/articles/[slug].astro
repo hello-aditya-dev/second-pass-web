@@ -29,7 +29,7 @@ const meaningfulHeadings = headings.filter((heading) => heading.depth === 2);
   ogType="article"
 >
   <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(schema).replaceAll("<", "\\u003c")} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(schema).replaceAll("<", "\\u003c")} />
   </Fragment>
 
   <ReadingProgress />

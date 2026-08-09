@@ -12,12 +12,15 @@
     "check": "astro check",
     "verify": "bun run check && bun run build",
     "article:new": "node scripts/new-article.mjs",
-    "content:audit": "node scripts/content-audit.mjs"
+    "article:verify": "node scripts/verify-article.mjs",
+    "content:audit": "node scripts/content-audit.mjs",
+    "prepublish": "node scripts/prepublish.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "7.0.5",
     "@astrojs/rss": "4.0.19",
     "@astrojs/sitemap": "3.7.3",
+    "@astrojs/vercel": "^11.0.5",
     "@fontsource-variable/bricolage-grotesque": "^5.2.10",
     "@fontsource-variable/newsreader": "^5.2.10",
     "astro": "7.1.6"

@@ -1,0 +1,216 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+const formsEnabled = import.meta.env.PUBLIC_COMMERCIAL_FORMS_ENABLED === "true";
+---
+<BaseLayout title="/ INTELLIGENCE" description="Technical intelligence for decisions that cannot wait for the market to become obvious.">
+  <section class="shell route">
+    <header class="route-head">
+      <div class="kicker">/ INTELLIGENCE</div>
+      <h1>Decisions that cannot wait for the market to become obvious.</h1>
+      <p>
+        Source-backed technical intelligence for teams navigating AI infrastructure,
+        inference economics, cloud pricing, and competitive landscapes.
+      </p>
+    </header>
+
+    <div class="intelligence-capabilities">
+      <div class="intel-card">
+        <div class="kicker">01</div>
+        <h3>AI Infrastructure Market Mapping</h3>
+        <p>Provider capabilities, pricing trajectories, and adoption signals.</p>
+      </div>
+      <div class="intel-card">
+        <div class="kicker">02</div>
+        <h3>Inference Economics</h3>
+        <p>Cost per token, hardware utilization, and model deployment trade-offs.</p>
+      </div>
+      <div class="intel-card">
+        <div class="kicker">03</div>
+        <h3>GPU / Cloud Pricing Analysis</h3>
+        <p>Current and historical pricing with provider conditions and caveats.</p>
+      </div>
+      <div class="intel-card">
+        <div class="kicker">04</div>
+        <h3>Technical Competitor Analysis</h3>
+        <p>Architecture-level comparison, not press-release positioning.</p>
+      </div>
+      <div class="intel-card">
+        <div class="kicker">05</div>
+        <h3>Architecture & Supply-Chain Research</h3>
+        <p>Dependency mapping, risk surface, and resilience assessment.</p>
+      </div>
+      <div class="intel-card">
+        <div class="kicker">06</div>
+        <h3>Custom Data Work</h3>
+        <p>Source-backed research tailored to a specific decision context.</p>
+      </div>
+    </div>
+
+    {formsEnabled ? (
+      <form class="commercial-form" id="intelligence-form" aria-label="Intelligence inquiry">
+        <h2>Describe the decision you're facing</h2>
+
+        <p class="form-warning">Do not include confidential data or documents in this first message.</p>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="intel-name">Name *</label>
+            <input id="intel-name" name="name" type="text" required maxlength="120" autocomplete="name" />
+          </div>
+          <div class="form-field">
+            <label for="intel-company">Company *</label>
+            <input id="intel-company" name="company" type="text" required maxlength="200" autocomplete="organization" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="intel-email">Work email *</label>
+            <input id="intel-email" name="workEmail" type="email" required maxlength="254" autocomplete="email" />
+          </div>
+          <div class="form-field">
+            <label for="intel-role">Role</label>
+            <input id="intel-role" name="role" type="text" maxlength="120" />
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="intel-problem">What decision or problem are you working on? *</label>
+          <textarea id="intel-problem" name="problem" required maxlength="2000" rows="3"></textarea>
+        </div>
+
+        <div class="form-field">
+          <label for="intel-outcome">What outcome would make this engagement successful? *</label>
+          <textarea id="intel-outcome" name="desiredOutcome" required maxlength="1000" rows="2"></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="intel-deadline">Decision deadline *</label>
+            <select id="intel-deadline" name="deadline" required>
+              <option value="">Select</option>
+              <option value="urgent">Urgent — this week</option>
+              <option value="2-weeks">Within 2 weeks</option>
+              <option value="month">Within a month</option>
+              <option value="quarter">This quarter</option>
+              <option value="exploring">Exploring options</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="intel-budget">Budget range *</label>
+            <select id="intel-budget" name="budgetRange" required>
+              <option value="">Select</option>
+              <option value="under-5k">Under $5K</option>
+              <option value="5k-15k">$5K–$15K</option>
+              <option value="15k-50k">$15K–$50K</option>
+              <option value="50k+">$50K+</option>
+              <option value="custom">Custom scope</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="intel-confidentiality">Confidentiality level *</label>
+          <select id="intel-confidentiality" name="confidentiality" required>
+            <option value="">Select</option>
+            <option value="standard">Standard — NDA available if needed</option>
+            <option value="nda-required">NDA required before discussion</option>
+            <option value="high-sensitivity">High sensitivity — mutual NDA first</option>
+          </select>
+        </div>
+
+        <input type="text" name="_hp" class="sr-only" tabindex={-1} autocomplete="off" aria-hidden="true" />
+
+        <div class="form-actions">
+          <button type="submit" class="form-submit">Submit inquiry</button>
+          <div class="form-status" role="status" aria-live="polite"></div>
+        </div>
+
+        <p class="form-note">No file uploads in this form. If we proceed, we'll establish a secure channel for sensitive materials.</p>
+      </form>
+    ) : (
+      <div class="commercial-disabled">
+        <p>Intelligence inquiries are not yet being accepted. When the notification system is connected, the form will appear here.</p>
+      </div>
+    )}
+  </section>
+</BaseLayout>
+
+<script is:inline>
+  document.getElementById('intelligence-form')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const hp = form.querySelector('input[name="_hp"]');
+    if (hp?.value) return;
+
+    const fd = new FormData(form);
+    const body = Object.fromEntries(fd.entries());
+    body._hp = '';
+
+    const btn = form.querySelector('.form-submit');
+    const status = form.querySelector('.form-status');
+    if (!btn || !status) return;
+    btn.disabled = true;
+    btn.textContent = 'Submitting…';
+    status.textContent = '';
+
+    try {
+      const res = await fetch('/api/intelligence-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      });
+      const data = await res.json();
+      if (res.ok) {
+        status.textContent = data.message || 'Inquiry received.';
+        status.className = 'form-status form-success';
+        btn.textContent = '✓ Sent';
+      } else {
+        status.textContent = data.error || 'Something went wrong.';
+        status.className = 'form-status form-error';
+        btn.disabled = false;
+        btn.textContent = 'Submit inquiry';
+      }
+    } catch {
+      status.textContent = 'Network error. Please try again.';
+      status.className = 'form-status form-error';
+      btn.disabled = false;
+      btn.textContent = 'Submit inquiry';
+    }
+  });
+</script>
+
+<style>
+  .intelligence-capabilities {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin: 32px 0 48px;
+  }
+  .intel-card {
+    border-top: 2px solid var(--ink);
+    padding-top: 12px;
+  }
+  .intel-card h3 {
+    margin: 6px 0 8px;
+    font-size: 1.2rem;
+    letter-spacing: -.025em;
+  }
+  .intel-card p {
+    margin: 0;
+    color: var(--graphite);
+    font: .92rem/1.4 var(--reader);
+  }
+  .commercial-disabled {
+    max-width: var(--reading);
+    margin: 32px 0;
+    font: 1.05rem/1.55 var(--reader);
+    color: var(--graphite);
+  }
+  @media (max-width: 1040px) {
+    .intelligence-capabilities { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 720px) {
+    .intelligence-capabilities { grid-template-columns: 1fr; }
+  }
+</style>

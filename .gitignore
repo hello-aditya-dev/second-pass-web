@@ -4,6 +4,7 @@ node_modules/
 # astro
 dist/
 .astro/
+.vercel/
 
 # next (legacy, keep for safety)
 .next/

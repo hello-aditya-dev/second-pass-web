@@ -1,0 +1,89 @@
+---
+interface Props {
+  source?: string;
+  compact?: boolean;
+}
+const { source = "page", compact = false } = Astro.props;
+const briefEnabled = import.meta.env.PUBLIC_BRIEF_ENABLED === "true";
+---
+
+{briefEnabled ? (
+  <form class="brief-form" data-brief-source={source} aria-label="Subscribe to / BRIEF">
+    <div class="brief-form-fields">
+      <label for={`brief-email-${source}`} class="sr-only">Email address</label>
+      <input
+        id={`brief-email-${source}`}
+        type="email"
+        name="email"
+        placeholder="you@company.com"
+        required
+        autocomplete="email"
+        class="brief-input"
+      />
+      <input type="text" name="_hp" class="sr-only" tabindex={-1} autocomplete="off" aria-hidden="true" />
+      <input type="hidden" name="source" value={source} />
+    </div>
+    <button type="submit" class="brief-submit">{compact ? "JOIN" : "JOIN / BRIEF"}</button>
+    <div class="brief-status" role="status" aria-live="polite"></div>
+    <p class="brief-consent">
+      Subscribing adds you to SECOND / PASS / BRIEF. <a href="/privacy">Privacy</a>.
+    </p>
+  </form>
+) : (
+  <div class="brief-disabled">
+    <p>/ BRIEF is not yet accepting signups. <a href="/brief">See the product →</a></p>
+  </div>
+)}
+
+<script is:inline define:vars={{ source }}>
+  document.currentScript?.closest('.brief-form')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const hp = form.querySelector('input[name="_hp"]');
+    if (hp?.value) return;
+
+    const emailInput = form.querySelector('input[name="email"]');
+    const email = emailInput?.value?.trim();
+    if (!email) return;
+
+    const submitBtn = form.querySelector('.brief-submit');
+    const statusEl = form.querySelector('.brief-status');
+    if (!submitBtn || !statusEl) return;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = '…';
+    statusEl.textContent = '';
+    statusEl.className = 'brief-status';
+
+    try {
+      const res = await fetch('/api/brief-subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          source,
+          _hp: ''
+        })
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        statusEl.textContent = data.message || "You're on the list.";
+        statusEl.className = 'brief-status brief-success';
+        emailInput?.setAttribute('readonly', '');
+        submitBtn.textContent = '✓';
+      } else {
+        statusEl.textContent = data.error || 'Something went wrong. Please try again.';
+        statusEl.className = 'brief-status brief-error';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'JOIN / BRIEF';
+      }
+    } catch {
+      statusEl.textContent = 'Network error. Please try again.';
+      statusEl.className = 'brief-status brief-error';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'JOIN / BRIEF';
+    }
+  });
+</script>

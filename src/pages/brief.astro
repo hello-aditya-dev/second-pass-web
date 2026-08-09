@@ -1,17 +1,31 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import BriefForm from "@/components/BriefForm.astro";
+const briefEnabled = import.meta.env.PUBLIC_BRIEF_ENABLED === "true";
 ---
-<BaseLayout title="/ BRIEF" description="The Second Pass technical briefing.">
+<BaseLayout title="/ BRIEF" description="The Second Pass technical briefing. One consequential development, three technical signals, one useful chart, and one deeper read.">
   <section class="shell route">
     <header class="route-head">
       <div class="kicker">/ BRIEF</div>
       <h1>The second pass, in one email.</h1>
       <p>
-        One consequential development, three technical signals, one useful chart, and one deeper
-        read. No newsletter provider is connected yet, so this page intentionally does not collect
-        an email address. The format below is what subscribers will receive.
+        The technical changes worth understanding. No press-release rewrites.
       </p>
     </header>
+
+    {briefEnabled ? (
+      <div class="brief-signup">
+        <BriefForm source="brief-page" />
+      </div>
+    ) : (
+      <div class="brief-prelaunch">
+        <p>
+          / BRIEF is not yet accepting signups. When the newsletter provider is connected,
+          the subscription form will appear here.
+        </p>
+      </div>
+    )}
+
     <div class="first-pass">
       <h2>PLANNED FORMAT</h2>
       <ul>
@@ -21,9 +35,36 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
         <li>04 / One deeper piece from / SECOND PASS worth the time</li>
       </ul>
     </div>
-    <div style="max-width:var(--reading);margin-top:32px;font:1.05rem/1.55 var(--reader);color:var(--graphite)">
-      <p>When a provider is selected and connected, the subscription form will appear here. Until then,
-      this page documents the product intent.</p>
+
+    <div class="brief-consent-note">
+      <p>
+        By subscribing you consent to receive SECOND / PASS / BRIEF.
+        Unsubscribe any time via the link in each email.
+        <a href="/privacy">Privacy policy</a>.
+      </p>
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .brief-signup {
+    max-width: var(--reading);
+    margin: 32px 0 48px;
+    padding: 32px;
+    border: 1px solid var(--rule);
+    background: var(--paper-2, #e9e4d9);
+  }
+  .brief-prelaunch {
+    max-width: var(--reading);
+    margin: 32px 0 48px;
+    font: 1.05rem/1.55 var(--reader);
+    color: var(--graphite);
+  }
+  .brief-consent-note {
+    max-width: var(--reading);
+    margin-top: 48px;
+    font: .82rem/1.4 var(--reader);
+    color: var(--graphite);
+  }
+  .brief-consent-note a { color: var(--blue-dark); }
+</style>

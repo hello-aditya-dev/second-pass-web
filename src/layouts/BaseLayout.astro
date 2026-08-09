@@ -49,12 +49,15 @@ const imageUrl = new URL(image, siteUrl()).toString();
     <meta name="twitter:image" content={imageUrl} />
     <slot name="head" />
   </head>
-  <body>
+  <body data-analytics={import.meta.env.PUBLIC_ANALYTICS_ENABLED === "true" ? "true" : undefined}>
     <a class="skip-link" href="#main">Skip to content</a>
     <Header />
     <main id="main" data-pagefind-body>
       <slot />
     </main>
     <Footer />
+    {import.meta.env.PUBLIC_ANALYTICS_ENABLED === "true" && (
+      <script is:inline src="/_vercel/insights/script.js" defer></script>
+    )}
   </body>
 </html>

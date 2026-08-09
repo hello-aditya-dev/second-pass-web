@@ -11,7 +11,7 @@ Every article starts with **FIRST PASS** — the verified facts that can be stat
 The publication does not:
 - rewrite press releases;
 - declare winners without preserving constraints;
-- cite a score without preserving test conditions;
+- cite: a score without preserving test conditions;
 - separate a number from its assumptions.
 
 ## Why Astro
@@ -29,10 +29,12 @@ Astro Content Collections with Zod validation give typed, build-time content saf
 | Search | Pagefind | Static, no server, no paid service |
 | Typography | Bricolage Grotesque + Newsreader | Self-hosted via Fontsource, SIL OFL |
 | Styling | Custom CSS | No Tailwind, no component library |
+| Newsletter | Beehiiv Launch | Subscriber system management and delivery |
+| Leads | Resend | Transactional email for lead notifications |
 | RSS | @astrojs/rss | Standard feed, excludes demo content |
 | Sitemap | @astrojs/sitemap | Normal + news sitemap |
 | Runtime JS | Tiny vanilla only | No React, no animation library |
-| Deployment | Vercel (Astro adapter) | Static output, security headers |
+| Deployment | Vercel (Astro adapter) | Static + serverless functions, security headers |
 | Package manager | Bun | Fast install, consistent scripts |
 | Node | 24.x | Pinned major, aligned with Vercel |
 
@@ -44,22 +46,32 @@ Astro Content Collections with Zod validation give typed, build-time content saf
 
 ## Environment variables
 
+See `.env.example` for the complete list.
+
 | Variable | Purpose | Default |
 | --- | --- | --- |
 | `PUBLIC_SITE_URL` | Canonical production origin | `https://second-pass.vercel.app` |
-
-No other environment variables are needed in the launch foundation.
+| `BEEHIIV_API_KEY` | Beehiiv subscription API key | (server-only) |
+| `BEEHIIV_PUBLICATION_ID` | Beehiiv publication ID | (server-only) |
+| `RESEND_API_KEY` | Resend transactional email key | (server-only) |
+| `LEADS_TO_EMAIL` | Lead notification destination | (server-only) |
+| `LEADS_FROM_EMAIL` | Lead notification sender | (server-only) |
+| `PUBLIC_BRIEF_ENABLED` | Enable BRIEF subscription form | `false` |
+| `PUBLIC_COMMERCIAL_FORMS_ENABLED` | Enable partner/intelligence forms | `false` |
+| `PUBLIC_ANALYTICS_ENABLED` | Enable Vercel Web Analytics | `false` |
 
 ## Commands
 
 ```bash
-bun install             # Install dependencies
-bun run dev             # Start dev server (port 3000)
-bun run content:audit   # Validate content integrity
-bun run check           # Astro type checking
-bun run build           # Production build + Pagefind index
-bun run verify          # Check + build
-bun run article:new -- story-slug   # Scaffold a new article
+bun install                    # Install dependencies
+bun run dev                    # Start dev server (port 3000)
+bun run content:audit          # Validate content integrity
+bun run check                  # Astro type checking
+bun run build                  # Production build + Pagefind index
+bun run verify                 # Check + build
+bun run article:new -- slug    # Scaffold a new article
+bun run article:verify -- slug # Verify article quality
+bun run prepublish -- slug     # Full prepublish pipeline
 ```
 
 ## Routes
@@ -68,19 +80,26 @@ bun run article:new -- story-slug   # Scaffold a new article
 | --- | --- |
 | `/` | Homepage: lead story, NOW rail, analysis grid, DATA band, PROOF, newsletter CTA |
 | `/now` | NOW-format stories — fast, sourced |
+| `/latest` | All stories, newest first |
 | `/ai` | AI section |
 | `/compute` | Compute / semiconductor section |
 | `/systems` | Systems infrastructure section |
 | `/security` | Security section |
 | `/research` | Research / methodology section |
-| `/data` | Reference data products (planned) |
+| `/data` | Reference data products |
 | `/search` | Pagefind static search |
-| `/brief` | / BRIEF newsletter product (provider not yet connected) |
+| `/brief` | / BRIEF newsletter signup |
+| `/partner` | Partnership inquiries |
+| `/intelligence` | Intelligence service inquiries |
 | `/about` | Publication identity |
 | `/editorial-policy` | Editorial standards |
 | `/corrections` | Corrections process |
 | `/privacy` | Privacy policy |
 | `/articles/[slug]` | Individual article pages |
+| `/api/brief-subscribe` | BRIEF subscription endpoint (POST) |
+| `/api/partner-lead` | Partner inquiry endpoint (POST) |
+| `/api/intelligence-lead` | Intelligence inquiry endpoint (POST) |
+| `/api/health` | Health check endpoint (GET) |
 | `/rss.xml` | RSS feed (excludes demo) |
 | `/news-sitemap.xml` | Google News sitemap (excludes demo, recent only) |
 | `/sitemap-index.xml` | Standard sitemap |
@@ -99,6 +118,17 @@ Articles are typed MDX files in `src/content/articles/`. Schema validation enfor
 - `adPolicy`: none / light / standard
 - `demo` flag for pre-launch content
 
+## Data foundation
+
+Typed, source-backed data schemas in `src/data/`:
+- `schema/` — Provenance, PricingEntry, BenchmarkEntry, AcceleratorEntry, CloudProvider
+- `pricing/` — Demo pricing fixtures
+- `benchmarks/` — Demo benchmark fixtures
+- `accelerators/` — Demo accelerator fixtures
+- `providers/` — Demo cloud provider fixtures
+
+All fixtures are explicitly marked DEMO/TEST. No invented current values.
+
 ## Newsroom / web separation
 
 Real research happens in the separate private `publication-newsroom` repository. Only human-approved content enters this repository. The public repo never requires the private newsroom at runtime.
@@ -109,77 +139,32 @@ Real research happens in the separate private `publication-newsroom` repository.
 2. `bun run article:new -- story-slug`
 3. Fill generated MDX from approved newsroom output
 4. Add public-safe media to `public/media/story-slug/`
-5. `bun run content:audit`
-6. `bun run verify`
-7. Commit `publish: story-slug`
-8. Push — deployment starts
+5. `bun run article:verify -- story-slug`
+6. `bun run prepublish -- story-slug`
+7. Human approves
+8. Commit `publish: story-slug`
+9. Push — deployment starts
 
 Target: under 10 minutes from approval to deployment.
 
-## Pagefind
-
-Static search indexes at build time. The `/search` page initializes Pagefind client-side after the index is generated. During development, search shows a graceful message that the index is not yet available.
-
-## RSS and sitemaps
-
-- `/rss.xml`: 50 most recent non-demo articles
-- `/sitemap-index.xml`: All pages (Astro sitemap integration)
-- `/news-sitemap.xml`: Recent non-demo articles (2-day window) with Google News markup
-- `/robots.txt`: Allows all crawlers, references both sitemaps
-
-## Typography and design
-
-- **Display**: Bricolage Grotesque Variable — headlines, navigation, section heads
-- **Reading**: Newsreader Variable — body text, deks, descriptions
-- **Mono**: System monospace — kickers, metadata, labels, source types
-
-Color system:
-- Paper `#F2EFE7` — warm background
-- Ink `#11110F` — primary text
-- Graphite `#5B5952` — secondary text
-- Signal blue `#2F5BFF` — links, evidence, the slash, active states (limited, not washing surfaces)
-
-The design is editorial, not SaaS. Rules and typography carry the design. No gradients, no glassmorphism, no rounded card grids.
-
-## Mobile and tablet
-
-The site is responsive at 1440, 1024, 820, 768, 430, 390, and 375px widths. Tablet is not compressed desktop. Mobile is not compressed tablet. Key differences:
-
-- Masthead collapses to wordmark + actions on tablet; primary nav becomes horizontal topic strip
-- Article three-column grid (rail / body / evidence) collapses to single reading column
-- Tables horizontally scroll rather than shrinking to unreadable text
-- NOW rail drops its border and stacks below the lead
-- Data grid goes from 3 → 2 → 1 column
-
-## Ad policy
-
-Advertising is subordinate to reading. Explicit `<AdBreak />` components at editorial boundaries.
-
-Hard bans: popup, prestitial, interstitial, sticky bottom, sticky video, autoplay, ad above fold, ad before FIRST PASS, ad inside table/code, fake-native ad.
-
-Density ceilings (not targets): under 700 words → 0 inline; 700–1800 → max 1; 1800+ → max 2.
-
 ## Security
 
+- Method/content-type/body-size validation on all mutation endpoints
+- Field max lengths enforced
+- Honeypot fields on all forms
+- Same-origin discipline (Origin/Referer check)
+- Upstream timeout (8s) for Beehiiv and Resend
+- Sanitized errors — never expose provider response internals
+- Request IDs on all API responses
 - `X-Content-Type-Options: nosniff`
 - `X-Frame-Options: DENY`
 - `Referrer-Policy: strict-origin-when-cross-origin`
 - `Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()`
-- Vercel supplies HSTS (no conflicting HSTS config added)
-- `poweredByHeader: false` equivalent via static output
-- No CSP added without testing (correct smaller policy > broken CSP)
+- No secrets committed or exposed client-side
 
 ## Intentionally absent
 
-These are deliberate omissions, not gaps:
-
-- CMS (Git-native publishing is faster until multi-editor bottleneck)
-- Database / auth / accounts
-- Analytics provider
-- Ad network integration
-- Newsletter provider
-- Comments
-- React or any client framework (not needed yet)
+CMS, database, auth, accounts, real ad network, comments, React, CSP (deliberately not added without testing), in-memory rate limiting (not production-grade on serverless).
 
 ## Pre-launch state
 
@@ -191,7 +176,7 @@ The deployment is protected/noindex. Demo stories are visibly marked and exclude
 bun install
 bun run content:audit   # 0 failures (expected demo warnings)
 bun run check           # 0 errors
-bun run build           # 21+ pages, Pagefind indexed
+bun run build           # 24+ pages, Pagefind indexed
 ```
 
 ## Documentation
@@ -199,7 +184,8 @@ bun run build           # 21+ pages, Pagefind indexed
 - `AGENT.md` — operating philosophy and constraints
 - `CURRENT_STATE.md` — honest current state
 - `DECISIONS.md` — durable architectural decisions
-- `docs/` — architecture, content model, design system, brand, UX, mobile, ad system, SEO, performance, publishing speed, newsroom handoff, open-source stack, operations, acceptance standard, FT inspiration, interactions, monetization, launch checklist
+- `docs/OPERATIONS.md` — deployment, provider hookup, domain migration, rollback
+- `docs/` — architecture, content model, design system, brand, UX, mobile, ad system, SEO, performance, publishing speed, newsroom handoff, open-source stack, acceptance standard, FT inspiration, interactions, monetization, launch checklist
 
 ## License
 
