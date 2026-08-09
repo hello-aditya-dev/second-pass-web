@@ -1,0 +1,17 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  caption?: string;
+  lazy?: boolean;
+}
+
+const { src, alt, caption, lazy = false } = Astro.props;
+---
+
+<figure class="research-figure">
+  <div class="research-figure-scroll">
+    <img src={src} alt={alt} loading={lazy ? "lazy" : "eager"} />
+  </div>
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>

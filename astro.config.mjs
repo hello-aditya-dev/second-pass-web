@@ -5,6 +5,7 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 
 const site = process.env.PUBLIC_SITE_URL || "https://second-pass.vercel.app";
+const prelaunch = process.env.SITE_PRELAUNCH !== "false";
 
 export default defineConfig({
   site,
@@ -22,3 +23,5 @@ export default defineConfig({
   },
   compressHTML: true
 });
+
+export { prelaunch };

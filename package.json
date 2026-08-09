@@ -19,6 +19,7 @@
     "favicons:generate": "node scripts/generate-favicons.mjs",
     "distribute:url": "node scripts/distribute-url.mjs",
     "launch:verify": "node scripts/launch-verify.mjs",
+    "render-audit": "node scripts/render-audit.mjs",
     "prepublish": "node scripts/prepublish.mjs"
   },
   "dependencies": {

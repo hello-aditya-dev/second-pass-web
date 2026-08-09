@@ -2,6 +2,13 @@ import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 
+const fullSource = z.object({
+  label: z.string(),
+  url: z.url().optional(),
+  type: z.enum(["primary", "secondary", "dataset", "paper", "filing", "advisory", "other"]),
+  note: z.string().optional()
+});
+
 const articles = defineCollection({
   loader: glob({ base: "./src/content/articles", pattern: "**/*.md" }),
   schema: z.object({
@@ -21,12 +28,7 @@ const articles = defineCollection({
     hero: z.string().optional(),
     heroAlt: z.string().optional(),
     adPolicy: z.enum(["none", "light", "standard"]).default("light"),
-    sources: z.array(z.object({
-      label: z.string(),
-      url: z.url().optional(),
-      type: z.enum(["primary", "secondary", "dataset", "paper", "filing", "advisory", "other"]),
-      note: z.string().optional()
-    })).default([]),
+    sources: z.array(fullSource).default([]),
     changeLog: z.array(z.object({
       at: z.coerce.date(),
       type: z.enum(["published", "update", "clarification", "correction"]),

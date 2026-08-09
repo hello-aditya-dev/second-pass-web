@@ -1,9 +1,8 @@
 ---
 interface Props {
   source?: string;
-  compact?: boolean;
 }
-const { source = "page", compact = false } = Astro.props;
+const { source = "page" } = Astro.props;
 const briefEnabled = import.meta.env.PUBLIC_BRIEF_ENABLED === "true";
 ---
 
@@ -23,7 +22,7 @@ const briefEnabled = import.meta.env.PUBLIC_BRIEF_ENABLED === "true";
       <input type="text" name="_hp" class="sr-only" tabindex={-1} autocomplete="off" aria-hidden="true" />
       <input type="hidden" name="utm_content" value={source} />
     </div>
-    <button type="submit" class="brief-submit">{compact ? "JOIN" : "JOIN / BRIEF"}</button>
+    <button type="submit" class="brief-submit">JOIN / BRIEF</button>
     <div class="brief-status" role="status" aria-live="polite"></div>
     <p class="brief-consent">
       Subscribing adds you to SECOND / PASS / BRIEF. <a href="/privacy">Privacy</a>.

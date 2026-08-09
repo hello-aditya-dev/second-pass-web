@@ -495,3 +495,165 @@ button, input { font: inherit; }
   .form-row { grid-template-columns: 1fr; }
   .brief-form-fields { flex-direction: column; }
 }
+
+/* ── CalculationBlock ── */
+.calculation-block {
+  margin: 2rem 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 18px 0 20px;
+  background: var(--paper);
+}
+.calc-kicker {
+  margin: 0 0 6px;
+  font: .72rem var(--mono);
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--graphite);
+}
+.calc-rule {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 0;
+}
+.calc-section {
+  margin-top: 16px;
+}
+.calc-label {
+  margin: 0 0 4px;
+  font: .72rem var(--mono);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--graphite);
+}
+.calc-question {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 620;
+  font-size: 1.15rem;
+  line-height: 1.2;
+  letter-spacing: -.02em;
+}
+.calc-assumptions {
+  margin: 0;
+  padding-left: 1.15rem;
+  list-style: disc;
+  font-family: var(--mono);
+  font-size: .82rem;
+  line-height: 1.45;
+}
+.calc-assumptions li + li {
+  margin-top: 5px;
+}
+.calc-equation {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: .88rem;
+  line-height: 1.4;
+}
+.calc-result {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: -.03em;
+  line-height: 1.15;
+  color: var(--blue);
+}
+.calc-so-what,
+.calc-caveat {
+  margin: 0;
+  font-family: var(--reader);
+  font-size: .98rem;
+  line-height: 1.45;
+  color: var(--graphite);
+}
+
+/* ── ClaimCheck ── */
+.claim-check {
+  margin: 2rem 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 18px 0 20px;
+  background: var(--paper);
+}
+.claim-kicker {
+  margin: 0 0 6px;
+  font: .72rem var(--mono);
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--graphite);
+}
+.claim-rule {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 0;
+}
+.claim-section {
+  margin-top: 16px;
+}
+.claim-label {
+  margin: 0 0 4px;
+  font: .72rem var(--mono);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--graphite);
+}
+.claim-statement {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 620;
+  font-size: 1.05rem;
+  line-height: 1.2;
+  letter-spacing: -.02em;
+  font-style: italic;
+}
+.claim-measured,
+.claim-not-measured,
+.claim-evidence-status {
+  margin: 0;
+  font-family: var(--reader);
+  font-size: .98rem;
+  line-height: 1.45;
+  color: var(--graphite);
+}
+.claim-verdict {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.3;
+  color: var(--blue);
+}
+
+/* ── ResearchFigure ── */
+.research-figure {
+  margin: 2rem 0;
+  max-width: 100%;
+}
+.research-figure-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.research-figure img {
+  display: block;
+  margin-inline: auto;
+  max-width: 100%;
+  height: auto;
+}
+.research-figure figcaption {
+  margin-top: 8px;
+  font-family: var(--reader);
+  font-style: italic;
+  font-size: .88rem;
+  line-height: 1.35;
+  color: var(--graphite);
+}
+
+/* ── Component responsive ── */
+@media (max-width: 720px) {
+  .calculation-block,
+  .claim-check {
+    padding: 14px 0 16px;
+  }
+}

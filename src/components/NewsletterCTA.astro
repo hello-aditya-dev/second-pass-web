@@ -1,5 +1,10 @@
 ---
 import BriefForm from "@/components/BriefForm.astro";
+
+interface Props {
+  source?: string;
+}
+const { source = "homepage-cta" } = Astro.props;
 const briefEnabled = import.meta.env.PUBLIC_BRIEF_ENABLED === "true";
 ---
 <section class="newsletter" data-pagefind-ignore>
@@ -12,7 +17,7 @@ const briefEnabled = import.meta.env.PUBLIC_BRIEF_ENABLED === "true";
     No press-release rewrites.
   </p>
   {briefEnabled ? (
-    <BriefForm source="homepage-cta" compact />
+    <BriefForm source={source} />
   ) : (
     <a href="/brief">OPEN / BRIEF</a>
   )}

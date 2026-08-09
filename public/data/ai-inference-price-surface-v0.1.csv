@@ -1,0 +1,18 @@
+dataset_version,generated_at,source_accessed_at,provider,model,service_tier,context_band,context_threshold,input_usd_per_mtok,cached_input_usd_per_mtok,cache_write_5m_usd_per_mtok,cache_write_1h_usd_per_mtok,cache_storage_usd_per_mtok_hour,output_usd_per_mtok,batch,open_weight,max_context_tokens,effective_from,effective_to,source_id,notes
+v0.1,2026-08-09T18:47:00+05:30,2026-08-09,OpenAI,gpt-5.6-sol,standard,short,<=272k input tokens,5.0,0.5,6.25,,,30.0,False,False,,,,S1;S2,Prompts >272k input tokens use long-context rates for the full request.
+v0.1,2026-08-09T18:47:00+05:30,2026-08-09,OpenAI,gpt-5.6-sol,batch,short,<=272k input tokens,2.5,0.25,3.125,,,15.0,True,False,,,,S1,Asynchronous Batch pricing.
+v0.1,2026-08-09T18:47:00+05:30,2026-08-09,OpenAI,gpt-5.6-sol,standard,long,>272k input tokens,10.0,1.0,12.5,,,45.0,False,False,,,,S1;S2,Full request billed at long-context rates above threshold.
+v0.1,2026-08-09T18:47:00+05:30,2026-08-09,OpenAI,gpt-5.6-luna,standard,short,<=272k input tokens,0.2,0.02,0.25,,,1.2,False,False,,,,S1;S3,Same long-context threshold as Sol.
+v0.1,2026-08-09T18:47:00+05:30,2026-08-09,OpenAI,gpt-5.6-luna,batch,short,<=272k input tokens,0.1,0.01,0.125,,,0.6,True,False,,,,S1,Asynchronous Batch pricing.
+v0.1,2026-08-09T18:47:00+05:30,2026-08-09,Anthropic,Claude Opus 5,standard,full,up to 1M tokens at standard rate,5.0,0.5,6.25,10.0,,25.0,False,False,1000000,,,S4,Fast mode has separate premium pricing; not represented in this row.
+v0.1,2026-08-09T18:47:00+05:30,2026-08-09,Anthropic,Claude Opus 5,batch,full,up to 1M tokens at standard rate,2.5,,,,,12.5,True,False,1000000,,,S4,Batch API: 50% discount on input/output tokens.
+v0.1,2026-08-09T18:47:00+05:30,2026-08-09,Anthropic,Claude Sonnet 5,standard,full,up to 1M tokens at standard rate,2.0,0.2,2.5,4.0,,10.0,False,False,1000000,,2026-08-31,S4;S5,Introductory pricing through 2026-08-31. New tokenizer can produce ~30% more tokens for the same text than Sonnet 4.6.
+v0.1,2026-08-09T18:47:00+05:30,2026-08-09,Anthropic,Claude Sonnet 5,batch,full,up to 1M tokens at standard rate,1.0,,,,,5.0,True,False,1000000,,2026-08-31,S4,Introductory Batch pricing through 2026-08-31.
+v0.1,2026-08-09T18:47:00+05:30,2026-08-09,Anthropic,Claude Sonnet 5,standard,full,up to 1M tokens at standard rate,3.0,0.3,3.75,6.0,,15.0,False,False,1000000,2026-09-01,,S4;S5,Announced standard pricing beginning 2026-09-01.
+v0.1,2026-08-09T18:47:00+05:30,2026-08-09,Google,gemini-3.6-flash,standard,standard,provider standard,1.5,0.15,,,1.0,7.5,False,False,,,,S6,Output price includes thinking tokens.
+v0.1,2026-08-09T18:47:00+05:30,2026-08-09,Google,gemini-3.6-flash,batch,standard,provider standard,0.75,0.075,,,1.0,3.75,True,False,,,,S6,Output price includes thinking tokens.
+v0.1,2026-08-09T18:47:00+05:30,2026-08-09,Google,gemini-3.5-flash-lite,standard,standard,provider standard,0.3,0.03,,,1.0,2.5,False,False,,,,S6,Output price includes thinking tokens.
+v0.1,2026-08-09T18:47:00+05:30,2026-08-09,Google,gemini-3.5-flash-lite,batch,standard,provider standard,0.15,0.02,,,1.0,1.25,True,False,,,,S6,Output price includes thinking tokens.
+v0.1,2026-08-09T18:47:00+05:30,2026-08-09,Mistral AI,mistral-small-2603,standard,256k,up to 256k context,0.15,,,,,0.6,False,True,256000,2026-03-16,,S7,Apache 2.0; 119B total / 6.5B active parameters.
+v0.1,2026-08-09T18:47:00+05:30,2026-08-09,xAI,grok-4.5,standard,short,<200k input tokens,2.0,0.3,,,,6.0,False,False,500000,2026-07-08,,S8;S9,Reasoning effort low/medium/high; Batch API currently does not support grok-4.5.
+v0.1,2026-08-09T18:47:00+05:30,2026-08-09,xAI,grok-4.5,standard,long,>=200k input tokens,4.0,0.6,,,,12.0,False,False,500000,2026-07-08,,S8;S9,Long-context rates apply to all tokens in the request once threshold is reached.

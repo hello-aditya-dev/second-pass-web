@@ -1,9 +1,15 @@
 
 export default new Map([
+["src/content/articles/ai-inference-price-surface-v0-1.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Farticles%2Fai-inference-price-surface-v0-1.mdx&astroContentModuleFlag=true")],
+["src/content/articles/cheapest-ai-model-not-cheapest-system-proof.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Farticles%2Fcheapest-ai-model-not-cheapest-system-proof.mdx&astroContentModuleFlag=true")],
+["src/content/articles/cheapest-ai-model-not-cheapest-system.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Farticles%2Fcheapest-ai-model-not-cheapest-system.mdx&astroContentModuleFlag=true")],
 ["src/content/articles/demo-api-economics.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Farticles%2Fdemo-api-economics.mdx&astroContentModuleFlag=true")],
 ["src/content/articles/demo-memory-bandwidth.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Farticles%2Fdemo-memory-bandwidth.mdx&astroContentModuleFlag=true")],
 ["src/content/articles/demo-paper-methods.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Farticles%2Fdemo-paper-methods.mdx&astroContentModuleFlag=true")],
 ["src/content/articles/demo-release-notes.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Farticles%2Fdemo-release-notes.mdx&astroContentModuleFlag=true")],
 ["src/content/articles/demo-security-state.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Farticles%2Fdemo-security-state.mdx&astroContentModuleFlag=true")],
+["src/content/articles/no-universal-long-context-premium.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Farticles%2Fno-universal-long-context-premium.mdx&astroContentModuleFlag=true")],
+["src/content/articles/prompt-cache-second-use-break-even.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Farticles%2Fprompt-cache-second-use-break-even.mdx&astroContentModuleFlag=true")],
+["src/content/articles/sonnet-5-price-effective-date.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Farticles%2Fsonnet-5-price-effective-date.mdx&astroContentModuleFlag=true")],
 ["src/content/articles/torture-long-headline.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Farticles%2Ftorture-long-headline.mdx&astroContentModuleFlag=true")]]);
 		

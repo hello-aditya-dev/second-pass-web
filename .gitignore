@@ -1,2 +1,6 @@
 skills/
 node_modules/
+.vercel/
+dist/
+tool-results/
+dev.log

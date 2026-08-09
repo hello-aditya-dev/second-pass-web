@@ -25,6 +25,7 @@ const steps = [
   { name: "social:generate", cmd: `node scripts/generate-social-assets.mjs ${slug}` },
   { name: "astro check", cmd: "bun run check" },
   { name: "build", cmd: "bun run build:astro" },
+  { name: "render-audit", cmd: `node scripts/render-audit.mjs ${slug}` },
   { name: "pagefind", cmd: "bun run search:index" }
 ];
 
