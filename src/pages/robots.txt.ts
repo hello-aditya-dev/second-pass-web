@@ -1,6 +1,7 @@
 export function GET({ site }: { site?: URL }) {
   const origin = site?.origin ?? "https://second-pass.vercel.app";
-  const prelaunch = import.meta.env.SITE_PRELAUNCH === "true";
+  // Fail-safe: prelaunch is default. Only SITE_PRELAUNCH=false allows indexing.
+  const prelaunch = import.meta.env.SITE_PRELAUNCH !== "false";
 
   const body = prelaunch
     ? `User-agent: *

@@ -6,7 +6,6 @@
 
 import fs from "node:fs";
 import path from "node:path";
-import matter from "frontmatter";
 
 // Minimal frontmatter parser (no dependency needed)
 function parseFrontmatter(text) {

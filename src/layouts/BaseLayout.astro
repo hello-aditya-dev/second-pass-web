@@ -21,9 +21,10 @@ const {
   noindex = false
 } = Astro.props;
 
-// Centralized prelaunch mode: when SITE_PRELAUNCH=true,
-// all pages emit noindex,nofollow regardless of per-page setting.
-const prelaunch = import.meta.env.SITE_PRELAUNCH === "true";
+// Centralized prelaunch mode (fail-safe): prelaunch is the default.
+// Only an explicit SITE_PRELAUNCH=false allows public indexing.
+// Missing/undefined → prelaunch, "true" → prelaunch, "false" → public.
+const prelaunch = import.meta.env.SITE_PRELAUNCH !== "false";
 const shouldNoindex = noindex || prelaunch;
 const fullTitle = title ? `${title} — ${SITE.plainName}` : `${SITE.name} — ${SITE.tagline}`;
 const canonicalUrl = new URL(canonical, siteUrl()).toString();
@@ -61,7 +62,7 @@ const imageUrl = new URL(image, siteUrl()).toString();
       <slot />
     </main>
     <Footer />
-    {import.meta.env.PUBLIC_ANALYTICS_ENABLED === "true" && (
+    {import.meta.env.PUBLIC_ANALYTICS_ENABLED === "true" && !prelaunch && (
       <script is:inline src="/_vercel/insights/script.js" defer></script>
     )}
   </body>

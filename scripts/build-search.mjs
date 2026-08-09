@@ -41,7 +41,7 @@ console.log(`[build-search] Running Pagefind against ${siteDir}...`);
 
 try {
   execSync(
-    `npx pagefind --site "${siteDir}" --output-path "${pagefindOut}"`,
+    `bunx pagefind --site "${siteDir}" --output-path "${pagefindOut}"`,
     {
       encoding: "utf8",
       stdio: "inherit",

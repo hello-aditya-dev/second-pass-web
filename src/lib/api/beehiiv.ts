@@ -77,19 +77,14 @@ export async function beehiivSubscribe(
       return { success: true, status: "subscribed" };
     }
 
-    // 422 may mean various validation errors — do NOT assume "already subscribed"
-    // unless Beehiiv docs explicitly state that. Return a generic success to the user.
-    if (res.status === 422) {
-      // Treat as success from the user's perspective — they're on the list
-      // or their email has an issue they can't fix from the form.
-      return { success: true, status: "subscribed" };
-    }
-
+    // 429 rate-limited
     if (res.status === 429) {
       return { success: false, status: "error", error: "rate_limited" };
     }
 
-    // Never expose provider response internals
+    // Any non-2xx (including 422) is a failure.
+    // Never convert an undocumented provider validation error into success.
+    // Never expose Beehiiv response internals to the reader.
     return {
       success: false,
       status: "error",
