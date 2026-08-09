@@ -1,15 +1,20 @@
 # dependencies
-/node_modules
+node_modules/
 
-# next
-/.next/
-/out/
+# astro
+dist/
+.astro/
+
+# next (legacy, keep for safety)
+.next/
+out/
 
 # production
 /build
 
 # misc
 .DS_Store
+Thumbs.db
 *.pem
 
 # debug
@@ -22,13 +27,6 @@ yarn-error.log*
 .env*
 !.env.example
 
-# vercel
-.vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
-
 # editors
 .vscode/
 .idea/
@@ -36,6 +34,7 @@ next-env.d.ts
 # temporary
 tmp/
 temp/
+.cache/
 
 # sandbox/environment
 .claude
@@ -59,4 +58,3 @@ mini-services/
 examples/
 upload/
 download/
-# archive ZIP is intentionally committed per ZAI_MASTER_PROMPT.md

@@ -1,0 +1,36 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import AdBreak from "@/components/AdBreak.astro";
+---
+<BaseLayout title="Data" description="Source-backed technical reference products from Second Pass.">
+  <section class="shell route">
+    <header class="route-head">
+      <div class="kicker">/ DATA</div>
+      <h1>Numbers with their assumptions still attached.</h1>
+      <p>
+        These are product foundations, not fabricated live datasets. Real values enter only through
+        the newsroom's source-backed data workflow.
+      </p>
+    </header>
+
+    <div class="data-grid" style="background:var(--rule);border-color:var(--rule)">
+      <section id="model-pricing" class="data-module">
+        <span class="number">01 / FOUNDATION</span>
+        <h3>Model Pricing Index</h3>
+        <p>Provider, model/version, input/output/cache pricing, context, effective date, source.</p>
+      </section>
+      <section id="accelerators" class="data-module">
+        <span class="number">02 / FOUNDATION</span>
+        <h3>Accelerator Index</h3>
+        <p>Vendor, SKU, memory, bandwidth, interconnect, power, availability, source.</p>
+      </section>
+      <section id="benchmarks" class="data-module">
+        <span class="number">03 / FOUNDATION</span>
+        <h3>Benchmark Registry</h3>
+        <p>Metric, workload, hardware, software, precision, test operator, methodology, source.</p>
+      </section>
+    </div>
+
+    <AdBreak fallback="brief" label="DATA PRODUCT / FUTURE SPONSOR SLOT" />
+  </section>
+</BaseLayout>

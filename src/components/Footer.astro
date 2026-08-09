@@ -1,0 +1,31 @@
+---
+import { SITE } from "@/lib/site";
+---
+<footer class="site-footer" data-pagefind-ignore>
+  <div class="shell footer-grid">
+    <div>
+      <a class="wordmark" href="/"><span>SECOND</span><span class="slash">/</span><span>PASS</span></a>
+      <p>{SITE.tagline}</p>
+    </div>
+    <nav aria-label="Publication">
+      <strong>Publication</strong>
+      <a href="/about">About</a>
+      <a href="/editorial-policy">Editorial policy</a>
+      <a href="/corrections">Corrections</a>
+      <a href="/privacy">Privacy</a>
+    </nav>
+    <nav aria-label="Topics">
+      <strong>Topics</strong>
+      {SITE.topics.map((topic) => <a href={topic.href}>{topic.label}</a>)}
+    </nav>
+    <div>
+      <strong>/ BRIEF</strong>
+      <p>A concise technical briefing. No provider is connected in this launch foundation.</p>
+      <a class="brief-link" href="/brief">See the product →</a>
+    </div>
+  </div>
+  <div class="shell footer-bottom">
+    <span>© 2026 SECOND / PASS</span>
+    <span>Pre-launch · Demo content is marked</span>
+  </div>
+</footer>

@@ -1,0 +1,110 @@
+---
+import { render } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import FirstPass from "@/components/FirstPass.astro";
+import EvidencePanel from "@/components/EvidencePanel.astro";
+import AdBreak from "@/components/AdBreak.astro";
+import NewsletterCTA from "@/components/NewsletterCTA.astro";
+import ReadingProgress from "@/components/ReadingProgress.astro";
+import { publishedArticles, formatDate } from "@/lib/content";
+import { articleSchema } from "@/lib/schema";
+
+export async function getStaticPaths() {
+  const articles = await publishedArticles();
+  return articles.map((article) => ({
+    params: { slug: article.data.slug },
+    props: { article }
+  }));
+}
+
+const { article } = Astro.props;
+const { Content, headings } = await render(article);
+const schema = articleSchema(article);
+const meaningfulHeadings = headings.filter((heading) => heading.depth === 2);
+---
+<BaseLayout
+  title={article.data.seoTitle ?? article.data.title}
+  description={article.data.seoDescription ?? article.data.dek}
+  canonical={`/articles/${article.data.slug}`}
+  ogType="article"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(schema).replaceAll("<", "\\u003c")} />
+  </Fragment>
+
+  <ReadingProgress />
+
+  <article class="shell article" data-article>
+    <header class="article-header">
+      <div class="kicker">{article.data.section} / {article.data.format}{article.data.demo ? " / DEMO" : ""}</div>
+      <h1>{article.data.title}</h1>
+      <p class="article-dek">{article.data.dek}</p>
+      <div class="article-meta">
+        <span>{article.data.author}</span>
+        <span>Published {formatDate(article.data.publishedAt)}</span>
+        {article.data.updatedAt && <span>Updated {formatDate(article.data.updatedAt)}</span>}
+      </div>
+    </header>
+
+    <div class="article-grid">
+      <aside class="article-rail" data-pagefind-ignore>
+        <nav aria-label="On this page">
+          <a href="#first-pass">01 / FIRST PASS</a>
+          {meaningfulHeadings.slice(0, 5).map((heading, index) => (
+            <a href={`#${heading.slug}`}>{String(index + 2).padStart(2, "0")} / {heading.text}</a>
+          ))}
+          <a href="#sources">/ SOURCES</a>
+        </nav>
+      </aside>
+
+      <div class="article-body">
+        <FirstPass points={article.data.firstPass} />
+        <Content />
+      </div>
+
+      <aside data-pagefind-ignore>
+        <EvidencePanel sources={article.data.sources} />
+      </aside>
+    </div>
+
+    {article.data.adPolicy !== "none" && (
+      <AdBreak fallback="brief" label="POST-ARTICLE / COMMERCIAL POSITION" />
+    )}
+
+    <section class="sources" id="sources">
+      <div class="kicker">/ SOURCES</div>
+      {article.data.sources.length ? article.data.sources.map((source) => (
+        <div class="source-row">
+          <div class="source-type">{source.type}</div>
+          <div>
+            {source.url ? (
+              <a href={source.url} rel="noreferrer"><strong>{source.label} ↗</strong></a>
+            ) : <strong>{source.label}</strong>}
+            {source.note && <p>{source.note}</p>}
+          </div>
+        </div>
+      )) : (
+        <div class="source-row">
+          <div class="source-type">DEMO</div>
+          <p>No external source asserted by this demonstration article.</p>
+        </div>
+      )}
+    </section>
+
+    <section class="change-log">
+      <div class="kicker">/ CHANGE LOG</div>
+      {article.data.changeLog.map((item) => (
+        <div class="change-row">
+          <div class="source-type">{formatDate(item.at)}<br />{item.type}</div>
+          <p>{item.note}</p>
+        </div>
+      ))}
+    </section>
+
+    <div class="article-end">/ END — {article.data.slug}</div>
+  </article>
+
+  <div class="shell">
+    <NewsletterCTA />
+  </div>
+</BaseLayout>

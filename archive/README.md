@@ -1,8 +1,6 @@
 # Foundation Archive
 
-`publication-web-foundation.zip` is the immutable starter snapshot supplied to the Z.ai build
-session.
+`second-pass-web-foundation.zip` is the immutable starter snapshot supplied to the Z.ai execution
+session. Keep it for reference/recovery.
 
-It exists for reference/recovery only.
-
-Do not execute the application from inside the ZIP.
+The running application is the extracted repository root, not the ZIP.

@@ -1,0 +1,31 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ArticleList from "@/components/ArticleList.astro";
+import { publishedArticles } from "@/lib/content";
+
+interface Props {
+  title: string;
+  description: string;
+  section?: "AI" | "Compute" | "Systems" | "Security" | "Research" | "Data";
+  format?: "NOW" | "SECOND PASS" | "DEEP" | "PROOF" | "DATA";
+}
+const { title, description, section, format } = Astro.props;
+const all = await publishedArticles();
+const filtered = all.filter((item) =>
+  (!section || item.data.section === section) && (!format || item.data.format === format)
+);
+---
+<BaseLayout title={title} description={description}>
+  <section class="shell route">
+    <header class="route-head">
+      <div class="kicker">SECTION</div>
+      <h1>{title}</h1>
+      <p>{description}</p>
+    </header>
+    {filtered.length ? <ArticleList articles={filtered} /> : (
+      <div class="empty-state">
+        No human-approved stories are published here yet.
+      </div>
+    )}
+  </section>
+</BaseLayout>

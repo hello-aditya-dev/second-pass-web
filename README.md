@@ -1,130 +1,71 @@
-# HexFallow — Publication Web
+# SECOND / PASS
 
-> Working name. The brand can be changed from one configuration file before launch.
+**The first pass tells you what happened. The second pass tells you what it means.**
 
-HexFallow is the public web product for a technical intelligence publication covering AI systems,
-compute, semiconductors, cloud/developer infrastructure, security, and original technical data.
+Public website foundation for a technical intelligence publication covering AI systems, compute,
+semiconductors, systems infrastructure, security, research, and source-backed technical data.
 
-This repository is deliberately separate from the private `publication-newsroom` repository.
+## Stack
 
-- **This repository:** public website, UI, SEO, article rendering, data experiences, public policies.
-- **Newsroom repository:** research, source strategy, drafts, fact-checking, editorial memory,
-  unpublished ideas, and internal operations.
+- Astro 7
+- TypeScript strictest
+- Astro Content Collections
+- MDX
+- Pagefind static search
+- Astro RSS
+- Astro Sitemap
+- self-hosted open-source typography through Fontsource
+- custom CSS
+- tiny vanilla JavaScript only where interaction earns it
 
-## Current foundation
+This deliberately avoids SaaS starters and generic news templates.
 
-This starter includes:
+## Publishing
 
-- Next.js 16 App Router + React 19 + TypeScript
-- responsive editorial homepage
-- Latest, AI, Compute, Infrastructure, Security, Research, and Data routes
-- reusable article cards, masthead, navigation, newsletter CTA, footer, and data cards
-- dynamic article route with seed editorial content
-- metadata foundation, sitemap, robots, manifest, canonical URLs, Open Graph defaults
-- Article JSON-LD foundation
-- editorial policy, corrections, privacy, about, and newsletter pages
-- zero-third-party UI dependency design system
-- security headers
-- CMS-ready content boundary
-- architecture, content model, design, SEO, security, launch, and monetization docs
-- strict Z.ai operating contract in `AGENT.md`
-- Z.ai repo-creation/build prompt in `ZAI_MASTER_PROMPT.md`
-- an archived copy of the foundation ZIP under `archive/`
+Real research happens in the separate private `publication-newsroom` repository.
 
-## Working brand
+Only human-approved content enters this repository.
 
-The code currently uses **HexFallow** as a temporary working identity.
+Fast path:
 
-Change:
+1. newsroom approves article
+2. open this repo in Z.ai
+3. `npm run article:new -- story-slug`
+4. fill generated MDX from the approved newsroom output
+5. add public-safe media to `public/media/story-slug/`
+6. `npm run content:audit`
+7. `npm run verify`
+8. commit `publish: story-slug`
+9. deployment starts
 
-`src/lib/site.ts`
+See `docs/PUBLISHING_SPEED.md`.
 
-before launch if another name is selected.
+## UX
 
-### Shortlist
+Reader experience is the moat. Advertising is subordinate to reading.
 
-See `BRAND_NAMES.md`.
+Read:
+- `docs/UX_SPEC.md`
+- `docs/MOBILE_TABLET.md`
+- `docs/AD_SYSTEM.md`
+- `docs/BRAND_SYSTEM.md`
+- `docs/INTERACTIONS.md`
 
-## Start locally
+## Commands
 
 ```bash
 npm install
 npm run dev
-```
-
-Open `http://localhost:3000`.
-
-Before any production launch:
-
-```bash
+npm run content:audit
+npm run check
+npm run build
 npm run verify
 ```
 
-## Content architecture
-
-Phase 0 uses typed seed content in:
-
-`src/lib/content.ts`
-
-This is intentional. It lets the public product be developed before committing to a CMS.
-
-The site code should consume a stable content interface. Later, replace the seed adapter with a CMS
-adapter without rewriting page components.
-
-See `docs/CONTENT_MODEL.md`.
-
-## Editorial architecture
-
-A story should reach this repository only after the private newsroom process reaches human approval:
-
-`DISCOVER → RESEARCH → ANALYZE → VERIFY → WRITE → EDIT → HUMAN APPROVAL → PUBLIC WEBSITE/CMS`
-
-Never copy the private newsroom repository into this repository.
-
-## Design principles
-
-- publication, not SaaS landing page
-- high information density without clutter
-- typography and hierarchy over decorative effects
-- fast pages and minimal client JavaScript
-- data/tables/diagrams as first-class editorial objects
-- restrained motion
-- accessible contrast and keyboard navigation
-- strong mobile reading experience
-- ads must never overwhelm editorial content
-
 ## Routes
 
-- `/`
-- `/latest`
-- `/ai`
-- `/compute`
-- `/infrastructure`
-- `/security`
-- `/research`
-- `/data`
-- `/articles/[slug]`
-- `/search`
-- `/newsletter`
-- `/about`
-- `/editorial-policy`
-- `/corrections`
-- `/privacy`
-- `/sitemap.xml`
-- `/robots.txt`
+`/`, `/now`, `/ai`, `/compute`, `/systems`, `/security`, `/research`, `/data`, `/search`,
+`/brief`, `/about`, `/editorial-policy`, `/corrections`, `/privacy`, `/articles/[slug]`,
+`/rss.xml`, `/news-sitemap.xml`, `/robots.txt`.
 
-## Deployment
-
-No hosting provider is hard-coded into the foundation.
-
-Choose a provider whose terms and pricing support a commercial publication before enabling
-advertising.
-
-## Repository rules
-
-Read `AGENT.md` before any agent makes changes.
-
-## Status
-
-Foundation only. No claim in the seed articles should be treated as live news. Seed content is
-clearly marked as demonstration content and should be replaced before public launch.
+Demo content is visibly marked and must be replaced before launch.

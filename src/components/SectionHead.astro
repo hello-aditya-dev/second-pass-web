@@ -1,0 +1,11 @@
+---
+interface Props { title: string; description?: string; href?: string; }
+const { title, description, href } = Astro.props;
+---
+<div class="section-head">
+  <div>
+    <h2>{title}</h2>
+    {description && <p>{description}</p>}
+  </div>
+  {href && <a class="mono" href={href}>VIEW ALL →</a>}
+</div>

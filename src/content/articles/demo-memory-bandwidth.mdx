@@ -1,0 +1,51 @@
+---
+title: "Demo: Peak compute is rarely the whole accelerator story"
+dek: "A demonstration of SECOND / PASS reporting: start with the announced number, then locate the system bottleneck the number does not explain."
+slug: "demo-memory-bandwidth"
+section: "Compute"
+format: "SECOND PASS"
+author: "Second Pass Editorial"
+publishedAt: 2026-08-09T05:00:00Z
+status: "published"
+firstPass:
+  - "Headline arithmetic throughput is only one constraint in accelerator performance."
+  - "Memory capacity, bandwidth, interconnect, utilization, and software can move the real bottleneck."
+  - "A useful comparison has to preserve workload and benchmark conditions."
+featured: true
+demo: true
+tags: ["accelerators", "benchmarks"]
+adPolicy: "light"
+sources: []
+changeLog:
+  - at: 2026-08-09T05:00:00Z
+    type: "published"
+    note: "Product demonstration article created for the website foundation."
+---
+
+## / SECOND PASS
+
+A technical product is easy to market with one giant number. A deployed system is harder.
+
+An accelerator can add arithmetic throughput while a workload remains constrained by memory
+capacity, memory bandwidth, communication, utilization, software maturity, or request shape.
+That makes the first useful question less dramatic: **what was limiting the previous system?**
+
+The second question is whether the new architecture actually changes that constraint.
+
+<div class="table-wrap">
+
+| Question | Weak first-pass coverage | SECOND / PASS standard |
+| --- | --- | --- |
+| Performance | Repeat peak figure | Match metric to workload |
+| Benchmark | Quote a ratio | Preserve test conditions |
+| Cost | Use sticker price | State utilization and operating assumptions |
+| Conclusion | Declare a winner | Preserve constraints and uncertainty |
+
+</div>
+
+## Evidence determines the headline
+
+If the evidence supports only a narrow conclusion, the headline should become narrower. Research
+should shape the story; the story should not force the research into a predetermined claim.
+
+This is demo content. It does not assert any current GPU specification.

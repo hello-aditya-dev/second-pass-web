@@ -1,0 +1,24 @@
+---
+interface Props {
+  fallback?: "brief" | "data";
+  label?: string;
+}
+const { fallback = "brief", label = "ADVERTISEMENT / RESERVED" } = Astro.props;
+const isBrief = fallback === "brief";
+---
+<aside class="ad-break" data-pagefind-ignore aria-label="Commercial break">
+  <div class="ad-shell">
+    <div class="ad-label">{label}</div>
+    <div class="house-unit">
+      <strong>{isBrief ? "/ BRIEF" : "/ DATA"}</strong>
+      <p>
+        {isBrief
+          ? "The technical developments worth understanding, without the press-release rewrite."
+          : "Source-backed prices, accelerator specifications, and benchmark context."}
+      </p>
+    </div>
+    <a class="ad-action" href={isBrief ? "/brief" : "/data"}>
+      {isBrief ? "See briefing →" : "Open data →"}
+    </a>
+  </div>
+</aside>

@@ -1,0 +1,20 @@
+---
+import type { ArticleEntry } from "@/lib/content";
+import { formatDate } from "@/lib/content";
+interface Props { articles: ArticleEntry[]; }
+const { articles } = Astro.props;
+---
+<div>
+  {articles.map((article) => (
+    <article class="list-story">
+      <div class="story-meta">{article.data.section}<br />{article.data.format}</div>
+      <div>
+        <h2><a href={`/articles/${article.data.slug}`}>{article.data.title}</a></h2>
+        <p>{article.data.dek}</p>
+      </div>
+      <time datetime={article.data.publishedAt.toISOString()}>
+        {formatDate(article.data.publishedAt)}{article.data.demo ? " / DEMO" : ""}
+      </time>
+    </article>
+  ))}
+</div>

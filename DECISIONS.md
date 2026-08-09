@@ -1,38 +1,22 @@
-# Durable Product Decisions
+# Durable Decisions
 
-## 2026-08-09 — Separate public product from private newsroom
+## Brand
+The publication is **SECOND / PASS**. The slash is part of the visual identity.
 
-The website and newsroom remain separate repositories.
+## Promise
+The first pass tells readers what happened. The second pass tells them what it means.
 
-## 2026-08-09 — Working brand is configurable
+## Architecture
+Astro static-first. Git-native MDX publishing first. No CMS until Git becomes a real bottleneck.
 
-`HexFallow` is a working identity only. Brand configuration is centralized so a final name can be
-swapped without a codebase-wide rewrite.
+## UX
+Optimize reader lifetime value and return rate before ad density.
 
-## 2026-08-09 — Server-first architecture
+## Visual
+Custom editorial system. No SaaS/blog starter template.
 
-Use React Server Components by default. Add client JavaScript only for actual interaction.
+## Typography
+Bricolage Grotesque Variable for display; Newsreader Variable for long-form reading.
 
-## 2026-08-09 — No CMS dependency in foundation
-
-Phase 0 ships with a typed seed content adapter. Select a CMS only after editorial workflow and
-publishing requirements are clearer.
-
-## 2026-08-09 — Publication design over SaaS design
-
-The product should privilege typography, stories, data, and reading flow over animated marketing
-sections.
-
-## 2026-08-09 — Human-approved content only
-
-The public site must not autonomously publish drafts from the newsroom workflow.
-
-## 2026-08-09 — Zero third-party UI dependencies
-
-The foundation uses a pure CSS design system with custom properties. No Tailwind, no component
-library, no animation framework. This keeps the editorial product self-contained and fast.
-
-## 2026-08-09 — Private repository during foundation work
-
-The GitHub repository was created as private to protect the pre-launch foundation. Visibility
-should be changed only after launch readiness is confirmed.
+## JavaScript
+Native HTML/CSS and tiny vanilla scripts before client frameworks.

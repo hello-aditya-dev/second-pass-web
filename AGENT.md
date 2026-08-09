@@ -1,167 +1,116 @@
-# AGENT — Publication Web Operating Contract
+# AGENT — SECOND / PASS Web
 
-## Role
+## Mission
 
-You are the senior product engineer, publication UX designer, SEO engineer, accessibility reviewer,
-and performance-focused maintainer for this public website repository.
+Build and maintain the fastest, most useful, most legible technical publication experience in its
+category. UX is a primary moat.
 
-You are not the newsroom researcher.
+## Speed philosophy
 
-The separate private `publication-newsroom` repository owns:
-- discovery;
-- research;
-- source strategy;
-- fact-checking;
-- unpublished drafts;
-- editorial decisions;
-- internal data provenance.
+Default behavior:
+- think in hours and days, not weeks;
+- ship small coherent improvements;
+- parallelize independent work;
+- prefer reversible decisions;
+- test instead of debating;
+- keep dependencies minimal;
+- remove blockers immediately.
 
-This repository owns the **public product**.
+Speed never means fabricating facts, skipping security, weakening accessibility, publishing
+unapproved drafts, or ignoring known build failures.
 
-## Mandatory startup
+Remove delay, not correctness.
 
-Before making changes:
+## Startup
 
-1. Read this file.
-2. Read `README.md`.
-3. Read `CURRENT_STATE.md`.
-4. Read `DECISIONS.md`.
-5. Read relevant files in `docs/`.
-6. Inspect the existing implementation before proposing a rewrite.
-7. Preserve working behavior unless the task requires changing it.
+Before work:
+1. read this file;
+2. read `CURRENT_STATE.md`;
+3. read `DECISIONS.md`;
+4. read relevant `docs/`;
+5. inspect existing implementation;
+6. verify before large rewrites.
 
-## Product principles
+## Public/private boundary
 
-The site must feel like a serious technical publication, not:
-- a SaaS homepage;
-- a generic AI blog;
-- an over-animated agency portfolio;
-- a content farm;
-- a dashboard pretending to be journalism.
+The private newsroom repo owns discovery, raw research, evidence dossiers, internal fact checking,
+unpublished drafts, and source strategy.
 
-Prioritize:
-1. readability;
-2. information hierarchy;
-3. speed;
-4. editorial credibility;
-5. accessibility;
-6. SEO correctness;
-7. maintainability;
-8. restrained distinctive visual identity.
+This repo owns public pages, approved article files, public sources, diagrams, charts, public data,
+UX, SEO, ads, and newsletter surfaces.
 
-## Technical baseline
+Never copy private newsroom material here.
 
-- Next.js App Router
-- React
-- TypeScript strict mode
-- server components by default
-- client components only when interaction genuinely requires them
-- no dependency added without a reason
-- no secrets in client code
-- no unnecessary state library
-- no unnecessary animation library
+## Framework
 
-Before changing framework versions, check current official documentation and compatibility.
+Astro-first. Do not migrate to T3, Open SaaS, Next.js SaaS starters, AstroWind, Astroship, Cruip, or
+generic shadcn templates without explicit approval and a concrete requirement.
 
-## Content boundary
-
-Do not invent or publish current technical news as part of website implementation.
-
-Seed/demonstration content must remain clearly synthetic/demo.
-
-When real approved editorial content arrives:
-- preserve the exact approved meaning;
-- do not "improve" technical claims without newsroom review;
-- preserve dates, bylines, corrections, uncertainty, and source notes.
-
-Never expose files from the private newsroom repository.
-
-## SEO
-
-For every public article:
-- unique canonical URL;
-- correct title and description;
-- stable slug;
-- `datePublished`;
-- truthful `dateModified`;
-- author identity;
-- Article/NewsArticle structured data where appropriate;
-- high-quality indexable HTML;
-- useful internal links;
-- no keyword stuffing.
-
-Do not generate scaled thin tag/entity pages.
-
-## Performance
+## JavaScript budget
 
 Prefer:
-- server rendering/static generation where suitable;
-- system/font optimization;
-- CSS over JS for simple visual behavior;
-- responsive images;
-- minimal third-party scripts;
-- lazy loading below the fold.
+1. HTML/CSS
+2. native browser primitives
+3. tiny vanilla JS
+4. Astro islands only when needed
+
+Do not add React for simple menus, disclosures, tabs, or filters.
+
+## Design
 
 Avoid:
-- large client bundles;
-- autoplay video;
-- WebGL decoration on reading pages;
-- excessive motion;
-- blocking analytics/ad scripts.
+- rounded card grids everywhere
+- gradients as decoration
+- glassmorphism
+- startup hero layouts
+- decorative 3D
+- glowing AI imagery
+- slow motion
 
-## Accessibility
+Use:
+- typography
+- rules
+- asymmetric editorial grids
+- diagrams
+- data
+- the slash
+- intentional density
 
-- semantic landmarks;
-- visible keyboard focus;
-- skip link;
-- logical heading structure;
-- form labels;
-- adequate contrast;
-- reduced-motion support;
-- meaningful image alt text;
-- no interaction that requires hover only.
+## Devices
 
-## Ads and monetization
+Every substantive UI change must consider:
+- 1440 desktop
+- 1024 tablet landscape
+- 820 tablet portrait
+- 430 mobile
+- 375 mobile
 
-Ads must never:
-- imitate article content;
-- interrupt the first paragraph;
-- cause severe layout shift;
-- cover navigation;
-- make mobile reading hostile;
-- compromise page speed more than necessary.
+Tablet is not compressed desktop. Mobile is not compressed tablet.
 
-Sponsored content must be visibly labeled.
+## Advertising
 
-## Security
+Read `docs/AD_SYSTEM.md`.
 
-- never commit tokens, passwords, cookies, service keys, or private credentials;
-- validate all future form/API input server-side;
-- keep provider secrets server-only;
-- use conservative security headers;
-- do not weaken protections merely to embed third-party ad/analytics code without review;
-- treat external HTML/content as untrusted.
+Hard bans:
+- no popup/prestitial/interstitial
+- no sticky bottom ad
+- no sticky video
+- no autoplay sound
+- no ad between chart and explanation
+- no ad inside data table
+- no ad disguised as editorial
+- no ad before FIRST PASS
 
-## Design consistency
+## Publishing
 
-Global identity belongs in:
-- `src/lib/site.ts`
-- `src/app/globals.css`
-- reusable components
+Only human-approved content may use `status: published`.
 
-Do not scatter brand values through dozens of files.
+## Completion
 
-## Completion procedure
+Before finishing:
+- `npm run content:audit`
+- `npm run check`
+- `npm run build`
+- update `CURRENT_STATE.md`
 
-Before finishing substantive work:
-
-1. run `npm run typecheck`;
-2. run `npm run lint`;
-3. run `npm run build`;
-4. fix failures caused by the change;
-5. inspect responsive behavior where browser tools are available;
-6. update `CURRENT_STATE.md`;
-7. update `DECISIONS.md` only for durable architecture/product decisions;
-8. summarize files changed and remaining issues.
-
-Do not claim verification you did not actually run.
+Do not claim verification you did not run.

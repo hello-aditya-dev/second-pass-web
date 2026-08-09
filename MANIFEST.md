@@ -2,66 +2,78 @@
 
 Generated: 2026-08-09
 
-Files before manifest: 61
+Files before manifest: 73
 
-- `.env.example` — `6e7555af057e`
-- `.gitignore` — `6bbf4462ba49`
-- `AGENT.md` — `3d478909a942`
-- `BRAND_NAMES.md` — `4fa6999a6072`
-- `CURRENT_STATE.md` — `9cfd72dd73e0`
-- `DECISIONS.md` — `f0ed7f2adf35`
-- `README.md` — `3c090e2ad3cc`
-- `ZAI_MASTER_PROMPT.md` — `cd8a71613341`
-- `archive/README.md` — `51a857713b5b`
-- `archive/publication-web-foundation.zip` — `94e8c9b85059`
-- `content/README.md` — `7e7b25459f17`
-- `docs/ARCHITECTURE.md` — `6b3fd3ddaf26`
-- `docs/CONTENT_MODEL.md` — `dd2c6f7b4cb7`
-- `docs/DESIGN_SYSTEM.md` — `1d65f3587c2f`
-- `docs/LAUNCH_CHECKLIST.md` — `d829a76da857`
-- `docs/MONETIZATION.md` — `79cf263c27df`
-- `docs/SECURITY.md` — `7a2b290d3a31`
-- `docs/SEO_CHECKLIST.md` — `8c7d01fa30e4`
-- `eslint.config.mjs` — `37651972ba00`
-- `next-env.d.ts` — `a830cbf441cc`
-- `next.config.ts` — `b5c081935801`
-- `package.json` — `ff1d3383ed8b`
-- `public/mark.svg` — `42bf50ca8be1`
-- `public/og-default.svg` — `0c9ff527f150`
-- `scripts/README.md` — `7a870bd436d8`
-- `src/app/about/page.tsx` — `af2390a8d561`
-- `src/app/ai/page.tsx` — `5dd763087933`
-- `src/app/articles/[slug]/page.tsx` — `4cd5d8d1a5ac`
-- `src/app/compute/page.tsx` — `4fcc19bfdf94`
-- `src/app/corrections/page.tsx` — `54a0b6a46948`
-- `src/app/data/page.tsx` — `f5a469429925`
-- `src/app/editorial-policy/page.tsx` — `fa871be10297`
-- `src/app/globals.css` — `14cbf2bcdada`
-- `src/app/infrastructure/page.tsx` — `97722fdf4032`
-- `src/app/latest/page.tsx` — `f361658458f0`
-- `src/app/layout.tsx` — `054aebb2e4f2`
-- `src/app/manifest.ts` — `c0b0ee482e17`
-- `src/app/newsletter/page.tsx` — `42d094eae7d1`
-- `src/app/not-found.tsx` — `2f7d9abc821f`
-- `src/app/page.tsx` — `b3481e586aef`
-- `src/app/privacy/page.tsx` — `580fa31e4a59`
-- `src/app/research/page.tsx` — `4f61688f7093`
-- `src/app/robots.ts` — `bafb7c13c52e`
-- `src/app/search/page.tsx` — `51f558928bf7`
-- `src/app/security/page.tsx` — `9f7369f81d41`
-- `src/app/sitemap.ts` — `987f926b2e4d`
-- `src/components/ArticleBody.tsx` — `5a2a0c741610`
-- `src/components/DataCard.tsx` — `7f1c37788573`
-- `src/components/LeadStory.tsx` — `39edd419aa32`
-- `src/components/NewsletterCTA.tsx` — `8ef7c9250d3e`
-- `src/components/SectionHeader.tsx` — `dd5d4f020436`
-- `src/components/SiteFooter.tsx` — `11dd96bdcfa6`
-- `src/components/SiteHeader.tsx` — `5c92d26fa693`
-- `src/components/StoryCard.tsx` — `124bf60774ac`
-- `src/lib/content.ts` — `1f1dc90fa6cb`
-- `src/lib/format.ts` — `6f5d51632950`
-- `src/lib/schema.ts` — `3f37dac18a16`
-- `src/lib/site.ts` — `f0032978ed21`
-- `src/lib/types.ts` — `9844c438cc92`
-- `tests/README.md` — `b420496d0251`
-- `tsconfig.json` — `a1b145f80903`
+- `.env.example` — sha256 `0a2a3abd0ef7`
+- `.gitignore` — sha256 `689e394881bc`
+- `.nvmrc` — sha256 `ccb4022e91ab`
+- `AGENT.md` — sha256 `3425d50ba1b8`
+- `CURRENT_STATE.md` — sha256 `d4ab6bf8cff6`
+- `DECISIONS.md` — sha256 `a02edcf45f3d`
+- `OPEN_SOURCE.md` — sha256 `0b6f9b83130e`
+- `README.md` — sha256 `23c2985e9506`
+- `ZAI_MASTER_PROMPT.md` — sha256 `3aebcbeb2373`
+- `archive/README.md` — sha256 `f896c9f9649d`
+- `archive/second-pass-web-foundation.zip` — sha256 `b695ed8f6afd`
+- `astro.config.mjs` — sha256 `bd274e675c96`
+- `docs/ACCEPTANCE.md` — sha256 `b83aa5ca5927`
+- `docs/AD_SYSTEM.md` — sha256 `2b017842e3d0`
+- `docs/BRAND_SYSTEM.md` — sha256 `c484fb718733`
+- `docs/FT_INSPIRATION.md` — sha256 `e1b92ac1ce15`
+- `docs/INTERACTIONS.md` — sha256 `ef63cd4ba3ad`
+- `docs/MOBILE_TABLET.md` — sha256 `6835a82ef61b`
+- `docs/NEWSROOM_HANDOFF.md` — sha256 `d5e01e479d18`
+- `docs/OPEN_SOURCE_STACK.md` — sha256 `a92389fc997b`
+- `docs/OPERATIONS.md` — sha256 `799030862baa`
+- `docs/PERFORMANCE.md` — sha256 `079d52428c72`
+- `docs/PUBLISHING_SPEED.md` — sha256 `c37cbe699415`
+- `docs/SEO_DISCOVER.md` — sha256 `1d194ae31c8d`
+- `docs/UX_SPEC.md` — sha256 `bcfd8fd56172`
+- `package.json` — sha256 `f6e944bc2878`
+- `public/mark.svg` — sha256 `5d0c0b71c068`
+- `public/og-default.svg` — sha256 `a9826439aac6`
+- `scripts/content-audit.mjs` — sha256 `9f950396e34e`
+- `scripts/new-article.mjs` — sha256 `aca73bd5db66`
+- `src/components/AdBreak.astro` — sha256 `bbcb70d239ca`
+- `src/components/ArticleList.astro` — sha256 `f04d9ed05a78`
+- `src/components/EvidencePanel.astro` — sha256 `b1fb00e2113f`
+- `src/components/FirstPass.astro` — sha256 `79efc3741ab2`
+- `src/components/Footer.astro` — sha256 `839d9e5b9678`
+- `src/components/Header.astro` — sha256 `4a2e03e13ca7`
+- `src/components/NewsletterCTA.astro` — sha256 `dd983013702d`
+- `src/components/ReadingProgress.astro` — sha256 `315702f1f39c`
+- `src/components/SectionHead.astro` — sha256 `a0726855b118`
+- `src/components/SectionPage.astro` — sha256 `8579a9d243ba`
+- `src/components/StoryCard.astro` — sha256 `74a39c236c28`
+- `src/content.config.ts` — sha256 `a25a81906b02`
+- `src/content/articles/demo-api-economics.mdx` — sha256 `843e465a0d62`
+- `src/content/articles/demo-memory-bandwidth.mdx` — sha256 `4c84c1f2661b`
+- `src/content/articles/demo-paper-methods.mdx` — sha256 `be29afc7e282`
+- `src/content/articles/demo-release-notes.mdx` — sha256 `b3969ca93b4f`
+- `src/content/articles/demo-security-state.mdx` — sha256 `da26f82a4c3c`
+- `src/layouts/BaseLayout.astro` — sha256 `dfa26ec3f376`
+- `src/lib/content.ts` — sha256 `78c1c891b310`
+- `src/lib/schema.ts` — sha256 `b06c641c6020`
+- `src/lib/site.ts` — sha256 `550758e03be1`
+- `src/pages/404.astro` — sha256 `cc2dba4ea8fe`
+- `src/pages/about.astro` — sha256 `b2c575a9543f`
+- `src/pages/ai.astro` — sha256 `b42e9c931cc4`
+- `src/pages/articles/[slug].astro` — sha256 `5bf5fc722d0f`
+- `src/pages/brief.astro` — sha256 `719aedcc6eed`
+- `src/pages/compute.astro` — sha256 `5e4ecba261bd`
+- `src/pages/corrections.astro` — sha256 `c3a4ede65aa2`
+- `src/pages/data.astro` — sha256 `963d95db920a`
+- `src/pages/editorial-policy.astro` — sha256 `b02216929460`
+- `src/pages/index.astro` — sha256 `a28aadd88368`
+- `src/pages/latest.astro` — sha256 `1905a8188877`
+- `src/pages/news-sitemap.xml.ts` — sha256 `7addb9c5d717`
+- `src/pages/now.astro` — sha256 `f88df372a593`
+- `src/pages/privacy.astro` — sha256 `cc7557a6b86b`
+- `src/pages/research.astro` — sha256 `66ea4e7b1a90`
+- `src/pages/robots.txt.ts` — sha256 `e0c645281c33`
+- `src/pages/rss.xml.ts` — sha256 `89b325b3ddb9`
+- `src/pages/search.astro` — sha256 `090814ad4675`
+- `src/pages/security.astro` — sha256 `60bce0989053`
+- `src/pages/systems.astro` — sha256 `2effdd1ea765`
+- `src/styles/global.css` — sha256 `9eb833a25a02`
+- `tsconfig.json` — sha256 `834d9d78d8e1`
