@@ -13,6 +13,18 @@ const formsEnabled = import.meta.env.PUBLIC_COMMERCIAL_FORMS_ENABLED === "true";
       </p>
     </header>
 
+    <div class="sprint-offer">
+      <div class="sprint-card">
+        <div class="kicker">RAPID / RESEARCH SPRINT</div>
+        <h2>A tightly scoped decision brief.</h2>
+        <p>
+          Primary-source research, structured data, technical analysis, and an executive briefing —
+          combined into a deliverable shaped around a specific decision.
+          We do not promise findings in advance.
+        </p>
+      </div>
+    </div>
+
     <div class="intelligence-capabilities">
       <div class="intel-card">
         <div class="kicker">01</div>
@@ -86,8 +98,8 @@ const formsEnabled = import.meta.env.PUBLIC_COMMERCIAL_FORMS_ENABLED === "true";
 
         <div class="form-row">
           <div class="form-field">
-            <label for="intel-deadline">Decision deadline *</label>
-            <select id="intel-deadline" name="deadline" required>
+            <label for="intel-deadline">Decision deadline</label>
+            <select id="intel-deadline" name="deadline">
               <option value="">Select</option>
               <option value="urgent">Urgent — this week</option>
               <option value="2-weeks">Within 2 weeks</option>
@@ -97,14 +109,14 @@ const formsEnabled = import.meta.env.PUBLIC_COMMERCIAL_FORMS_ENABLED === "true";
             </select>
           </div>
           <div class="form-field">
-            <label for="intel-budget">Budget range *</label>
-            <select id="intel-budget" name="budgetRange" required>
+            <label for="intel-budget">Project budget</label>
+            <select id="intel-budget" name="budgetRange">
               <option value="">Select</option>
-              <option value="under-5k">Under $5K</option>
-              <option value="5k-15k">$5K–$15K</option>
-              <option value="15k-50k">$15K–$50K</option>
-              <option value="50k+">$50K+</option>
-              <option value="custom">Custom scope</option>
+              <option value="1500-3000">$1,500–$3,000</option>
+              <option value="3000-7500">$3,000–$7,500</option>
+              <option value="7500-15000">$7,500–$15,000</option>
+              <option value="15000+">$15,000+</option>
+              <option value="discuss">Discuss scope</option>
             </select>
           </div>
         </div>
@@ -181,6 +193,25 @@ const formsEnabled = import.meta.env.PUBLIC_COMMERCIAL_FORMS_ENABLED === "true";
 </script>
 
 <style>
+  .sprint-offer {
+    margin: 32px 0 24px;
+    padding: 28px 32px;
+    border: 2px solid var(--ink);
+    background: var(--paper-2, #e9e4d9);
+  }
+  .sprint-card .kicker {
+    margin-bottom: 8px;
+  }
+  .sprint-card h2 {
+    margin: 0 0 10px;
+    font-size: 1.5rem;
+    letter-spacing: -.03em;
+  }
+  .sprint-card p {
+    margin: 0;
+    font: 1rem/1.5 var(--reader);
+    color: var(--graphite);
+  }
   .intelligence-capabilities {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

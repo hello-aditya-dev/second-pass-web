@@ -28,7 +28,7 @@ interface SafeEvent {
 export function trackEvent(event: SafeEvent): void {
   if (typeof window === "undefined") return;
 
-  const enabled = document.documentElement.dataset.analytics === "true";
+  const enabled = document.body.dataset.analytics === "true";
   if (!enabled) return;
 
   // Vercel Web Analytics custom events

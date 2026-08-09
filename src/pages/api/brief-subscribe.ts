@@ -48,13 +48,13 @@ export const POST: APIRoute = async ({ request }) => {
     return safeErrorResponse("Valid email is required", rid, 400);
   }
 
-  // Source (optional metadata)
-  const source = validateOptionalString(body.source, FIELD_LIMITS.source);
-
-  // UTM fields (optional)
+  // UTM attribution fields (all optional)
   const utmSource = validateOptionalString(body.utm_source, FIELD_LIMITS.utmSource) ?? undefined;
   const utmMedium = validateOptionalString(body.utm_medium, FIELD_LIMITS.utmMedium) ?? undefined;
   const utmCampaign = validateOptionalString(body.utm_campaign, FIELD_LIMITS.utmCampaign) ?? undefined;
+  // utm_content carries the placement identifier (e.g. "homepage-cta", "article-bottom")
+  const utmContent = validateOptionalString(body.utm_content, 120) ?? undefined;
+  // referring_site carries the external referrer domain (privacy-appropriate)
   const referringSite = validateOptionalString(body.referring_site, FIELD_LIMITS.referringSite) ?? undefined;
 
   // Check if BRIEF is enabled
@@ -74,13 +74,11 @@ export const POST: APIRoute = async ({ request }) => {
   const result = await beehiivSubscribe(
     config,
     email,
-    source,
-    { utm_source: utmSource, utm_medium: utmMedium, utm_campaign: utmCampaign },
+    { utm_source: utmSource, utm_medium: utmMedium, utm_campaign: utmCampaign, utm_content: utmContent },
     referringSite
   );
 
   if (!result.success) {
-    // Map error classes to user-safe messages
     const message =
       result.error === "rate_limited"
         ? "Too many requests. Please try again later."
@@ -92,13 +90,10 @@ export const POST: APIRoute = async ({ request }) => {
     return safeErrorResponse(message, rid, status);
   }
 
+  // Generic success message — works for new subscriptions and already-subscribed
   return successResponse(
     {
-      status: result.status,
-      message:
-        result.status === "already_subscribed"
-          ? "You're already subscribed to / BRIEF."
-          : "You're on the list. Check your inbox if confirmation is required."
+      message: "You're on the list. If you were already subscribed, nothing has changed."
     },
     rid
   );

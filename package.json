@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "astro dev --host 0.0.0.0 -p 3000 2>&1 | tee dev.log",
     "build:astro": "astro build",
-    "search:index": "pagefind --site dist",
+    "search:index": "node scripts/build-search.mjs",
     "build": "bun run build:astro && bun run search:index",
     "preview": "astro preview",
     "check": "astro check",

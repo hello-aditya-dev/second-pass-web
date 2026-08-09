@@ -10,7 +10,10 @@ export const GET: APIRoute = async () => {
     JSON.stringify({ status: "ok", brief, leads }),
     {
       status: 200,
-      headers: { "Content-Type": "application/json" }
+      headers: {
+        "Content-Type": "application/json",
+        "Cache-Control": "no-store"
+      }
     }
   );
 };

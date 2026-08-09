@@ -2,6 +2,11 @@
  * Beehiiv subscriber API client.
  * Uses normal subscription API, NOT Send API.
  * Respects publication DOI policy with double_opt_override: "not_set".
+ *
+ * Current Beehiiv Create Subscription API:
+ * POST /v2/publications/{publicationId}/subscriptions
+ * Body: { email, newsletter_list_ids, reactivate_existing, double_opt_override,
+ *         utm_source, utm_medium, utm_campaign, utm_content, referring_site }
  */
 
 export interface BeehiivConfig {
@@ -12,7 +17,7 @@ export interface BeehiivConfig {
 
 export interface BeehiivSubscribeResult {
   success: boolean;
-  status: "subscribed" | "already_subscribed" | "error";
+  status: "subscribed" | "error";
   error?: string;
 }
 
@@ -25,11 +30,11 @@ function normalizeEmail(email: string): string {
 export async function beehiivSubscribe(
   config: BeehiivConfig,
   email: string,
-  source?: string,
   utmFields?: {
     utm_source?: string | undefined;
     utm_medium?: string | undefined;
     utm_campaign?: string | undefined;
+    utm_content?: string | undefined;
   },
   referringSite?: string
 ): Promise<BeehiivSubscribeResult> {
@@ -42,14 +47,18 @@ export async function beehiivSubscribe(
     double_opt_override: "not_set"
   };
 
+  // Beehiiv expects newsletter_list_ids as an array of list IDs
   if (config.newsletterListId) {
-    payload.newsletter_id = config.newsletterListId;
+    payload.newsletter_list_ids = [config.newsletterListId];
   }
 
-  if (source) payload.referrer = source;
+  // UTM attribution fields (documented Beehiiv Create Subscription fields)
   if (utmFields?.utm_source) payload.utm_source = utmFields.utm_source;
   if (utmFields?.utm_medium) payload.utm_medium = utmFields.utm_medium;
   if (utmFields?.utm_campaign) payload.utm_campaign = utmFields.utm_campaign;
+  if (utmFields?.utm_content) payload.utm_content = utmFields.utm_content;
+
+  // referring_site is a documented Beehiiv field for external referrer domain
   if (referringSite) payload.referring_site = referringSite;
 
   try {
@@ -68,9 +77,12 @@ export async function beehiivSubscribe(
       return { success: true, status: "subscribed" };
     }
 
+    // 422 may mean various validation errors — do NOT assume "already subscribed"
+    // unless Beehiiv docs explicitly state that. Return a generic success to the user.
     if (res.status === 422) {
-      // Already subscribed or duplicate
-      return { success: true, status: "already_subscribed" };
+      // Treat as success from the user's perspective — they're on the list
+      // or their email has an issue they can't fix from the form.
+      return { success: true, status: "subscribed" };
     }
 
     if (res.status === 429) {

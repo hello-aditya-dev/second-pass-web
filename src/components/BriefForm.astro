@@ -21,7 +21,7 @@ const briefEnabled = import.meta.env.PUBLIC_BRIEF_ENABLED === "true";
         class="brief-input"
       />
       <input type="text" name="_hp" class="sr-only" tabindex={-1} autocomplete="off" aria-hidden="true" />
-      <input type="hidden" name="source" value={source} />
+      <input type="hidden" name="utm_content" value={source} />
     </div>
     <button type="submit" class="brief-submit">{compact ? "JOIN" : "JOIN / BRIEF"}</button>
     <div class="brief-status" role="status" aria-live="polite"></div>
@@ -55,15 +55,36 @@ const briefEnabled = import.meta.env.PUBLIC_BRIEF_ENABLED === "true";
     statusEl.textContent = '';
     statusEl.className = 'brief-status';
 
+    // Capture UTM params from URL (do not send arbitrary/sensitive query params)
+    const urlParams = new URLSearchParams(window.location.search);
+    const utmSource = urlParams.get('utm_source') || undefined;
+    const utmMedium = urlParams.get('utm_medium') || undefined;
+    const utmCampaign = urlParams.get('utm_campaign') || undefined;
+
+    // Capture external referring site (privacy-appropriate: domain only)
+    let referringSite;
+    try {
+      const ref = document.referrer;
+      if (ref && new URL(ref).origin !== window.location.origin) {
+        referringSite = new URL(ref).origin;
+      }
+    } catch { /* ignore malformed referrer */ }
+
+    const payload = {
+      email,
+      utm_content: source,
+      _hp: ''
+    };
+    if (utmSource) payload.utm_source = utmSource;
+    if (utmMedium) payload.utm_medium = utmMedium;
+    if (utmCampaign) payload.utm_campaign = utmCampaign;
+    if (referringSite) payload.referring_site = referringSite;
+
     try {
       const res = await fetch('/api/brief-subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email,
-          source,
-          _hp: ''
-        })
+        body: JSON.stringify(payload)
       });
 
       const data = await res.json();

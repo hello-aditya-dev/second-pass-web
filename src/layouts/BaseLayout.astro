@@ -20,6 +20,11 @@ const {
   image = "/og-default.svg",
   noindex = false
 } = Astro.props;
+
+// Centralized prelaunch mode: when SITE_PRELAUNCH=true,
+// all pages emit noindex,nofollow regardless of per-page setting.
+const prelaunch = import.meta.env.SITE_PRELAUNCH === "true";
+const shouldNoindex = noindex || prelaunch;
 const fullTitle = title ? `${title} — ${SITE.plainName}` : `${SITE.name} — ${SITE.tagline}`;
 const canonicalUrl = new URL(canonical, siteUrl()).toString();
 const imageUrl = new URL(image, siteUrl()).toString();
@@ -37,7 +42,7 @@ const imageUrl = new URL(image, siteUrl()).toString();
     <link rel="icon" href="/mark.svg" type="image/svg+xml" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="alternate" type="application/rss+xml" title={`${SITE.plainName} RSS`} href="/rss.xml" />
-    {noindex && <meta name="robots" content="noindex,nofollow" />}
+    {shouldNoindex && <meta name="robots" content="noindex,nofollow" />}
     <meta property="og:type" content={ogType} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
@@ -49,7 +54,7 @@ const imageUrl = new URL(image, siteUrl()).toString();
     <meta name="twitter:image" content={imageUrl} />
     <slot name="head" />
   </head>
-  <body data-analytics={import.meta.env.PUBLIC_ANALYTICS_ENABLED === "true" ? "true" : undefined}>
+  <body data-analytics={import.meta.env.PUBLIC_ANALYTICS_ENABLED === "true" && !prelaunch ? "true" : undefined}>
     <a class="skip-link" href="#main">Skip to content</a>
     <Header />
     <main id="main" data-pagefind-body>

@@ -52,11 +52,8 @@ export const POST: APIRoute = async ({ request }) => {
   const desiredOutcome = validateString(body.desiredOutcome, FIELD_LIMITS.desiredOutcome, "desiredOutcome");
   if (!desiredOutcome) return safeErrorResponse("Desired outcome is required", rid, 400);
 
-  const deadline = validateString(body.deadline, FIELD_LIMITS.deadline, "deadline");
-  if (!deadline) return safeErrorResponse("Deadline is required", rid, 400);
-
-  const budgetRange = validateString(body.budgetRange, FIELD_LIMITS.budgetRange, "budgetRange");
-  if (!budgetRange) return safeErrorResponse("Budget range is required", rid, 400);
+  const deadline = validateOptionalString(body.deadline, FIELD_LIMITS.deadline);
+  const budgetRange = validateOptionalString(body.budgetRange, FIELD_LIMITS.budgetRange);
 
   const confidentiality = validateString(body.confidentiality, FIELD_LIMITS.confidentiality, "confidentiality");
   if (!confidentiality) return safeErrorResponse("Confidentiality level is required", rid, 400);
@@ -83,8 +80,8 @@ export const POST: APIRoute = async ({ request }) => {
     ...(role ? { role } : {}),
     problem,
     desiredOutcome,
-    deadline,
-    budgetRange,
+    ...(deadline ? { deadline } : {}),
+    ...(budgetRange ? { budgetRange } : {}),
     confidentiality,
     ...(source ? { source } : {})
   };

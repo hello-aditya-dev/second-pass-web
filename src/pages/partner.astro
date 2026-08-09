@@ -2,14 +2,14 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 const formsEnabled = import.meta.env.PUBLIC_COMMERCIAL_FORMS_ENABLED === "true";
 ---
-<BaseLayout title="/ PARTNER" description="Reach engineers and technical decision-makers without making the publication worse.">
+<BaseLayout title="/ PARTNER" description="Founding partnerships for a launch-stage technical intelligence publication.">
   <section class="shell route">
     <header class="route-head">
       <div class="kicker">/ PARTNER</div>
-      <h1>Reach engineers without making the publication worse.</h1>
+      <h1>Founding partnerships for a launch-stage publication.</h1>
       <p>
-        SECOND / PASS reaches technical decision-makers who read carefully and
-        value source-backed intelligence. Partnership preserves editorial integrity.
+        SECOND / PASS is built for engineers, technical leaders and people making
+        infrastructure decisions. Partnership preserves editorial integrity.
         Sponsor money never buys coverage, conclusions, or editorial review rights.
       </p>
     </header>
@@ -18,22 +18,22 @@ const formsEnabled = import.meta.env.PUBLIC_COMMERCIAL_FORMS_ENABLED === "true";
       <div class="partner-card">
         <div class="kicker">01</div>
         <h3>Founding Partner</h3>
-        <p>Brand presence across the entire publication — header, / BRIEF, and / DATA surfaces.</p>
+        <p>Selected commercial placement: homepage position, / BRIEF sponsorship, / DATA sponsorship, article-end sponsorship, or category/format sponsorship — while preserving editorial independence. The masthead is a sacred editorial zone.</p>
       </div>
       <div class="partner-card">
         <div class="kicker">02</div>
-        <h3>/ BRIEF Partner</h3>
+        <h3>/ BRIEF Launch Pilot</h3>
         <p>Dedicated placement in the technical briefing that subscribers actually read.</p>
       </div>
       <div class="partner-card">
         <div class="kicker">03</div>
-        <h3>/ DATA Partner</h3>
+        <h3>/ DATA Launch Pilot</h3>
         <p>Association with the reference products that engineers return to.</p>
       </div>
       <div class="partner-card">
         <div class="kicker">04</div>
-        <h3>Selected Premium</h3>
-        <p>Custom display in a specific section or format — one slot per surface.</p>
+        <h3>Selected Format</h3>
+        <p>Custom placement in a specific section or format — one slot per surface.</p>
       </div>
     </div>
 
@@ -77,20 +77,19 @@ const formsEnabled = import.meta.env.PUBLIC_COMMERCIAL_FORMS_ENABLED === "true";
 
         <div class="form-row">
           <div class="form-field">
-            <label for="partner-budget">Budget range *</label>
-            <select id="partner-budget" name="budgetRange" required>
+            <label for="partner-budget">Budget range</label>
+            <select id="partner-budget" name="budgetRange">
               <option value="">Select</option>
-              <option value="under-10k">Under $10K/mo</option>
-              <option value="10k-25k">$10K–$25K/mo</option>
-              <option value="25k-50k">$25K–$50K/mo</option>
-              <option value="50k-100k">$50K–$100K/mo</option>
-              <option value="100k+">$100K+/mo</option>
-              <option value="custom">Custom package</option>
+              <option value="under-1500">Under $1,500</option>
+              <option value="1500-3000">$1,500–$3,000</option>
+              <option value="3000-7500">$3,000–$7,500</option>
+              <option value="7500+">$7,500+</option>
+              <option value="not-sure">Not sure yet</option>
             </select>
           </div>
           <div class="form-field">
-            <label for="partner-timing">Timeline *</label>
-            <select id="partner-timing" name="timing" required>
+            <label for="partner-timing">Timeline</label>
+            <select id="partner-timing" name="timing">
               <option value="">Select</option>
               <option value="asap">As soon as possible</option>
               <option value="1-2-months">1–2 months</option>
@@ -112,7 +111,7 @@ const formsEnabled = import.meta.env.PUBLIC_COMMERCIAL_FORMS_ENABLED === "true";
           <div class="form-status" role="status" aria-live="polite"></div>
         </div>
 
-        <p class="form-note">No fake traffic numbers, inflated reach claims, or mature-media rate cards. We'll respond with real placement options and audience composition.</p>
+        <p class="form-note">We'll share current audience and placement information transparently.</p>
       </form>
     ) : (
       <div class="commercial-disabled">

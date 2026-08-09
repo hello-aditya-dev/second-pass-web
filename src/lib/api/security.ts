@@ -3,11 +3,16 @@
  * body limits, request IDs, sanitized errors.
  */
 
-/** Generate a short request ID for log correlation */
+/** Generate a cryptographically appropriate request ID for log correlation */
 export function requestId(): string {
-  const ts = Date.now().toString(36);
-  const rand = Math.random().toString(36).slice(2, 8);
-  return `req_${ts}_${rand}`;
+  try {
+    return `req_${crypto.randomUUID()}`;
+  } catch {
+    // Fallback for environments without crypto.randomUUID
+    const ts = Date.now().toString(36);
+    const rand = Math.random().toString(36).slice(2, 8);
+    return `req_${ts}_${rand}`;
+  }
 }
 
 /** Normalize and validate an email address */
@@ -59,13 +64,27 @@ export function isSameOrigin(
   referer: string | undefined,
   siteUrl: string
 ): boolean {
-  const check = origin || (referer ? new URL(referer).origin : "");
-  if (!check) return false;
-  try {
-    return new URL(check).origin === new URL(siteUrl).origin;
-  } catch {
-    return false;
+  // Parse the origin header first — it's the most reliable
+  if (origin) {
+    try {
+      return new URL(origin).origin === new URL(siteUrl).origin;
+    } catch {
+      return false;
+    }
   }
+
+  // Fall back to Referer — parse the origin from the full URL
+  if (referer) {
+    try {
+      return new URL(referer).origin === new URL(siteUrl).origin;
+    } catch {
+      // Malformed Referer — do NOT throw, treat as not same-origin
+      return false;
+    }
+  }
+
+  // No origin or referer header present
+  return false;
 }
 
 /** Max body size in bytes (10 KB) */
@@ -93,6 +112,7 @@ export const FIELD_LIMITS = {
   utmSource: 200,
   utmMedium: 200,
   utmCampaign: 200,
+  utmContent: 120,
   referringSite: 500
 } as const;
 
@@ -108,7 +128,8 @@ export function safeErrorResponse(
       status,
       headers: {
         "Content-Type": "application/json",
-        "X-Request-Id": requestId
+        "X-Request-Id": requestId,
+        "Cache-Control": "no-store"
       }
     }
   );
@@ -125,7 +146,8 @@ export function successResponse(
       status: 200,
       headers: {
         "Content-Type": "application/json",
-        "X-Request-Id": requestId
+        "X-Request-Id": requestId,
+        "Cache-Control": "no-store"
       }
     }
   );

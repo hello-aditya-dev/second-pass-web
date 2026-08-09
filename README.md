@@ -51,14 +51,33 @@ See `.env.example` for the complete list.
 | Variable | Purpose | Default |
 | --- | --- | --- |
 | `PUBLIC_SITE_URL` | Canonical production origin | `https://second-pass.vercel.app` |
+| `SITE_PRELAUNCH` | Prelaunch mode: noindex/nofollow on all pages, robots Disallow | `true` |
 | `BEEHIIV_API_KEY` | Beehiiv subscription API key | (server-only) |
 | `BEEHIIV_PUBLICATION_ID` | Beehiiv publication ID | (server-only) |
+| `BEEHIIV_NEWSLETTER_LIST_ID` | Beehiiv newsletter list ID | (server-only) |
 | `RESEND_API_KEY` | Resend transactional email key | (server-only) |
 | `LEADS_TO_EMAIL` | Lead notification destination | (server-only) |
 | `LEADS_FROM_EMAIL` | Lead notification sender | (server-only) |
 | `PUBLIC_BRIEF_ENABLED` | Enable BRIEF subscription form | `false` |
 | `PUBLIC_COMMERCIAL_FORMS_ENABLED` | Enable partner/intelligence forms | `false` |
 | `PUBLIC_ANALYTICS_ENABLED` | Enable Vercel Web Analytics | `false` |
+
+## Prelaunch mode
+
+When `SITE_PRELAUNCH=true` (default):
+
+- All pages emit `<meta name="robots" content="noindex,nofollow">`
+- `robots.txt` serves `Disallow: /`
+- Vercel Web Analytics is disabled
+- Homepage remains accessible for QA
+
+When `SITE_PRELAUNCH=false`:
+
+- Normal public SEO/indexing behavior resumes
+- `robots.txt` serves `Allow: /`
+- Analytics follows `PUBLIC_ANALYTICS_ENABLED`
+
+This is implemented centrally — no per-page edits required.
 
 ## Commands
 
@@ -89,8 +108,8 @@ bun run prepublish -- slug     # Full prepublish pipeline
 | `/data` | Reference data products |
 | `/search` | Pagefind static search |
 | `/brief` | / BRIEF newsletter signup |
-| `/partner` | Partnership inquiries |
-| `/intelligence` | Intelligence service inquiries |
+| `/partner` | Partnership inquiries (launch-stage) |
+| `/intelligence` | Intelligence service inquiries (RAPID / RESEARCH SPRINT) |
 | `/about` | Publication identity |
 | `/editorial-policy` | Editorial standards |
 | `/corrections` | Corrections process |
@@ -103,7 +122,7 @@ bun run prepublish -- slug     # Full prepublish pipeline
 | `/rss.xml` | RSS feed (excludes demo) |
 | `/news-sitemap.xml` | Google News sitemap (excludes demo, recent only) |
 | `/sitemap-index.xml` | Standard sitemap |
-| `/robots.txt` | Robots directives |
+| `/robots.txt` | Robots directives (respects SITE_PRELAUNCH) |
 
 ## Content model
 
@@ -152,10 +171,11 @@ Target: under 10 minutes from approval to deployment.
 - Method/content-type/body-size validation on all mutation endpoints
 - Field max lengths enforced
 - Honeypot fields on all forms
-- Same-origin discipline (Origin/Referer check)
+- Same-origin discipline (Origin/Referer check) — malformed Referer cannot throw
 - Upstream timeout (8s) for Beehiiv and Resend
 - Sanitized errors — never expose provider response internals
-- Request IDs on all API responses
+- Request IDs via `crypto.randomUUID()` on all API responses
+- `Cache-Control: no-store` on all API responses
 - `X-Content-Type-Options: nosniff`
 - `X-Frame-Options: DENY`
 - `Referrer-Policy: strict-origin-when-cross-origin`
@@ -168,7 +188,7 @@ CMS, database, auth, accounts, real ad network, comments, React, CSP (deliberate
 
 ## Pre-launch state
 
-The deployment is protected/noindex. Demo stories are visibly marked and excluded from RSS/news sitemap. No real news is published. The public product is frozen before content pipeline starts.
+The deployment is protected/noindex via `SITE_PRELAUNCH=trueBeehiiv/Resend disabled safely if credentials absent. Demo stories visibly marked and excluded from RSS/news sitemap. Canonical remains `https://second-pass.vercel.app` until domain day.
 
 ## Verification
 
@@ -176,7 +196,7 @@ The deployment is protected/noindex. Demo stories are visibly marked and exclude
 bun install
 bun run content:audit   # 0 failures (expected demo warnings)
 bun run check           # 0 errors
-bun run build           # 24+ pages, Pagefind indexed
+bun run build           # 24+ pages, Pagefind indexed in Vercel output
 ```
 
 ## Documentation

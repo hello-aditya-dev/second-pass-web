@@ -1,9 +1,9 @@
 # Current State
 
 **Brand:** SECOND / PASS
-**Phase:** Final website completion (code complete)
+**Phase:** Revenue-readiness patch applied
 **Architecture:** Astro 7 hybrid — static read path, Vercel Functions for writes only
-**Date:** 2026-08-09
+**Date:** 2026-08-10
 
 ## Included
 
@@ -19,7 +19,7 @@
 - Article anatomy: FIRST PASS, / SECOND PASS, evidence panel, sources, change log, / END
 - AdBreak component with house-unit fallback architecture and commercial slot model
 - Reading progress indicator on articles
-- Pagefind static search with debounced input, Escape key, no-results state
+- Pagefind static search — indexes Vercel static output, placed in `.vercel/output/static/pagefind/`
 - RSS feed (excludes demo content)
 - News sitemap (excludes demo, recent-only)
 - Astro sitemap and robots.txt
@@ -33,46 +33,66 @@
 - Security headers via committed `vercel.json`
 - Node pinned to `24.x` with `.nvmrc`
 - Bun package manager with `packageManager` field in `package.json`
-- All npm references replaced with bun throughout codebase
 - Torture-test fixture article for layout edge cases
 - Foundation archive preserved at archive/second-pass-web-foundation.zip
 - GitHub repository: witejackel-eng/second-pass-web (private)
-- astro check: 0 errors, 0 warnings
-- content:audit: 0 failures (6 expected demo warnings)
-- Production build: 24 pages, clean, Pagefind indexed
+
+### Prelaunch mode (SITE_PRELAUNCH)
+- When `SITE_PRELAUNCH=true`: all pages emit `noindex,nofollow`; `robots.txt` serves `Disallow: /`; analytics disabled
+- When `SITE_PRELAUNCH=false`: normal public SEO/indexing behavior resumes
+- Homepage remains accessible for QA during prelaunch
+- Implemented centrally in BaseLayout + robots.txt.ts — no per-page edits needed
 
 ### Backend / BRIEF
 - POST `/api/brief-subscribe` — Beehiiv subscriber creation with validation, honeypot, same-origin
+- Beehiiv API uses `newsletter_list_ids: [id]` (not `newsletter_id`)
+- Beehiiv API uses `utm_content` for placement (not `referrer`)
 - Beehiiv `reactivate_existing: false`, `double_opt_override: "not_set"`
 - Reusable BriefForm component on `/brief`, homepage CTA, article bottom
+- BriefForm captures UTM params from URL (utm_source, utm_medium, utm_campaign) and external referrer as `referring_site`
+- BriefForm sends placement as `utm_content` (e.g. "homepage-cta", "article-bottom", "brief-page")
+- Generic success message: "You're on the list. If you were already subscribed, nothing has changed."
 - `PUBLIC_BRIEF_ENABLED` feature toggle (false until credentials connected)
-- Graceful duplicate/existing-subscriber behavior
 - Server-only credentials (no PUBLIC_BEEHIIV_API_KEY)
-- BriefForm with consent statement linking to Privacy
 
 ### Backend / Commercial
 - POST `/api/partner-lead` — Partner inquiry with Resend notification
 - POST `/api/intelligence-lead` — Intelligence inquiry with Resend notification
-- `/partner` page with form, product categories, and ethics statement
-- `/intelligence` page with form, capabilities, and confidentiality warning
+- `/partner` — Launch-stage framing: founding partnerships / launch pilots, not mature-media CPM inventory
+  - Budget ranges: Under $1,500 / $1,500–$3,000 / $3,000–$7,500 / $7,500+ / Not sure yet
+  - Budget and timing are optional
+  - No header/masthead sponsorship promises — masthead is editorial zone
+  - Language: "built for engineers, technical leaders and people making infrastructure decisions"
+  - Professional transparency statement, not defensive language
+- `/intelligence` — RAPID / RESEARCH SPRINT offer at top
+  - Budget ranges: $1,500–$3,000 / $3,000–$7,500 / $7,500–$15,000 / $15,000+ / Discuss scope
+  - Deadline and budget are optional
 - Provider-neutral LeadNotifier interface with Resend implementation
 - `PUBLIC_COMMERCIAL_FORMS_ENABLED` feature toggle
 - No fake metrics, logos, clients, or rate claims
 - No file uploads in forms
 
 ### Backend / Health
-- GET `/api/health` — Returns `{status, brief, leads}` without secrets
+- GET `/api/health` — Returns `{status, brief, leads}` without secrets, `Cache-Control: no-store`
 
 ### Security
 - Method/content-type/body-size validation on all mutation endpoints
 - Field max lengths enforced
 - Honeypot fields on all forms
-- Same-origin discipline (Origin/Referer check)
+- Same-origin discipline (Origin/Referer check) — malformed Referer cannot throw
 - Upstream timeout (8s) for Beehiiv and Resend
 - Sanitized errors — never expose provider response internals
-- Request IDs on all API responses
+- Request IDs via `crypto.randomUUID()` (with fallback) on all API responses
+- `Cache-Control: no-store` on all API responses
 - Security headers: X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Permissions-Policy
 - No secrets committed or exposed client-side
+
+### Analytics
+- Vercel Web Analytics behind `PUBLIC_ANALYTICS_ENABLED`
+- `document.body.dataset.analytics` (fixed from `documentElement`)
+- Analytics disabled during prelaunch (`SITE_PRELAUNCH=true`)
+- Safe custom events: brief_signup_submit/success, partner_cta/lead_success, intelligence_cta/lead_success, source_open, data_open, search_use
+- Never sends PII
 
 ### Data Foundation
 - Typed provenance schema with source URL/title/type, observedAt, lastVerifiedAt, conditions
@@ -86,13 +106,15 @@
 - `bun run article:new -- <slug>` — Scaffold new article
 - `bun run article:verify -- <slug>` — Verify article quality checks
 - `bun run content:audit` — Audit all content for markers and issues
-- `bun run prepublish -- <slug>` — Full prepublish pipeline (verify + audit + check + build + HTML inspection)
+- `bun run prepublish -- <slug>` — Full prepublish pipeline (verify + audit + check + build + Pagefind + HTML inspection)
+- Prepublish inspects Vercel/Astro build output (not stale `dist/articles/...` paths)
+- Prepublish verifies Pagefind output exists
 - Prepublish does NOT auto-approve or auto-push
 
-### Analytics
-- Vercel Web Analytics behind `PUBLIC_ANALYTICS_ENABLED`
-- Safe custom events: brief_signup_submit/success, partner_cta/lead_success, intelligence_cta/lead_success, source_open, data_open, search_use
-- Never sends PII
+### Search (Pagefind)
+- Build script (`scripts/build-search.mjs`) indexes against Vercel static output directory
+- Pagefind assets placed in `.vercel/output/static/pagefind/` for deployment
+- Portable: no shell-specific `cp` commands; uses Node.js `fs` module
 
 ## Intentionally absent
 
@@ -117,6 +139,7 @@
 
 ## Next
 
+Set `SITE_PRELAUNCH=false` when ready for public indexing
 Connect Beehiiv credentials → set `PUBLIC_BRIEF_ENABLED=true`
 Connect Resend credentials → set `PUBLIC_COMMERCIAL_FORMS_ENABLED=true`
 Domain day → set `PUBLIC_SITE_URL=https://secondpass.net`

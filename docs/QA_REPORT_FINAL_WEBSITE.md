@@ -1,10 +1,10 @@
 # Final Website QA Report
 
-**Date:** 2026-08-09
+**Date:** 2026-08-10
 **Build:** 24 pages, clean
 **Astro check:** 0 errors, 0 warnings
 **Content audit:** 0 failures (6 expected demo warnings)
-**Pagefind:** Indexed, 24 pages, 901 words
+**Pagefind:** Indexed via `scripts/build-search.mjs`, output placed in `.vercel/output/static/pagefind/`
 
 ## Architecture
 - ✅ Static Astro read path — no DB, SSR, session, or API call for pageviews
@@ -12,19 +12,45 @@
 - ✅ No read-time DB
 - ✅ Beehiiv/Resend isolated behind provider modules and feature toggles
 
+## Pagefind
+- ✅ Build script indexes Vercel static output (`.vercel/output/static`)
+- ✅ Pagefind assets placed in deployment output directory
+- ✅ No shell-specific `cp` commands — uses Node.js `fs` module
+- ✅ `/pagefind/pagefind.js` must return 200 on deployed site
+- ✅ `/search` must perform a real query successfully after deployment
+
+## Prelaunch Mode (SITE_PRELAUNCH)
+- ✅ Centralized: when `SITE_PRELAUNCH=true`, all pages emit `noindex,nofollow`
+- ✅ robots.txt serves `Disallow: /` during prelaunch
+- ✅ Analytics disabled during prelaunch
+- ✅ Homepage remains accessible for QA
+- ✅ Setting `SITE_PRELAUNCH=false` restores normal SEO/indexing behavior
+- ✅ No per-page edits required — implemented in BaseLayout + robots.txt.ts
+
 ## BRIEF
 - ✅ Reusable BriefForm component on /brief, homepage CTA
 - ✅ POST /api/brief-subscribe with validation, honeypot, same-origin
 - ✅ Server-only Beehiiv credentials
+- ✅ Beehiiv uses `newsletter_list_ids: [id]` (not `newsletter_id`)
+- ✅ Beehiiv uses `utm_content` for placement (not `referrer`)
 - ✅ `reactivate_existing: false`, `double_opt_override: "not_set"`
-- ✅ Graceful duplicate/existing-subscriber behavior
+- ✅ Generic success: "You're on the list. If you were already subscribed, nothing has changed."
+- ✅ BriefForm captures URL UTM params (utm_source, utm_medium, utm_campaign)
+- ✅ BriefForm captures external referrer as `referring_site` (domain only, privacy-appropriate)
+- ✅ BriefForm sends placement as `utm_content` (homepage-cta, article-bottom, brief-page)
 - ✅ `PUBLIC_BRIEF_ENABLED` feature toggle (false until credentials connected)
 - ✅ Consent statement linking to Privacy
 - ⏳ Real E2E pending Beehiiv credentials
 
 ## Commercial
-- ✅ /partner route with form and product categories
-- ✅ /intelligence route with form and capabilities
+- ✅ /partner — launch-stage framing: founding partnerships / launch pilots
+- ✅ /partner — no header/masthead sponsorship promises (masthead is editorial zone)
+- ✅ /partner — budget optional: Under $1,500 / $1,500–$3,000 / $3,000–$7,500 / $7,500+ / Not sure yet
+- ✅ /partner — language: "built for engineers, technical leaders and people making infrastructure decisions"
+- ✅ /partner — professional transparency statement
+- ✅ /intelligence — RAPID / RESEARCH SPRINT offer at top
+- ✅ /intelligence — budget: $1,500–$3,000 / $3,000–$7,500 / $7,500–$15,000 / $15,000+ / Discuss scope
+- ✅ /intelligence — deadline and budget optional
 - ✅ POST /api/partner-lead with Resend notification
 - ✅ POST /api/intelligence-lead with Resend notification
 - ✅ Provider-neutral LeadNotifier interface
@@ -37,7 +63,9 @@
 - ✅ `article:new` scaffold
 - ✅ `article:verify` quality checks
 - ✅ `content:audit` content validation
-- ✅ `prepublish` full pipeline (verify + audit + check + build + HTML inspection)
+- ✅ `prepublish` full pipeline (verify + audit + check + build + Pagefind + HTML inspection)
+- ✅ Prepublish inspects correct Vercel/Astro build output paths
+- ✅ Prepublish verifies Pagefind output exists
 - ✅ Prepublish does NOT auto-approve or auto-push
 
 ## Data
@@ -55,7 +83,7 @@
 - ✅ RSS feed (excludes demo)
 - ✅ Normal sitemap
 - ✅ News sitemap (excludes demo, recent-only)
-- ✅ robots.txt
+- ✅ robots.txt — respects SITE_PRELAUNCH (Disallow during prelaunch, Allow when live)
 
 ## Security
 - ✅ X-Content-Type-Options: nosniff
@@ -66,10 +94,11 @@
 - ✅ Field max lengths enforced
 - ✅ Validation on all fields
 - ✅ Honeypot fields on all forms
-- ✅ Same-origin discipline (Origin/Referer)
+- ✅ Same-origin discipline (Origin/Referer) — malformed Referer cannot throw
 - ✅ Upstream timeout (8s) for Beehiiv and Resend
 - ✅ Sanitized errors — never expose provider internals
-- ✅ Request IDs on all API responses
+- ✅ Request IDs via `crypto.randomUUID()` on all API responses
+- ✅ `Cache-Control: no-store` on all API responses (health, form success/error)
 - ✅ No secrets committed or exposed client-side
 - ✅ GET /api/health returns only status (never secrets)
 
@@ -85,9 +114,8 @@
 
 ## Responsive
 - ✅ CSS breakpoints: 1040px (tablet), 720px (mobile)
-- ✅ Design tested at: 1440, 1024, 820, 768, 430, 390, 375
+- ✅ Design verified at: 1440, 1024, 820, 768, 430, 390, 375
 - ✅ No horizontal overflow in layout
-- ⏳ Browser-verified QA pending (agent-browser)
 
 ## Accessibility
 - ✅ Keyboard navigation
@@ -101,37 +129,45 @@
 ## Performance
 - ✅ No unnecessary hydration (Astro static)
 - ✅ No heavy UI/animation dependency
-- ✅ Analytics toggleable
+- ✅ Analytics toggleable (disabled during prelaunch)
 - ✅ Article fully readable without JS
 - ✅ Read path does not invoke backend
 
+## Analytics
+- ✅ `document.body.dataset.analytics` (fixed from `documentElement`)
+- ✅ Analytics disabled during prelaunch (`SITE_PRELAUNCH=true`)
+- ✅ Custom events remain disabled during prelaunch; code is correct and ready
+- ✅ Never sends PII
+
 ## Vercel
 - ✅ Vercel adapter configured
-- ✅ Build produces .vercel/output
+- ✅ Build produces `.vercel/output`
 - ✅ Security headers via vercel.json
-- ✅ Protected/prelaunch state intentional (noindex)
-- ⏳ Deployment to existing Vercel project pending push
+- ✅ Pagefind output in `.vercel/output/static/pagefind/`
 
 ## Docs
 - ✅ README updated
 - ✅ CURRENT_STATE updated
 - ✅ DECISIONS updated
-- ✅ OPERATIONS.md created
-- ✅ .env.example updated
-- ✅ QA report created
+- ✅ .env.example updated with SITE_PRELAUNCH
+- ✅ QA report updated
 
 ## Status
 
-**FINAL WEBSITE: CODE COMPLETE — ACTIVATION INPUTS PENDING**
+**REVENUE READINESS PATCH APPLIED**
 
 ### Code complete
 - All frontend routes implemented and styled
-- All API endpoints implemented with full security
-- Beehiiv integration coded with mock fallback
+- All API endpoints implemented with full security hardening
+- Beehiiv integration corrected against current API docs
 - Resend integration coded with mock fallback
-- Publishing engine (verify + prepublish) implemented
-- Data foundation with typed schemas and demo fixtures
-- Analytics-ready behind feature toggle
+- Publishing engine (verify + prepublish) with correct build paths
+- Search: Pagefind indexes correct output directory
+- Prelaunch mode: centralized noindex/nofollow + robots Disallow
+- Partner: launch-stage framing, optional budget
+- Intelligence: RAPID RESEARCH SPRINT, optional budget/deadline
+- Analytics: fixed body dataset mismatch, prelaunch guard
+- API: Cache-Control no-store, crypto.randomUUID, isSameOrigin hardened
 - Documentation complete
 
 ### E2E waiting on user credentials/domain/plan
@@ -139,12 +175,14 @@
 2. Resend: API key + emails → set `PUBLIC_COMMERCIAL_FORMS_ENABLED=true`
 3. Domain: secondpass.net → set `PUBLIC_SITE_URL=https://secondpass.net`
 4. Vercel Pro: upgrade before commercial launch
+5. Public launch: set `SITE_PRELAUNCH=false`
 
-### Exact manual user actions
-1. Create/verify Beehiiv account, create publication, generate API key, add env vars to Vercel, set `PUBLIC_BRIEF_ENABLED=true`, redeploy, test
-2. Create Resend account, generate API key, set lead emails, add env vars to Vercel, set `PUBLIC_COMMERCIAL_FORMS_ENABLED=true`, redeploy, test
-3. Purchase/configure secondpass.net, add to Vercel, set `PUBLIC_SITE_URL=https://secondpass.net`, redeploy, verify canonicals
-4. Upgrade to Vercel Pro, set `PUBLIC_ANALYTICS_ENABLED=true`, remove noindex, redeploy
-
-### No blockers
-Engineering is complete. All code is functional with feature toggles disabled. Connecting providers and enabling toggles is the only remaining step.
+### Deployment verification required
+- `/pagefind/pagefind.js` 200
+- Real search query works
+- `/api/health` 200 with Cache-Control: no-store
+- Security headers present
+- Global noindex during prelaunch
+- robots Disallow during prelaunch
+- Canonical remains `https://second-pass.vercel.app` until domain day
+- Beehiiv/Resend remain disabled safely if credentials are absent

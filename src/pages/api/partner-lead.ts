@@ -54,11 +54,9 @@ export const POST: APIRoute = async ({ request }) => {
   const objective = validateString(body.objective, FIELD_LIMITS.objective, "objective");
   if (!objective) return safeErrorResponse("Objective is required", rid, 400);
 
-  const budgetRange = validateString(body.budgetRange, FIELD_LIMITS.budgetRange, "budgetRange");
-  if (!budgetRange) return safeErrorResponse("Budget range is required", rid, 400);
-
-  const timing = validateString(body.timing, FIELD_LIMITS.timing, "timing");
-  if (!timing) return safeErrorResponse("Timing is required", rid, 400);
+  // Budget and timing are optional at launch stage
+  const budgetRange = validateOptionalString(body.budgetRange, FIELD_LIMITS.budgetRange);
+  const timing = validateOptionalString(body.timing, FIELD_LIMITS.timing);
 
   const message = validateOptionalString(body.message, FIELD_LIMITS.message);
   const source = validateOptionalString(body.source, FIELD_LIMITS.source);
@@ -82,8 +80,8 @@ export const POST: APIRoute = async ({ request }) => {
     ...(website ? { website } : {}),
     ...(role ? { role } : {}),
     objective,
-    budgetRange,
-    timing,
+    ...(budgetRange ? { budgetRange } : {}),
+    ...(timing ? { timing } : {}),
     ...(message ? { message } : {}),
     ...(source ? { source } : {})
   };
