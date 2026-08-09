@@ -163,6 +163,12 @@
     "seoDescription": {
       "type": "string"
     },
+    "socialStat": {
+      "type": "string"
+    },
+    "socialStatLabel": {
+      "type": "string"
+    },
     "$schema": {
       "type": "string"
     }

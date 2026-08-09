@@ -1,0 +1,2634 @@
+# Z.ai — SECOND / PASS CANONICAL CONTENT + MATH PIPELINE REPAIR
+
+Work directly in the existing repository:
+
+witejackel-eng/second-pass-web
+
+Production project:
+
+second-pass
+
+Current production URL:
+
+https://second-pass.vercel.app
+
+This task fixes a confirmed systemic publication-rendering defect.
+
+Do NOT treat this as another cosmetic article-editing task.
+
+Do NOT merely hide broken output with CSS.
+
+Do NOT patch the generated HTML.
+
+Do NOT replace equations with screenshots.
+
+Do NOT redesign the site.
+
+Fix the SOURCE-OF-TRUTH architecture, Markdown/MDX math pipeline, article sources,
+render-validation pipeline, and production output so this class of failure cannot recur.
+
+Complete this end-to-end:
+
+inspect
+→ identify canonical sources
+→ repair content architecture
+→ repair math configuration
+→ migrate/reconcile articles
+→ delete duplicate article sources
+→ fix all current real articles
+→ harden validation
+→ rebuild
+→ visually inspect
+→ deploy
+→ verify production HTML
+→ report
+
+────────────────────────────────────────────────────────────
+0. CONFIRMED ROOT CAUSE
+────────────────────────────────────────────────────────────
+
+The current production defect has been diagnosed.
+
+There are MULTIPLE interacting problems.
+
+Do not rediscover them from scratch and do not ignore any of them.
+
+ROOT CAUSE A — CONTENT COLLECTION ONLY LOADS `.md`
+
+Current:
+
+src/content.config.ts
+
+contains approximately:
+
+loader: glob({
+  base: "./src/content/articles",
+  pattern: "**/*.md"
+})
+
+Therefore `.mdx` articles are NOT currently part of the Astro content collection.
+
+However, some newer/fixed article versions exist as `.mdx`.
+
+This means edits have been made to `.mdx` files that production never uses.
+
+The old broken `.md` files remained authoritative.
+
+That is why fixes appeared correct in the repository but did not fix production.
+
+ROOT CAUSE B — DUPLICATE ARTICLE SOURCES
+
+There are cases such as:
+
+cheapest-ai-model-not-cheapest-system.md
+
+AND
+
+cheapest-ai-model-not-cheapest-system.mdx
+
+for the same conceptual article/slug.
+
+This is unacceptable.
+
+There must be EXACTLY ONE canonical content source for each article.
+
+ROOT CAUSE C — BAD MATH SENTINELS IN OLD `.md`
+
+The live `.md` source contains literal values such as:
+
+24182
+24183
+24190
+24191
+
+These were apparently introduced by a broken publication-package conversion step
+as replacement/sentinel values for display-math delimiters.
+
+Example broken source:
+
+24182
+C_{\text{system}} =
+C_{\text{direct}} +
+...
+24183
+
+Those are ordinary text to Markdown.
+
+KaTeX never receives the equation.
+
+They must be removed from source.
+
+Do NOT hide them with CSS.
+
+ROOT CAUSE D — SINGLE `$` COLLIDES WITH CURRENCY
+
+SECOND / PASS writes extensively about money.
+
+Current remark-math behavior treats single-dollar pairs as inline math.
+
+So ordinary prose like:
+
+Suppose one model costs $1 and succeeds half the time.
+Another costs $3 and succeeds every time.
+
+can be parsed approximately as:
+
+$1 and succeeds half the time. Another costs $
+
+and sent to KaTeX.
+
+That produces broken output such as:
+
+1andsucceedshalfthetime.Anothercosts
+
+This is why normal English appears compressed, italicized and mathematically styled.
+
+The same problem affects phrases like:
+
+$5/M input and $30/M output
+
+$4.50 per review ... $0.0768
+
+$2 per million ... $10 per million
+
+ROOT CAUSE E — CORRUPTED EQUATIONS BECOME MARKDOWN HEADINGS
+
+Once display equations lose their math delimiters, lines containing only:
+
+=
+
+can be interpreted as Markdown Setext-heading syntax.
+
+This caused equations to become giant accidental H1s.
+
+ROOT CAUSE F — DUPLICATE ARTICLE STRUCTURE
+
+Some old `.md` files still contain:
+
+# duplicate article title
+
+SECTION / AI
+FORMAT / SECOND PASS
+AUTHOR / ...
+PUBLISHER / ...
+PUBLISHED / ...
+
+and:
+
+## / FIRST PASS
+
+even though the Astro article renderer already generates:
+
+article title
+dek
+author
+publication date
+FIRST PASS
+
+This results in:
+
+duplicate H1
+duplicate FIRST PASS
+duplicate metadata
+broken TOC numbering
+
+All of this must be normalized.
+
+────────────────────────────────────────────────────────────
+1. FIRST — PRESERVE REPOSITORY STATE
+────────────────────────────────────────────────────────────
+
+Before changing anything:
+
+git status
+git branch
+git log -5 --oneline
+git diff
+
+Pull/fetch latest main if necessary.
+
+Do not reset working changes.
+
+Do not force push.
+
+Do not recreate the repository.
+
+Do not create another Vercel project.
+
+Inspect at minimum:
+
+astro.config.mjs
+package.json
+src/content.config.ts
+src/content/articles/
+src/pages/articles/[slug].astro
+src/lib/content.ts
+src/lib/schema.ts
+src/styles/
+scripts/prepublish.mjs
+scripts/render-audit.mjs
+scripts/content-audit.mjs
+scripts/verify-article.mjs
+
+Also inspect current deployed production HTML.
+
+────────────────────────────────────────────────────────────
+2. INVENTORY ALL `.md` AND `.mdx` ARTICLE SOURCES
+────────────────────────────────────────────────────────────
+
+Build an explicit inventory.
+
+For every basename/slug report whether the repository contains:
+
+.md
+.mdx
+both
+
+Example:
+
+cheapest-ai-model-not-cheapest-system
+.md  = YES
+.mdx = YES
+STATUS = DUPLICATE / CONFLICT
+
+Do this for ALL article sources.
+
+Detect both:
+
+same basename
+
+and
+
+same frontmatter `slug`
+
+Duplicate SLUG is more important than duplicate filename.
+
+The repository must not end this task with two source files claiming the same slug.
+
+────────────────────────────────────────────────────────────
+3. CANONICAL ARTICLE FORMAT
+────────────────────────────────────────────────────────────
+
+Use MDX as the canonical format for real SECOND / PASS technical articles.
+
+Reason:
+
+SECOND / PASS needs reusable technical editorial objects such as:
+
+CalculationBlock
+ClaimCheck
+ResearchFigure
+DataDownload
+
+and future technical pieces may require richer static composition.
+
+Therefore migrate current real research content to:
+
+*.mdx
+
+Do NOT maintain an `.md` mirror.
+
+Do NOT create generated duplicate Markdown.
+
+ONE SOURCE ONLY.
+
+Simple fixtures/drafts that genuinely require no MDX may remain Markdown if appropriate,
+but never allow `.md` and `.mdx` to represent the same slug.
+
+The six current real research pieces should end as canonical MDX unless a strong technical
+reason prevents that.
+
+────────────────────────────────────────────────────────────
+4. ENABLE MDX CORRECTLY
+────────────────────────────────────────────────────────────
+
+Inspect current Astro configuration.
+
+`@astrojs/mdx` already exists in the package dependencies.
+
+Ensure Astro actually uses it.
+
+Expected direction:
+
+import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap";
+
+integrations: [
+  mdx(),
+  sitemap()
+]
+
+Preserve existing Vercel adapter and configuration.
+
+Do not add React.
+
+Do not add a client framework.
+
+MDX here is for static publishing.
+
+────────────────────────────────────────────────────────────
+5. FIX CONTENT COLLECTION GLOB
+────────────────────────────────────────────────────────────
+
+Current broken pattern:
+
+"**/*.md"
+
+Change collection loading so the publication can load MDX.
+
+Expected pattern approximately:
+
+"**/*.{md,mdx}"
+
+Then add a hard validation rule:
+
+NO TWO ARTICLE FILES MAY RESOLVE TO THE SAME FRONTMATTER SLUG.
+
+If duplicate slug found:
+
+BUILD/PREPUBLISH MUST FAIL.
+
+Do not rely on filesystem ordering.
+
+Do not silently choose one.
+
+Do not allow “last one wins.”
+
+────────────────────────────────────────────────────────────
+6. MAKE MATH SAFE FOR A FINANCIAL/ECONOMIC PUBLICATION
+────────────────────────────────────────────────────────────
+
+SECOND / PASS contains currency extremely frequently.
+
+Therefore single-dollar inline math is unsafe.
+
+Configure remark-math so ordinary currency does NOT become inline mathematics.
+
+Use:
+
+singleDollarTextMath: false
+
+Use the correct supported Astro 7 markdown processing approach.
+
+Inspect current Astro 7 documentation/API already available to the project ecosystem.
+
+Prefer an explicit unified Markdown processor with:
+
+remarkMath configured with:
+
+singleDollarTextMath: false
+
+and:
+
+rehypeKatex
+
+Use the modern Astro 7-compatible configuration.
+
+Do not rely on deprecated behavior if avoidable.
+
+If needed, add a DIRECT dependency on:
+
+@astrojs/markdown-remark
+
+rather than relying on a transitive dependency.
+
+Do not add unnecessary packages.
+
+────────────────────────────────────────────────────────────
+7. CANONICAL AUTHORING RULES
+────────────────────────────────────────────────────────────
+
+After disabling single-dollar inline math, use these permanent rules.
+
+MONEY / CURRENCY:
+
+Write normally:
+
+The request costs $0.0768.
+
+Sol costs $5/M input and $30/M output.
+
+A review event costs $4.50.
+
+Do NOT put ordinary currency prose inside math delimiters.
+
+Do NOT escape every currency dollar merely to fight the parser.
+
+Currency should be safe by architecture.
+
+INLINE MATH:
+
+Because single-dollar math is disabled, use double-dollar delimiters on the same line
+for real inline math where supported by the configured parser.
+
+Example:
+
+If the same prefix is reused $$N$$ times...
+
+Or use another parser-supported non-currency-safe inline math convention if cleaner,
+but it must be deterministic and tested.
+
+DISPLAY MATH:
+
+Use double-dollar blocks on separate lines:
+
+$$
+C_{\text{cached}}
+=
+1.25 + 0.10(N-1)
+$$
+
+Do NOT use magic sentinels.
+
+Do NOT use raw `<script type=math>` workarounds.
+
+Do NOT put mathematical prose in images.
+
+────────────────────────────────────────────────────────────
+8. REMOVE EVERY SENTINEL FROM PUBLIC SOURCE
+────────────────────────────────────────────────────────────
+
+Search the repository for:
+
+24182
+24183
+24190
+24191
+
+There must be ZERO occurrences in public content source.
+
+For each occurrence:
+
+determine intended equation
+restore proper math delimiters
+verify expression
+remove sentinel
+
+Do not perform blind regex replacement unless the equation boundaries are unambiguous.
+
+The math must remain semantically correct.
+
+At the end:
+
+grep-equivalent/search result count:
+
+24182 = 0
+24183 = 0
+24190 = 0
+24191 = 0
+
+Use PowerShell-compatible logic in documentation if commands are exposed to the user,
+but internal agent execution can use its environment normally.
+
+────────────────────────────────────────────────────────────
+9. RECONCILE FLAGSHIP `.md` VS `.mdx`
+────────────────────────────────────────────────────────────
+
+Primary article:
+
+cheapest-ai-model-not-cheapest-system
+
+There are currently competing `.md` and `.mdx` versions.
+
+The `.mdx` version already contains several repaired equations and should be treated as
+one source of useful fixes.
+
+The `.md` version contains newer editorial changes in places.
+
+Do NOT simply delete one without comparison.
+
+Perform a semantic reconciliation.
+
+Preserve all current approved substantive content:
+
+central thesis
+FIRST PASS frontmatter
+accepted-outcome model
+25× pricing ratio
+$0.0032 Luna worked cost
+$0.0800 Sol worked cost
+$0.0768 direct premium
+$4.50 review event
+1.71 percentage-point break-even
+scenario analysis
+tokenizer caveat
+configuration-level economics
+long-context comparison
+cache economics
+Batch economics
+routing explanation
+measurement fields
+CLAIM CHECK
+practical decision rule
+unknowns
+SECOND PASS conclusion
+PROOF link
+DATA link
+INTELLIGENCE CTA
+
+Then create ONE final canonical:
+
+src/content/articles/cheapest-ai-model-not-cheapest-system.mdx
+
+Delete the obsolete duplicate `.md` after final reconciliation.
+
+────────────────────────────────────────────────────────────
+10. FLAGSHIP STRUCTURE
+────────────────────────────────────────────────────────────
+
+The final MDX must NOT start with:
+
+# The cheapest AI model is often not the cheapest system
+
+because the article renderer owns the H1.
+
+Remove body metadata:
+
+SECTION / AI
+FORMAT / SECOND PASS
+AUTHOR / ...
+PUBLISHER / ...
+PUBLISHED / ...
+
+Remove body `/ FIRST PASS`.
+
+Frontmatter already contains `firstPass`.
+
+The body should begin approximately:
+
+A production AI system does not sell tokens. It tries to complete work.
+
+That sounds obvious. Most cost comparisons still begin one level too low.
+
+...
+
+Then:
+
+## The wrong denominator
+
+Exactly ONE public article H1 should exist.
+
+Exactly ONE FIRST PASS should exist.
+
+────────────────────────────────────────────────────────────
+11. FIX FLAGSHIP INTRO CURRENCY
+────────────────────────────────────────────────────────────
+
+This must render as NORMAL ENGLISH:
+
+Suppose one model costs $1 and succeeds half the time.
+Another costs $3 and succeeds every time.
+
+Do not render any of that sentence through KaTeX except genuine variables if needed.
+
+Production HTML must contain readable prose, not:
+
+1andsucceedshalfthetime.Anothercosts
+
+This exact case must become a regression test.
+
+────────────────────────────────────────────────────────────
+12. RESTORE FLAGSHIP EQUATIONS
+────────────────────────────────────────────────────────────
+
+Restore clean display math.
+
+PER-ATTEMPT DIRECT COST:
+
+$$
+C_{\text{direct}}
+=
+C_{\text{input}}
++
+C_{\text{cached}}
++
+C_{\text{output}}
++
+C_{\text{tools}}
++
+C_{\text{retrieval}}
+$$
+
+SYSTEM COST:
+
+$$
+C_{\text{system}}
+=
+C_{\text{direct}}
++
+C_{\text{retry}}
++
+C_{\text{review}}
++
+C_{\text{failure}}
++
+P_L(L)
+$$
+
+QUALITY-ADJUSTED COST:
+
+$$
+QAC
+=
+\frac{E[C]}{P(S)}
+$$
+
+ACCEPTED EVENT:
+
+$$
+A
+=
+\text{correct, policy-compliant and accepted}
+$$
+
+COST PER ACCEPTED OUTCOME:
+
+$$
+\boxed{
+CAO
+=
+\frac{E[C_{\text{system}}]}{P(A)}
+}
+$$
+
+Verify all of these render as KaTeX and none appear as raw backslashes.
+
+────────────────────────────────────────────────────────────
+13. RESTORE WORKED PRICE EQUATIONS
+────────────────────────────────────────────────────────────
+
+Luna:
+
+$$
+C_{\text{Luna}}
+=
+10{,}000\frac{0.20}{10^6}
++
+1{,}000\frac{1.20}{10^6}
+=
+\$0.0032
+$$
+
+Sol:
+
+$$
+C_{\text{Sol}}
+=
+10{,}000\frac{5.00}{10^6}
++
+1{,}000\frac{30.00}{10^6}
+=
+\$0.0800
+$$
+
+Premium:
+
+$$
+\Delta C
+=
+\$0.0800
+-
+\$0.0032
+=
+\$0.0768
+$$
+
+Inside MATH mode, dollar currency signs must be escaped as required by LaTeX/KaTeX.
+
+Outside math mode, currency should remain ordinary `$`.
+
+Do not confuse those rules.
+
+────────────────────────────────────────────────────────────
+14. RESTORE REVIEW BREAK-EVEN EQUATION
+────────────────────────────────────────────────────────────
+
+Use:
+
+$$
+\Delta r_{\text{review}}
+=
+\frac{
+C_{\text{Sol}}
+-
+C_{\text{Luna}}
+}{
+C_{\text{one review}}
+}
+$$
+
+Then:
+
+$$
+\Delta r_{\text{review}}
+=
+\frac{0.0768}{4.50}
+=
+0.01707
+$$
+
+Then normal prose:
+
+**1.71 percentage points.**
+
+Do not format the result as a giant Markdown heading.
+
+Do not add standalone `=` separator lines.
+
+Preserve caveat:
+
+This is a break-even threshold, not measured model superiority.
+
+────────────────────────────────────────────────────────────
+15. RESTORE REVIEW-SCENARIO EQUATIONS
+────────────────────────────────────────────────────────────
+
+Use valid display math:
+
+$$
+C_{\text{Luna,total}}
+=
+0.0032
++
+0.10(4.50)
+=
+\$0.4532
+$$
+
+$$
+C_{\text{Sol,total}}
+=
+0.0800
++
+0.05(4.50)
+=
+\$0.3050
+$$
+
+Normal prose must remain normal:
+
+Under those assumptions, the configuration with 25× higher token rates has
+32.7% lower model-plus-review cost.
+
+Do not send "$0.4532 vs $0.3050" prose through KaTeX.
+
+────────────────────────────────────────────────────────────
+16. RESTORE CONFIGURATION EXPRESSION
+────────────────────────────────────────────────────────────
+
+Render this as actual math:
+
+$$
+a
+=
+(
+model,
+context,
+cache,
+tier,
+batch,
+reasoning,
+region
+)
+$$
+
+If using textual labels within math, use:
+
+\text{model}
+
+etc. where appropriate for visual quality.
+
+Do not leave raw:
+
+C_{\text{}}
+
+visible.
+
+────────────────────────────────────────────────────────────
+17. RESTORE CACHE EQUATIONS
+────────────────────────────────────────────────────────────
+
+Use:
+
+$$
+C_{\text{no cache}} = N
+$$
+
+$$
+C_{\text{cache}}
+=
+1.25
++
+0.10(N-1)
+$$
+
+Break-even:
+
+$$
+1.25 + 0.10(N-1) < N
+$$
+
+$$
+N > 1.278
+$$
+
+One-hour case:
+
+$$
+2.00 + 0.10(N-1) < N
+$$
+
+$$
+N > 2.111
+$$
+
+Normal prose:
+
+second eligible use
+
+third eligible use
+
+must not be inside math.
+
+────────────────────────────────────────────────────────────
+18. ROUTING FORMALISM
+────────────────────────────────────────────────────────────
+
+The flagship should remain lighter than the PROOF article.
+
+Keep the conceptual routing flow in flagship:
+
+REQUEST
+→ CACHE
+→ LOW-COST
+→ VERIFY
+→ ESCALATE
+→ STRONGER
+→ HUMAN
+
+Keep the practical decision rule.
+
+Dense one-step optimization and Bellman/sequential derivations belong primarily in PROOF.
+
+If formal routing equations remain in flagship, render them correctly.
+
+Prefer moving them to:
+
+cheapest-ai-model-not-cheapest-system-proof.mdx
+
+with a clear link:
+
+INSPECT THE FULL ROUTING FORMULATION →
+
+Do not delete research content.
+
+Use progressive disclosure.
+
+────────────────────────────────────────────────────────────
+19. PRACTICAL DECISION RULE
+────────────────────────────────────────────────────────────
+
+Keep a simple flagship formulation:
+
+$$
+\Delta C_{\text{downstream}}
+>
+\Delta C_{\text{direct}}
+$$
+
+with normal prose explaining:
+
+Escalate when the expected downstream cost avoided is greater than the additional
+direct model cost, subject to quality, policy and latency requirements.
+
+Detailed decomposition belongs in PROOF.
+
+────────────────────────────────────────────────────────────
+20. RECONCILE ALL CURRENT REAL ARTICLES
+────────────────────────────────────────────────────────────
+
+Do the same source-of-truth audit for ALL current real pieces:
+
+cheapest-ai-model-not-cheapest-system
+
+cheapest-ai-model-not-cheapest-system-proof
+
+ai-inference-price-surface-v0-1
+
+no-universal-long-context-premium
+
+prompt-cache-second-use-break-even
+
+sonnet-5-price-effective-date
+
+For each:
+
+identify `.md`
+identify `.mdx`
+compare if duplicate
+create ONE canonical source
+remove obsolete duplicate
+verify frontmatter
+verify body
+verify rendering
+
+No article may finish with two canonical candidates.
+
+────────────────────────────────────────────────────────────
+21. PROMPT CACHE NOW
+────────────────────────────────────────────────────────────
+
+Canonical article should use valid MDX.
+
+Keep:
+
+A 1.25× write + 0.10× reads crosses from the second eligible use.
+
+A 2× write + 0.10× reads crosses from the third eligible use.
+
+Render:
+
+$$
+C_{\text{uncached}} = N
+$$
+
+$$
+C_{\text{cached}}
+=
+1.25 + 0.10(N-1)
+$$
+
+$$
+N > 1.278
+$$
+
+and:
+
+$$
+N > 2.111
+$$
+
+No sentinel values.
+
+No duplicate H1.
+
+No raw LaTeX.
+
+No accidental currency math.
+
+────────────────────────────────────────────────────────────
+22. SONNET 5 NOW
+────────────────────────────────────────────────────────────
+
+Use the cleaned canonical version.
+
+Currency prose must remain normal:
+
+$2/M
+$10/M
+$3/M
+$15/M
+$1.50/M
+$7.50/M
+
+Do NOT put these normal table/prose values through KaTeX.
+
+Keep the pricing table.
+
+Keep:
+
+effective_from
+effective_to
+source_accessed_at
+
+as code/data terms.
+
+Remove duplicate H1.
+
+No body title if renderer already supplies it.
+
+────────────────────────────────────────────────────────────
+23. LONG-CONTEXT NOW
+────────────────────────────────────────────────────────────
+
+Make it a single canonical source.
+
+Remove duplicate H1.
+
+Keep its comparison table.
+
+No duplicate structural metadata.
+
+No dollar parsing bugs.
+
+No raw math.
+
+────────────────────────────────────────────────────────────
+24. PROOF PAGE — HIGHEST MATH QA
+────────────────────────────────────────────────────────────
+
+The PROOF article must receive the strictest math review.
+
+Canonicalize to MDX.
+
+Inspect every equation.
+
+There must be ZERO:
+
+24182
+24183
+24190
+24191
+
+raw visible:
+\frac
+\boxed
+\text
+\Delta
+\arg
+\min
+
+unless inside a deliberate source-code example.
+
+All mathematical symbols must render through KaTeX.
+
+Every long equation must:
+
+fit within article width
+
+OR
+
+scroll horizontally within its own math container
+
+Never create page-level horizontal overflow.
+
+────────────────────────────────────────────────────────────
+25. DATA PAGE
+────────────────────────────────────────────────────────────
+
+Canonicalize source.
+
+Do not unnecessarily run price tables through math.
+
+Currency tables should use normal typography.
+
+Keep units clearly labelled:
+
+USD / 1M TOKENS
+
+where applicable.
+
+Technical expressions may use KaTeX only when actually mathematical.
+
+────────────────────────────────────────────────────────────
+26. HOUSE MDX COMPONENTS
+────────────────────────────────────────────────────────────
+
+If these already exist, use them.
+
+If not, create only the minimal static components that improve technical publication:
+
+CalculationBlock.astro
+ClaimCheck.astro
+ResearchFigure.astro
+
+Do not add React.
+
+Do not add client-side JS.
+
+Do not build a design system.
+
+MDX should be able to import/use these cleanly if useful.
+
+If importing Astro components directly into MDX is cumbersome in the current content
+renderer, solve it using the smallest correct Astro-native implementation.
+
+Do not overengineer.
+
+────────────────────────────────────────────────────────────
+27. / CALCULATION
+────────────────────────────────────────────────────────────
+
+The central calculation should look deliberate.
+
+Structure:
+
+/ CALCULATION
+
+QUESTION
+
+ASSUMPTIONS
+
+EQUATION
+
+RESULT
+
+SO WHAT?
+
+CAVEAT
+
+It must not resemble ordinary article paragraphs with random bold text.
+
+But do not sacrifice static rendering or accessibility.
+
+The RESULT:
+
+1.71 percentage points
+
+should be visually prominent but not oversized.
+
+────────────────────────────────────────────────────────────
+28. RESEARCH FIGURES
+────────────────────────────────────────────────────────────
+
+Convert bare research images to semantic figure markup/components.
+
+Need:
+
+<figure>
+<img ...>
+<figcaption>...</figcaption>
+</figure>
+
+Preserve:
+
+alt text
+caption
+source/assumption semantics
+
+Do not run currency in captions through math mode.
+
+Example normal caption:
+
+At a $4.50 review event, 1.71 pp of avoided review pays for the $0.0768 token premium.
+
+That should remain ordinary prose.
+
+────────────────────────────────────────────────────────────
+29. FIX KATEX CSS DELIVERY
+────────────────────────────────────────────────────────────
+
+Current production loads KaTeX stylesheet from:
+
+cdn.jsdelivr.net
+
+Inspect whether this is necessary.
+
+Prefer bundling KaTeX CSS locally through the build if cleanly supported:
+
+import "katex/dist/katex.min.css";
+
+or equivalent site-level import.
+
+Reason:
+
+math is a core publication dependency;
+rendering should not depend on a third-party CDN stylesheet at runtime if avoidable.
+
+Do NOT break CSP.
+
+Do NOT copy font files manually.
+
+Do NOT expose package internals.
+
+If local bundling is reliable under Astro/Vercel, use it.
+
+Otherwise document why the CDN remains.
+
+Local is preferred.
+
+────────────────────────────────────────────────────────────
+30. TYPOGRAPHY / TEXT BREAKING
+────────────────────────────────────────────────────────────
+
+After math parsing is repaired, inspect remaining text wrapping.
+
+Do NOT assume all weird text is CSS.
+
+Most current broken prose is KaTeX parsing, not word-wrap.
+
+After fixing parser:
+
+verify normal article paragraphs use Newsreader.
+
+verify headings use Bricolage Grotesque.
+
+verify math uses KaTeX.
+
+Do not apply:
+
+word-break: break-all
+
+to prose.
+
+Do not globally force:
+
+overflow-wrap: anywhere
+
+if it harms reading.
+
+Use sane technical-token rules only where necessary:
+
+URLs
+code
+long identifiers
+math containers
+
+Normal English should wrap at words.
+
+────────────────────────────────────────────────────────────
+31. MATH CSS
+────────────────────────────────────────────────────────────
+
+Create restrained math styling.
+
+Inline KaTeX:
+
+must align naturally with surrounding text.
+
+Display math:
+
+reasonable vertical spacing
+horizontal overflow auto if needed
+no giant inherited heading size
+no page overflow
+
+Example:
+
+.article-body .katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-block: ...
+}
+
+Do not scale equations down to illegibility.
+
+Do not make display math larger just because it is math.
+
+Do not center extremely long equations if left alignment would be clearer.
+
+Use a publication-quality treatment.
+
+────────────────────────────────────────────────────────────
+32. SOURCE AUDIT BEFORE BUILD
+────────────────────────────────────────────────────────────
+
+Create or upgrade a source-level validation script.
+
+Suggested:
+
+scripts/content-source-audit.mjs
+
+It must run BEFORE Astro build.
+
+Checks:
+
+1. duplicate slug across `.md` / `.mdx`
+
+FAIL.
+
+2. duplicate basename `.md` + `.mdx`
+
+FAIL.
+
+3. sentinel values:
+
+24182
+24183
+24190
+24191
+
+FAIL.
+
+4. duplicate body H1 for renderer-owned article title
+
+For published real articles:
+
+FAIL if body starts with `# ...`.
+
+5. body metadata block:
+
+SECTION /
+FORMAT /
+AUTHOR /
+PUBLISHER /
+PUBLISHED /
+
+FAIL when detected as duplicated renderer metadata near body start.
+
+6. body `/ FIRST PASS`
+
+FAIL if renderer is using frontmatter FIRST PASS.
+
+7. raw obvious LaTeX without math delimiters
+
+Examples:
+
+\frac{
+\boxed{
+\arg\min
+\Delta C
+
+Use careful detection and exclude fenced code examples.
+
+8. package/local paths
+
+/mnt/data/
+sandbox:
+../05_CHARTS/
+../04_DATA/
+file://
+C:\
+
+FAIL.
+
+9. placeholders
+
+TODO
+TBD
+[DATE]
+[NUMBER]
+
+FAIL for published content.
+
+────────────────────────────────────────────────────────────
+33. SPECIFIC CURRENCY REGRESSION TEST
+────────────────────────────────────────────────────────────
+
+Add a permanent fixture/test to prove currency no longer becomes math.
+
+Source:
+
+A costs $1. B costs $3.
+
+The review costs $4.50.
+
+The token premium is $0.0768.
+
+Sol costs $5/M input and $30/M output.
+
+Inline mathematical variable: use the project's canonical inline-math syntax for N.
+
+Display:
+
+$$
+C = \frac{x}{y}
+$$
+
+Build it.
+
+Assert production-equivalent HTML contains readable text:
+
+A costs $1. B costs $3.
+
+and DOES NOT contain a KaTeX annotation that includes:
+
+"and succeeds"
+"per review"
+"input and"
+"output"
+
+The money must remain prose.
+
+The variable must render as KaTeX.
+
+The fraction must render as KaTeX.
+
+This regression test is critical.
+
+────────────────────────────────────────────────────────────
+34. DUPLICATE SOURCE REGRESSION TEST
+────────────────────────────────────────────────────────────
+
+Temporarily or programmatically test:
+
+foo.md
+foo.mdx
+
+with same slug.
+
+Audit MUST fail.
+
+Then remove test duplicate.
+
+The build must never silently choose one.
+
+────────────────────────────────────────────────────────────
+35. BUILT HTML RENDER AUDIT
+────────────────────────────────────────────────────────────
+
+Existing:
+
+scripts/render-audit.mjs
+
+already checks several useful things.
+
+Review and harden it.
+
+It currently checks approximately:
+
+sentinels
+raw LaTeX
+duplicate H1
+duplicate FIRST PASS
+duplicate metadata
+malformed links
+local paths
+placeholders
+broken links
+Intelligence CTA
+canonical
+OG
+
+Keep that.
+
+But improve its KaTeX stripping logic if needed.
+
+Simple regex removal of nested KaTeX HTML can be fragile.
+
+Use a robust HTML parser only if one already exists or a tiny reliable dependency is justified.
+
+Do NOT add a heavy browser stack just for HTML parsing.
+
+Important:
+
+render-audit must inspect the ACTUAL article build output.
+
+────────────────────────────────────────────────────────────
+36. SOURCE IDENTITY CHECK
+────────────────────────────────────────────────────────────
+
+For each public article, output during prepublish:
+
+SLUG:
+cheapest-ai-model-not-cheapest-system
+
+SOURCE:
+src/content/articles/cheapest-ai-model-not-cheapest-system.mdx
+
+FORMAT:
+MDX
+
+This is important.
+
+We must know which source produced the page.
+
+If more than one possible source exists:
+
+FAIL.
+
+Do this in:
+
+article:verify
+
+or:
+
+content-source-audit
+
+or:
+
+prepublish
+
+whichever is cleanest.
+
+────────────────────────────────────────────────────────────
+37. PREPUBLISH ORDER
+────────────────────────────────────────────────────────────
+
+Update prepublish to use this order:
+
+1. content-source-audit
+2. article:verify
+3. content:audit
+4. Astro check
+5. Astro build
+6. render-audit
+7. social generation
+8. Pagefind
+9. final HTML metadata checks
+10. asset checks
+
+Source integrity must fail BEFORE wasting time building.
+
+Do not auto-repair silently in prepublish.
+
+Fail loudly.
+
+────────────────────────────────────────────────────────────
+38. PREPUBLISH ALL SIX REAL ARTICLES
+────────────────────────────────────────────────────────────
+
+Run:
+
+bun run prepublish -- cheapest-ai-model-not-cheapest-system
+
+bun run prepublish -- cheapest-ai-model-not-cheapest-system-proof
+
+bun run prepublish -- ai-inference-price-surface-v0-1
+
+bun run prepublish -- no-universal-long-context-premium
+
+bun run prepublish -- prompt-cache-second-use-break-even
+
+bun run prepublish -- sonnet-5-price-effective-date
+
+All must PASS.
+
+No bypasses.
+
+────────────────────────────────────────────────────────────
+39. BUILD
+────────────────────────────────────────────────────────────
+
+Run:
+
+bun install
+
+bun run content-source-audit
+
+bun run content:audit
+
+bun run check
+
+bun run build
+
+bun run render-audit -- --all
+
+Do not rely only on exit codes.
+
+Inspect generated article HTML.
+
+────────────────────────────────────────────────────────────
+40. BUILT HTML MUST PROVE CORRECT MATH
+────────────────────────────────────────────────────────────
+
+For flagship built HTML confirm:
+
+KaTeX exists for actual equations.
+
+Search built HTML and verify ZERO:
+
+24182
+24183
+24190
+24191
+
+Visible/raw:
+
+C_{\text{
+\frac{
+\boxed{
+\Delta
+
+outside intentional code samples.
+
+Confirm normal prose does NOT become a giant KaTeX span.
+
+Specifically inspect sentence:
+
+Suppose one model costs $1 and succeeds half the time.
+Another costs $3 and succeeds every time.
+
+It must be ordinary paragraph text.
+
+────────────────────────────────────────────────────────────
+41. EXACT HIERARCHY ACCEPTANCE
+────────────────────────────────────────────────────────────
+
+For flagship:
+
+H1 count = 1
+
+FIRST PASS count = 1
+
+Body-level SECTION metadata block = 0
+
+Body-level duplicate title = 0
+
+TOC must NOT contain:
+
+02 / / FIRST PASS
+
+TOC should begin approximately:
+
+01 / FIRST PASS
+02 / The wrong denominator
+03 / A 25× price gap that costs eight cents
+...
+
+No accidental equation H1s.
+
+────────────────────────────────────────────────────────────
+42. VISUAL QA — FLAGSHIP
+────────────────────────────────────────────────────────────
+
+Inspect actual rendered flagship at:
+
+1440
+1024
+768
+430
+390
+375
+
+Inspect at least:
+
+first screen
+
+intro paragraph
+
+FIRST PASS
+
+wrong denominator equations
+
+Luna/Sol calculation
+
+1.71 pp calculation block
+
+review chart
+
+review scenario
+
+long-context section
+
+cache equations
+
+cache chart
+
+Batch chart
+
+routing
+
+CLAIM CHECK
+
+decision rule
+
+sources
+
+BRIEF
+
+footer
+
+The PDF/screenshot supplied by the user showed the current defects.
+
+The new output must clearly eliminate them.
+
+────────────────────────────────────────────────────────────
+43. VISUAL QA — PROOF
+────────────────────────────────────────────────────────────
+
+Because PROOF is math heavy:
+
+inspect all equations.
+
+No clipped fractions.
+
+No raw LaTeX.
+
+No giant H1 equations.
+
+No horizontal page overflow.
+
+No currency prose parsed as math.
+
+Use bounded horizontal equation scroll where necessary.
+
+────────────────────────────────────────────────────────────
+44. VISUAL QA — NOW
+────────────────────────────────────────────────────────────
+
+Inspect all three NOW articles.
+
+LONG CONTEXT:
+
+table readable
+currency normal
+no duplicate H1
+
+CACHE:
+
+equations clean
+N rendered correctly
+2-use and 3-use results clear
+
+SONNET:
+
+all dollar amounts normal
+pricing table readable
+code/schema examples readable
+no currency KaTeX
+
+────────────────────────────────────────────────────────────
+45. FIGURE PATHS
+────────────────────────────────────────────────────────────
+
+Verify all research figure paths are canonical public paths.
+
+No obsolete:
+
+/charts/
+
+if actual production assets live under:
+
+/research/ai-cost-quality-frontier/charts/
+
+or vice versa.
+
+Pick one correct location and use it consistently.
+
+Verify every image returns 200 in built/deployed output.
+
+────────────────────────────────────────────────────────────
+46. CURRENT CONVERSION FIXES
+────────────────────────────────────────────────────────────
+
+Preserve/finalize fixes already intended:
+
+Article-bottom BRIEF:
+
+utm_content = article-bottom
+
+Homepage:
+
+homepage-cta
+
+Dedicated brief page:
+
+brief-page
+
+Button:
+
+JOIN / BRIEF
+
+INTELLIGENCE CTA:
+
+START A RESEARCH BRIEF →
+
+must actually link to:
+
+/intelligence
+
+Do not regress Beehiiv or Resend.
+
+────────────────────────────────────────────────────────────
+47. PRELAUNCH STATE
+────────────────────────────────────────────────────────────
+
+IMPORTANT:
+
+Do NOT make the site indexable before all rendering work passes.
+
+Current site may still have:
+
+noindex,nofollow
+
+robots:
+
+Disallow: /
+
+footer:
+
+Pre-launch · Demo content is marked
+
+KEEP prelaunch protection while fixing.
+
+After ALL six articles pass:
+
+source audit
+render audit
+visual QA
+build
+provider health
+
+then proceed to public launch ONLY if this task's full acceptance gate passes.
+
+────────────────────────────────────────────────────────────
+48. PUBLIC LAUNCH
+────────────────────────────────────────────────────────────
+
+Once every required check passes:
+
+set production:
+
+SITE_PRELAUNCH=false
+
+Do not delete fail-safe prelaunch code.
+
+Redeploy the EXISTING Vercel project:
+
+second-pass
+
+Then verify production:
+
+no `noindex,nofollow`
+
+robots allows crawling
+
+footer no longer says prelaunch
+
+RSS real
+
+sitemap real
+
+Pagefind real
+
+no demo content
+
+canonical remains:
+
+https://second-pass.vercel.app
+
+Do not switch domain yet.
+
+────────────────────────────────────────────────────────────
+49. FOOTER
+────────────────────────────────────────────────────────────
+
+Public footer should replace:
+
+Pre-launch · Demo content is marked
+
+with:
+
+Primary sources · Original calculations · Visible corrections
+
+or the already-approved equivalent.
+
+Make this environment-aware.
+
+────────────────────────────────────────────────────────────
+50. PRODUCTION HTML VERIFICATION
+────────────────────────────────────────────────────────────
+
+Do NOT assume local output equals production.
+
+Fetch the actual production flagship HTML after deployment.
+
+Verify:
+
+source commit deployed
+
+H1 count = 1
+
+FIRST PASS = 1
+
+24182 = absent
+
+24183 = absent
+
+24190 = absent
+
+24191 = absent
+
+ordinary $1/$3 sentence = normal text
+
+KaTeX equations = present
+
+raw LaTeX = absent
+
+duplicate metadata = absent
+
+duplicate article title = absent
+
+broken TOC = absent
+
+INTELLIGENCE link = present
+
+article-bottom UTM = article-bottom
+
+noindex = absent after launch
+
+footer live state = correct
+
+────────────────────────────────────────────────────────────
+51. PRODUCTION SOURCE/COMMIT IDENTITY
+────────────────────────────────────────────────────────────
+
+Report:
+
+Git commit SHA
+
+Vercel deployment ID
+
+deployment commit SHA
+
+They must match the intended release.
+
+Confirm production was not serving an older commit.
+
+This is important because previous source fixes existed in repository files that were not
+actually driving the deployed article.
+
+────────────────────────────────────────────────────────────
+52. VERIFY ALL LIVE ARTICLES
+────────────────────────────────────────────────────────────
+
+Fetch actual live URLs:
+
+https://second-pass.vercel.app/articles/cheapest-ai-model-not-cheapest-system
+
+https://second-pass.vercel.app/articles/cheapest-ai-model-not-cheapest-system-proof
+
+https://second-pass.vercel.app/articles/ai-inference-price-surface-v0-1
+
+https://second-pass.vercel.app/articles/no-universal-long-context-premium
+
+https://second-pass.vercel.app/articles/prompt-cache-second-use-break-even
+
+https://second-pass.vercel.app/articles/sonnet-5-price-effective-date
+
+Every one must return 200.
+
+Every one must originate from the intended canonical article source.
+
+────────────────────────────────────────────────────────────
+53. HEALTH / PROVIDERS
+────────────────────────────────────────────────────────────
+
+Verify:
+
+/api/health
+
+Expected:
+
+status: ok
+brief: configured
+leads: configured
+
+Verify:
+
+/brief
+/intelligence
+/partner
+
+Do not expose API keys.
+
+Do not repeatedly submit test leads.
+
+────────────────────────────────────────────────────────────
+54. SECURITY
+────────────────────────────────────────────────────────────
+
+Do not weaken existing headers.
+
+Verify:
+
+HSTS
+X-Content-Type-Options
+frame protection
+Referrer-Policy
+Permissions-Policy
+
+No secrets in HTML.
+
+No environment dump.
+
+No API key in repo.
+
+No API key in JS.
+
+────────────────────────────────────────────────────────────
+55. DO NOT OVERBUILD
+────────────────────────────────────────────────────────────
+
+Do NOT add:
+
+CMS
+database
+auth
+React
+Vue
+Svelte
+client math rendering
+MathJax runtime
+chart library
+new analytics
+dashboard
+editor
+new publishing backend
+new hosting
+new Vercel project
+new repository
+WebGL
+animations
+
+This is static technical publishing.
+
+Astro + MDX + remark/rehype + KaTeX is enough.
+
+Fix it properly.
+
+────────────────────────────────────────────────────────────
+56. UPDATE PUBLICATION-COMPILER RULES
+────────────────────────────────────────────────────────────
+
+Record the permanent source requirements in the most appropriate existing operations doc.
+
+Future packages must output:
+
+canonical article MDX
+
+not parallel `.md` + `.mdx`
+
+No sentinel substitutions.
+
+No body H1.
+
+No body FIRST PASS.
+
+No copied body metadata.
+
+Math:
+
+real math delimiters only.
+
+Currency:
+
+plain text.
+
+Required publication pipeline:
+
+FACTUAL INTEGRITY
+↓
+SOURCE INTEGRITY
+↓
+RENDER INTEGRITY
+↓
+VISUAL QA
+↓
+PUBLISH
+
+Keep documentation concise.
+
+────────────────────────────────────────────────────────────
+57. GIT CLEANUP
+────────────────────────────────────────────────────────────
+
+Before commit:
+
+git status
+git diff
+git diff --stat
+
+Verify obsolete duplicate `.md` files for migrated articles are deleted.
+
+Verify intended `.mdx` files are tracked.
+
+Verify no temporary conversion files remain.
+
+No:
+
+ZIP
+PDF screenshots
+logs
+.env
+API keys
+temporary scripts
+node_modules
+
+unless intentionally required.
+
+────────────────────────────────────────────────────────────
+58. COMMIT
+────────────────────────────────────────────────────────────
+
+Prefer one coherent commit:
+
+fix: canonicalize MDX and repair math rendering pipeline
+
+If public launch state requires a separate logical commit:
+
+feat: take Second Pass research public
+
+Do not rewrite history.
+
+Do not force push.
+
+────────────────────────────────────────────────────────────
+59. FINAL ACCEPTANCE GATE — SOURCE
+────────────────────────────────────────────────────────────
+
+PASS only if:
+
+✓ MDX is properly enabled
+
+✓ content loader supports intended canonical source extensions
+
+✓ one article = one source
+
+✓ duplicate slug detection exists
+
+✓ current six real articles have one canonical source each
+
+✓ obsolete duplicates removed
+
+✓ 24182 count = 0 in public source
+
+✓ 24183 count = 0
+
+✓ 24190 count = 0
+
+✓ 24191 count = 0
+
+✓ duplicate body H1 = 0
+
+✓ duplicate body FIRST PASS = 0
+
+✓ duplicate body metadata = 0
+
+────────────────────────────────────────────────────────────
+60. FINAL ACCEPTANCE GATE — MATH
+────────────────────────────────────────────────────────────
+
+✓ single-dollar currency no longer parsed as math
+
+✓ `$1` normal
+
+✓ `$3` normal
+
+✓ `$4.50` normal
+
+✓ `$0.0768` normal
+
+✓ `$5/M` normal
+
+✓ `$30/M` normal
+
+✓ equations render with KaTeX
+
+✓ fractions render
+
+✓ boxed formulas render
+
+✓ subscripts render
+
+✓ inequalities render
+
+✓ no raw LaTeX
+
+✓ no giant accidental equation H1
+
+✓ no page-level horizontal overflow
+
+────────────────────────────────────────────────────────────
+61. FINAL ACCEPTANCE GATE — ARTICLES
+────────────────────────────────────────────────────────────
+
+FLAGSHIP:
+
+✓ H1 = 1
+✓ FIRST PASS = 1
+✓ intro prose normal
+✓ wrong-denominator equations good
+✓ Luna/Sol equations good
+✓ 1.71 pp block good
+✓ figures good
+✓ cache math good
+✓ routing progressive disclosure good
+✓ claim check good
+✓ CTA linked
+
+PROOF:
+
+✓ all formal math good
+
+DATA:
+
+✓ table/data good
+
+LONG CONTEXT:
+
+✓ clean
+
+CACHE:
+
+✓ clean
+
+SONNET:
+
+✓ clean currency + table
+
+────────────────────────────────────────────────────────────
+62. FINAL ACCEPTANCE GATE — PIPELINE
+────────────────────────────────────────────────────────────
+
+✓ source audit exists
+
+✓ duplicate slug test exists
+
+✓ currency regression test exists
+
+✓ sentinel regression test exists
+
+✓ render audit passes
+
+✓ prepublish uses source audit first
+
+✓ all six prepublish PASS
+
+✓ Astro check PASS
+
+✓ build PASS
+
+✓ Pagefind PASS
+
+────────────────────────────────────────────────────────────
+63. FINAL ACCEPTANCE GATE — PRODUCTION
+────────────────────────────────────────────────────────────
+
+If launch proceeded:
+
+✓ SITE_PRELAUNCH=false
+
+✓ noindex absent
+
+✓ robots public
+
+✓ footer live state
+
+✓ homepage real content
+
+✓ all six live URLs 200
+
+✓ Beehiiv configured
+
+✓ Resend configured
+
+✓ commit SHA matches deployment
+
+✓ production HTML contains no sentinel
+
+✓ production HTML contains no malformed currency KaTeX
+
+✓ production HTML contains real KaTeX equations
+
+────────────────────────────────────────────────────────────
+64. FINAL RESPONSE FORMAT
+────────────────────────────────────────────────────────────
+
+Return exactly:
+
+# SECOND / PASS — CONTENT + MATH PIPELINE REPAIR
+
+## STATUS
+
+PASS / FAIL
+
+## ROOT CAUSE CONFIRMATION
+
+Collection only loaded .md:
+YES / NO
+
+Duplicate .md/.mdx sources found:
+[number]
+
+Canonical format:
+MDX
+
+## SOURCE MIGRATION
+
+Flagship:
+source before:
+source after:
+
+PROOF:
+source before:
+source after:
+
+DATA:
+source before:
+source after:
+
+Long-context:
+source before:
+source after:
+
+Cache:
+source before:
+source after:
+
+Sonnet:
+source before:
+source after:
+
+Duplicate sources remaining:
+0 REQUIRED
+
+## MATH CONFIGURATION
+
+MDX integration:
+PASS / FAIL
+
+Astro 7 Markdown processor:
+PASS / FAIL
+
+remark-math:
+PASS / FAIL
+
+singleDollarTextMath:
+false REQUIRED
+
+rehype-katex:
+PASS / FAIL
+
+KaTeX CSS:
+LOCAL / CDN
+explanation if CDN
+
+## SENTINELS
+
+24182:
+0 REQUIRED
+
+24183:
+0 REQUIRED
+
+24190:
+0 REQUIRED
+
+24191:
+0 REQUIRED
+
+## CURRENCY REGRESSION
+
+$1:
+NORMAL PROSE / FAIL
+
+$3:
+NORMAL PROSE / FAIL
+
+$4.50:
+NORMAL PROSE / FAIL
+
+$0.0768:
+NORMAL PROSE / FAIL
+
+$5/M:
+NORMAL PROSE / FAIL
+
+$30/M:
+NORMAL PROSE / FAIL
+
+## MATH REGRESSION
+
+Inline variable:
+PASS / FAIL
+
+Fraction:
+PASS / FAIL
+
+Display equation:
+PASS / FAIL
+
+Boxed equation:
+PASS / FAIL
+
+Subscript:
+PASS / FAIL
+
+Inequality:
+PASS / FAIL
+
+Raw LaTeX:
+0 REQUIRED
+
+## ARTICLE STRUCTURE
+
+Flagship H1 count:
+1 REQUIRED
+
+Flagship FIRST PASS count:
+1 REQUIRED
+
+Duplicate body metadata:
+0 REQUIRED
+
+Accidental equation headings:
+0 REQUIRED
+
+## ARTICLE QA
+
+Flagship:
+PASS / FAIL
+
+PROOF:
+PASS / FAIL
+
+DATA:
+PASS / FAIL
+
+Long-context NOW:
+PASS / FAIL
+
+Cache NOW:
+PASS / FAIL
+
+Sonnet NOW:
+PASS / FAIL
+
+## PIPELINE
+
+content-source-audit:
+PASS / FAIL
+
+duplicate slug gate:
+PASS / FAIL
+
+currency regression:
+PASS / FAIL
+
+sentinel regression:
+PASS / FAIL
+
+render-audit:
+PASS / FAIL
+
+prepublish:
+PASS / FAIL
+
+## BUILD
+
+bun install:
+PASS / FAIL
+
+content audit:
+PASS / FAIL
+
+Astro check:
+PASS / FAIL
+
+build:
+PASS / FAIL
+
+Pagefind:
+PASS / FAIL
+
+## VISUAL QA
+
+1440:
+PASS / FAIL
+
+1024:
+PASS / FAIL
+
+768:
+PASS / FAIL
+
+430:
+PASS / FAIL
+
+390:
+PASS / FAIL
+
+375:
+PASS / FAIL
+
+## PROVIDERS
+
+Beehiiv:
+configured / not configured
+
+Resend:
+configured / not configured
+
+## PUBLIC LAUNCH
+
+SITE_PRELAUNCH:
+false / still true
+
+robots:
+PUBLIC / PRELAUNCH
+
+noindex:
+ABSENT / PRESENT
+
+footer:
+LIVE / PRELAUNCH
+
+## PRODUCTION
+
+Commit SHA:
+
+Vercel deployment ID:
+
+Deployment commit SHA:
+
+SHA match:
+YES / NO
+
+## LIVE QA
+
+Homepage:
+PASS / FAIL
+
+Flagship:
+PASS / FAIL
+
+PROOF:
+PASS / FAIL
+
+DATA:
+PASS / FAIL
+
+Long-context:
+PASS / FAIL
+
+Cache:
+PASS / FAIL
+
+Sonnet:
+PASS / FAIL
+
+Brief:
+PASS / FAIL
+
+Intelligence:
+PASS / FAIL
+
+Health:
+PASS / FAIL
+
+## PRODUCTION HTML
+
+24182:
+0 REQUIRED
+
+24183:
+0 REQUIRED
+
+24190:
+0 REQUIRED
+
+24191:
+0 REQUIRED
+
+Malformed currency KaTeX:
+0 REQUIRED
+
+Raw visible LaTeX:
+0 REQUIRED
+
+H1:
+1 REQUIRED
+
+FIRST PASS:
+1 REQUIRED
+
+## GIT
+
+Commit:
+Branch:
+Working tree:
+
+## BLOCKERS
+
+None
+
+OR exact blocker.
+
+If everything passes AND the public production deployment is clean, end exactly:
+
+SECOND / PASS MATH PIPELINE: FIXED — PUBLICATION SAFE TO DISTRIBUTE
+
+If source/build fixes pass but launch remains intentionally prelaunch:
+
+SECOND / PASS MATH PIPELINE: FIXED — READY FOR PUBLIC LAUNCH
+
+If anything remains broken:
+
+SECOND / PASS MATH PIPELINE: BLOCKED — <exact blocker>
+
+────────────────────────────────────────────────────────────
+65. BEGIN NOW
+────────────────────────────────────────────────────────────
+
+Do not return another plan.
+
+Begin by proving which source file currently drives each published slug.
+
+Then:
+
+inventory duplicates
+→ reconcile canonical MDX
+→ remove obsolete `.md`
+→ enable MDX
+→ change content loader
+→ disable single-dollar math
+→ restore real equations
+→ fix article structure
+→ create source-integrity gates
+→ run currency regression
+→ build
+→ run render audit
+→ prepublish all six
+→ visually inspect
+→ deploy
+→ fetch production HTML
+→ verify the deployed commit
+→ return the acceptance report.
+
+The most important requirement is:
+
+THE SOURCE FILE WE REVIEW MUST BE THE SOURCE FILE ASTRO BUILDS AND VERCEL SERVES.
+
+Do not finish until that is provably true.

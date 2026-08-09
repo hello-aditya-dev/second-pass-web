@@ -1,10 +1,15 @@
-16:09:33 [vite] connected.
-16:09:34 [types] Generated 13ms
-16:09:34 [vite] connected.
-16:09:35 [content] Syncing content
-16:09:35 [content] Synced content
- astro  v7.1.6 ready in 2209 ms
+[astro] `markdown.remarkPlugins`, `markdown.rehypePlugins`, and `markdown.remarkRehype` are deprecated. Pass them to `unified({...})` from `@astrojs/markdown-remark` directly instead.
+18:26:08 [vite] connected.
+18:26:10 [types] Generated 1ms
+18:26:10 [vite] connected.
+
+ update  ▶ New version of Astro available: 7.2.0
+  Run bun x @astrojs/upgrade to update
+
+18:26:10 [content] Syncing content
+18:26:11 [content] Synced content
+18:26:11 [vite] Re-optimizing dependencies because vite config has changed
+ astro  v7.1.6 ready in 3349 ms
 ┃ Local    http://localhost:3000/
 ┃ Network  http://21.0.11.253:3000/
-16:09:35 watching for file changes...
-16:09:40 [200] / 164ms
+18:26:11 watching for file changes...
