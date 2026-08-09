@@ -27,9 +27,10 @@ Astro Content Collections with Zod validation give typed, build-time content saf
 | Framework | Astro 7 | Static-first, zero-JS default, content collections |
 | Content | Typed MDX + Zod | Build-time validation, no CMS at launch |
 | Search | Pagefind | Static, no server, no paid service |
+| Social Images | sharp | Build-time SVG→PNG, no runtime, no external API |
 | Typography | Bricolage Grotesque + Newsreader | Self-hosted via Fontsource, SIL OFL |
 | Styling | Custom CSS | No Tailwind, no component library |
-| Newsletter | Beehiiv Launch | Subscriber system management and delivery |
+| Newsletter | Beehiiv | Subscriber system management and delivery |
 | Leads | Resend | Transactional email for lead notifications |
 | RSS | @astrojs/rss | Standard feed, excludes demo content |
 | Sitemap | @astrojs/sitemap | Normal + news sitemap |
@@ -41,7 +42,7 @@ Astro Content Collections with Zod validation give typed, build-time content saf
 ## Requirements
 
 - Bun ≥ 1.2
-- Node 24.x (see `.nvmrc`)
+- Node 24.x
 - Vercel CLI (for deployment inspection)
 
 ## Environment variables
@@ -82,15 +83,20 @@ This is implemented centrally — no per-page edits required.
 ## Commands
 
 ```bash
-bun install                    # Install dependencies
-bun run dev                    # Start dev server (port 3000)
-bun run content:audit          # Validate content integrity
-bun run check                  # Astro type checking
-bun run build                  # Production build + Pagefind index
-bun run verify                 # Check + build
-bun run article:new -- slug    # Scaffold a new article
-bun run article:verify -- slug # Verify article quality
-bun run prepublish -- slug     # Full prepublish pipeline
+bun install                       # Install dependencies
+bun run dev                       # Start dev server (port 3000)
+bun run content:audit             # Validate content integrity
+bun run check                     # Astro type checking
+bun run build                     # Production build + Pagefind index
+bun run verify                    # Check + build
+bun run article:new -- slug       # Scaffold a new article
+bun run article:verify -- slug    # Verify article quality
+bun run social:generate -- slug   # Generate social assets for one article
+bun run social:generate:all       # Generate social assets for all articles
+bun run favicons:generate         # Generate PNG favicon fallbacks
+bun run distribute:url -- slug ch # Generate tracked distribution URL
+bun run launch:verify             # Full launch safety gate
+bun run prepublish -- slug        # Full prepublish pipeline
 ```
 
 ## Routes
@@ -110,6 +116,7 @@ bun run prepublish -- slug     # Full prepublish pipeline
 | `/brief` | / BRIEF newsletter signup |
 | `/partner` | Partnership inquiries (launch-stage) |
 | `/intelligence` | Intelligence service inquiries (RAPID / RESEARCH SPRINT) |
+| `/authors/aditya` | Founder & Editor author page |
 | `/about` | Publication identity |
 | `/editorial-policy` | Editorial standards |
 | `/corrections` | Corrections process |
@@ -136,6 +143,35 @@ Articles are typed MDX files in `src/content/articles/`. Schema validation enfor
 - `changeLog`: typed entries with date, type, note
 - `adPolicy`: none / light / standard
 - `demo` flag for pre-launch content
+- `socialStat` / `socialStatLabel` (optional) — key number for social image emphasis
+
+## Technical components
+
+Available for use in articles:
+
+- `CalculationBlock` — structured calculation display with result and sensitivity
+- `ClaimCheck` — vendor claim vs independent result comparison
+- `Metric` — single key metric display
+- `AssumptionList` — explicit assumption listing
+- `SensitivityTable` — sensitivity analysis table with horizontal scroll
+
+All are accessible, static-first, printable, mobile-safe, visually restrained.
+
+## Social assets
+
+Generated at build time in `public/social/<slug>/`:
+
+- `og.png` — 1200×630 (LinkedIn, X, Reddit, Slack previews)
+- `portrait.png` — 1080×1350 (Instagram, Threads)
+- `square.png` — 1080×1080 (general social cards)
+
+Visual language: warm paper background, black typography, Signal Blue slash, controlled whitespace. No AI art, no gradients, no shadows.
+
+## Favicon system
+
+- SVG favicon (preferred modern): `/mark.svg`
+- PNG fallbacks: 16×16, 32×32, 180×180 (apple-touch-icon), 192×192, 512×512
+- manifest.webmanifest with both SVG and PNG entries
 
 ## Data foundation
 
@@ -148,10 +184,6 @@ Typed, source-backed data schemas in `src/data/`:
 
 All fixtures are explicitly marked DEMO/TEST. No invented current values.
 
-## Newsroom / web separation
-
-Real research happens in the separate private `publication-newsroom` repository. Only human-approved content enters this repository. The public repo never requires the private newsroom at runtime.
-
 ## Article publication handoff
 
 1. Newsroom approves article
@@ -163,6 +195,7 @@ Real research happens in the separate private `publication-newsroom` repository.
 7. Human approves
 8. Commit `publish: story-slug`
 9. Push — deployment starts
+10. Generate distribution URLs: `bun run distribute:url -- story-slug <channel>`
 
 Target: under 10 minutes from approval to deployment.
 
@@ -188,7 +221,7 @@ CMS, database, auth, accounts, real ad network, comments, React, CSP (deliberate
 
 ## Pre-launch state
 
-The deployment is protected/noindex via `SITE_PRELAUNCH=trueBeehiiv/Resend disabled safely if credentials absent. Demo stories visibly marked and excluded from RSS/news sitemap. Canonical remains `https://second-pass.vercel.app` until domain day.
+The deployment is protected/noindex via `SITE_PRELAUNCH=true`. Beehiiv/Resend are configured. Demo stories visibly marked and excluded from RSS/news sitemap. Canonical remains `https://second-pass.vercel.app` until domain day.
 
 ## Verification
 
@@ -196,7 +229,7 @@ The deployment is protected/noindex via `SITE_PRELAUNCH=trueBeehiiv/Resend disab
 bun install
 bun run content:audit   # 0 failures (expected demo warnings)
 bun run check           # 0 errors
-bun run build           # 24+ pages, Pagefind indexed in Vercel output
+bun run build           # 28+ pages, Pagefind indexed in Vercel output
 ```
 
 ## Documentation
@@ -205,6 +238,7 @@ bun run build           # 24+ pages, Pagefind indexed in Vercel output
 - `CURRENT_STATE.md` — honest current state
 - `DECISIONS.md` — durable architectural decisions
 - `docs/OPERATIONS.md` — deployment, provider hookup, domain migration, rollback
+- `docs/DISTRIBUTION_WORKFLOW.md` — publishing and distribution pipeline
 - `docs/` — architecture, content model, design system, brand, UX, mobile, ad system, SEO, performance, publishing speed, newsroom handoff, open-source stack, acceptance standard, FT inspiration, interactions, monetization, launch checklist
 
 ## License

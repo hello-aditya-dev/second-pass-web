@@ -56,3 +56,18 @@ Vercel Web Analytics behind feature toggle. Safe custom events only — never PI
 
 ## Vercel
 Hobby for pre-launch QA. Pro before commercial public launch. Z.ai never changes billing.
+
+## Author system
+Real human author represented as Person JSON-LD. Author page at /authors/<slug>. Publisher is Organization, separate from author. No invented credentials.
+
+## Social images
+Build-time generation via sharp (SVG→PNG). No runtime generation, no external API, no browser screenshot. Typography-first visual language matching publication identity.
+
+## Distribution
+Tracked URLs via UTM parameters. Share utility uses native Web Share API. No third-party share library, no tracking dependency.
+
+## Favicon
+SVG favicon as preferred modern format. PNG fallbacks derived from same mark.svg. No second logo.
+
+## Launch safety
+launch:verify command prevents accidental public launch. SITE_PRELAUNCH requires explicit human change.

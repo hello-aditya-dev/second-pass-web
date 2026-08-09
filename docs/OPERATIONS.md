@@ -13,7 +13,11 @@ bun run content:audit  # Content validation
 ```bash
 bun run article:new -- <slug>       # Scaffold new article
 bun run article:verify -- <slug>    # Verify article quality
+bun run social:generate -- <slug>   # Generate social assets
+bun run social:generate:all         # Generate social assets for all
+bun run distribute:url -- <slug> ch # Generate tracked distribution URL
 bun run prepublish -- <slug>        # Full prepublish pipeline
+bun run launch:verify               # Launch safety gate
 ```
 
 ## Environment Variables
@@ -96,3 +100,4 @@ Before commercial public launch:
 - [ ] Correct robots/indexing policy (remove noindex if present)
 - [ ] All routes, APIs, search, forms verified
 - [ ] Responsive QA at all breakpoints
+- [ ] `launch:verify` passes
