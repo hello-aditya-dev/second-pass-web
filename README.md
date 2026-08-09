@@ -51,7 +51,7 @@ See `.env.example` for the complete list.
 | Variable | Purpose | Default |
 | --- | --- | --- |
 | `PUBLIC_SITE_URL` | Canonical production origin | `https://second-pass.vercel.app` |
-| `SITE_PRELAUNCH` | Prelaunch mode: noindex/nofollow on all pages, robots Disallow | `true` |
+| `SITE_PRELAUNCH` | Fail-safe prelaunch mode (missing→prelaunch, true→prelaunch, false→public) | (missing = prelaunch) |
 | `BEEHIIV_API_KEY` | Beehiiv subscription API key | (server-only) |
 | `BEEHIIV_PUBLICATION_ID` | Beehiiv publication ID | (server-only) |
 | `BEEHIIV_NEWSLETTER_LIST_ID` | Beehiiv newsletter list ID | (server-only) |
@@ -64,7 +64,7 @@ See `.env.example` for the complete list.
 
 ## Prelaunch mode
 
-When `SITE_PRELAUNCH=true` (default):
+When `SITE_PRELAUNCH` is missing or `true` (default — fail-safe):
 
 - All pages emit `<meta name="robots" content="noindex,nofollow">`
 - `robots.txt` serves `Disallow: /`
