@@ -1,0 +1,2581 @@
+# Z.ai — PUBLISH SECOND / PASS ARTICLE #02
+
+Repository:
+
+witejackel-eng/second-pass-web
+
+Existing Vercel project:
+
+second-pass
+
+Current production site:
+
+https://second-pass.vercel.app
+
+Attached publication package:
+
+second-pass-agent-economics-2026-08-10-final-review(1).zip
+
+ARTICLE:
+
+Token price no longer tells you what an AI agent costs
+
+SLUG:
+
+an-ai-agent-is-no-longer-priced-in-tokens
+
+SECTION:
+
+AI
+
+FORMAT:
+
+SECOND PASS
+
+AUTHOR:
+
+Aditya
+
+PUBLICATION DATE:
+
+2026-08-10
+
+THIS PROMPT IS THE HUMAN PUBLICATION APPROVAL.
+
+The package deliberately contains:
+
+status: "review"
+changeLog: []
+
+That was correct before human approval.
+
+Human approval is now granted.
+
+Your job is to:
+
+inspect the current repository
+→ preserve all newer responsive/math/publication work
+→ inspect the attached final-review package
+→ import the canonical article
+→ install charts/data into proper public paths
+→ adapt package-relative paths to website paths
+→ integrate the article with the existing SECOND / PASS renderer
+→ change status to published
+→ add the initial publication change-log event
+→ verify sources/math/tables/charts/callouts
+→ verify desktop/tablet/mobile
+→ run the complete publication pipeline
+→ generate social assets
+→ deploy to the EXISTING Vercel project
+→ verify actual production HTML
+→ return the exact live URL and acceptance report.
+
+Do NOT research the topic again.
+
+Do NOT rewrite the article substantially.
+
+Do NOT redesign the site.
+
+Do NOT create another repository.
+
+Do NOT create another Vercel project.
+
+Do NOT build new infrastructure.
+
+This is a publication task.
+
+────────────────────────────────────────
+0. PUBLICATION AUTHORITY
+────────────────────────────────────────
+
+The attached final-review package has completed:
+
+Research
+
+Article drafting
+
+Factual QA
+
+Calculation QA
+
+Senior editorial rewrite
+
+Normal proofreading
+
+Adversarial provider review
+
+Double-count audit
+
+Chart QA
+
+Site handoff preparation.
+
+The package's publication gate states:
+
+READY FOR PANGRAM + HUMAN REVIEW
+
+The human publication decision is being supplied by THIS prompt.
+
+Therefore:
+
+you MAY now change:
+
+status: "review"
+
+to:
+
+status: "published"
+
+and change:
+
+changeLog: []
+
+to the schema-valid equivalent of:
+
+changeLog:
+  - at: "2026-08-10"
+    type: "published"
+    note: "Initial publication."
+
+Do not fabricate any correction entry.
+
+Do not change publication date merely because deployment occurs later today.
+
+Pangram is an advisory prose diagnostic, not a site implementation dependency.
+
+Do not invent a Pangram result.
+
+Do not rewrite factual prose merely to chase an AI-detector score.
+
+────────────────────────────────────────
+1. START FROM LATEST MAIN
+────────────────────────────────────────
+
+Before touching content:
+
+git status
+git branch
+git log -10 --oneline
+git diff
+
+Fetch/pull the current latest `main` safely.
+
+Preserve ALL work that landed after earlier prompts, especially:
+
+- math-pipeline repair;
+- canonical Markdown source handling;
+- source-integrity checks;
+- render-integrity checks;
+- responsive article hardening;
+- responsive table handling;
+- equation containment;
+- chart/figure containment;
+- tablet article centering;
+- mobile article behavior;
+- evidence-rail behavior;
+- responsive browser QA;
+- newsletter attribution;
+- source rendering;
+- prepublish hardening.
+
+Do not reset newer work.
+
+Do not replace current files with stale versions from an earlier state.
+
+The repository is authoritative for SITE IMPLEMENTATION.
+
+The attached ZIP is authoritative for THIS ARTICLE'S RESEARCH AND COPY.
+
+────────────────────────────────────────
+2. INSPECT THE ATTACHED PACKAGE FIRST
+────────────────────────────────────────
+
+Extract the attached ZIP into a temporary working directory.
+
+Read at minimum:
+
+00_MANIFEST.md
+
+01_EDITORIAL_DECISION.md
+
+02_ARTICLE/an-ai-agent-is-no-longer-priced-in-tokens.md
+
+03_RESEARCH/agent-billing-meters-2026-08-10.csv
+
+03_RESEARCH/agent-billing-meters-2026-08-10.json
+
+03_RESEARCH/agent-cost-worked-scenario.csv
+
+04_CHARTS/chart-specs.md
+
+all four SVG charts
+
+05_QA/SOURCE_LEDGER.md
+
+05_QA/CLAIM_LEDGER.md
+
+05_QA/CALCULATION_LEDGER.md
+
+05_QA/FACT_CHECK.md
+
+05_QA/PUBLICATION_GATE.md
+
+10_SITE_HANDOFF.md
+
+Do not publish directly from the temporary extraction directory.
+
+Import only the intended public-safe files into the repository.
+
+────────────────────────────────────────
+3. CANONICAL ARTICLE SOURCE
+────────────────────────────────────────
+
+The package contains exactly one canonical article:
+
+02_ARTICLE/an-ai-agent-is-no-longer-priced-in-tokens.md
+
+Use that as the content source.
+
+Do NOT create:
+
+an-ai-agent-is-no-longer-priced-in-tokens.mdx
+
+Do NOT keep a second copy with the same slug.
+
+Do NOT create:
+
+-final.md
+
+-v2.md
+
+-published.md
+
+One article = one source.
+
+Place it in the repository's current canonical article-content directory.
+
+Expected destination approximately:
+
+src/content/articles/an-ai-agent-is-no-longer-priced-in-tokens.md
+
+but inspect the current repository first and use its actual established path.
+
+────────────────────────────────────────
+4. PRESERVE FINAL EDITORIAL CONTENT
+────────────────────────────────────────
+
+Do not casually rewrite the article.
+
+The approved headline is:
+
+Token price no longer tells you what an AI agent costs
+
+The final conceptual structure is:
+
+FOUR BASE METER FAMILIES:
+
+1. Token volume
+2. Calls / invocations
+3. Runtime
+4. Stored state
+
+PLUS TWO PRICING/RULE LAYERS:
+
+5. Configuration modifiers
+6. Inclusion / allowance / applicability rules
+
+The general model is:
+
+$$
+C_{\text{agent}}
+=
+\sum_m q_m p_m(a)
+$$
+
+Preserve this distinction.
+
+Do NOT revert to the earlier, weaker concept of "six peer billing meters."
+
+────────────────────────────────────────
+5. PRESERVE THE CONFIRMED ANTHROPIC FIX
+────────────────────────────────────────
+
+The article has already corrected an important distinction.
+
+For Claude Managed Agents:
+
+Batch discount
+
+Fast-mode premium
+
+and the data-residency multiplier via `inference_geo`
+
+are treated as product/pricing applicability rules rather than scenario switches.
+
+Do NOT revert the article to language such as:
+
+"we assume no Fast mode"
+
+or:
+
+"we assume global inference."
+
+Preserve the final reviewed wording.
+
+────────────────────────────────────────
+6. CENTRAL NUMBERS ARE FROZEN
+────────────────────────────────────────
+
+The following verified scenario values are approved:
+
+MODEL TOKENS:
+
+$0.0220
+
+WEB SEARCH:
+
+$0.0300
+
+RUNTIME:
+
+$0.0133
+
+TOTAL:
+
+$0.0653
+
+FIRST SEARCH COUNT WHERE SEARCH BECOMES
+THE LARGEST INDIVIDUAL METER:
+
+3 searches
+
+ONE $0.01 SEARCH EQUIVALENT AT THE
+STATED HAIKU 4.5 LIST PRICES:
+
+10,000 base-input tokens
+
+2,000 output tokens
+
+7.5 running session minutes
+
+These are scenario calculations, not universal findings.
+
+Do not modify them unless the imported files somehow disagree internally.
+
+If anything disagrees:
+
+STOP publication and report the discrepancy.
+
+Do NOT improvise new arithmetic.
+
+────────────────────────────────────────
+7. ILLUSTRATIVE-WORKLOAD LABEL
+────────────────────────────────────────
+
+The article's scenario is:
+
+12,000 cumulative input tokens
+
+2,000 cumulative output tokens
+
+3 searches
+
+10 running minutes
+
+no prompt cache
+
+no retry.
+
+It is explicitly:
+
+ILLUSTRATIVE WORKLOAD
+
+Preserve this wording.
+
+Never remove the caveat.
+
+Never change it to:
+
+typical agent
+
+average agent
+
+representative agent
+
+normal workload.
+
+────────────────────────────────────────
+8. ARTICLE FRONTMATTER — PUBLICATION CHANGE
+────────────────────────────────────────
+
+Start from the package frontmatter.
+
+Preserve:
+
+title
+
+dek
+
+slug
+
+section
+
+format
+
+author
+
+publishedAt
+
+firstPass
+
+featured
+
+demo
+
+tags
+
+adPolicy
+
+sources
+
+seoTitle
+
+seoDescription.
+
+Change only the publication-state fields required by human approval.
+
+Set:
+
+status: "published"
+
+Add:
+
+changeLog:
+  - at: "2026-08-10"
+    type: "published"
+    note: "Initial publication."
+
+Adapt date formatting ONLY if required by the current schema.
+
+Do not add:
+
+updatedAt
+
+unless an editorial change after publication genuinely occurred.
+
+This publication implementation is not a correction.
+
+────────────────────────────────────────
+9. EXACTLY ONE H1
+────────────────────────────────────────
+
+The renderer owns the article H1.
+
+The canonical Markdown body does not contain a duplicate H1.
+
+Preserve that.
+
+Built page requirement:
+
+H1 count = 1.
+
+Do not insert another title into the body.
+
+────────────────────────────────────────
+10. EXACTLY ONE FIRST PASS
+────────────────────────────────────────
+
+FIRST PASS comes from frontmatter.
+
+Do not add another body FIRST PASS.
+
+Built page requirement:
+
+FIRST PASS count = 1.
+
+All five approved FIRST PASS bullets must render.
+
+────────────────────────────────────────
+11. CHART ASSETS
+────────────────────────────────────────
+
+The package contains:
+
+chart-01-agent-billing-path.svg
+chart-01-agent-billing-path.png
+
+chart-02-cost-waterfall.svg
+chart-02-cost-waterfall.png
+
+chart-03-meter-matrix.svg
+chart-03-meter-matrix.png
+
+chart-04-sensitivity.svg
+chart-04-sensitivity.png
+
+Do NOT leave article paths such as:
+
+../04_CHARTS/chart-01-agent-billing-path.svg
+
+Those paths belong to the research package and are NOT valid site URLs.
+
+Copy the public chart files into the site's established static research-asset location.
+
+Prefer a clean article-specific path such as:
+
+public/research/agent-economics/
+
+or whatever naming convention the existing repository already uses.
+
+Example public paths:
+
+/research/agent-economics/chart-01-agent-billing-path.svg
+
+/research/agent-economics/chart-02-cost-waterfall.svg
+
+/research/agent-economics/chart-03-meter-matrix.svg
+
+/research/agent-economics/chart-04-sensitivity.svg
+
+But follow current repository conventions if a better established path exists.
+
+Then update the canonical article source accordingly.
+
+────────────────────────────────────────
+12. CHART ORDER
+────────────────────────────────────────
+
+Use the package handoff order.
+
+CHART 01
+
+Agent billing path
+
+Placement:
+
+after the opening explanation of the agent workflow.
+
+CHART 02
+
+Worked cost composition
+
+Placement:
+
+after the first complete cost calculation.
+
+CHART 04
+
+Search-count sensitivity
+
+Placement:
+
+after the search-dominance calculation.
+
+CHART 03
+
+Provider billing-meter matrix
+
+Placement:
+
+at the start of the cross-provider billing-structure section.
+
+Do not reorder because filenames happen to sort differently.
+
+────────────────────────────────────────
+13. CHART SEMANTICS
+────────────────────────────────────────
+
+Do not publish bare image files without article semantics if the current article renderer supports semantic figures.
+
+Preferred rendered structure:
+
+<figure>
+  [image / bounded image container]
+  <figcaption>...</figcaption>
+</figure>
+
+Use:
+
+04_CHARTS/chart-specs.md
+
+as the source for:
+
+caption
+
+alt text
+
+decision question
+
+source basis
+
+mobile behavior.
+
+SVG is preferred for article rendering.
+
+PNG is fallback/social-use material.
+
+Do not rasterize SVG unnecessarily.
+
+────────────────────────────────────────
+14. DENSE CHART MOBILE BEHAVIOR
+────────────────────────────────────────
+
+The corrected taxonomy matrix can become dense on phones.
+
+At narrow widths, preserve legibility.
+
+If current site responsive figure infrastructure supports scrollable dense figures:
+
+use it.
+
+Structure approximately:
+
+figure
+  scrollable chart area
+  figcaption outside scroll area.
+
+Requirements:
+
+chart may horizontally scroll internally
+
+caption does NOT require horizontal scrolling
+
+page itself never horizontally scrolls
+
+labels remain readable.
+
+Do not shrink the matrix until the labels become microscopic.
+
+────────────────────────────────────────
+15. SUPPORTING PUBLIC DATA
+────────────────────────────────────────
+
+The package marks these as public-safe supporting evidence:
+
+03_RESEARCH/agent-billing-meters-2026-08-10.csv
+
+03_RESEARCH/agent-billing-meters-2026-08-10.json
+
+03_RESEARCH/agent-cost-worked-scenario.csv
+
+04_CHARTS/data/*.csv
+
+Copy these into a clean static path, for example:
+
+public/research/agent-economics/data/
+
+or the site's existing research-data convention.
+
+Do not expose internal QA material.
+
+Do not create a new `/DATA` article.
+
+This is SUPPORTING EVIDENCE, not:
+
+AI Agent Cost Surface v0.1
+
+That is a separate future publication.
+
+────────────────────────────────────────
+16. OPTIONAL DOWNLOAD LINK
+────────────────────────────────────────
+
+Inspect the existing article and site conventions.
+
+If SECOND / PASS already has a restrained method for supporting-data downloads,
+add a small static evidence/download object near the methodology section.
+
+Example concept:
+
+/ DOWNLOAD
+
+BILLING METER SNAPSHOT · CSV
+WORKED SCENARIO · CSV
+RAW SNAPSHOT · JSON
+
+Do not create this if it would require a new component system or substantial redesign.
+
+The article must not be blocked on this enhancement.
+
+The files themselves should still be copied to stable public paths if the handoff expects them.
+
+────────────────────────────────────────
+17. DO NOT PUBLISH INTERNAL QA
+────────────────────────────────────────
+
+Do NOT put these into publicly routable site content:
+
+00_MANIFEST.md
+
+01_EDITORIAL_DECISION.md
+
+05_QA/*
+
+06_DISTRIBUTION/*
+
+07_SOCIAL/asset-copy.md
+
+09_FOLLOWUPS/FOLLOWUP_EXTRACTIONS.md
+
+10_SITE_HANDOFF.md
+
+Those are newsroom/internal materials.
+
+Do not index them with Pagefind.
+
+Do not put them in RSS.
+
+Do not put them in sitemap.
+
+────────────────────────────────────────
+18. TABLES
+────────────────────────────────────────
+
+The article contains analytical tables.
+
+Use the site's already-hardened automatic table wrapper.
+
+Do NOT manually invent a second conflicting responsive table implementation.
+
+Requirements:
+
+desktop readable
+
+tablet readable
+
+mobile internally scrollable if needed
+
+table retains minimum readable width
+
+page itself has no horizontal overflow
+
+375px must pass.
+
+Numeric columns should remain easy to scan.
+
+────────────────────────────────────────
+19. MATH
+────────────────────────────────────────
+
+The article uses the site's repaired Markdown math system.
+
+Do NOT change:
+
+singleDollarTextMath behavior
+
+KaTeX architecture
+
+Markdown content architecture.
+
+Currency prose such as:
+
+$0.01
+
+$0.0653
+
+$10/1,000
+
+must remain ordinary prose.
+
+Real equations must render through KaTeX.
+
+Verify especially:
+
+C_agent sum equation
+
+cost-stack equation
+
+search threshold equation
+
+token equations.
+
+Zero:
+
+24182
+24183
+24190
+24191
+
+Zero raw visible:
+
+\frac
+\sum
+\text
+\boxed
+
+outside deliberate code examples.
+
+────────────────────────────────────────
+20. INLINE MATH / CODE SEMANTICS
+────────────────────────────────────────
+
+The article deliberately uses backticks for some technical variable explanations.
+
+Do not convert normal prose into math unnecessarily.
+
+Do not send provider/product names through KaTeX.
+
+Use mathematical notation only where it improves understanding.
+
+────────────────────────────────────────
+21. / ASSUMPTION
+────────────────────────────────────────
+
+The article includes an:
+
+/ ASSUMPTION
+
+object.
+
+Inspect the current SECOND / PASS house styling.
+
+Render it using the existing article-object treatment if one exists.
+
+Do not convert the article to MDX merely to use an Astro component.
+
+Do not build a new component architecture.
+
+If the existing Markdown renderer styles kicker-like H3 objects correctly, use that.
+
+Priority:
+
+clear semantic hierarchy
+
+not implementation novelty.
+
+────────────────────────────────────────
+22. / CALCULATION
+────────────────────────────────────────
+
+The article contains two important calculation objects.
+
+They must be easy to scan.
+
+At minimum preserve:
+
+QUESTION
+
+ASSUMPTIONS
+
+EQUATION
+
+RESULT
+
+SO WHAT
+
+CAVEAT
+
+where present.
+
+If the existing site has a Markdown-compatible CalculationBlock treatment:
+
+use it.
+
+If not:
+
+use the established article typography and rules.
+
+Do not convert to MDX simply for component use.
+
+Do not rewrite the calculations.
+
+────────────────────────────────────────
+23. / CLAIM CHECK
+────────────────────────────────────────
+
+Preserve the article's CLAIM CHECK.
+
+It should read like an editorial evidence object, not a warning alert or SaaS card.
+
+Mobile:
+
+one column.
+
+No overflow.
+
+No tiny labels.
+
+────────────────────────────────────────
+24. / INTELLIGENCE CTA
+────────────────────────────────────────
+
+The article ends with:
+
+/ INTELLIGENCE
+
+and:
+
+START A RESEARCH BRIEF →
+
+The package body currently contains the CTA text without a guaranteed destination.
+
+Make:
+
+START A RESEARCH BRIEF →
+
+a real link to:
+
+/intelligence
+
+Do not turn it into a giant button.
+
+Do not add prices.
+
+Do not add urgency.
+
+────────────────────────────────────────
+25. / BRIEF
+────────────────────────────────────────
+
+Use the normal article-bottom NewsletterCTA already provided by the site.
+
+Do not paste `08_BRIEF/brief-summary.md` into the article.
+
+That file is for tonight's multi-article BRIEF.
+
+Ensure article-bottom attribution remains:
+
+utm_content=article-bottom
+
+Button remains:
+
+JOIN / BRIEF
+
+Do not regress Beehiiv.
+
+────────────────────────────────────────
+26. SOURCES
+────────────────────────────────────────
+
+The article frontmatter contains six load-bearing primary sources.
+
+Preserve them.
+
+The article also uses natural inline Markdown links.
+
+Do not replace them with opaque:
+
+[S1]
+
+markers.
+
+Do not add a manual giant body Sources appendix.
+
+The site renderer already generates the structured `/ SOURCES` section.
+
+Exactly one final structured source section.
+
+────────────────────────────────────────
+27. SOURCE LINK CHECK
+────────────────────────────────────────
+
+Before publication, verify every external source URL resolves.
+
+At minimum:
+
+OpenAI API Pricing
+
+Anthropic Claude Platform Pricing
+
+Anthropic Code Execution Tool
+
+Google Gemini Developer API Pricing
+
+Google Gemini Code Execution
+
+xAI API Pricing.
+
+Do NOT rewrite provider facts because a temporary request fails.
+
+If a URL permanently moved, use the official canonical replacement and make only the minimal link change.
+
+Do not restart research.
+
+────────────────────────────────────────
+28. FRESHNESS POLICY
+────────────────────────────────────────
+
+This package was fact-checked on August 10, 2026.
+
+Publication is occurring on August 10, 2026.
+
+Do not run a broad pricing research cycle.
+
+Only verify that load-bearing official links still resolve and that there is no obvious same-day superseding documentation affecting the central numbers.
+
+If a LOAD-BEARING price changed between final review and publication:
+
+STOP.
+
+Report:
+
+PUBLICATION BLOCKED — SOURCE CHANGED
+
+with the exact affected source and value.
+
+Do not silently rewrite the research package.
+
+────────────────────────────────────────
+29. FEATURED STATE
+────────────────────────────────────────
+
+The package specifies:
+
+featured: true
+
+Preserve it.
+
+This is today's primary SECOND PASS article.
+
+Verify the homepage article selection does not behave incorrectly if another current article is also marked featured.
+
+If the site supports multiple featured entries gracefully:
+
+leave existing semantics.
+
+If only one featured flagship is expected:
+
+make this new article the intended current feature while preserving older article accessibility.
+
+Do not delete or unpublish the previous flagship.
+
+────────────────────────────────────────
+30. HOMEPAGE PRESENTATION
+────────────────────────────────────────
+
+Do not redesign homepage.
+
+Verify the new article appears prominently and correctly.
+
+Expected information:
+
+AI / SECOND PASS
+
+Token price no longer tells you what an AI agent costs
+
+dek
+
+publication date
+
+appropriate link.
+
+No demo flag.
+
+No raw chart path.
+
+No broken social asset.
+
+────────────────────────────────────────
+31. ARTICLE LISTS / SECTION ROUTES
+────────────────────────────────────────
+
+Verify the new article appears where appropriate:
+
+/
+
+ /ai
+
+ /research if the site's current logic includes SECOND PASS there
+
+search/Pagefind
+
+RSS
+
+sitemap
+
+author page.
+
+Do not force it into routes whose existing taxonomy does not include it.
+
+────────────────────────────────────────
+32. AUTHOR
+────────────────────────────────────────
+
+Author remains:
+
+Aditya
+
+Verify `/authors/aditya` includes the article after publication.
+
+Do not change biography.
+
+Do not invent credentials.
+
+────────────────────────────────────────
+33. SOCIAL ASSETS
+────────────────────────────────────────
+
+Use the existing social-generation pipeline.
+
+Run the project's real social-generation command for:
+
+an-ai-agent-is-no-longer-priced-in-tokens
+
+Generate/verify:
+
+1200×630
+
+1080×1350
+
+1080×1080
+
+Follow:
+
+07_SOCIAL/asset-copy.md
+
+but respect current site social templates.
+
+Do not manually redesign the entire social system.
+
+────────────────────────────────────────
+34. SOCIAL STAT SAFETY
+────────────────────────────────────────
+
+The package specifically recommends:
+
+DO NOT use `$0.0653`
+
+or:
+
+`3 searches`
+
+as an unqualified primary universal statistic.
+
+Those values belong to an illustrative scenario.
+
+Primary social card should emphasize the thesis.
+
+Suitable direction:
+
+TOKEN PRICE
+NO LONGER TELLS YOU
+WHAT AN AI AGENT COSTS
+
+MODEL / SEARCH / RUNTIME / STORED STATE
+
+PRIMARY SOURCES
+ORIGINAL CALCULATIONS
+
+If a secondary calculation card uses:
+
+$0.0653
+
+or:
+
+3 searches
+
+it MUST visibly say:
+
+ILLUSTRATIVE TRACE
+
+or equivalent.
+
+Do not imply universal agent economics.
+
+────────────────────────────────────────
+35. SEO
+────────────────────────────────────────
+
+Preserve reviewed metadata:
+
+SEO title:
+
+What does an AI agent actually cost?
+
+SEO description:
+
+AI agent cost can include model tokens, search and tool calls, runtime, stored state, repeated turns, and pricing rules. A source-backed worked cost stack.
+
+Verify:
+
+canonical
+
+og:type article
+
+og:title
+
+og:description
+
+og:image
+
+og:image:alt
+
+og:image width/height
+
+article:published_time
+
+article:section
+
+tags
+
+Twitter card
+
+Person schema
+
+Organization schema.
+
+No fake social handles.
+
+────────────────────────────────────────
+36. RESPONSIVE QA — MANDATORY
+────────────────────────────────────────
+
+This publication contains:
+
+math
+
+tables
+
+four research figures
+
+callouts
+
+code
+
+long technical identifiers
+
+source links.
+
+Run the site's responsive audit.
+
+Required viewports:
+
+1440 × 1000
+
+1024 × 1366
+
+820 × 1180
+
+768 × 1024
+
+430 × 932
+
+390 × 844
+
+375 × 812
+
+This is not optional.
+
+────────────────────────────────────────
+37. DESKTOP ACCEPTANCE
+────────────────────────────────────────
+
+At 1440:
+
+three-column article system if current site design uses it
+
+article reading width correct
+
+TOC correct
+
+evidence rail correct
+
+FIRST PASS clean
+
+all four charts clear
+
+tables clear
+
+equations clear
+
+CLAIM CHECK clear
+
+calculations clear
+
+sources clear
+
+newsletter clear
+
+zero page overflow.
+
+────────────────────────────────────────
+38. TABLET ACCEPTANCE
+────────────────────────────────────────
+
+At:
+
+1024
+820
+768
+
+verify:
+
+article centered
+
+evidence rail hidden if current responsive architecture specifies that
+
+tablet TOC contained
+
+no page overflow
+
+tables bounded
+
+math bounded
+
+charts readable
+
+header clean
+
+sources clean
+
+newsletter clean.
+
+────────────────────────────────────────
+39. MOBILE ACCEPTANCE
+────────────────────────────────────────
+
+At:
+
+430
+390
+375
+
+verify:
+
+one-column article
+
+no side evidence
+
+mobile TOC behavior matches current hardened implementation
+
+headline readable
+
+FIRST PASS readable
+
+normal prose wraps naturally
+
+inline code wraps safely
+
+tables scroll internally
+
+equations scroll internally where necessary
+
+dense charts scroll internally where necessary
+
+captions remain outside chart scroll area
+
+share controls have touch-friendly targets
+
+sources wrap
+
+article end wraps
+
+newsletter input/button fit
+
+footer fits
+
+ZERO page-level horizontal overflow.
+
+────────────────────────────────────────
+40. ARTICLE IMAGE PATH ACCEPTANCE
+────────────────────────────────────────
+
+Search built and source content for:
+
+../04_CHARTS/
+
+../03_RESEARCH/
+
+../05_QA/
+
+/mnt/data/
+
+sandbox:
+
+file://
+
+There must be ZERO public occurrences.
+
+All article assets must use valid production paths.
+
+────────────────────────────────────────
+41. ACCESSIBILITY
+────────────────────────────────────────
+
+Verify:
+
+figure alt text
+
+figcaptions
+
+table semantics
+
+scrollable table accessibility
+
+keyboard focus
+
+source-link labels
+
+heading hierarchy
+
+form label
+
+color contrast
+
+touch targets
+
+reduced-motion behavior.
+
+Do not regress current site accessibility.
+
+────────────────────────────────────────
+42. SOURCE-INTEGRITY QA
+────────────────────────────────────────
+
+Run the existing source audit.
+
+Confirm:
+
+one source file for slug
+
+no `.mdx` duplicate
+
+no sentinels
+
+no duplicate H1
+
+no body FIRST PASS
+
+no copied metadata block
+
+no placeholders
+
+no local paths.
+
+────────────────────────────────────────
+43. RENDER-INTEGRITY QA
+────────────────────────────────────────
+
+Run existing render audit.
+
+Confirm:
+
+H1 = 1
+
+FIRST PASS = 1
+
+raw LaTeX = 0
+
+sentinels = 0
+
+broken internal links = 0
+
+broken asset paths = 0
+
+duplicate sources ID = 0
+
+malformed currency KaTeX = 0.
+
+────────────────────────────────────────
+44. RESPONSIVE-INTEGRITY QA
+────────────────────────────────────────
+
+Run the site's current browser responsive tests.
+
+Do not rely only on screenshots.
+
+Assert:
+
+document scrollWidth <= clientWidth + tiny tolerance
+
+at all seven required widths.
+
+Wide content may scroll inside:
+
+table
+
+math
+
+figure
+
+code
+
+but the page itself must not.
+
+────────────────────────────────────────
+45. PREPUBLISH
+────────────────────────────────────────
+
+Run:
+
+bun run prepublish -- an-ai-agent-is-no-longer-priced-in-tokens
+
+or the exact current repository equivalent.
+
+Do NOT bypass failures.
+
+Expected gate sequence should include the site's existing:
+
+source integrity
+
+article verification
+
+content audit
+
+Astro check
+
+build
+
+render integrity
+
+responsive integrity
+
+social/assets
+
+Pagefind/output verification.
+
+If prepublish fails:
+
+fix the IMPLEMENTATION defect.
+
+Do not weaken checks.
+
+Do not rewrite verified research merely to make a validator pass unless source syntax is genuinely incompatible.
+
+────────────────────────────────────────
+46. FULL BUILD
+────────────────────────────────────────
+
+Run the current project equivalents of:
+
+bun install
+
+bun run content-source-audit
+
+bun run content:audit
+
+bun run check
+
+bun run build
+
+bun run render-audit -- --all
+
+bun run responsive:audit
+
+bun run prepublish -- an-ai-agent-is-no-longer-priced-in-tokens
+
+Use actual package.json commands.
+
+Do not invent nonexistent scripts.
+
+────────────────────────────────────────
+47. DO NOT BREAK EXISTING ARTICLES
+────────────────────────────────────────
+
+After adding this article, verify the existing real publication set still builds.
+
+At minimum ensure no regression to:
+
+cheapest-ai-model-not-cheapest-system
+
+cheapest-ai-model-not-cheapest-system-proof
+
+ai-inference-price-surface-v0-1
+
+no-universal-long-context-premium
+
+prompt-cache-second-use-break-even
+
+sonnet-5-price-effective-date.
+
+Do not necessarily rerun an expensive full browser matrix for every old article if the site's full responsive suite already covers them.
+
+But the full build/render pipeline must stay green.
+
+────────────────────────────────────────
+48. PRELAUNCH / PUBLIC SITE STATE
+────────────────────────────────────────
+
+Inspect current production state.
+
+If:
+
+SITE_PRELAUNCH=false
+
+already:
+
+do not change it.
+
+Publish the new article normally.
+
+If:
+
+SITE_PRELAUNCH=true
+
+still:
+
+the user has now explicitly asked to publish this article.
+
+However, do NOT blindly expose the entire site if global launch gates are still failing.
+
+First run:
+
+launch:verify
+
+or current equivalent.
+
+If the global site is fully launch-ready:
+
+set production:
+
+SITE_PRELAUNCH=false
+
+and deploy.
+
+If a genuine global launch blocker remains:
+
+do not fake publication.
+
+Report the exact blocker.
+
+The preferred outcome is a genuinely public/indexable site.
+
+────────────────────────────────────────
+49. PUBLIC SITE ACCEPTANCE
+────────────────────────────────────────
+
+After deployment, if the site is intended public:
+
+article must NOT contain:
+
+noindex,nofollow
+
+robots.txt must NOT contain a global:
+
+Disallow: /
+
+public footer must NOT say:
+
+Pre-launch · Demo content is marked
+
+If SITE_PRELAUNCH was already false, verify these rather than changing anything.
+
+────────────────────────────────────────
+50. DEPLOYMENT
+────────────────────────────────────────
+
+Deploy to the EXISTING Vercel project:
+
+second-pass
+
+Do not create another project.
+
+Do not alter project linkage.
+
+Do not switch domains.
+
+Current canonical remains:
+
+https://second-pass.vercel.app
+
+until secondpass.net is actually connected separately.
+
+────────────────────────────────────────
+51. PRODUCTION URL
+────────────────────────────────────────
+
+Expected article URL:
+
+https://second-pass.vercel.app/articles/an-ai-agent-is-no-longer-priced-in-tokens
+
+After deployment fetch the ACTUAL URL.
+
+HTTP 200 required.
+
+Do not report success from preview/local only.
+
+────────────────────────────────────────
+52. PRODUCTION HTML VERIFICATION
+────────────────────────────────────────
+
+Fetch actual production HTML.
+
+Verify:
+
+title correct
+
+dek correct
+
+status effectively published
+
+H1 = 1
+
+FIRST PASS = 1
+
+all five bullets present
+
+four chart URLs correct
+
+structured sources present
+
+INTELLIGENCE link correct
+
+article-bottom BRIEF present
+
+canonical correct
+
+JSON-LD correct
+
+social image correct
+
+no local package path
+
+no raw LaTeX
+
+no sentinel artifact
+
+no duplicate body metadata
+
+no duplicate sources
+
+no malformed tables.
+
+────────────────────────────────────────
+53. PRODUCTION ASSET VERIFICATION
+────────────────────────────────────────
+
+Fetch each production SVG.
+
+All must return 200.
+
+Fetch any public supporting CSV/JSON files copied to the site.
+
+They must return 200 if linked/exposed.
+
+Fetch social assets.
+
+They must return 200.
+
+Do not report asset PASS based only on filesystem existence.
+
+────────────────────────────────────────
+54. PRODUCTION RESPONSIVE VERIFICATION
+────────────────────────────────────────
+
+Run representative browser checks AGAINST PRODUCTION.
+
+At minimum:
+
+flagship article at 1440
+
+article at 1024
+
+article at 820
+
+article at 390
+
+article at 375.
+
+Prefer the full seven-view matrix if current QA tooling makes it quick.
+
+Verify no deployment-specific CSS or asset failure.
+
+────────────────────────────────────────
+55. RSS
+────────────────────────────────────────
+
+Verify article appears in RSS after production deployment.
+
+Published date:
+
+August 10, 2026.
+
+No QA files in RSS.
+
+No internal package files in RSS.
+
+────────────────────────────────────────
+56. SITEMAP
+────────────────────────────────────────
+
+Verify the public article URL appears in the sitemap.
+
+No internal QA/download-support paths should accidentally become article routes.
+
+Static CSV/JSON files need not be in article sitemap unless site architecture intentionally handles them.
+
+────────────────────────────────────────
+57. PAGEFIND
+────────────────────────────────────────
+
+Verify searches find the article for representative terms:
+
+AI agent cost
+
+agent pricing
+
+web search
+
+runtime
+
+billing meter
+
+$0.0653
+
+Managed Agents.
+
+No internal QA documents.
+
+────────────────────────────────────────
+58. AUTHOR PAGE
+────────────────────────────────────────
+
+Verify:
+
+/authors/aditya
+
+lists:
+
+Token price no longer tells you what an AI agent costs
+
+with correct date and route.
+
+────────────────────────────────────────
+59. HOMEPAGE / AI
+────────────────────────────────────────
+
+Verify homepage and `/ai`.
+
+Article should be discoverable and correctly rendered.
+
+No duplicate card.
+
+No stale review marker.
+
+No `DEMO`.
+
+────────────────────────────────────────
+60. HEALTH
+────────────────────────────────────────
+
+Verify:
+
+/api/health
+
+Expected current state approximately:
+
+{
+  "status": "ok",
+  "brief": "configured",
+  "leads": "configured"
+}
+
+Do not expose secrets.
+
+Do not repeatedly create real newsletter subscriptions/leads.
+
+────────────────────────────────────────
+61. DISTRIBUTION FILES
+────────────────────────────────────────
+
+The ZIP contains finished distribution drafts.
+
+DO NOT automatically post to:
+
+Hacker News
+
+Reddit
+
+X
+
+LinkedIn
+
+Bluesky
+
+Threads
+
+Medium
+
+DEV
+
+or send direct outreach
+
+unless the environment explicitly has a publishing integration and the user separately authorized posting.
+
+This task publishes the SITE article.
+
+Preserve the distribution files locally/internal if useful, but do not put them in public site routes.
+
+In the final report, tell the user that distribution copy is ready.
+
+────────────────────────────────────────
+62. BRIEF FILE
+────────────────────────────────────────
+
+Do not send the daily BRIEF from this task.
+
+`08_BRIEF/brief-summary.md` is one story block for today's later multi-article BRIEF.
+
+Do not create BRIEF 002 yet.
+
+────────────────────────────────────────
+63. FOLLOW-UP EXTRACTIONS
+────────────────────────────────────────
+
+Do not publish the nine follow-up article ideas in this task.
+
+Do not add them as drafts to the public repository unless the current newsroom workflow explicitly stores private drafts elsewhere.
+
+This task is Article #02 only.
+
+────────────────────────────────────────
+64. SECURITY
+────────────────────────────────────────
+
+Do not expose:
+
+environment variables
+
+Beehiiv key
+
+Resend key
+
+Vercel token
+
+GitHub token
+
+internal QA files
+
+local filesystem paths.
+
+Check:
+
+git diff
+
+for secrets before commit.
+
+Preserve existing headers/security policy.
+
+────────────────────────────────────────
+65. PERFORMANCE
+────────────────────────────────────────
+
+Do not add client-side libraries for this article.
+
+Article should remain static.
+
+No React.
+
+No chart runtime.
+
+No MathJax.
+
+No external dashboard.
+
+SVG/PNG/Markdown only.
+
+Preserve static-first performance.
+
+────────────────────────────────────────
+66. DO NOT DO
+────────────────────────────────────────
+
+DO NOT:
+
+research another topic
+
+change verified prices without cause
+
+rewrite the article from scratch
+
+add a CMS
+
+add a database
+
+add authentication
+
+build an interactive calculator
+
+create a new DATA product
+
+add a provider leaderboard
+
+add new charts
+
+replace the four approved charts
+
+add stock imagery
+
+add robot imagery
+
+redesign article layout
+
+change typography
+
+change colors
+
+change site branding
+
+change hosting
+
+change canonical domain
+
+create another Vercel project
+
+create another repo.
+
+This task has one finish line:
+
+PUBLISH THIS ARTICLE CORRECTLY.
+
+────────────────────────────────────────
+67. GIT HYGIENE
+────────────────────────────────────────
+
+Before commit:
+
+git status
+
+git diff
+
+git diff --stat
+
+Verify intended changes only.
+
+Do not commit:
+
+extracted ZIP directory
+
+QA files
+
+distribution files
+
+temporary screenshots
+
+Playwright traces
+
+test-results
+
+logs
+
+.env
+
+API keys
+
+node_modules
+
+temporary conversion scripts.
+
+Ensure relevant temporary output paths are gitignored.
+
+────────────────────────────────────────
+68. COMMIT
+────────────────────────────────────────
+
+Preferred commit:
+
+feat: publish agent economics analysis
+
+If separate asset/import and publication-state commits genuinely improve history:
+
+first:
+feat: add agent economics research package
+
+second:
+feat: publish agent economics analysis
+
+But prefer one coherent commit unless current repository conventions suggest otherwise.
+
+Do not force push.
+
+Do not rewrite history.
+
+────────────────────────────────────────
+69. FINAL CONTENT ACCEPTANCE
+────────────────────────────────────────
+
+ARTICLE:
+
+✓ headline exact
+✓ dek exact/final
+✓ author Aditya
+✓ date 2026-08-10
+✓ AI / SECOND PASS
+✓ status published
+✓ featured true
+✓ demo false
+✓ H1 = 1
+✓ FIRST PASS = 1
+✓ five FIRST PASS bullets
+✓ four base meter families
+✓ two pricing-rule layers
+✓ Anthropic modifier correction preserved
+✓ illustrative-workload language preserved
+✓ $0.0653 correct
+✓ 3-search result contextualized
+✓ no universal-provider claim
+✓ no duplicate source appendix
+✓ INTELLIGENCE link works
+✓ BRIEF works
+
+────────────────────────────────────────
+70. FINAL ASSET ACCEPTANCE
+────────────────────────────────────────
+
+✓ 4 SVG charts
+✓ correct chart order
+✓ correct captions
+✓ correct alt text
+✓ no package-relative paths
+✓ mobile chart containment
+✓ supporting data copied if intended
+✓ social assets generated
+✓ all public assets return 200
+
+────────────────────────────────────────
+71. FINAL RESPONSIVE ACCEPTANCE
+────────────────────────────────────────
+
+1440:
+PASS
+
+1024:
+PASS
+
+820:
+PASS
+
+768:
+PASS
+
+430:
+PASS
+
+390:
+PASS
+
+375:
+PASS
+
+Page-level horizontal overflow:
+
+0 failures required.
+
+Tables:
+
+contained.
+
+Math:
+
+contained.
+
+Charts:
+
+contained/readable.
+
+────────────────────────────────────────
+72. FINAL PIPELINE ACCEPTANCE
+────────────────────────────────────────
+
+source audit:
+PASS
+
+content audit:
+PASS
+
+Astro check:
+PASS
+
+build:
+PASS
+
+render audit:
+PASS
+
+responsive audit:
+PASS
+
+prepublish:
+PASS
+
+Pagefind:
+PASS
+
+social generation:
+PASS
+
+launch verify if needed:
+PASS.
+
+────────────────────────────────────────
+73. FINAL PRODUCTION ACCEPTANCE
+────────────────────────────────────────
+
+Live article:
+200
+
+Live charts:
+200
+
+Canonical:
+correct
+
+RSS:
+article present
+
+Sitemap:
+article present
+
+Pagefind:
+article searchable
+
+Author page:
+article present
+
+Homepage:
+article present
+
+AI page:
+article present
+
+Health:
+configured
+
+Indexability:
+public if site launch state permits
+
+Production commit:
+matches intended Git commit.
+
+────────────────────────────────────────
+74. FINAL RESPONSE FORMAT
+────────────────────────────────────────
+
+Return exactly:
+
+# SECOND / PASS — ARTICLE #02 PUBLICATION
+
+## STATUS
+
+PASS / FAIL
+
+## ARTICLE
+
+Title:
+Token price no longer tells you what an AI agent costs
+
+Slug:
+an-ai-agent-is-no-longer-priced-in-tokens
+
+Status:
+published / FAIL
+
+Published date:
+2026-08-10
+
+Featured:
+true / FAIL
+
+## CONTENT INTEGRITY
+
+Canonical source:
+[path]
+
+H1:
+1 / FAIL
+
+FIRST PASS:
+1 / FAIL
+
+First-pass bullets:
+5 / FAIL
+
+Anthropic modifier correction:
+PASS / FAIL
+
+Four base meter families:
+PASS / FAIL
+
+Two pricing-rule layers:
+PASS / FAIL
+
+Illustrative-workload label:
+PASS / FAIL
+
+## CALCULATIONS
+
+Model:
+$0.0220 / FAIL
+
+Search:
+$0.0300 / FAIL
+
+Runtime:
+$0.0133 / FAIL
+
+Total:
+$0.0653 / FAIL
+
+Search dominance:
+3 searches / FAIL
+
+## CHARTS
+
+01 Agent billing path:
+PASS / FAIL
+Live URL:
+
+02 Cost composition:
+PASS / FAIL
+Live URL:
+
+03 Meter matrix:
+PASS / FAIL
+Live URL:
+
+04 Sensitivity:
+PASS / FAIL
+Live URL:
+
+Package-relative chart paths remaining:
+0 REQUIRED
+
+## SUPPORTING DATA
+
+Billing meters CSV:
+PASS / NOT EXPOSED
+
+Billing meters JSON:
+PASS / NOT EXPOSED
+
+Worked scenario CSV:
+PASS / NOT EXPOSED
+
+Chart CSVs:
+PASS / NOT EXPOSED
+
+## RESPONSIVE QA
+
+1440:
+PASS / FAIL
+
+1024:
+PASS / FAIL
+
+820:
+PASS / FAIL
+
+768:
+PASS / FAIL
+
+430:
+PASS / FAIL
+
+390:
+PASS / FAIL
+
+375:
+PASS / FAIL
+
+Horizontal overflow failures:
+0 REQUIRED
+
+## MATH / TABLES
+
+KaTeX:
+PASS / FAIL
+
+Raw LaTeX:
+0 REQUIRED
+
+Sentinels:
+0 REQUIRED
+
+Tables mobile:
+PASS / FAIL
+
+Figures mobile:
+PASS / FAIL
+
+## SOURCES
+
+OpenAI:
+PASS / FAIL
+
+Anthropic:
+PASS / FAIL
+
+Google:
+PASS / FAIL
+
+xAI:
+PASS / FAIL
+
+Structured source section:
+PASS / FAIL
+
+Duplicate source appendix:
+0 REQUIRED
+
+## CONVERSION
+
+INTELLIGENCE CTA:
+PASS / FAIL
+
+INTELLIGENCE destination:
+/intelligence / FAIL
+
+Article BRIEF:
+PASS / FAIL
+
+BRIEF attribution:
+article-bottom / FAIL
+
+## PIPELINE
+
+source audit:
+PASS / FAIL
+
+content audit:
+PASS / FAIL
+
+check:
+PASS / FAIL
+
+build:
+PASS / FAIL
+
+render audit:
+PASS / FAIL
+
+responsive audit:
+PASS / FAIL
+
+prepublish:
+PASS / FAIL
+
+Pagefind:
+PASS / FAIL
+
+social generation:
+PASS / FAIL
+
+## PUBLIC SITE
+
+SITE_PRELAUNCH:
+false / true
+
+noindex:
+ABSENT / PRESENT
+
+robots:
+PUBLIC / BLOCKED
+
+RSS:
+PASS / FAIL
+
+sitemap:
+PASS / FAIL
+
+author page:
+PASS / FAIL
+
+homepage:
+PASS / FAIL
+
+AI page:
+PASS / FAIL
+
+## PRODUCTION
+
+Live article:
+https://second-pass.vercel.app/articles/an-ai-agent-is-no-longer-priced-in-tokens
+
+HTTP:
+200 / FAIL
+
+Git commit SHA:
+
+Vercel deployment ID:
+
+Deployment commit SHA:
+
+SHA match:
+YES / NO
+
+## PROVIDERS
+
+Beehiiv:
+configured / not configured
+
+Resend:
+configured / not configured
+
+## DISTRIBUTION
+
+Distribution package:
+READY / FAIL
+
+Automatically posted:
+NO REQUIRED
+
+Daily BRIEF sent:
+NO REQUIRED
+
+## GIT
+
+Branch:
+
+Commit:
+
+Working tree:
+
+## BLOCKERS
+
+None
+
+OR exact blocker.
+
+If every publication-critical gate passes, end exactly:
+
+SECOND / PASS ARTICLE #02: LIVE — READY TO DISTRIBUTE
+
+If the article is correctly integrated but global site indexability remains blocked:
+
+SECOND / PASS ARTICLE #02: INTEGRATED — PUBLIC LAUNCH BLOCKED BY <exact blocker>
+
+If the article itself has a publication-critical defect:
+
+SECOND / PASS ARTICLE #02: PUBLICATION BLOCKED — <exact blocker>
+
+────────────────────────────────────────
+75. BEGIN NOW
+────────────────────────────────────────
+
+Do not return another implementation plan.
+
+Start immediately:
+
+latest main
+→ inspect final-review ZIP
+→ read site handoff
+→ import canonical Markdown
+→ copy public charts/data
+→ rewrite package-relative paths
+→ apply human publication approval
+→ status published
+→ Initial publication change log
+→ integrate article objects
+→ source audit
+→ calculation sanity check
+→ build
+→ render audit
+→ responsive audit
+→ social generation
+→ prepublish
+→ inspect desktop/tablet/mobile
+→ deploy EXISTING Vercel project
+→ fetch actual production HTML/assets
+→ verify production commit
+→ report exact live URL.
+
+Do not finish because the local build passes.
+
+The finish line is:
+
+THE REVIEWED ARTICLE IS THE ARTICLE VERCEL ACTUALLY SERVES,
+AT THE CORRECT LIVE URL,
+WITH CORRECT MATH, TABLES, FIGURES, SOURCES, MOBILE/TABLET LAYOUT,
+AND PUBLICATION METADATA.
+
+Proceed.

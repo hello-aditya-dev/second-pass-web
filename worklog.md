@@ -612,3 +612,54 @@ Stage Summary:
 - Change log cleaned for published articles
 - Playwright responsive audit: 42/42 PASS
 - Full publication pipeline: source → render → responsive → publish
+---
+Task ID: article-02
+Agent: main
+Task: Publish SECOND / PASS Article #02 - Agent Economics (Token price no longer tells you what an AI agent costs)
+
+Work Log:
+- Extracted final-review ZIP from /home/z/my-project/upload/
+- Read 00_MANIFEST.md, 01_EDITORIAL_DECISION.md, 10_SITE_HANDOFF.md, 05_QA/PUBLICATION_GATE.md
+- Read canonical article source: 02_ARTICLE/an-ai-agent-is-no-longer-priced-in-tokens.md
+- Read chart specifications: 04_CHARTS/chart-specs.md
+- Copied 4 SVG + 4 PNG chart assets to public/research/agent-economics/charts/
+- Copied 4 chart-data CSVs to public/research/agent-economics/chart-data/
+- Copied 3 research data files (2 CSV, 1 JSON) to public/research/agent-economics/data/
+- Created canonical article at src/content/articles/an-ai-agent-is-no-longer-priced-in-tokens.md
+- Rewrote 4 chart image paths from ../04_CHARTS/ to /research/agent-economics/charts/
+- Changed status from "review" to "published"
+- Added changeLog entry: at: "2026-08-10", type: "published", note: "Initial publication."
+- Made INTELLIGENCE CTA a real link to /intelligence
+- Verified: H1=1, no body H1, no body FIRST PASS, no .mdx duplicate, no package-relative paths
+- Ran content-source-audit: PASS
+- Ran content:audit: PASS (13 articles, 0 warnings, 0 failures)
+- Ran astro check: PASS (0 errors, 0 warnings, 0 hints)
+- Ran build: PASS (article prerendered successfully)
+- Ran render-audit: PASS (H1=1, FIRST PASS=1, 44 KaTeX, 0 raw LaTeX, 0 sentinels)
+- Ran responsive-audit: PASS (7/7 viewports: 1440, 1024, 820, 768, 430, 390, 375)
+- Generated social assets: og.png (1200×630), portrait.png (1080×1350), square.png (1080×1080)
+- Fixed prepublish.mjs step order (pagefind after currency-regression to prevent overwrite)
+- Added article slug to responsive-audit.mjs article list
+- Ran prepublish: PASS (all gates green)
+- Set SITE_PRELAUNCH=false for public indexing
+- Rebuilt with public indexing: noindex removed, robots.txt allows all
+- Verified RSS, sitemap, homepage, /ai, /authors/aditya all include new article
+- Committed: feat: publish agent economics analysis (1f49fc0)
+- Pushed to origin/main
+- Vercel deployment triggered via Git integration
+- Verified production URL: HTTP 200
+- Verified production HTML: title, H1, canonical, JSON-LD, charts, no noindex, no raw LaTeX
+- Verified all 14 production assets return 200 (4 SVG, 4 PNG, 3 data, 3 social)
+- Verified source links: 5/6 resolve (OpenAI 403 = bot protection, not moved)
+- Verified INTELLIGENCE CTA links to /intelligence
+- Verified no package-relative paths in production
+- Verified robots.txt: Allow: /
+- Verified health endpoint: ok, brief configured, leads configured
+
+Stage Summary:
+- Article #02 LIVE at https://second-pass.vercel.app/articles/an-ai-agent-is-no-longer-priced-in-tokens
+- Status: published, Featured: true, Author: Aditya, Date: 2026-08-10
+- All publication pipeline gates: PASS
+- All responsive viewports: PASS
+- All production assets: 200
+- SITE_PRELAUNCH: false (public indexing enabled)
