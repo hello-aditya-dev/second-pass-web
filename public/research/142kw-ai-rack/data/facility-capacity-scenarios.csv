@@ -1,0 +1,5 @@
+scenario,capacity_type,capacity_mw,planning_pue,usable_capacity_factor,usable_it_mw,rack_equivalents,whole_powerable_racks,powerable_gpus,rack_power_reference_kw,rack_power_wording,type,notes
+1 MW usable IT reference,USABLE IT MW,1.0,,,1.0,7.042253521126761,7,504,142.0,up to,CALCULATION,Facility-input rows use PUE only as an explicit planning approximation. Whole racks use floor().
+1 MW facility-input illustration,FACILITY INPUT MW,1.0,1.2,0.9,0.75,5.28169014084507,5,360,142.0,up to,CALCULATION/SCENARIO,Facility-input rows use PUE only as an explicit planning approximation. Whole racks use floor().
+4 MW facility-input main scenario,FACILITY INPUT MW,4.0,1.2,0.9,3.0,21.12676056338028,21,1512,142.0,up to,CALCULATION/SCENARIO,Facility-input rows use PUE only as an explicit planning approximation. Whole racks use floor().
+10 MW facility-input sensitivity,FACILITY INPUT MW,10.0,1.2,0.9,7.500000000000001,52.81690140845071,52,3744,142.0,up to,CALCULATION/SCENARIO,Facility-input rows use PUE only as an explicit planning approximation. Whole racks use floor().

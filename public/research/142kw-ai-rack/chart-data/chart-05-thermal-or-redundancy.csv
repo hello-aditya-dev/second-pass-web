@@ -1,0 +1,5 @@
+quantity,value,unit,type,caveat
+rack electrical reference,142.0,kW,FACT/CALCULATION,NVIDIA wording is up to 142 kW
+approx thermal load at modeled rack load,142.0,kW thermal,CALCULATION,"Heat load, not cooling electricity"
+thermal load,484524.06259095494,Btu_IT/h,CALCULATION,NIST conversion
+thermal load,40.37700751211381,refrigeration tons,CALCULATION,"Thermal equivalent, not chiller electrical input"

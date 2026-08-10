@@ -1,0 +1,2 @@
+facility_capacity_type,facility_capacity_mw,rack_it_kw,gpus_per_rack,target_racks,procured_racks,planning_pue,usable_capacity_factor,hours_per_month,electricity_rate_per_kwh,thermal_capacity_kw_optional,rack_cost_optional
+FACILITY INPUT MW,4.0,142,72,24,24,1.2,0.9,730,0.1,,

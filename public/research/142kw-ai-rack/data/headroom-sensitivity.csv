@@ -1,0 +1,6 @@
+facility_input_mw,planning_pue,usable_capacity_factor,usable_it_mw,whole_powerable_racks,powerable_gpus,type,notes
+4.0,1.2,1.0,3.3333333333333335,23,1656,SCENARIO,h is a user-defined post-overhead usable-capacity factor; not an industry-standard reserve.
+4.0,1.2,0.95,3.1666666666666665,22,1584,SCENARIO,h is a user-defined post-overhead usable-capacity factor; not an industry-standard reserve.
+4.0,1.2,0.9,3.0,21,1512,SCENARIO,h is a user-defined post-overhead usable-capacity factor; not an industry-standard reserve.
+4.0,1.2,0.85,2.8333333333333335,19,1368,SCENARIO,h is a user-defined post-overhead usable-capacity factor; not an industry-standard reserve.
+4.0,1.2,0.8,2.666666666666667,18,1296,SCENARIO,h is a user-defined post-overhead usable-capacity factor; not an industry-standard reserve.

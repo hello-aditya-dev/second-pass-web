@@ -1,0 +1,5 @@
+racks,modeled_it_electrical_kw,approx_thermal_load_kw,btu_it_per_hour,refrigeration_tons_equivalent,monthly_it_energy_mwh_at_730h,type,source_basis,caveat
+1,142.0,142.0,484524.06259095494,40.37700751211381,103.66,CALCULATION,S08 conversions; IT electrical load assumed to become approximately equivalent heat load,Thermal load equivalent is NOT cooling-system electrical input.
+7,994.0,994.0,3391668.4381366847,282.6390525847967,725.62,CALCULATION,S08 conversions; IT electrical load assumed to become approximately equivalent heat load,Thermal load equivalent is NOT cooling-system electrical input.
+21,2982.0,2982.0,10175005.314410053,847.91715775439,2176.86,CALCULATION,S08 conversions; IT electrical load assumed to become approximately equivalent heat load,Thermal load equivalent is NOT cooling-system electrical input.
+24,3408.0,3408.0,11628577.502182918,969.0481802907315,2487.84,CALCULATION,S08 conversions; IT electrical load assumed to become approximately equivalent heat load,Thermal load equivalent is NOT cooling-system electrical input.

@@ -77,6 +77,13 @@ All engineering for distribution, authorship, social assets, and commercial acti
 - Share utility: present in article pages
 - Article metadata: og:image, article:published_time, article:section, article:tag all present
 
+## Published articles
+
+- `a-142-kw-ai-rack-turns-gpu-procurement-into-a-power-problem` — COMPUTE / SECOND PASS — 2026-08-10 — FEATURED
+  - 5 charts (SVG+PNG+CSV), XLSX workbook, 7 research CSVs
+  - 6 sources, 5 FIRST PASS bullets, 2 CLAIM CHECKs
+  - Full math (KaTeX), house editorial objects (/ QUESTION, / ASSUMPTION, / CALCULATION, / CLAIM CHECK, / INTELLIGENCE)
+
 ## Activation inputs still pending
 
 1. Domain: secondpass.net → set `PUBLIC_SITE_URL=https://secondpass.net`

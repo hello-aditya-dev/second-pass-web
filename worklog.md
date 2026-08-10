@@ -698,3 +698,38 @@ Stage Summary:
 - All frozen core values preserved: $0.0021, $27,564.80, 13.13M, 22,476, 6.24
 - SEO complete: canonical, og:type, og:title, og:description, og:image, og:image:alt, article:published_time, article:section, article:tags, JSON-LD (Article, Person, Organization)
 - No noindex, no package-relative paths, no placeholders
+---
+Task ID: 1
+Agent: main
+Task: Publish 142kW AI rack article — integrate approved publication package into SECOND / PASS
+
+Work Log:
+- Read pasted content (Pasted Content_1786349417980.txt) — full publication approval prompt
+- Extracted ZIP: second-pass-142kw-ai-rack-2026-08-10-final.zip
+- Read article markdown, chart specs, QA ledgers, editorial decision, site handoff
+- Read existing site content model (content.config.ts), site config, existing article patterns
+- Copied 5 chart SVGs + 5 PNGs to public/research/142kw-ai-rack/charts/
+- Copied 5 chart data CSVs to public/research/142kw-ai-rack/chart-data/
+- Copied 7 research CSVs + 1 XLSX workbook to public/research/142kw-ai-rack/data/
+- Copied input template CSV + XLSX workbook to public/downloads/
+- Created article at src/content/articles/a-142-kw-ai-rack-turns-gpu-procurement-into-a-power-problem.md
+- Fixed source types: "authoritative" → "advisory" to match content schema enum
+- Set status: "published", publishedAt: "2026-08-10", added changeLog entry
+- Rewrote chart image paths from ../05_CHARTS/ to /research/142kw-ai-rack/charts/
+- Set section: "Compute" (schema enum) instead of "COMPUTE" (from package)
+- Verified astro check: 0 errors, 0 warnings
+- Verified astro build: success, article page 98KB HTML
+- Verified article appears as lead story on homepage
+- Verified article appears on /compute, /latest, RSS feed
+- Verified structured data: JSON-LD Article schema, OG meta, Twitter cards
+- Browser-verified homepage (desktop 1440, mobile 390): article is lead story
+- Browser-verified article page: FIRST PASS, / QUESTION, / CALCULATION, / CLAIM CHECK, charts, math, sources, / END, share
+- Browser-verified compute section page: article listed
+- Zero browser console errors
+
+Stage Summary:
+- Article published: a-142-kw-ai-rack-turns-gpu-procurement-into-a-power-problem
+- Status: published (human approval gate APPLIED)
+- All 5 charts, 7 research CSVs, XLSX workbook, and input template integrated
+- Build passes, type check passes, browser verification passes
+- No re-research, no reinterpretation, no calculation changes — exact package preserved

@@ -1,0 +1,16 @@
+field,value,unit,type,source_id,accessed_at,notes
+system,NVIDIA GB300 NVL72,,FACT,S01;S02;S03,2026-08-10,Current hardware reference for the article.
+gpus_per_rack,72,GPUs,FACT,S01;S02;S03,2026-08-10,72 NVIDIA Blackwell Ultra GPUs.
+grace_cpus_per_rack,36,CPUs,FACT,S02;S03,2026-08-10,36 NVIDIA Grace CPUs.
+rack_power_reference,142.0,kW,FACT,S01,2026-08-10,"Exact NVIDIA wording: full rack requiring up to 142 kW. Used as conservative upper planning reference, not constant measured draw."
+rack_power_wording,up to,,FACT,S01,2026-08-10,Do not convert to nominal or typical.
+generic_dgx_gb_power_reference,120,kW,FACT,S04,2026-08-10,Broader DGX GB200/GB300 guide says rack power consumption is approximately 120 kW. Recorded as source-scope discrepancy; not used in central math.
+cooling_architecture,liquid-cooled rack; compute CPUs/GPUs use cold plates/manifolds; other components include air cooling,,FACT,S01;S04,2026-08-10,Do not assume entire rack heat goes into one liquid loop.
+power_shelves,8,shelves,FACT,S01,2026-08-10,Eight 33 kW shelves in the current Enterprise RA.
+power_shelf_rating,33.0,kW/shelf,FACT,S01,2026-08-10,Each shelf has six 5.5 kW PSUs.
+psus_per_shelf,6,PSUs/shelf,FACT,S01,2026-08-10,Six.
+psu_rating,5.5,kW/PSU,FACT,S01,2026-08-10,5.5 kW.
+rack_power_distribution,power whips → power shelves → nominal 50–51 VDC busbar,,FACT,S04,2026-08-10,Generic DGX GB rack guide; exact site-side AC topology remains site/OEM specific.
+nvlink_bandwidth,130.0,TB/s aggregate,FACT,S01;S03,2026-08-10,Rack-scale NVLink bandwidth.
+gpu_memory,20.0,TB,FACT,S03,2026-08-10,Product-page GPU memory total.
+fast_memory,37.0,TB,FACT,S03,2026-08-10,Product-page fast memory total.

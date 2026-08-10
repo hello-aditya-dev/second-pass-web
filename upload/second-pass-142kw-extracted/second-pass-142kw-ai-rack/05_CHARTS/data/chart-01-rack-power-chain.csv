@@ -1,0 +1,8 @@
+stage,role,source_basis
+UTILITY / GRID,conceptual source,Topology-dependent
+SUBSTATION / TRANSFORMER,voltage transformation / site capacity,Topology-dependent
+SWITCHGEAR,distribution/protection,Topology-dependent
+UPS / CRITICAL POWER,availability / ride-through,Topology-dependent
+PDU / RPP / BUSWAY,hall/rack distribution,Topology-dependent
+RACK POWER DISTRIBUTION,power whips → shelves → DC busbar in NVIDIA DGX GB guide,S04
+GB300 NVL72,up to 142 kW; 72 GPUs,S01

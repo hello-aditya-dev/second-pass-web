@@ -1,11 +1,11 @@
 [astro] `markdown.remarkPlugins`, `markdown.rehypePlugins`, and `markdown.remarkRehype` are deprecated. Pass them to `unified({...})` from `@astrojs/markdown-remark` directly instead.
-07:23:11 [vite] connected.
-07:23:12 [types] Generated 0ms
-07:23:12 [vite] connected.
-07:23:13 [content] Syncing content
-07:23:13 [content] Synced content
- astro  v7.1.6 ready in 2911 ms
+08:26:00 [vite] connected.
+08:26:02 [types] Generated 1ms
+08:26:02 [vite] connected.
+08:26:02 [content] Syncing content
+08:26:02 [content] Synced content
+08:26:02 [vite] Re-optimizing dependencies because vite config has changed
+ astro  v7.1.6 ready in 2721 ms
 ┃ Local    http://localhost:3000/
 ┃ Network  http://21.0.12.96:3000/
-07:23:13 watching for file changes...
-07:23:20 [200] / 239ms
+08:26:02 watching for file changes...
