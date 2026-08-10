@@ -1,0 +1,9 @@
+metric,value,unit
+endpoints,128,count
+endpoint_line_rate,800,Gb/s
+downstream,102.4,Tb/s
+uplink_or_bisection,51.2,Tb/s
+oversubscription,2.0,ratio
+crossing_fraction,0.6,ratio
+crossing_demand,61.44,Tb/s
+crossing_deficit,10.239999999999995,Tb/s

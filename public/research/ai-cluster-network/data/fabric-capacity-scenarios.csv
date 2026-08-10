@@ -1,0 +1,5 @@
+endpoints,endpoint_line_rate_gbps,downstream_capacity_tbps,uplink_capacity_tbps,oversubscription_ratio,bisection_capacity_tbps,traffic_fraction_crossing,effective_crossing_limit_tbps,bisection_binds,scenario
+64,800,51.2,51.2,1.0,51.2,0.5,25.6,False,SCENARIO — simplified stage capacity; not measured Spectrum-X performance
+128,800,102.4,51.2,2.0,51.2,0.4,40.96000000000001,False,SCENARIO — simplified stage capacity; not measured Spectrum-X performance
+128,800,102.4,51.2,2.0,51.2,0.6,51.2,True,SCENARIO — simplified stage capacity; not measured Spectrum-X performance
+128,800,102.4,102.4,1.0,102.4,0.6,61.44,False,SCENARIO — simplified stage capacity; not measured Spectrum-X performance

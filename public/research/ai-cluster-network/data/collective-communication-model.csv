@@ -1,0 +1,6 @@
+operation,algorithm_model,ranks,message_bytes,steps,per_rank_payload_bytes,latency_term_s,effective_bandwidth_Bps,predicted_time_s,classification,assumptions
+AllReduce,idealized ring = ReduceScatter + AllGather,64,1073741824,126,2113929216.0,0.000252,80000000000.0,0.0266761152,ANALYTICAL MODEL,S is full tensor bytes/rank before reduction; 2(n-1) startup terms; no headers/retries/pipelining.
+AllGather,idealized ring-like volume,64,1073741824,63,1056964608.0,0.000126,80000000000.0,0.0133380576,ANALYTICAL MODEL,S denotes final gathered tensor bytes in this row.
+ReduceScatter,idealized ring-like volume,64,1073741824,63,1056964608.0,0.000126,80000000000.0,0.0133380576,ANALYTICAL MODEL,S denotes full reduced tensor bytes before scatter in this row.
+AlltoAll,balanced dispatch payload model,128,1000000000,not ring,992187500,not modeled,80000000000.0,not modeled,ANALYTICAL PAYLOAD MODEL,Each rank dispatches D=1 GB; remote payload D(n-1)/n. Timing depends on traffic matrix/topology; no ring timing imposed.
+AllReduce,small-message latency case,256,1048576,510,2088960.0,0.0010199999999999999,80000000000.0,0.0010461119999999999,ANALYTICAL MODEL,"1 MiB, lambda=2 us scenario; 1 ms deadline is below latency floor."

@@ -1,0 +1,4 @@
+phase,per_rank_payload_bytes,fraction_of_full_tensor,steps
+ReduceScatter,1056964608.0,0.984375,63
+AllGather,1056964608.0,0.984375,63
+Total AllReduce,2113929216.0,1.96875,126

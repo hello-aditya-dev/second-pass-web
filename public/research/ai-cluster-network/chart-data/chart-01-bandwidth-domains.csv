@@ -1,0 +1,4 @@
+domain,hardware_example,normalized_value_GBps,scope,directionality_note
+LOCAL HBM,B300 HBM,8000,per GPU local memory,vendor peak memory bandwidth
+SCALE-UP,GB300 NVLink,900,per GPU one direction,RA states 900 GB/s one-way / 1800 GB/s bidirectional
+SCALE-OUT,ConnectX-8,100,per GPU raw line conversion,800 Gb/s = 100 GB/s; useful collective payload lower

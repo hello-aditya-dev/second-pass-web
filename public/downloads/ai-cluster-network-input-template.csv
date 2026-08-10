@@ -1,0 +1,2 @@
+gpu_count,gpus_per_node,gpus_per_scale_up_domain,nic_line_rate_gbps,nics_per_gpu,network_efficiency,collective,collective_group_size,message_bytes,collectives_per_step,compute_time_ms,communication_budget_ms,latency_per_step_us,overlap_ms,fabric_downlink_gbps,fabric_uplink_gbps,bisection_gbps_optional,traffic_fraction_crossing,gpu_cost_per_hour_optional,network_upgrade_cost_optional,before_exposed_share_optional,after_exposed_share_optional
+64,8,8,800,1,0.8,ALLREDUCE_RING_ANALYTICAL,64,1073741824,1,270,30,2,0,102400,102400,,0.5,0,0,0.05,0.02
