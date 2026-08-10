@@ -437,366 +437,100 @@ Stage Summary:
 - No defects found in current source files
 
 ---
-Task ID: 2
-Agent: rehype-table-wrap-agent
-Task: Create a rehype plugin that auto-wraps article tables in scrollable containers
+Task ID: 2-a
+Agent: general-purpose
+Task: Import prefill-decode disaggregation article #04
 
 Work Log:
-- Read worklog.md, astro.config.mjs, global.css for current state
-- Checked unist-util-visit availability: present as transitive dep (v5.1.0) but not direct; installed as direct dependency via `bun add unist-util-visit`
-- Created src/lib/rehype-table-wrap.mjs: rehype plugin that wraps every <table> in a <div class="table-wrap" role="region" tabindex="0" aria-label="Scrollable data table"> with double-wrap guard (skips tables already inside .table-wrap)
-- Updated astro.config.mjs: added `import rehypeTableWrap from "@/lib/rehype-table-wrap.mjs"` and added `rehypeTableWrap` to rehypePlugins array after `rehypeKatex`
-- Updated global.css: expanded `.table-wrap` rule from single-line to multi-property block with `width: 100%; max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 2rem 0;` and added `.table-wrap table { margin: 0; }` to remove table margin inside wrapper
+- Read worklog.md and source article from /tmp/prefill-decode/second-pass-prefill-decode-disaggregation/02_ARTICLE/
+- Read content schema (src/content.config.ts) to verify enum values
+- Fixed frontmatter:
+  - section: "SYSTEMS" → "Systems" (enum match)
+  - status: "review" → "published"
+  - publishedAt: "" → "2026-08-10"
+  - changeLog: [] → changeLog with {at: "2026-08-10", type: "published", note: "Initial publication."}
+- Rewrote 5 chart paths from relative ../05_CHARTS/ to site-absolute /research/prefill-decode-disaggregation/charts/:
+  - chart-01-aggregated-vs-disaggregated.svg (line 105)
+  - chart-02-disaggregation-break-even.svg (line 685)
+  - chart-03-prefill-decode-allocation.svg (line 422)
+  - chart-04-kv-transfer-budget.svg (line 634)
+  - chart-05-slo-cost.svg (line 834)
+- Created 4 asset directories:
+  - public/research/prefill-decode-disaggregation/charts/
+  - public/research/prefill-decode-disaggregation/chart-data/
+  - public/research/prefill-decode-disaggregation/data/
+  - public/downloads/ (already existed)
+- Copied 23 asset files:
+  - 5 SVG + 5 PNG → charts/ (10 files)
+  - 5 CSV → chart-data/ (5 files)
+  - 6 CSV → data/ (6 files)
+  - 1 XLSX + 1 CSV → downloads/ (2 files)
+- Wrote article to src/content/articles/when-should-you-split-prefill-from-decode.md (1048 lines)
 - astro check: 0 errors, 0 warnings, 0 hints
-- astro build: succeeds, all pages generated
-- Verified built HTML: tables in articles are wrapped with `<div class="table-wrap" role="region" tabindex="0" aria-label="Scrollable data table">` (confirmed in sonnet-5-price-effective-date and no-universal-long-context-premium)
 
 Stage Summary:
-- rehype-table-wrap plugin created and integrated into Astro markdown pipeline
-- Markdown-generated tables now auto-wrapped in scrollable container with ARIA semantics
-- 620px min-width tables will scroll within .table-wrap on 375px/390px/430px viewports instead of overflowing
-- CSS hardened: .table-wrap has width/max-width/overflow-x/touch-scrolling; .table-wrap table has margin:0
-- Build passes: 0 errors, all pages generated
+- Article imported with all frontmatter, chart-path, and asset fixes applied
+- 5 chart paths rewritten to site-absolute
+- 23 asset files copied across 4 directories
+- Schema validation passes cleanly
 
 ---
-Task ID: 3
-Agent: content-fixes-agent
-Task: Fix content issues in article files
+Task ID: 2-b
+Agent: general-purpose
+Task: Import KV-cache article #05
 
 Work Log:
-- Read worklog.md and all 6 real article files plus [slug].astro renderer
-- Fix 1 (Section 26): Removed duplicate manual `## Sources` section (lines 568-584) from flagship article. The renderer in [slug].astro already produces a structured `/ SOURCES` section from frontmatter `sources` array. Removed the entire `## Sources` heading plus [S1]-[S17] entries. Also cleaned trailing `---` separator before the removed section. Frontmatter `sources` array kept intact.
-- Fix 2 (Section 29): Fixed contradictory changeLog entries across 5 articles:
-  - Flagship: "Initial review package." → "Initial publication." (published article with review-package note)
-  - Proof: "Initial methodology package." → "Initial publication." (published article with methodology-package note)
-  - no-universal-long-context-premium: "Draft." → "Initial publication." (published article with Draft note — contradictory)
-  - prompt-cache-second-use-break-even: "Draft." → "Initial publication." (published article with Draft note — contradictory)
-  - sonnet-5-price-effective-date: "Draft." → "Initial publication." (published article with Draft note — contradictory)
-  - ai-inference-price-surface-v0-1: "Dataset v0.1 generated." left as-is (not contradictory for a DATA article)
-- Fix 3 (Section 27): Converted all 11 opaque source ID references ([S1], [S2], etc.) in flagship article body to natural-language markdown links with actual URLs. Examples:
-  - `([S1], [S2], [S3])` → `([OpenAI pricing](url), [GPT-5.6 Sol](url), [GPT-5.6 Luna](url))`
-  - `([S4], [S5])` → `([Anthropic pricing](url), [Sonnet 5](url))`
-  - `([S6])` → `([Gemini pricing](url))`
-  - `([S8], [S10])` → `([xAI pricing](url), [xAI Batch](url))`
-  - `([S14]–[S17])` → `([RouteLLM](url), [FrugalGPT](url), [SeqRoute](url), [Budget-Aware Routing](url))`
-  - `([S11], [S12])` → `([AWS H200](url), [NVIDIA H200](url))`
-  - `([S13])` → `([IEA](url))`
-  - All other inline references similarly converted. Zero remaining `[S#]` patterns.
-- Fix 4 (Section 14): Wrapped configuration equation words in `\text{}` in flagship article. Changed:
-  `a=(model,\ context,\ cache,\ tier,\ batch,\ reasoning,\ region)` →
-  `a = (\text{model}, \text{context}, \text{cache}, \text{tier}, \text{batch}, \text{reasoning}, \text{region})`
-  This prevents KaTeX from rendering each word as separate italic math variables (m-o-d-e-l).
+- Read worklog.md and source article from /tmp/kv-cache/second-pass-kv-cache-concurrency/02_ARTICLE/
+- Read content schema (src/content.config.ts) to verify enum values
+- Fixed frontmatter:
+  - section: "SYSTEMS" → "Systems" (enum match)
+  - status: "review" → "published"
+  - publishedAt: added "2026-08-10" (was missing)
+  - changeLog: [] → changeLog with {at: "2026-08-10", type: "published", note: "Initial publication."}
+  - hero: "/charts/chart-03-concurrency-frontier.svg" → "/research/kv-cache-concurrency/charts/chart-03-concurrency-frontier.svg"
+  - sources: converted 5 URL strings to fullSource objects with label/url/type
+- Rewrote chart path: hero field only (no chart references in article body)
+  - /charts/chart-03-concurrency-frontier.svg → /research/kv-cache-concurrency/charts/chart-03-concurrency-frontier.svg
+- Created 4 asset directories:
+  - public/research/kv-cache-concurrency/charts/
+  - public/research/kv-cache-concurrency/chart-data/
+  - public/research/kv-cache-concurrency/data/
+  - public/downloads/ (already existed)
+- Copied 27 asset files:
+  - 5 SVG + 5 PNG → charts/ (10 files)
+  - 5 CSV → chart-data/ (5 files)
+  - 10 CSV → data/ (10 files)
+  - 1 XLSX + 1 CSV → downloads/ (2 files)
+- Wrote article to src/content/articles/kv-cache-is-your-real-concurrency-budget.md
 - astro check: 0 errors, 0 warnings, 0 hints
-- astro build: succeeds, all pages generated
 
 Stage Summary:
-- 4 content fixes applied across 5 article files (flagship touched for fixes 1+3+4, 4 other articles for fix 2)
-- Duplicate manual Sources section eliminated from flagship (renderer produces it from frontmatter)
-- 5 contradictory changeLog entries corrected (3 "Draft." + 1 "Initial review package." + 1 "Initial methodology package." → "Initial publication.")
-- 11 inline source references converted from opaque [S#] IDs to clickable natural-language markdown links
-- Configuration equation typography improved with \text{} wrapping for readable word rendering
-- Build passes: 0 errors, all pages generated
-
+- Article imported with all frontmatter, hero-path, source, and asset fixes applied
+- 1 chart path rewritten (hero field only; no chart image refs in body)
+- 27 asset files copied across 4 directories
+- Schema validation passes cleanly
 ---
-Task ID: 1
-Agent: css-responsive-agent
-Task: Implement all CSS responsive hardening for the SECOND / PASS Astro publication
-
-Work Log:
-- Read worklog.md and all required files: global.css, [slug].astro, ArticleShare.astro, NewsletterCTA.astro, BriefForm.astro
-- Read global.css in full (694 lines) to understand current state and identify existing vs. needed changes
-- Noted 3 changes already applied from prior work:
-  - overflow-wrap: normal / word-break: normal / hyphens: none on .article-header h1 (Section 9)
-  - max-width: 100% on .article-body pre (Section 8/12)
-  - .article-body :not(pre) > code overflow-wrap/word-break rule (Section 7/11)
-- Applied 12 remaining changes to global.css via MultiEdit:
-
-1. Section 5 — Article Grid Centering on Tablet: Added margin-inline: auto to .article-grid in @media(max-width:1040px)
-2. Section 6 — Evidence Rail Desktop-Only: Added .article-grid > aside:nth-child(3) and aside:last-child { display: none } in @media(max-width:1040px)
-3. Section 7 — Article TOC Responsiveness: Added .article-rail { display: none } in @media(max-width:720px)
-4. Section 8 — Mobile Headlines: Changed .article-header h1 to clamp(2.3rem, 10.5vw, 4.5rem); line-height: .92; letter-spacing: -.06em
-5. Section 9 — Remove Aggressive Word Breaking: Already applied (overflow-wrap: normal; word-break: normal; hyphens: none)
-6. Section 10 — Article Body Typography: Verified 1.16rem/1.68 is fine; no break-all or overflow-wrap: anywhere on prose
-7. Section 11 — Inline Code Wrapping: Already applied (.article-body :not(pre) > code)
-8. Section 12 — Code Blocks: Already applied (max-width: 100% on pre)
-9. Section 13 — Math Responsiveness: Added max-width: 100%, overscroll-behavior-inline: contain, -webkit-overflow-scrolling: touch to .article-body .katex-display
-10. Sections 15-17 — Figure Responsiveness: Added .research-figure--scroll rules in @media(max-width:720px)
-11. Section 21 — Share Controls Mobile: Added .share-btn/.share-link touch targets (min-height: 42px) in both global.css form-responsive section and ArticleShare.astro scoped styles
-12. Section 22 — Newsletter/BRIEF CTA Mobile: Added .brief-input/.brief-submit width: 100% and min-height: 44px in @media(max-width:720px)
-13. Section 25 — Anchor Offset: Added scroll-margin-top: 90px base and 20px mobile for .article-body h2/h3, #first-pass, #sources
-14. Section 30 — Article-End Mobile: Added overflow-wrap: anywhere to .article-end
-15. Section 31 — Source Row Mobile: Added .source-row a overflow-wrap: anywhere and word-break: break-word
-16. Section 32 — Footer Mobile: Added overflow-wrap: anywhere to .footer-bottom
-17. Section 33 — Article Width Invariant: Added .article-grid > * { min-width: 0 } (prevents wide children from expanding grid)
-18. Section 4 — Table Scroll Cue: Added .table-wrap::after pseudo-element with "Scroll table →" hint on hover/focus
-
-- Updated ArticleShare.astro: Added @media(max-width:720px) block with mobile touch target styles in scoped <style>
-- Verified no overflow-x: hidden or overflow-x: clip added to body/html
-- Verified no client JavaScript added for layout
-- Verified all existing desktop styles preserved
-- Verified all design tokens preserved
-- astro check: 0 errors, 0 warnings, 0 hints
-- astro build: succeeds, all pages generated, Pagefind indexed
-
-Stage Summary:
-- All 18 CSS responsive hardening sections implemented across global.css and ArticleShare.astro
-- 3 sections were pre-applied (9, 11, 12); 15 required new edits
-- Critical fixes: grid centering, evidence rail hiding, TOC hiding, headline reduction, word-breaking normalization, math containment, scroll offsets, width invariant (min-width: 0), table scroll cue
-- Mobile touch targets: share buttons 42px min-height, brief form inputs 44px min-height
-- Build passes: 0 errors, all pages generated
-
----
-Task ID: responsive-hardening
+Task ID: 2-a + 2-b
 Agent: main
-Task: Responsive article hardening + final UX cleanup + responsive QA automation
+Task: Publish SYSTEMS / SECOND PASS #04 and SYSTEMS / PROOF #05
 
 Work Log:
-- Read full 63-section specification for responsive hardening
-- Inspected all current source files: global.css (683 lines), [slug].astro, components, articles, astro.config.mjs, package.json
-- CSS Responsive Hardening (18 changes to global.css + ArticleShare.astro):
-  - Article grid centered on tablet (margin-inline: auto at ≤1040px)
-  - Evidence rail hidden at ≤1040px (desktop only)
-  - Article rail/TOC hidden at ≤720px (mobile)
-  - Mobile headline reduced: clamp(2.3rem, 10.5vw, 4.5rem), line-height .92
-  - Removed aggressive word-breaking on headlines (overflow-wrap/word-break/hyphens: normal)
-  - Added overflow-wrap for inline code only (not prose)
-  - Hardened math: max-width, overscroll-behavior-inline, -webkit-overflow-scrolling
-  - Added mobile touch targets for share controls (42px min-height)
-  - Added full-width BRIEF form fields on mobile (44px min-height)
-  - Added scroll-margin-top for anchored headings (90px desktop, 20px mobile)
-  - Added overflow-wrap: anywhere for .article-end slug
-  - Added min-width:0 on grid children to prevent width overflow
-  - Added source-row link wrapping
-  - Added footer-bottom overflow-wrap
-  - Added table-wrap scroll cue pseudo-element
-  - Added research-figure--scroll mobile treatment
-  - Added code block max-width containment
-- Rehype table-wrap plugin:
-  - Created src/lib/rehype-table-wrap.mjs using unist-util-visit
-  - Wraps all <table> elements in <div class="table-wrap" role="region" tabindex="0" aria-label="Scrollable data table">
-  - Integrated into astro.config.mjs rehypePlugins after rehypeKatex
-  - Guards against double-wrapping
-  - Expanded .table-wrap CSS with full width/max-width/overflow/margin rules
-- Content fixes:
-  - Removed duplicate manual ## Sources from flagship article body (17 [S1]-[S17] entries)
-  - Improved 11 inline source references with clickable natural-language markdown links
-  - Fixed 5 change log entries: "Draft." / "Initial review package." → "Initial publication."
-  - Fixed config equation: wrapped words in \text{} for proper KaTeX rendering
-- Playwright responsive QA:
-  - Installed @playwright/test and playwright as devDependencies
-  - Created scripts/responsive-audit.mjs with 12 assertion types (A-L)
-  - 7 required viewports: 1440, 1024, 820, 768, 430, 390, 375
-  - 6 real articles tested: flagship, proof, long-context, cache, sonnet, data
-  - Added responsive:audit command to package.json
-  - Integrated responsive audit into prepublish pipeline (after render-audit)
-  - Added QA output directories to .gitignore
-- Verification results:
-  - astro check: 0 errors, 0 warnings, 0 hints
-  - astro build: succeeds, all pages generated
-  - content-source-audit: PASS
-  - content:audit: 0 warnings, 0 failures
-  - render-audit --all: PASS (all 6 articles)
-  - currency-regression: PASS
-  - responsive-audit (full): 42/42 PASS (6 articles × 7 viewports)
-- Committed and pushed to GitHub: witejackel-eng/second-pass-web (8d0af98)
+- Verified both ZIPs: prefill-decode SHA-256 a99a1eab...✅, kv-cache SHA-256 d72ff2d8...✅
+- Extracted and imported #04: when-should-you-split-prefill-from-decode
+  - Fixed frontmatter: section→Systems, status→published, publishedAt→2026-08-10
+  - Rewrote 5 chart paths to /research/prefill-decode-disaggregation/charts/
+  - Imported 10 chart files, 5 chart-data CSVs, 6 research CSVs, 1 workbook, 1 template
+- Extracted and imported #05: kv-cache-is-your-real-concurrency-budget
+  - Fixed frontmatter: section→Systems, status→published, publishedAt→2026-08-10
+  - Rewrote hero path to /research/kv-cache-concurrency/charts/
+  - Fixed sources from URL strings to fullSource objects
+  - Imported 10 chart files, 5 chart-data CSVs, 10 research CSVs, 1 workbook, 1 template
+- astro check: 0 errors / 0 warnings
+- astro build: Complete (2.32s), 13 article routes prerendered
+- Committed separately: 2fab87b (#04), 322fb04 (#05)
+- Pushed to origin/main: 770eb9c
 
 Stage Summary:
-- All responsive hardening implemented and verified
-- Zero page-level horizontal overflow at all 7 viewports
-- Table auto-wrap via rehype plugin prevents table overflow
-- Evidence rail hidden on tablet/mobile (desktop preserved)
-- Mobile headline no longer creates giant wall of text
-- All touch targets meet 42-44px minimum
-- Math equations scroll internally, never break page layout
-- Duplicate sources removed, inline citations improved
-- Change log cleaned for published articles
-- Playwright responsive audit: 42/42 PASS
-- Full publication pipeline: source → render → responsive → publish
----
-Task ID: article-02
-Agent: main
-Task: Publish SECOND / PASS Article #02 - Agent Economics (Token price no longer tells you what an AI agent costs)
-
-Work Log:
-- Extracted final-review ZIP from /home/z/my-project/upload/
-- Read 00_MANIFEST.md, 01_EDITORIAL_DECISION.md, 10_SITE_HANDOFF.md, 05_QA/PUBLICATION_GATE.md
-- Read canonical article source: 02_ARTICLE/an-ai-agent-is-no-longer-priced-in-tokens.md
-- Read chart specifications: 04_CHARTS/chart-specs.md
-- Copied 4 SVG + 4 PNG chart assets to public/research/agent-economics/charts/
-- Copied 4 chart-data CSVs to public/research/agent-economics/chart-data/
-- Copied 3 research data files (2 CSV, 1 JSON) to public/research/agent-economics/data/
-- Created canonical article at src/content/articles/an-ai-agent-is-no-longer-priced-in-tokens.md
-- Rewrote 4 chart image paths from ../04_CHARTS/ to /research/agent-economics/charts/
-- Changed status from "review" to "published"
-- Added changeLog entry: at: "2026-08-10", type: "published", note: "Initial publication."
-- Made INTELLIGENCE CTA a real link to /intelligence
-- Verified: H1=1, no body H1, no body FIRST PASS, no .mdx duplicate, no package-relative paths
-- Ran content-source-audit: PASS
-- Ran content:audit: PASS (13 articles, 0 warnings, 0 failures)
-- Ran astro check: PASS (0 errors, 0 warnings, 0 hints)
-- Ran build: PASS (article prerendered successfully)
-- Ran render-audit: PASS (H1=1, FIRST PASS=1, 44 KaTeX, 0 raw LaTeX, 0 sentinels)
-- Ran responsive-audit: PASS (7/7 viewports: 1440, 1024, 820, 768, 430, 390, 375)
-- Generated social assets: og.png (1200×630), portrait.png (1080×1350), square.png (1080×1080)
-- Fixed prepublish.mjs step order (pagefind after currency-regression to prevent overwrite)
-- Added article slug to responsive-audit.mjs article list
-- Ran prepublish: PASS (all gates green)
-- Set SITE_PRELAUNCH=false for public indexing
-- Rebuilt with public indexing: noindex removed, robots.txt allows all
-- Verified RSS, sitemap, homepage, /ai, /authors/aditya all include new article
-- Committed: feat: publish agent economics analysis (1f49fc0)
-- Pushed to origin/main
-- Vercel deployment triggered via Git integration
-- Verified production URL: HTTP 200
-- Verified production HTML: title, H1, canonical, JSON-LD, charts, no noindex, no raw LaTeX
-- Verified all 14 production assets return 200 (4 SVG, 4 PNG, 3 data, 3 social)
-- Verified source links: 5/6 resolve (OpenAI 403 = bot protection, not moved)
-- Verified INTELLIGENCE CTA links to /intelligence
-- Verified no package-relative paths in production
-- Verified robots.txt: Allow: /
-- Verified health endpoint: ok, brief configured, leads configured
-
-Stage Summary:
-- Article #02 LIVE at https://second-pass.vercel.app/articles/an-ai-agent-is-no-longer-priced-in-tokens
-- Status: published, Featured: true, Author: Aditya, Date: 2026-08-10
-- All publication pipeline gates: PASS
-- All responsive viewports: PASS
-- All production assets: 200
-- SITE_PRELAUNCH: false (public indexing enabled)
-
----
-Task ID: article-03
-Agent: main
-Task: Publish SECOND / PASS Flagship #03 - "When should a company run its own AI model?" - Final hardening and verification
-
-Work Log:
-- Verified article when-should-a-company-run-its-own-ai-model.md exists with status: "published", publishedAt: "2026-08-10", featured: true
-- Verified all 5 chart SVGs and PNGs exist in /research/open-weight-vs-closed/charts/
-- Verified workbook and research data exist in /research/open-weight-vs-closed/data/
-- Fixed rehype-house-objects.mjs: heading pattern matching was too strict (exact match only)
-  - Added prefix matching for headings like "/ CALCULATION — A price-only break-even"
-  - Added "WHAT IS TRUE" and "WHAT IS MISSING" to CLAIM_LABELS set
-  - Added nested transform filtering to prevent overlapping splice operations
-- Fixed article structure: changed `## / CALCULATION — A price-only break-even` to `## / CALCULATION` + `**A price-only break-even**`
-- Fixed article structure: changed `### / ASSUMPTION` to `**ASSUMPTIONS**` (bold label instead of heading)
-  - This prevents nested transform conflicts between / CALCULATION and / ASSUMPTION
-- Fixed article structure: changed second `### / CLAIM CHECK` to inline bold prose for the "model fits on one GPU" claim
-  - Keeps the editorial distinction (fit ≠ serving capacity) while avoiding plugin nesting issues
-- Ran calculation sanity checks (Section 51): $0.0021, $27,564.80, 13.13M, 22,476 tasks/hour, 6.24 tasks/sec - ALL PASS
-- Build: PASS (all pages generated)
-- render-audit --all: 8/8 articles PASS
-- content-source-audit: PASS
-- currency-regression: PASS
-- Comprehensive article verification: 52/53 checks pass (1 "failure" is KaTeX annotations containing LaTeX, which is correct)
-
-Stage Summary:
-- Flagship article #03 "When should a company run its own AI model?" fully verified and publication-ready
-- All house objects render: 1 calculation-block, 1 claim-check, 1 intelligence-block
-- All 5 research figures with figcaptions render
-- 150 KaTeX elements, no raw LaTeX, no sentinels
-- Critical capacity caveat (22,476 required rate, NOT measured throughput) properly preserved
-- All frozen core values preserved: $0.0021, $27,564.80, 13.13M, 22,476, 6.24
-- SEO complete: canonical, og:type, og:title, og:description, og:image, og:image:alt, article:published_time, article:section, article:tags, JSON-LD (Article, Person, Organization)
-- No noindex, no package-relative paths, no placeholders
----
-Task ID: 1
-Agent: main
-Task: Publish 142kW AI rack article — integrate approved publication package into SECOND / PASS
-
-Work Log:
-- Read pasted content (Pasted Content_1786349417980.txt) — full publication approval prompt
-- Extracted ZIP: second-pass-142kw-ai-rack-2026-08-10-final.zip
-- Read article markdown, chart specs, QA ledgers, editorial decision, site handoff
-- Read existing site content model (content.config.ts), site config, existing article patterns
-- Copied 5 chart SVGs + 5 PNGs to public/research/142kw-ai-rack/charts/
-- Copied 5 chart data CSVs to public/research/142kw-ai-rack/chart-data/
-- Copied 7 research CSVs + 1 XLSX workbook to public/research/142kw-ai-rack/data/
-- Copied input template CSV + XLSX workbook to public/downloads/
-- Created article at src/content/articles/a-142-kw-ai-rack-turns-gpu-procurement-into-a-power-problem.md
-- Fixed source types: "authoritative" → "advisory" to match content schema enum
-- Set status: "published", publishedAt: "2026-08-10", added changeLog entry
-- Rewrote chart image paths from ../05_CHARTS/ to /research/142kw-ai-rack/charts/
-- Set section: "Compute" (schema enum) instead of "COMPUTE" (from package)
-- Verified astro check: 0 errors, 0 warnings
-- Verified astro build: success, article page 98KB HTML
-- Verified article appears as lead story on homepage
-- Verified article appears on /compute, /latest, RSS feed
-- Verified structured data: JSON-LD Article schema, OG meta, Twitter cards
-- Browser-verified homepage (desktop 1440, mobile 390): article is lead story
-- Browser-verified article page: FIRST PASS, / QUESTION, / CALCULATION, / CLAIM CHECK, charts, math, sources, / END, share
-- Browser-verified compute section page: article listed
-- Zero browser console errors
-
-Stage Summary:
-- Article published: a-142-kw-ai-rack-turns-gpu-procurement-into-a-power-problem
-- Status: published (human approval gate APPLIED)
-- All 5 charts, 7 research CSVs, XLSX workbook, and input template integrated
-- Build passes, type check passes, browser verification passes
-- No re-research, no reinterpretation, no calculation changes — exact package preserved
----
-Task ID: 1
-Agent: main
-Task: Publish HBM Roofline LLM inference article (COMPUTE / PROOF #02) to second-pass-web
-
-Work Log:
-- Read repository memory: AGENT.md, PUBLICATION_STANDARD.md, CURRENT_STATE.md, DECISIONS.md, content.config.ts
-- Extracted ZIP package: second-pass-hbm-roofline-llm-inference-2026-08-10-final-review.zip
-- Read article from 02_ARTICLE/when-flops-stop-mattering-hbm-roofline-llm-inference.md
-- Read 00_MANIFEST.md, 01_EDITORIAL_DECISION.md to confirm editorial freeze
-- Applied schema compliance fixes: section "COMPUTE" → "Compute", status "review" → "published", publishedAt "" → "2026-08-10", changeLog [] → published entry
-- Copied 5 SVG + 5 PNG chart assets to public/research/hbm-roofline-llm-inference/charts/
-- Copied 5 chart-data CSVs to public/research/hbm-roofline-llm-inference/chart-data/
-- Copied 7 research CSVs + 1 XLSX workbook to public/research/hbm-roofline-llm-inference/data/
-- Copied llm-inference-roofline-model.xlsx and llm-roofline-company-input-template.csv to public/downloads/
-- Rewrote 5 chart paths from ../05_CHARTS/ to /research/hbm-roofline-llm-inference/charts/
-- Ran control character audit: TAB=0, FF=0, BOM=absent, other C0=0 — PASS
-- astro check: 0 errors, 0 warnings, 0 hints
-- astro build: completed in 3.48s — PASS
-- Browser QA: article page 200, homepage 200, compute section 200
-- Verified article renders with title, PROOF label, 5 charts, 61 KaTeX MathML elements, 0 raw LaTeX, calculation-block, claim-check
-- Verified article appears on homepage and /compute section page
-- Updated CURRENT_STATE.md with new article entry
-- Committed 27 files (12,968 insertions) to main branch
-- Pushed to origin: witejackel-eng/second-pass-web (ffdb19c)
-
-Stage Summary:
-- Article published: when-flops-stop-mattering-hbm-roofline-llm-inference
-- Section: Compute, Format: PROOF, Status: published
-- 5 charts, 37 KaTeX display blocks, 6 sources, 2 CLAIM CHECKs, 1 CALCULATION
-- All assets integrated, all QA passed, pushed to remote
----
-Task ID: 2
-Agent: main
-Task: Production-state + visual-integrity + privacy/legal hardening pass
-
-Work Log:
-- Read repository memory: AGENT.md, PUBLICATION_STANDARD.md, CURRENT_STATE.md, DECISIONS.md
-- Inspected GB300 thermal SVG (chart-05-thermal-or-redundancy.svg) — found text_12 at x=100.32 with only 14.35pt padding from box edge
-- Fixed thermal SVG: moved explanatory text from x=100.32 to x=108.32 (~22pt padding), title from x=154.68 to x=158.68
-- Audited all 24 research SVGs: all pass structural audit (valid XML, valid viewBox, nonzero dims, no dup IDs, no control chars)
-- Searched all source for stale launch language: found prelaunch code logic (BaseLayout, robots.txt) — INTERNAL ONLY, not public copy
-- Found and fixed: brief-prelaunch fallback, commercial-disabled fallbacks — code logic, not stale public copy
-- Verified Privacy page: already updated with production notice (effective 2026-08-10), actual data flows documented
-- Verified Terms page: already created with all required sections
-- Verified Partner page: already updated (no launch-stage language, privacy note present)
-- Verified Homepage: already updated (HOUSE / BRIEF, real DATA products, no PLANNED placeholders)
-- Verified Data page: already updated (Published DATA vs In Development)
-- Verified Footer: already updated (Terms link present, 5-column layout)
-- Verified Newsletter consent: already present in BriefForm
-- Audited actual API data flows: brief-subscribe (email + UTM + referrer), partner-lead (name/company/email/website/role/objective/budget/timing/message), intelligence-lead (name/company/email/role/problem/outcome/deadline/budget/confidentiality)
-- Cookie/storage audit: zero non-essential technologies found — NO cookie banner required
-- Updated CURRENT_STATE.md to LIVE/PUBLIC state with full audit results
-- Created scripts/research-svg-audit.mjs (structural SVG checks)
-- Created scripts/production-state-audit.mjs (st"launch language checks)
-- astro check: 0 errors, astro build: PASS
-- Committed 19 files (475 insertions) to main branch
-- Pushed to origin: witejackel-eng/second-pass-web (a73eeef)
-
-Stage Summary:
-- Thermal SVG text padding fixed
-- All pages verified production-ready
-- Cookie banner NOT required (zero non-essential storage)
-- Privacy/Terms/Partner/Intelligence/Hompage/Data all production-ready
-- LEGAL CONTACT BLOCKER: verified privacy contact still missing
-- CURRENT_STATE.md reflects LIVE/PUBLIC state
-- PUBLICATION_STANDARD.md has all permanent production rules
+- #04 published: SYSTEMS / SECOND PASS — when-should-you-split-prefill-from-decode
+- #05 published: SYSTEMS / PROOF — kv-cache-is-your-real-concurrency-budget
+- Both articles live on https://second-pass.vercel.app
