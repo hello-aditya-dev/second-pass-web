@@ -1,0 +1,45 @@
+workflow_id,policy_id,task_id,task,weight,required_capabilities,policy_satisfies_required_network_dependencies,classification
+PRIMARY_REPO_BUGFIX,A_OFFLINE,T1,Local code edit + existing tests,2,,YES,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+PRIMARY_REPO_BUGFIX,A_OFFLINE,T2,Resolve API behavior from approved public docs,1,E1,NO,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+PRIMARY_REPO_BUGFIX,A_OFFLINE,T3,Install/resolve declared dependency from registry,2,E2,NO,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+PRIMARY_REPO_BUGFIX,A_OFFLINE,T4,Read upstream public source/release context,2,E3,NO,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+PRIMARY_REPO_BUGFIX,A_OFFLINE,T5,Submit approved build artifact to internal CI,3,E4,NO,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+PRIMARY_REPO_BUGFIX,B_PUBLIC_ALLOWLIST,T1,Local code edit + existing tests,2,,YES,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+PRIMARY_REPO_BUGFIX,B_PUBLIC_ALLOWLIST,T2,Resolve API behavior from approved public docs,1,E1,YES,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+PRIMARY_REPO_BUGFIX,B_PUBLIC_ALLOWLIST,T3,Install/resolve declared dependency from registry,2,E2,YES,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+PRIMARY_REPO_BUGFIX,B_PUBLIC_ALLOWLIST,T4,Read upstream public source/release context,2,E3,YES,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+PRIMARY_REPO_BUGFIX,B_PUBLIC_ALLOWLIST,T5,Submit approved build artifact to internal CI,3,E4,NO,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+PRIMARY_REPO_BUGFIX,C_SCOPED_AUTH,T1,Local code edit + existing tests,2,,YES,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+PRIMARY_REPO_BUGFIX,C_SCOPED_AUTH,T2,Resolve API behavior from approved public docs,1,E1,YES,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+PRIMARY_REPO_BUGFIX,C_SCOPED_AUTH,T3,Install/resolve declared dependency from registry,2,E2,YES,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+PRIMARY_REPO_BUGFIX,C_SCOPED_AUTH,T4,Read upstream public source/release context,2,E3,YES,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+PRIMARY_REPO_BUGFIX,C_SCOPED_AUTH,T5,Submit approved build artifact to internal CI,3,E4,YES,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+PRIMARY_REPO_BUGFIX,D_BROADER,T1,Local code edit + existing tests,2,,YES,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+PRIMARY_REPO_BUGFIX,D_BROADER,T2,Resolve API behavior from approved public docs,1,E1,YES,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+PRIMARY_REPO_BUGFIX,D_BROADER,T3,Install/resolve declared dependency from registry,2,E2,YES,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+PRIMARY_REPO_BUGFIX,D_BROADER,T4,Read upstream public source/release context,2,E3,YES,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+PRIMARY_REPO_BUGFIX,D_BROADER,T5,Submit approved build artifact to internal CI,3,E4,YES,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+COUNTER_VARIABLE_RESEARCH,A_OFFLINE,R1,Analyze supplied local repository/material,1,LOCAL,YES,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+COUNTER_VARIABLE_RESEARCH,A_OFFLINE,R2,Fetch current vendor A docs,1,KNOWN_A,NO,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+COUNTER_VARIABLE_RESEARCH,A_OFFLINE,R3,Fetch current vendor B docs,1,KNOWN_B,NO,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+COUNTER_VARIABLE_RESEARCH,A_OFFLINE,R4,Fetch current standards body page,1,KNOWN_STD,NO,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+COUNTER_VARIABLE_RESEARCH,A_OFFLINE,R5,Follow newly discovered public source from documentation,1,VARIABLE_EXTERNAL,NO,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+COUNTER_VARIABLE_RESEARCH,A_OFFLINE,R6,Check a newly discovered public release/advisory host,1,VARIABLE_EXTERNAL,NO,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+COUNTER_VARIABLE_RESEARCH,B_PUBLIC_ALLOWLIST,R1,Analyze supplied local repository/material,1,LOCAL,YES,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+COUNTER_VARIABLE_RESEARCH,B_PUBLIC_ALLOWLIST,R2,Fetch current vendor A docs,1,KNOWN_A,YES,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+COUNTER_VARIABLE_RESEARCH,B_PUBLIC_ALLOWLIST,R3,Fetch current vendor B docs,1,KNOWN_B,YES,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+COUNTER_VARIABLE_RESEARCH,B_PUBLIC_ALLOWLIST,R4,Fetch current standards body page,1,KNOWN_STD,YES,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+COUNTER_VARIABLE_RESEARCH,B_PUBLIC_ALLOWLIST,R5,Follow newly discovered public source from documentation,1,VARIABLE_EXTERNAL,NO,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+COUNTER_VARIABLE_RESEARCH,B_PUBLIC_ALLOWLIST,R6,Check a newly discovered public release/advisory host,1,VARIABLE_EXTERNAL,NO,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+COUNTER_VARIABLE_RESEARCH,C_SCOPED_AUTH,R1,Analyze supplied local repository/material,1,LOCAL,YES,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+COUNTER_VARIABLE_RESEARCH,C_SCOPED_AUTH,R2,Fetch current vendor A docs,1,KNOWN_A,YES,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+COUNTER_VARIABLE_RESEARCH,C_SCOPED_AUTH,R3,Fetch current vendor B docs,1,KNOWN_B,YES,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+COUNTER_VARIABLE_RESEARCH,C_SCOPED_AUTH,R4,Fetch current standards body page,1,KNOWN_STD,YES,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+COUNTER_VARIABLE_RESEARCH,C_SCOPED_AUTH,R5,Follow newly discovered public source from documentation,1,VARIABLE_EXTERNAL,NO,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+COUNTER_VARIABLE_RESEARCH,C_SCOPED_AUTH,R6,Check a newly discovered public release/advisory host,1,VARIABLE_EXTERNAL,NO,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+COUNTER_VARIABLE_RESEARCH,D_BROADER,R1,Analyze supplied local repository/material,1,LOCAL,YES,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+COUNTER_VARIABLE_RESEARCH,D_BROADER,R2,Fetch current vendor A docs,1,KNOWN_A,YES,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+COUNTER_VARIABLE_RESEARCH,D_BROADER,R3,Fetch current vendor B docs,1,KNOWN_B,YES,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+COUNTER_VARIABLE_RESEARCH,D_BROADER,R4,Fetch current standards body page,1,KNOWN_STD,YES,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+COUNTER_VARIABLE_RESEARCH,D_BROADER,R5,Follow newly discovered public source from documentation,1,VARIABLE_EXTERNAL,YES,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success
+COUNTER_VARIABLE_RESEARCH,D_BROADER,R6,Check a newly discovered public release/advisory host,1,VARIABLE_EXTERNAL,YES,SCENARIO DETERMINISTIC POLICY FEASIBILITY — not empirical agent success

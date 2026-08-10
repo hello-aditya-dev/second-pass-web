@@ -1,0 +1,5 @@
+policy_id,label,scenario_task_utility,authority_units,dominated_by,classification
+A_OFFLINE,A — Network disabled,0.2,0,,"SCENARIO — deterministic policy feasibility, not measured agent success"
+B_PUBLIC_ALLOWLIST,B — Public read allowlist,0.7,3,,"SCENARIO — deterministic policy feasibility, not measured agent success"
+C_SCOPED_AUTH,C — Allowlist + scoped authenticated egress,1.0,6,,"SCENARIO — deterministic policy feasibility, not measured agent success"
+D_BROADER,D — Broader Internet,1.0,28,C_SCOPED_AUTH,"SCENARIO — deterministic policy feasibility, not measured agent success"

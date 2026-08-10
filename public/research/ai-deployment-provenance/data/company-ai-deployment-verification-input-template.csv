@@ -1,0 +1,2 @@
+component_id,role,source,expected_revision,observed_revision,expected_digest,observed_digest,signature_required,signature_valid,expected_signer,observed_signer,provenance_required,provenance_valid,expected_builder_source,observed_builder_source,parent_dependency,policy_notes
+,,,,,,,YES/NO,,,,YES/NO,,,,,

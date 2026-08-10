@@ -1,0 +1,7 @@
+component_class,digest_required,signature_required,provenance_required,revision_required,strict_unknown_behavior,notes
+model_snapshot,YES,OPTIONAL,OPTIONAL,YES,FAIL CLOSED,Pin full revision where immutable snapshot identity is required.
+weights_bundle,YES,OPTIONAL,OPTIONAL,YES,FAIL CLOSED,Digest within approved snapshot.
+serving_container,YES,YES,YES,N/A,FAIL CLOSED,Verify signer and provenance expectations as configured.
+custom_code,YES,POLICY,POLICY,YES,FAIL CLOSED,Executable repo code requires explicit approval boundary.
+adapter,YES,POLICY,POLICY,YES,FAIL CLOSED,Unexpected adapter blocks strict gate.
+startup_config,YES,YES,OPTIONAL,YES,FAIL CLOSED,Deployment behavior config should be immutable/approved.

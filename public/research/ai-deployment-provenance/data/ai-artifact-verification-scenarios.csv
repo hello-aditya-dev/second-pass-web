@@ -1,0 +1,5 @@
+primitive,question_answered,what_it_can_establish,what_it_does_not_establish,policy_use
+DIGEST,Are these the expected bytes?,Content identity/integrity against an expected digest,"Trusted origin, approval, secure build, absence of malicious behavior",Pin and compare immutable artifact identities.
+SIGNATURE,Did the expected signing identity sign this artifact/statement?,Signature validity plus signer identity when verifier checks key/certificate expectations,"That signer is approved, artifact is safe, build source/parameters were approved",Require expected signer/issuer/key policy.
+PROVENANCE,Where/how/by what builder and inputs was it produced?,Authenticated build metadata bound to artifact subject,That all claims satisfy buyer expectations or builder itself is uncompromised,"Verify subject, builder, source, build type and parameters against policy."
+POLICY,Does the evidence match our approved deployment?,Organization-specific accept/reject decision,Universal safety,Fail closed on required unknown/mismatch/unexpected components.

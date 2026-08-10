@@ -1,0 +1,12 @@
+component_id,role,state
+C01,model_snapshot,MATCH
+C02,weights_bundle,MATCH
+C03,config,MATCH
+C04,tokenizer,CHANGED
+C05,chat_template,MATCH
+C06,serving_container,MATCH
+C07,base_image,MATCH
+C08,runtime_lock,MATCH
+C09,startup_config,MATCH
+C10,policy_config,MATCH
+U01,adapter,UNEXPECTED

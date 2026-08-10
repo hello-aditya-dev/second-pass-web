@@ -1,0 +1,8 @@
+cap_id,destination_class,destination,method_action,credential,data_scope,authority_weight,required_primary,critical_primary,note
+E1,DOCUMENTATION,docs.vendor.example,GET,NONE,PUBLIC,1,1,1,Read public package/API documentation.
+E2,PACKAGE_REGISTRY,registry.example,GET,NONE,PUBLIC_REQUEST_METADATA,1,1,1,Download declared dependency/package metadata.
+E3,SOURCE_CONTROL,source.example,GET,NONE,PUBLIC,1,1,1,Read upstream public source/release/issue context.
+E4,INTERNAL_SERVICE,ci.internal.example,POST,CI_SCOPED_TOKEN,BUILD_ARTIFACTS,3,1,1,Submit an approved build/test artifact to internal CI.
+E5,ARBITRARY_EXTERNAL,ANY_EXTERNAL,GET,NONE,PUBLIC_OR_MODEL_OUTPUT,4,0,0,Broad public-read capability beyond known workflow destinations.
+E6,ARBITRARY_EXTERNAL,ANY_EXTERNAL,POST,NONE,WORKSPACE_OR_PROPRIETARY_SOURCE,8,0,0,Broad outbound write path for workspace/proprietary data.
+E7,USER_CONTROLLED_DESTINATION,USER_CONTROLLED,POST,NONE,WORKSPACE_OR_BUILD_ARTIFACTS,10,0,0,Outbound write to a destination not pre-approved by the enterprise.

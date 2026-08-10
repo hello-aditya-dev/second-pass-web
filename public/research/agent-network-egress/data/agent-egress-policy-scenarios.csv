@@ -1,0 +1,9 @@
+workflow_id,policy_id,mode,required_egress,granted_egress,egress_overhang,required_capability_coverage,critical_request_coverage,scenario_task_utility,authority_units,task_results,prohibited_autonomous_paths,unknown_paths,raw_secret_visible_count,credential_destination_mismatches,classification,dominated_by
+PRIMARY_REPO_BUGFIX,A_OFFLINE,NETWORK OFF,E1|E2|E3|E4,,,0.0,0.0,0.2,0,1|0|0|0|0,0,0,0,0,"SCENARIO — deterministic policy feasibility, not measured agent success",
+PRIMARY_REPO_BUGFIX,B_PUBLIC_ALLOWLIST,RESTRICTED,E1|E2|E3|E4,E1|E2|E3,,0.75,0.75,0.7,3,1|1|1|1|0,0,0,0,0,"SCENARIO — deterministic policy feasibility, not measured agent success",
+PRIMARY_REPO_BUGFIX,C_SCOPED_AUTH,RESTRICTED,E1|E2|E3|E4,E1|E2|E3|E4,,1.0,1.0,1.0,6,1|1|1|1|1,0,0,0,0,"SCENARIO — deterministic policy feasibility, not measured agent success",
+PRIMARY_REPO_BUGFIX,D_BROADER,BROADER,E1|E2|E3|E4,E1|E2|E3|E4|E5|E6|E7,E5|E6|E7,1.0,1.0,1.0,28,1|1|1|1|1,8,0,0,0,"SCENARIO — deterministic policy feasibility, not measured agent success",C_SCOPED_AUTH
+COUNTER_VARIABLE_RESEARCH,A_OFFLINE,NETWORK OFF,DYNAMIC_PUBLIC_READ_SET,,N/A_DYNAMIC_TRACE,,0.0,0.16666666666666666,0,1|0|0|0|0|0,,,0,0,SCENARIO — deterministic task-dependency feasibility; broad/variable research counter-case,
+COUNTER_VARIABLE_RESEARCH,B_PUBLIC_ALLOWLIST,RESTRICTED,DYNAMIC_PUBLIC_READ_SET,E1|E2|E3,N/A_DYNAMIC_TRACE,,0.6,0.6666666666666666,3,1|1|1|1|0|0,,,0,0,SCENARIO — deterministic task-dependency feasibility; broad/variable research counter-case,
+COUNTER_VARIABLE_RESEARCH,C_SCOPED_AUTH,RESTRICTED,DYNAMIC_PUBLIC_READ_SET,E1|E2|E3|E4,N/A_DYNAMIC_TRACE,,0.6,0.6666666666666666,6,1|1|1|1|0|0,,,0,0,SCENARIO — deterministic task-dependency feasibility; broad/variable research counter-case,
+COUNTER_VARIABLE_RESEARCH,D_BROADER,BROADER,DYNAMIC_PUBLIC_READ_SET,E1|E2|E3|E4|E5|E6|E7,N/A_DYNAMIC_TRACE,,1.0,1.0,28,1|1|1|1|1|1,,,0,0,SCENARIO — deterministic task-dependency feasibility; broad/variable research counter-case,

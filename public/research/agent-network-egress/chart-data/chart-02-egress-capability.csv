@@ -1,0 +1,5 @@
+dimension,primary_example,broader_example,question
+DESTINATION,ci.internal.example,ANY_EXTERNAL,Where may bytes/actions go?
+METHOD/ACTION,POST build artifact,GET/POST broad,What operation is reachable?
+CREDENTIAL,CI_SCOPED_TOKEN applied by proxy,none or broader identity,What authenticated authority is attached?
+DATA SCOPE,BUILD_ARTIFACTS,workspace/proprietary/model output,Which data class may cross?

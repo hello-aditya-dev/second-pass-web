@@ -1,0 +1,11 @@
+component_class,examples,security_relevance,verification_boundary,notes
+MODEL_SNAPSHOT,Hub repository revision,Anchors model repo state,Full commit revision + policy,Branch/tag may resolve to different content over time.
+WEIGHTS,safetensors shards/index,Core tensor payload,Digest / repository snapshot,Safetensors narrows serialization risk; does not establish provenance.
+CONFIG,config.json / generation config,Can alter loading or behavior,Snapshot/digest,Include only files relevant to deployment behavior/security.
+TOKENIZER_TEMPLATE,tokenizer / chat template / processor,Can change input/output processing,Snapshot/digest,Same weights do not imply identical serving behavior.
+CUSTOM_CODE,Transformers remote custom code,Executable code,Pinned revision + code review/policy,trust_remote_code makes executable repo code part of deployment identity.
+ADAPTER,LoRA / PEFT adapter,Changes effective model behavior,Adapter revision/digest,Presence must be explicit in manifest when loaded.
+SERVING_IMAGE,OCI image/index,Executes runtime stack,OCI digest + signature/provenance policy,Aggregate verification boundary may cover many transitive files.
+BASE_IMAGE,OCI parent/base build input,Transitive software supply chain,Build provenance or approved digest,May terminate at trusted aggregate artifact boundary.
+RUNTIME_DEPS,Python/system packages/custom kernels,Executable dependencies,Lockfile/image/build provenance,Avoid pretending a model name is the entire deployment.
+STARTUP_POLICY,flags/config/policy,Controls what is loaded/executed,Signed/approved deployment config,"Examples include revision, adapter, remote-code and plugin settings."
