@@ -1,0 +1,3 @@
+provider,instance_type,region,pricing_model,gpu_count,gpu,memory,instance_usd_hour,accelerator_usd_hour,unit,source_ids,accessed_at,notes
+AWS,p5.48xlarge,Asia Pacific (Mumbai),Capacity Block,8,NVIDIA H100,80 GB per GPU,37.76,4.72,USD/hour,S06;S09,2026-08-10,Primary capacity scenario; excludes engineering/network/storage/software.
+AWS,p5.4xlarge,Asia Pacific (Mumbai),Capacity Block,1,NVIDIA H100,80 GB,4.72,4.72,USD/hour,S06;S09,2026-08-10,Reference only.

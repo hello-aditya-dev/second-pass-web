@@ -1,0 +1,5 @@
+deployment_policy,weight_access,infrastructure_operator,economic_shape,control_boundary,notes
+closed_managed,Weights unavailable to customer,Provider,Mostly variable usage pricing,Provider-bound model/serving,Feasibility first; economics second
+managed_open_weight,Weights available under a license,Model vendor or third party,Variable managed inference pricing,Weight access without owning GPU operations,Can support same-model control
+self_hosted_open_weight,Weights available under a license,Customer,Capacity + operations + remaining variable costs,Customer owns serving responsibility,Utilization/capacity feasibility central
+hybrid_router,Mixed,Mixed,Mixed; fixed self-host capacity can remain,Workload-class dependent,Different task classes can have different optima

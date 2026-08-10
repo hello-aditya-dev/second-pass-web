@@ -1,0 +1,6 @@
+provider,model,policy_class,pricing_state,input_usd_per_mtok,output_usd_per_mtok,unit,context,source_ids,accessed_at,notes
+Mistral AI,Mistral Small 4,managed open weight,standard,0.15,0.6,USD/1M tokens,256k,S02;S05,2026-08-10,Same-model managed control
+OpenAI,GPT-5.6 Luna,closed managed,standard,1.0,6.0,USD/1M tokens,1.05M,S10,2026-08-10,Prompts >272k use higher long-context rates
+OpenAI,GPT-5.6 Sol,closed managed,standard,5.0,30.0,USD/1M tokens,1.05M,S11,2026-08-10,Prompts >272k use higher long-context rates
+Anthropic,Claude Sonnet 5,closed managed,introductory through 2026-08-31,2.0,10.0,USD/1M tokens,1M,S12,2026-08-10,$3/$15 begins 2026-09-01
+Google,Gemini 3.5 Flash-Lite,closed managed,standard,0.3,2.5,USD/1M tokens,1M,S13,2026-08-10,Output includes thinking tokens

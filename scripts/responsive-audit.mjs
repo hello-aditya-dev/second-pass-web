@@ -20,6 +20,7 @@ import { readFileSync } from "fs";
 import { join } from "path";
 
 const ARTICLES = [
+  "when-should-a-company-run-its-own-ai-model",    // OPEN WEIGHT VS CLOSED
   "an-ai-agent-is-no-longer-priced-in-tokens",     // AGENT ECONOMICS
   "cheapest-ai-model-not-cheapest-system",        // FLAGSHIP
   "cheapest-ai-model-not-cheapest-system-proof",   // PROOF

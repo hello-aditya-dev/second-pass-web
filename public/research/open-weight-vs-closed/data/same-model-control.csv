@@ -1,0 +1,19 @@
+field,value,status_or_note
+model,Mistral Small 4,same-model deployment control
+managed_model_id,mistral-small-2603,managed open-weight API
+self_host_checkpoint,Mistral-Small-4-119B-2603-NVFP4,Apache 2.0 weights
+input_tokens_per_task,10000,ILLUSTRATIVE
+output_tokens_per_task,1000,ILLUSTRATIVE
+managed_input_usd_per_mtok,0.15,FACT S02
+managed_output_usd_per_mtok,0.6,FACT S02
+managed_cost_usd_per_task,0.0021,CALCULATION
+self_host_capacity,AWS p5.48xlarge Mumbai,8×H100 Capacity Block
+capacity_usd_per_hour,37.76,FACT S06
+hours_per_month,730,ACCOUNTING ASSUMPTION
+capacity_usd_per_month,27564.8,CALCULATION
+engineering_ops_usd_per_month,0,deployment-only control
+other_self_variable_usd_per_task,0,deployment-only control
+equal_acceptance_assumption,1.0,simplifying control
+simple_break_even_tasks_per_month,13126095.238095239,conditional on capacity/SLO feasibility
+effective_utilization,0.8,SCENARIO
+required_useful_tasks_per_hour_at_break_even,22476.190476190477,"required rate, NOT measured throughput"

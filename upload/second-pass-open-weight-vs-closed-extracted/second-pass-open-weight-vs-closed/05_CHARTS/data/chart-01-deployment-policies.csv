@@ -1,0 +1,5 @@
+policy,weights,infra,economics
+Closed managed API,Provider,Provider,Mostly variable
+Managed open weight,Available,Provider/third party,Variable managed inference
+Self-hosted open weight,Available,Company,Capacity + operations
+Hybrid / router,Mixed,Mixed,Mixed

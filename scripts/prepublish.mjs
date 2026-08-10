@@ -25,6 +25,7 @@ const steps = [
   { name: "content:audit", cmd: "node scripts/content-audit.mjs" },
   { name: "astro check", cmd: "bun run check" },
   { name: "build", cmd: "bun run build:astro" },
+  { name: "math:inline", cmd: "node scripts/process-inline-math.mjs" },
   { name: "render-audit", cmd: `node scripts/render-audit.mjs ${slug}` },
   { name: "visual-audit", cmd: `node scripts/visual-audit.mjs ${slug}` },
   { name: "responsive-audit", cmd: `node scripts/responsive-audit.mjs ${slug} --quick` },

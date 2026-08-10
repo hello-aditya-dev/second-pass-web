@@ -1,0 +1,17 @@
+field,default_value,unit,type,note
+tasks_per_month,1000000,tasks/month,SCENARIO,replace with measured workload
+input_tokens_per_task,10000,tokens/task,SCENARIO,measure by candidate tokenizer/config
+output_tokens_per_task,1000,tokens/task,SCENARIO,measure by candidate config
+managed_acceptance_rate,1.0,probability,SCENARIO,replace with evaluation data
+self_host_acceptance_rate,1.0,probability,SCENARIO,replace with evaluation data
+managed_input_usd_per_mtok,0.15,USD/MTok,FACT SNAPSHOT,Mistral Small 4
+managed_output_usd_per_mtok,0.6,USD/MTok,FACT SNAPSHOT,Mistral Small 4
+self_host_gpu_count,8,GPUs,SCENARIO,p5.48xlarge reference
+self_host_gpu_usd_per_hour,4.72,USD/GPU-hour,FACT SNAPSHOT,AWS Mumbai H100 Capacity Block
+hours_per_month,730,hours,ACCOUNTING ASSUMPTION,adjust period
+effective_capacity_utilization,0.8,ratio,SCENARIO,economic useful capacity
+engineering_ops_usd_per_month,0,USD/month,SCENARIO,sensitivity required
+storage_network_usd_per_month,0,USD/month,SCENARIO,add measured
+other_self_variable_usd_per_task,0,USD/task,SCENARIO,add measured
+redundancy_factor,1.0,multiplier,SCENARIO,increase if required
+measured_capacity_tasks_per_hour,0,tasks/hour,INPUT REQUIRED,needed for capacity gate

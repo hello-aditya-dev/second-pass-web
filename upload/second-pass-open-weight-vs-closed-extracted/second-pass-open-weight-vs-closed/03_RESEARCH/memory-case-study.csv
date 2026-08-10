@@ -1,0 +1,10 @@
+subject,field,value,type,source_ids
+gpt-oss-120b,total parameters,116.83B,FACT,S07
+gpt-oss-120b,active parameters/token,5.13B,FACT,S07
+gpt-oss-120b,checkpoint size,60.8 GiB,FACT,S07
+gpt-oss-120b,MoE quantization,MXFP4; ~4.25 bits/parameter on MoE weights,FACT,S07
+gpt-oss-120b,fit claim,optimized MXFP4 path can fit single 80GB GPU,VENDOR CLAIM,S07;S08
+NVIDIA H100,advertised HBM,80 GB,FACT,S09
+gpt-oss-120b,context,128k / 131072 max positions,FACT,S14;S15
+gpt-oss-120b,attention,alternating full/sliding attention,FACT,S14;S15
+gpt-oss-120b,production headroom,KV + runtime/workspace + margin,UNKNOWN,

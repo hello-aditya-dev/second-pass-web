@@ -1,0 +1,6 @@
+item,value,unit,status,note
+gpt-oss-120b checkpoint,60.8,GiB,FACT,official checkpoint size
+H100 headline memory,80,GB,FACT,NVIDIA advertised HBM; do not directly subtract mixed units
+KV cache,,deployment-specific,UNKNOWN,architecture/concurrency dependent
+runtime/workspace,,deployment-specific,UNKNOWN,serving-engine dependent
+production margin,,deployment-specific,ASSUMPTION,needed for reliability/SLO planning

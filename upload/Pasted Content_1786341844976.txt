@@ -1,0 +1,2978 @@
+# Z.ai — PUBLISH SECOND / PASS FLAGSHIP #03
+
+Repository:
+
+witejackel-eng/second-pass-web
+
+Production:
+
+https://second-pass.vercel.app
+
+Existing Vercel project:
+
+second-pass
+
+Attached approved research package:
+
+second-pass-open-weight-vs-closed-2026-08-10(1).zip
+
+ARTICLE:
+
+When should a company run its own AI model?
+
+SLUG:
+
+when-should-a-company-run-its-own-ai-model
+
+FORMAT:
+
+SECOND PASS
+
+SECTION:
+
+AI
+
+AUTHOR:
+
+Aditya
+
+PUBLICATION DATE:
+
+2026-08-10
+
+THIS PROMPT IS HUMAN PUBLICATION APPROVAL.
+
+The research package intentionally contains:
+
+status: review
+publishedAt: ""
+changeLog: []
+
+Those values represented the human publication gate.
+
+That gate is now approved.
+
+Your task is NOT to research or rewrite the article.
+
+Your task is to turn the approved package into the highest-quality live SECOND / PASS publication possible while obeying the repository's permanent publication system.
+
+The result must meet:
+
+CONTENT QUALITY >= 9.5/10
+VISUAL QUALITY >= 9.5/10
+MATHEMATICAL PRESENTATION >= 9.5/10
+INFORMATION DESIGN >= 9.5/10
+RESPONSIVE QUALITY >= 9.5/10
+ACCESSIBILITY >= 9.5/10
+PUBLICATION INTEGRITY >= 9.5/10
+
+Do not claim these scores merely because tests pass.
+
+Actually inspect the rendered article.
+
+────────────────────────────────────────
+0. READ THE PERMANENT PUBLICATION STANDARD FIRST
+────────────────────────────────────────
+
+Before doing ANY publication work:
+
+READ:
+
+AGENT.md
+
+PUBLICATION_STANDARD.md
+
+CURRENT_STATE.md
+
+DECISIONS.md
+
+and relevant docs.
+
+This is mandatory.
+
+`PUBLICATION_STANDARD.md` is authoritative for:
+
+visual identity
+
+house editorial objects
+
+figure semantics
+
+math
+
+tables
+
+responsive behavior
+
+sources
+
+information gain
+
+accessibility
+
+visual quality.
+
+Do not invent a competing design system.
+
+Do not ignore it because the attached research package predates some renderer details.
+
+Repository:
+
+SITE PRESENTATION AUTHORITY
+
+Package:
+
+APPROVED ARTICLE / DATA / RESEARCH AUTHORITY.
+
+────────────────────────────────────────
+1. INSPECT LATEST MAIN
+────────────────────────────────────────
+
+Before editing:
+
+git status
+git branch
+git log -10 --oneline
+git diff
+
+Pull/fetch latest main safely.
+
+Preserve all current publication-system work.
+
+Especially preserve:
+
+semantic research figures
+
+automatic figure rendering
+
+CalculationBlock treatment
+
+ClaimCheck treatment
+
+Assumption treatment
+
+automatic table wrappers
+
+KaTeX pipeline
+
+currency safety
+
+responsive figure handling
+
+responsive audit
+
+visual audit
+
+five-column footer
+
+PUBLICATION_STANDARD.md
+
+AGENT.md
+
+prepublish pipeline.
+
+Do not overwrite newer implementation with stale package assumptions.
+
+────────────────────────────────────────
+2. INSPECT THE FULL PACKAGE
+────────────────────────────────────────
+
+Extract the attached ZIP into a temporary directory.
+
+Read at minimum:
+
+00_MANIFEST.md
+
+01_EDITORIAL_DECISION.md
+
+02_ARTICLE/when-should-a-company-run-its-own-ai-model.md
+
+03_RESEARCH/*.csv
+03_RESEARCH/*.json
+
+04_MODEL/enterprise-ai-deployment-decision-model.xlsx
+
+05_CHARTS/chart-specs.md
+
+all five SVGs
+
+all five PNGs
+
+all five chart CSV files
+
+06_QA/SOURCE_LEDGER.md
+
+06_QA/CLAIM_LEDGER.md
+
+06_QA/CALCULATION_LEDGER.md
+
+06_QA/BENCHMARK_LEDGER.md
+
+06_QA/MODEL_DEFINITION_LEDGER.md
+
+06_QA/LICENSE_LEDGER.md
+
+06_QA/FACT_CHECK.md
+
+06_QA/PUBLICATION_GATE.md
+
+08_BRIEF/brief-summary.md
+
+10_PROOF_HANDOFF.md
+
+11_DATA_HANDOFF.md
+
+12_SITE_HANDOFF.md
+
+Do not publish from the extraction directory.
+
+Import only intentional public-safe assets.
+
+────────────────────────────────────────
+3. DO NOT RESEARCH AGAIN
+────────────────────────────────────────
+
+The package has already completed:
+
+factual QA
+
+calculation QA
+
+source QA
+
+license QA
+
+benchmark QA
+
+editorial rewrite
+
+proofreading
+
+chart audit
+
+workbook audit
+
+adversarial review.
+
+Do not launch another broad research cycle.
+
+Only recheck a load-bearing primary source if:
+
+the URL fails
+
+or
+
+there is evidence it changed between final review and publication.
+
+If a load-bearing number changed TODAY:
+
+STOP.
+
+Report:
+
+PUBLICATION BLOCKED — PRIMARY SOURCE CHANGED
+
+Do not silently rewrite approved research.
+
+────────────────────────────────────────
+4. HUMAN PUBLICATION STATE
+────────────────────────────────────────
+
+Change:
+
+publishedAt: ""
+
+to:
+
+publishedAt: "2026-08-10"
+
+Change:
+
+status: "review"
+
+to:
+
+status: "published"
+
+Change:
+
+changeLog: []
+
+to:
+
+changeLog:
+  - at: "2026-08-10"
+    type: "published"
+    note: "Initial publication."
+
+Adapt only if current schema requires equivalent date syntax.
+
+Do not add a correction.
+
+Do not add `updatedAt` merely because implementation occurred today.
+
+────────────────────────────────────────
+5. CANONICAL ARTICLE
+────────────────────────────────────────
+
+Canonical package source:
+
+02_ARTICLE/when-should-a-company-run-its-own-ai-model.md
+
+Import as the ONE canonical site article.
+
+Expected destination approximately:
+
+src/content/articles/when-should-a-company-run-its-own-ai-model.md
+
+but inspect current conventions.
+
+Do NOT create:
+
+.mdx duplicate
+
+-final.md
+
+-v2.md
+
+-published.md
+
+one slug
+=
+one source.
+
+The renderer owns the H1.
+
+FIRST PASS comes from frontmatter.
+
+────────────────────────────────────────
+6. PRESERVE THE CENTRAL THESIS
+────────────────────────────────────────
+
+Do not simplify this into:
+
+OPEN VS CLOSED
+
+or:
+
+SELF-HOSTING IS CHEAPER AT SCALE.
+
+Approved conclusion:
+
+There is no universal open-weight or closed-model winner.
+
+The company should first eliminate deployment policies that fail hard constraints.
+
+Then compare:
+
+COST PER ACCEPTED OUTCOME
+
+among the policies that remain.
+
+Preserve the four-policy model:
+
+1. Closed managed API
+2. Managed open weight
+3. Self-hosted open weight
+4. Hybrid/router
+
+Preserve:
+
+OPEN WEIGHT
+≠
+OPEN SOURCE AI.
+
+────────────────────────────────────────
+7. FROZEN CORE VALUES
+────────────────────────────────────────
+
+These approved values are frozen unless an internal contradiction is discovered:
+
+SAME-MODEL CONTROL
+
+Model:
+Mistral Small 4
+
+Managed model:
+mistral-small-2603
+
+Illustrative workload:
+10,000 input tokens
+1,000 output tokens
+
+Managed price:
+$0.15/M input
+$0.60/M output
+
+Managed cost/task:
+$0.0021
+
+SELF-HOST CAPACITY SCENARIO
+
+AWS Mumbai:
+p5.48xlarge
+
+Hardware:
+8× H100
+
+Capacity price:
+$37.76/hour
+
+730-hour month:
+$27,564.80
+
+PRICE-ONLY BREAK-EVEN:
+
+13,126,095 tasks/month
+
+display:
+
+13.13M tasks/month
+
+80% EFFECTIVE-UTILIZATION REQUIRED RATE:
+
+approximately 22,476 useful tasks/hour
+
+approximately 6.24 useful tasks/second.
+
+These are NOT measured serving throughput.
+
+Preserve that caveat visibly.
+
+────────────────────────────────────────
+8. CRITICAL CAPACITY CAVEAT
+────────────────────────────────────────
+
+This is one of the most important editorial distinctions.
+
+DO NOT write:
+
+"8×H100 can serve 22,476 tasks/hour."
+
+The approved claim is:
+
+At the price-only break-even and 80% effective utilization, the fleet WOULD NEED to deliver approximately:
+
+22,476 useful tasks/hour
+
+or:
+
+6.24 useful tasks/second.
+
+The research found no sufficiently compatible primary throughput benchmark proving the selected serving configuration can achieve that workload under the required SLO.
+
+Therefore this is:
+
+REQUIRED CAPACITY
+
+not:
+
+MEASURED CAPACITY.
+
+Keep this distinction in:
+
+article
+
+figure
+
+caption
+
+FIRST PASS
+
+workbook/download copy
+
+social copy if used.
+
+────────────────────────────────────────
+9. QUALITY-ADJUSTED EQUATION
+────────────────────────────────────────
+
+Preserve:
+
+$$
+CAO_j
+=
+\frac{E[C_{\text{system},j}]}{P(A_j)}
+$$
+
+and:
+
+$$
+r_q
+=
+\frac{a_o}{a_c}
+$$
+
+and the break-even:
+
+$$
+N^*
+=
+\frac{F}
+{r_qv_c-v_o}
+$$
+
+with the finite-break-even condition:
+
+$$
+r_qv_c-v_o>0.
+$$
+
+The key result:
+
+if:
+
+$$
+r_qv_c-v_o\le0
+$$
+
+then:
+
+NO FINITE TASK VOLUME
+
+makes self-hosting cheaper per accepted outcome under that model.
+
+Do not alter the algebra.
+
+Do not convert scenario quality values into measured model-quality claims.
+
+────────────────────────────────────────
+10. UTILIZATION RESULT
+────────────────────────────────────────
+
+Preserve the simplified fixed-capacity relationship:
+
+$$
+C_{\text{fixed/task}}
+\propto
+\frac{1}{u}
+$$
+
+with:
+
+80% = 1.00× reference
+
+40% = 2.00×
+
+20% = 4.00×
+
+and appropriate intermediate values.
+
+Keep the caveat:
+
+this is a simplified fixed-capacity relationship
+
+not proof real inference infrastructure behaves linearly under every operating regime.
+
+────────────────────────────────────────
+11. MEMORY CASE
+────────────────────────────────────────
+
+Preserve the gpt-oss-120b memory case:
+
+official checkpoint:
+60.8 GiB
+
+total parameters:
+116.83B
+
+active parameters/token:
+5.13B
+
+hardware-fit statement:
+optimized MXFP4 can fit on one 80GB-class GPU under the documented implementation.
+
+Do NOT turn:
+
+"fits on one GPU"
+
+into:
+
+"production-ready on one GPU."
+
+Preserve:
+
+KV cache
+
+runtime/workspace
+
+allocator behavior
+
+latency
+
+concurrency
+
+redundancy
+
+production margin
+
+as unresolved serving-capacity dimensions.
+
+────────────────────────────────────────
+12. GENERIC KV EQUATION
+────────────────────────────────────────
+
+The article correctly avoids numerically forcing a generic full-context KV formula onto gpt-oss-120b because its architecture does not justify that precision.
+
+Preserve that restraint.
+
+Do not invent a numeric KV-cache value.
+
+The generic equation is explanatory.
+
+Not a gpt-oss memory measurement.
+
+────────────────────────────────────────
+13. PACKAGE-RELATIVE ASSET PATHS
+────────────────────────────────────────
+
+The canonical research Markdown contains package paths such as:
+
+../05_CHARTS/chart-01-deployment-policies.svg
+
+These are NOT valid production URLs.
+
+Copy public chart assets to the site's established research asset system.
+
+Use a clean stable namespace such as:
+
+/research/open-weight-vs-closed/charts/
+
+or the current established equivalent.
+
+Then update Markdown paths.
+
+ZERO public occurrences of:
+
+../05_CHARTS/
+
+../03_RESEARCH/
+
+../04_MODEL/
+
+/mnt/data/
+
+sandbox:
+
+file://
+
+temporary extraction paths.
+
+────────────────────────────────────────
+14. FIVE ARTICLE VISUALS
+────────────────────────────────────────
+
+The package contains:
+
+01
+Four deployment policies
+
+02
+Same-model deployment break-even
+
+03
+Quality-adjusted frontier
+
+04
+Utilization trap
+
+05
+Memory / KV headroom
+
+All five are evidence-bearing.
+
+All have:
+
+SVG
+
+PNG
+
+CSV source.
+
+Use SVG for article rendering.
+
+PNG primarily for fallback/social use.
+
+Do not recreate them with a runtime chart library.
+
+Do not add chart JavaScript.
+
+────────────────────────────────────────
+15. APPLY THE 9.5+ VISUAL STANDARD
+────────────────────────────────────────
+
+Do not simply copy the SVGs and stop.
+
+Inspect each visual against:
+
+PUBLICATION_STANDARD.md.
+
+Every figure must achieve:
+
+clear hierarchy
+
+readable labels
+
+correct use of Signal Blue
+
+compact information density
+
+no decorative elements
+
+strong caption
+
+clear scenario/observed distinction
+
+mobile legibility.
+
+You MAY make presentational improvements to the supplied SVGs if:
+
+data
+
+math
+
+claims
+
+and analytical meaning
+
+remain unchanged.
+
+Do NOT alter source values.
+
+────────────────────────────────────────
+16. FIGURE 01 — FOUR DEPLOYMENT POLICIES
+────────────────────────────────────────
+
+Question:
+
+What choices actually exist beyond open vs closed?
+
+Current structural content is correct.
+
+Ensure the final article visual feels like a SECOND / PASS technical diagram, not a generic SaaS card grid.
+
+Preserve:
+
+Closed managed API
+
+Managed open weight
+
+Self-hosted open weight
+
+Hybrid / router.
+
+Show:
+
+weights
+
+infrastructure
+
+economic shape.
+
+Do not add subjective:
+
+control score
+privacy score
+quality score.
+
+At mobile:
+
+stack vertically.
+
+Caption must reinforce:
+
+weight access
+and
+infrastructure ownership
+
+are separate decisions.
+
+────────────────────────────────────────
+17. FIGURE 02 — SAME-MODEL BREAK-EVEN
+────────────────────────────────────────
+
+This is a central figure.
+
+Question:
+
+At what illustrative workload volume does managed Mistral cost equal the selected AWS capacity price?
+
+Must show clearly:
+
+managed Mistral variable-cost curve
+
+self-host capacity-only line
+
+optional self-host + $5k ops scenario if present
+
+price-only break-even:
+
+13.13M tasks/month.
+
+Critical figure caption:
+
+This is a PRICE boundary.
+
+Not proof the selected 8×H100 configuration can serve that volume under the required SLO.
+
+Make the break-even annotation immediately legible.
+
+Signal Blue should carry the managed variable curve / key threshold.
+
+────────────────────────────────────────
+18. FIGURE 03 — QUALITY-ADJUSTED FRONTIER
+────────────────────────────────────────
+
+This is probably the flagship visual.
+
+Question:
+
+How does an acceptance-quality gap move or eliminate self-host break-even?
+
+The package audit already corrected the economic-region labels.
+
+Preserve exactly:
+
+ABOVE CURVE:
+self-host lower CAO
+
+BELOW CURVE:
+managed lower CAO
+
+NO FINITE BREAK-EVEN REGION
+
+for:
+
+r_q <= approximately 0.476
+
+under the plotted scenario.
+
+Do not reverse those labels.
+
+Make visually obvious that:
+
+the curve is a DECISION BOUNDARY
+
+not observed model performance.
+
+Caption must say:
+
+quality ratio and remaining self-host variable cost are sensitivity inputs.
+
+Not measured model quality.
+
+────────────────────────────────────────
+19. FIGURE 04 — UTILIZATION TRAP
+────────────────────────────────────────
+
+Question:
+
+What does idle capacity do to fixed cost per useful unit?
+
+Preserve:
+
+20% → 4.00×
+
+40% → 2.00×
+
+60% → 1.33×
+
+80% → 1.00×
+
+100% → 0.80×
+
+relative to 80%.
+
+Highlight 80% reference with Signal Blue.
+
+Keep this figure extremely simple.
+
+No extra decoration.
+
+Caption states:
+
+all else equal
+simplified fixed-capacity relationship.
+
+────────────────────────────────────────
+20. FIGURE 05 — MEMORY HEADROOM
+────────────────────────────────────────
+
+Question:
+
+Why does "fits on the GPU" not establish production serving capacity?
+
+This visual should clearly separate:
+
+OBSERVED / DOCUMENTED:
+
+60.8 GiB checkpoint
+
+80 GB headline HBM
+
+from:
+
+UNRESOLVED PRODUCTION HEADROOM:
+
+KV cache
+
+runtime/workspace
+
+margin/SLO/reliability.
+
+Do not numerically subtract:
+
+80 GB
+-
+60.8 GiB
+
+because these use different units and because the unresolved runtime allocations are not measured.
+
+The existing package deliberately avoids that error.
+
+Keep it that way.
+
+────────────────────────────────────────
+21. SEMANTIC FIGURES
+────────────────────────────────────────
+
+All five article visuals must render through the current semantic research-figure pipeline.
+
+Required approximate HTML:
+
+<figure class="research-figure">
+  <div class="research-figure-scroll">
+    <img ...>
+  </div>
+  <figcaption>...</figcaption>
+</figure>
+
+No:
+
+<p><img></p>
+
+for these analytical research figures.
+
+Use the package chart specs for:
+
+alt text
+
+caption content
+
+mobile behavior.
+
+Do not merely use the filename as alt text.
+
+────────────────────────────────────────
+22. CAPTIONS
+────────────────────────────────────────
+
+Every analytical figure requires a useful caption.
+
+Caption answers:
+
+what is shown?
+
+what is factual vs scenario?
+
+what should not be inferred?
+
+Do not repeat title word-for-word.
+
+Example for Figure 02:
+
+The managed-cost curve reaches the selected $27,564.80 monthly AWS capacity line near 13.13M illustrative tasks. This is a price-only boundary; it does not establish that the 8×H100 serving configuration can sustain the required rate under a production SLO.
+
+Use polished final wording.
+
+────────────────────────────────────────
+23. HOUSE OBJECTS
+────────────────────────────────────────
+
+The article contains:
+
+/ QUESTION
+
+/ CALCULATION
+
+/ ASSUMPTION
+
+/ CLAIM CHECK
+
+/ INTELLIGENCE
+
+Use the existing house renderer.
+
+Do not leave:
+
+### / CALCULATION
+
+as generic article typography if the current system supports `.calculation-block`.
+
+Do not leave:
+
+/ CLAIM CHECK
+
+unstyled.
+
+Do not leave:
+
+/ ASSUMPTION
+
+unstyled.
+
+Do not add hardcoded HTML if the publication renderer already transforms semantic Markdown.
+
+The renderer owns presentation.
+
+────────────────────────────────────────
+24. CALCULATION BLOCKS
+────────────────────────────────────────
+
+The important calculations must be immediately scannable.
+
+Use house structure:
+
+/ CALCULATION
+
+QUESTION
+
+ASSUMPTIONS
+
+EQUATION
+
+RESULT
+
+SO WHAT
+
+CAVEAT.
+
+RESULT should carry controlled Signal Blue emphasis.
+
+Equations remain KaTeX.
+
+Do not enlarge every equation.
+
+The result and decision implication are the visual priority.
+
+────────────────────────────────────────
+25. CLAIM CHECKS
+────────────────────────────────────────
+
+Two particularly important Claim Checks:
+
+"Open models are cheaper at scale."
+
+and:
+
+"The model fits on one GPU."
+
+Render them using the SECOND / PASS ClaimCheck system.
+
+They should feel like evidence verification.
+
+Not warning cards.
+
+Not marketing callouts.
+
+SECOND / PASS verdict receives restrained emphasis.
+
+────────────────────────────────────────
+26. TABLES
+────────────────────────────────────────
+
+Use automatic `.table-wrap`.
+
+Do not manually build another table system.
+
+Check every article table at:
+
+1440
+1024
+820
+768
+430
+390
+375.
+
+No page-level horizontal overflow.
+
+Numeric values readable.
+
+No tiny compressed columns.
+
+────────────────────────────────────────
+27. MATH
+────────────────────────────────────────
+
+Preserve current KaTeX architecture.
+
+Currency remains ordinary prose.
+
+Examples:
+
+$0.0021
+
+$27,564.80
+
+$5,000/month
+
+must NEVER be interpreted as math.
+
+Display equations use current `$$...$$` pipeline.
+
+Zero sentinels:
+
+24182
+24183
+24190
+24191.
+
+Zero raw visible LaTeX.
+
+Long equations may internally scroll.
+
+Page itself may not.
+
+────────────────────────────────────────
+28. WORKBOOK
+────────────────────────────────────────
+
+The package contains:
+
+enterprise-ai-deployment-decision-model.xlsx
+
+This is a significant part of the article's value.
+
+Publish it as a STATIC DOWNLOAD.
+
+Do not create an interactive calculator.
+
+Do not rebuild the workbook.
+
+Copy to a clean public path such as:
+
+/research/open-weight-vs-closed/downloads/enterprise-ai-deployment-decision-model.xlsx
+
+or current site convention.
+
+Also publish:
+
+company-deployment-input-template.csv
+
+as a simple alternative.
+
+Do not expose internal QA spreadsheets/files.
+
+────────────────────────────────────────
+29. WORKBOOK COPY
+────────────────────────────────────────
+
+Add a restrained article download object near the decision-framework section.
+
+Example house direction:
+
+/ USE THE MODEL
+
+ENTERPRISE AI DEPLOYMENT DECISION MODEL
+XLSX
+
+COMPANY INPUT TEMPLATE
+CSV
+
+The workbook compares only feasible policies and keeps the self-host option capacity-gated until measured serving throughput is supplied.
+
+DOWNLOAD →
+
+Do not make this look like a lead magnet.
+
+No email gate.
+
+No marketing copy.
+
+It is supporting research.
+
+────────────────────────────────────────
+30. SUPPORTING PUBLIC DATA
+────────────────────────────────────────
+
+Package research files are public-safe where indicated.
+
+At minimum consider exposing:
+
+same-model-control.csv
+
+break-even-surface.csv
+
+utilization-sensitivity.csv
+
+memory-case-study.csv
+
+company-deployment-input-template.csv.
+
+Use judgment.
+
+Do NOT expose:
+
+QA ledgers
+
+internal editorial files
+
+distribution files
+
+handoff files.
+
+The article does not require every research CSV to be linked visibly.
+
+────────────────────────────────────────
+31. PUBLIC/PRIVATE BOUNDARY
+────────────────────────────────────────
+
+DO NOT publish into routable/indexed content:
+
+00_MANIFEST.md
+
+01_EDITORIAL_DECISION.md
+
+06_QA/*
+
+07_DISTRIBUTION/*
+
+08_BRIEF/brief-summary.md as a standalone route
+
+09_FOLLOWUPS/*
+
+10_PROOF_HANDOFF.md
+
+11_DATA_HANDOFF.md
+
+12_SITE_HANDOFF.md.
+
+Those are newsroom/internal handoffs.
+
+Only approved:
+
+article
+
+research visuals
+
+public supporting data
+
+decision workbook
+
+input CSV
+
+belong on the public site.
+
+────────────────────────────────────────
+32. ARTICLE RHYTHM
+────────────────────────────────────────
+
+This flagship is ~3,072 words.
+
+It should feel designed, not like a long report pasted into Markdown.
+
+Visually inspect rhythm:
+
+headline
+
+dek
+
+meta
+
+FIRST PASS
+
+opening
+
+Figure 01
+
+definition/mechanism
+
+same-model section
+
+Calculation
+
+Figure 02
+
+quality-adjusted section
+
+Figure 03
+
+utilization
+
+Figure 04
+
+memory
+
+Figure 05
+
+constraints/decision model
+
+downloads
+
+Claim Checks
+
+conclusion
+
+INTELLIGENCE
+
+sources.
+
+Do not mechanically follow this exact sequence if source placement is already better.
+
+But avoid:
+
+five figures dumped together
+
+or
+
+huge uninterrupted walls of prose.
+
+────────────────────────────────────────
+33. FIRST SCREEN
+────────────────────────────────────────
+
+At desktop, first screen must feel flagship-level.
+
+Need:
+
+AI / SECOND PASS
+
+headline
+
+dek
+
+Aditya
+
+Published Aug 10, 2026
+
+strong FIRST PASS entry
+
+clean TOC/evidence system.
+
+No decorative hero image.
+
+Typography remains hero.
+
+Target:
+
+9.7/10 first-screen hierarchy.
+
+────────────────────────────────────────
+34. FIRST PASS
+────────────────────────────────────────
+
+Preserve exactly the approved five findings.
+
+Do not rewrite numbers.
+
+Must clearly communicate:
+
+open weight ≠ open source
+
+four policies
+
+$0.0021 managed task scenario / 13.13M price boundary
+
+22,476 required tasks/hour is NOT measured throughput
+
+quality/utilization/constraints can move/remove break-even.
+
+FIRST PASS should allow a reader to understand the article in ~60 seconds.
+
+────────────────────────────────────────
+35. EVIDENCE RAIL
+────────────────────────────────────────
+
+Desktop:
+
+keep load-bearing sources.
+
+Do not place every internal source into the right rail.
+
+Prioritize approximately 4–6 most important sources.
+
+Full sources remain at bottom.
+
+Tablet/mobile:
+
+follow current publication standard.
+
+Evidence rail hidden at <=1040 if that is the current shared behavior.
+
+────────────────────────────────────────
+36. SOURCES
+────────────────────────────────────────
+
+Preserve natural inline source links.
+
+Use structured frontmatter source list.
+
+Do not expose internal source IDs.
+
+No duplicate manual Sources appendix.
+
+Primary load-bearing sources include:
+
+OSI Open Source AI Definition
+
+Mistral Small 4
+
+Mistral Small 4 NVFP4
+
+AWS Capacity Block pricing
+
+OpenAI gpt-oss source
+
+NVIDIA H100
+
+current closed-managed references where used.
+
+Verify links resolve immediately before publication.
+
+────────────────────────────────────────
+37. LICENSE LANGUAGE
+────────────────────────────────────────
+
+Do not turn article license discussion into legal advice.
+
+Preserve:
+
+license compatibility must be reviewed against the company's actual use case.
+
+Do not say:
+
+Apache 2.0 means any deployment is automatically legally safe.
+
+Do not broaden beyond verified license facts.
+
+────────────────────────────────────────
+38. SECURITY / PRIVACY
+────────────────────────────────────────
+
+Preserve neutrality.
+
+Do NOT write:
+
+self-hosting = secure
+
+closed API = unsafe
+
+local = private by definition.
+
+Treat:
+
+security architecture
+
+residency
+
+privacy
+
+license
+
+context
+
+latency
+
+as deployment constraints.
+
+The company evaluates them before cost comparison.
+
+────────────────────────────────────────
+39. FEATURED STATE
+────────────────────────────────────────
+
+Package says:
+
+featured: true
+
+Preserve.
+
+This is the next flagship.
+
+If the site expects one primary featured article:
+
+make this the current featured article.
+
+Do not unpublish previous flagships.
+
+Older articles remain accessible.
+
+Do not delete prior content.
+
+────────────────────────────────────────
+40. HOMEPAGE
+────────────────────────────────────────
+
+Verify homepage presentation.
+
+The article should appear as the current flagship if current feature logic supports that.
+
+Expected:
+
+AI / SECOND PASS
+
+When should a company run its own AI model?
+
+dek
+
+date
+
+link.
+
+Do not redesign homepage.
+
+────────────────────────────────────────
+41. AI / RESEARCH ROUTES
+────────────────────────────────────────
+
+Verify article is discoverable where current taxonomy requires:
+
+/
+
+ /ai
+
+ /research if current SECOND PASS logic includes it
+
+author page
+
+RSS
+
+sitemap
+
+Pagefind.
+
+Do not force it into unrelated categories.
+
+────────────────────────────────────────
+42. SOCIAL ASSETS
+────────────────────────────────────────
+
+Generate current house social assets.
+
+Required:
+
+1200×630
+
+1080×1350
+
+1080×1080.
+
+Primary social treatment:
+
+WHEN SHOULD A COMPANY
+RUN ITS OWN AI MODEL?
+
+OPEN WEIGHT /
+MANAGED /
+SELF-HOSTED /
+HYBRID
+
+COST PER ACCEPTED OUTCOME
+
+or an even stronger house-compliant composition.
+
+Do NOT use:
+
+OPEN VS CLOSED
+WHO WINS?
+
+No boxing-match imagery.
+
+No vendor logo collage.
+
+No robot.
+
+No GPU glamour photo.
+
+No giant unsupported 13.13M statistic without scenario context.
+
+────────────────────────────────────────
+43. OPTIONAL SECONDARY SOCIAL CARD
+────────────────────────────────────────
+
+A secondary research-stat card MAY use:
+
+13.13M TASKS/MONTH
+
+only if visually labelled:
+
+ILLUSTRATIVE PRICE-ONLY BREAK-EVEN
+
+and includes sufficient context:
+
+Mistral Small 4
+10k input + 1k output
+selected AWS capacity scenario.
+
+Do not allow the number to appear universal.
+
+────────────────────────────────────────
+44. SEO
+────────────────────────────────────────
+
+Preserve reviewed direction:
+
+SEO title:
+When should a company run its own AI model?
+
+SEO description:
+A quantitative framework for choosing closed APIs, managed open-weight inference, self-hosted models or hybrid routing using cost, quality, utilization and hard constraints.
+
+Verify:
+
+canonical
+
+og:type article
+
+og:title
+
+og:description
+
+og:image
+
+og:image:alt
+
+article published time
+
+article section
+
+tags
+
+Person schema
+
+Organization schema.
+
+────────────────────────────────────────
+45. RESPONSIVE QA — FULL SUITE
+────────────────────────────────────────
+
+This is a major flagship.
+
+Do NOT use quick-only responsive QA as final acceptance.
+
+Run full viewports:
+
+1440 × 1000
+
+1024 × 1366
+
+820 × 1180
+
+768 × 1024
+
+430 × 932
+
+390 × 844
+
+375 × 812.
+
+Run actual:
+
+responsive:audit
+
+and:
+
+visual:audit
+
+using current scripts.
+
+────────────────────────────────────────
+46. FIGURE MOBILE QA
+────────────────────────────────────────
+
+Figure 01:
+
+must stack cleanly when required.
+
+Figure 02:
+
+labels and break-even annotation readable.
+
+Figure 03:
+
+decision regions and no-finite area readable.
+
+This may require internal horizontal scroll rather than microscopic text.
+
+Figure 04:
+
+should remain fluid/readable.
+
+Figure 05:
+
+fact boxes/headroom structure must stack appropriately.
+
+Captions remain OUTSIDE scrollable chart areas.
+
+No figure may create page-level horizontal overflow.
+
+────────────────────────────────────────
+47. WORKBOOK/DOWNLOAD MOBILE QA
+────────────────────────────────────────
+
+Download object must:
+
+fit 375px
+
+wrap filenames
+
+have adequate touch target
+
+not become giant marketing buttons
+
+clearly state XLSX / CSV.
+
+Do not embed spreadsheet preview.
+
+────────────────────────────────────────
+48. HOUSE OBJECT QA
+────────────────────────────────────────
+
+Verify built article contains proper:
+
+.calculation-block
+
+.claim-check
+
+.assumption-block
+
+for the corresponding semantic content.
+
+No raw unstyled:
+
+### / CALCULATION
+
+### / ASSUMPTION
+
+## / CLAIM CHECK
+
+in final rendered presentation if current system supports transformation.
+
+────────────────────────────────────────
+49. VISUAL SCORECARD
+────────────────────────────────────────
+
+Actually inspect screenshots and score:
+
+FIRST-SCREEN HIERARCHY
+
+TYPOGRAPHY
+
+ARTICLE RHYTHM
+
+INFORMATION DESIGN
+
+FIGURE QUALITY
+
+MATHEMATICAL PRESENTATION
+
+TABLE QUALITY
+
+HOUSE OBJECT CONSISTENCY
+
+SOURCE/EVIDENCE PRESENTATION
+
+RESPONSIVE DESIGN
+
+ACCESSIBILITY
+
+POLISH.
+
+Requirements:
+
+NO dimension <9.0.
+
+Average >=9.5.
+
+For this flagship:
+
+Information Design >=9.5
+
+Figure Quality >=9.5
+
+Mathematical Presentation >=9.5.
+
+If not:
+
+make restrained presentational improvements.
+
+Do not falsify score.
+
+────────────────────────────────────────
+50. SCREENSHOT INSPECTION
+────────────────────────────────────────
+
+Generate temporary screenshots at:
+
+1440
+1024
+820
+768
+430
+390
+375.
+
+Actually inspect them.
+
+Specifically inspect:
+
+headline line breaks
+
+FIRST PASS
+
+Figure 01
+
+first CalculationBlock
+
+Figure 02
+
+Figure 03
+
+Figure 04
+
+Figure 05
+
+workbook download
+
+Claim Checks
+
+sources
+
+INTELLIGENCE
+
+BRIEF
+
+footer.
+
+Automated tests are not enough.
+
+Temporary screenshots must not be committed.
+
+────────────────────────────────────────
+51. ARTICLE CALCULATION SANITY CHECK
+────────────────────────────────────────
+
+Before deploy independently reproduce:
+
+MANAGED TASK
+
+10,000 × $0.15/M
++
+1,000 × $0.60/M
+
+=
+
+$0.0015
++
+$0.0006
+
+=
+
+$0.0021.
+
+CAPACITY MONTH:
+
+$37.76/hour × 730
+
+=
+
+$27,564.80.
+
+PRICE-ONLY BREAK-EVEN:
+
+$27,564.80 / $0.0021
+
+=
+
+approximately 13,126,095
+
+=
+
+13.13M.
+
+REQUIRED RATE AT 80%:
+
+13,126,095 / (730 × 0.8)
+
+≈
+
+22,476 tasks/hour
+
+≈
+
+6.24 tasks/sec.
+
+Do not modify package results if reproduced.
+
+If they do not reproduce:
+
+BLOCK publication.
+
+────────────────────────────────────────
+52. QUALITY FRONTIER SANITY CHECK
+────────────────────────────────────────
+
+Verify:
+
+N* = F / (r_q v_c - v_o)
+
+and:
+
+finite break-even only when:
+
+r_q v_c - v_o > 0.
+
+For the Figure 03 sensitivity:
+
+verify its supplied:
+
+F
+v_c
+v_o
+quality ratio grid
+
+against chart source CSV.
+
+Ensure:
+
+r_q <= approximately 0.476
+
+corresponds to no-finite-break-even under that plotted scenario.
+
+Do not accidentally use the deployment-only v_o=0 scenario for the quality-frontier figure if its approved chart uses v_o=$0.0010.
+
+These are intentionally different analytical scenarios.
+
+Label them clearly.
+
+────────────────────────────────────────
+53. DO NOT CONFUSE THE TWO SELF-HOST SCENARIOS
+────────────────────────────────────────
+
+This is critical.
+
+SAME-MODEL PRICE-ONLY DEPLOYMENT CONTROL:
+
+v_o = $0 direct remaining per-task deployment cost
+
+because it isolates capacity price
+
+and explicitly excludes production TCO.
+
+QUALITY-ADJUSTED FRONTIER:
+
+uses:
+
+v_o = $0.0010/task
+
+as a SENSITIVITY INPUT.
+
+Do NOT merge these values.
+
+Do NOT imply $0.0010 is observed self-host variable cost.
+
+Figure 03 caption must clearly say it is a sensitivity assumption.
+
+────────────────────────────────────────
+54. WORKBOOK SAFETY GATE
+────────────────────────────────────────
+
+The workbook was deliberately fixed so positive hardware capacity alone does NOT make self-hosting feasible.
+
+Preserve workbook unchanged.
+
+Its capacity gate requires:
+
+measured tasks/hour
+>=
+required workload tasks/hour
+
+at selected utilization.
+
+Do not override this logic in article copy.
+
+Default workbook should continue to report self-hosting:
+
+INFEASIBLE
+
+until measured serving capacity is supplied.
+
+This is a feature, not an error.
+
+────────────────────────────────────────
+55. VISUAL AUDIT
+────────────────────────────────────────
+
+Run:
+
+bun run visual:audit -- --all
+
+or the exact current equivalent.
+
+Required:
+
+semantic figures PASS
+
+alt text PASS
+
+captions PASS
+
+CalculationBlock PASS
+
+ClaimCheck PASS
+
+Assumption PASS
+
+research assets PASS
+
+no raw research image wrappers
+
+no local paths
+
+no page overflow.
+
+Do not weaken visual-audit rules to make the article pass.
+
+────────────────────────────────────────
+56. PREPUBLISH
+────────────────────────────────────────
+
+Run:
+
+bun run prepublish -- when-should-a-company-run-its-own-ai-model
+
+Use current package scripts.
+
+No bypasses.
+
+Expect:
+
+source audit
+
+article verify
+
+content audit
+
+Astro check
+
+build
+
+render audit
+
+visual audit
+
+responsive audit
+
+social generation
+
+currency regression
+
+Pagefind
+
+HTML inspection.
+
+If implementation fails:
+
+fix implementation.
+
+Do not rewrite research to satisfy a stylistic validator.
+
+────────────────────────────────────────
+57. FULL PUBLICATION AUDIT
+────────────────────────────────────────
+
+Because this is a flagship, also run full current project release verification.
+
+At minimum:
+
+bun run content-source-audit
+
+bun run content:audit
+
+bun run check
+
+bun run build
+
+bun run render-audit -- --all
+
+bun run visual:audit -- --all
+
+bun run responsive:audit
+
+and current publication audit if implemented.
+
+All existing articles must remain green.
+
+────────────────────────────────────────
+58. NO REGRESSION TO EXISTING ARTICLES
+────────────────────────────────────────
+
+Do not break:
+
+an-ai-agent-is-no-longer-priced-in-tokens
+
+cheapest-ai-model-not-cheapest-system
+
+cheapest-ai-model-not-cheapest-system-proof
+
+ai-inference-price-surface-v0-1
+
+no-universal-long-context-premium
+
+prompt-cache-second-use-break-even
+
+sonnet-5-price-effective-date
+
+or any additional current published article.
+
+Shared renderer changes should improve, not regress them.
+
+────────────────────────────────────────
+59. PUBLIC SITE STATE
+────────────────────────────────────────
+
+The site is already public.
+
+Do not change:
+
+SITE_PRELAUNCH
+
+back to true.
+
+Verify after deploy:
+
+no noindex
+
+robots allow crawling
+
+public footer state remains.
+
+Do not touch canonical domain.
+
+Current canonical:
+
+https://second-pass.vercel.app
+
+until secondpass.net is actually connected separately.
+
+────────────────────────────────────────
+60. DEPLOY
+────────────────────────────────────────
+
+Deploy ONLY to existing Vercel project:
+
+second-pass.
+
+Do not create another project.
+
+Do not change team/project linkage.
+
+Do not create a new canonical.
+
+────────────────────────────────────────
+61. EXPECTED LIVE URL
+────────────────────────────────────────
+
+https://second-pass.vercel.app/articles/when-should-a-company-run-its-own-ai-model
+
+Fetch actual production.
+
+HTTP 200 required.
+
+Do not report success from preview.
+
+────────────────────────────────────────
+62. LIVE ASSETS
+────────────────────────────────────────
+
+Fetch all five production SVG URLs.
+
+200 required.
+
+Fetch:
+
+enterprise-ai-deployment-decision-model.xlsx
+
+200 required if linked.
+
+Fetch:
+
+company-deployment-input-template.csv
+
+200 required if linked.
+
+Fetch social assets.
+
+200 required.
+
+Do not rely on filesystem existence.
+
+────────────────────────────────────────
+63. PRODUCTION HTML
+────────────────────────────────────────
+
+Verify actual live HTML contains:
+
+correct title
+
+correct dek
+
+one H1
+
+one FIRST PASS
+
+five FIRST PASS bullets
+
+published date
+
+five semantic research figures
+
+figcaptions
+
+CalculationBlocks
+
+ClaimChecks
+
+Assumption blocks
+
+KaTeX
+
+structured Sources
+
+Initial publication changelog
+
+INTELLIGENCE link
+
+article-bottom BRIEF
+
+correct canonical
+
+correct JSON-LD
+
+correct OG image.
+
+Zero:
+
+raw package paths
+
+raw LaTeX
+
+sentinels
+
+duplicate H1
+
+duplicate FIRST PASS
+
+duplicate source section.
+
+────────────────────────────────────────
+64. PRODUCTION VISUAL QA
+────────────────────────────────────────
+
+Do not assume Vercel matches local.
+
+Run representative production browser screenshots at minimum:
+
+1440
+
+1024
+
+390
+
+375.
+
+Inspect:
+
+all five visual types
+
+house objects
+
+footer
+
+newsletter
+
+download module.
+
+If production rendering materially differs from local:
+
+fix/redeploy.
+
+────────────────────────────────────────
+65. RSS / SITEMAP / SEARCH
+────────────────────────────────────────
+
+Verify:
+
+RSS includes article
+
+sitemap includes article
+
+Pagefind finds:
+
+run its own AI model
+
+open weight
+
+self host
+
+13.13M
+
+utilization
+
+Mistral Small 4
+
+cost per accepted outcome.
+
+Do not index QA files or internal handoffs.
+
+────────────────────────────────────────
+66. AUTHOR PAGE
+────────────────────────────────────────
+
+Verify:
+
+/authors/aditya
+
+contains the new article.
+
+No invented credentials.
+
+────────────────────────────────────────
+67. DISTRIBUTION
+────────────────────────────────────────
+
+DO NOT automatically publish external social/community posts.
+
+The package contains prepared distribution copy.
+
+Report:
+
+DISTRIBUTION READY
+
+but:
+
+AUTOMATICALLY POSTED:
+NO
+
+unless separately authorized.
+
+Do not send BRIEF yet.
+
+Today's multi-article BRIEF remains a later task.
+
+────────────────────────────────────────
+68. PROOF / DATA FOLLOWUPS
+────────────────────────────────────────
+
+Do not publish:
+
+The open-weight vs closed-model break-even equation
+
+or:
+
+Enterprise AI Deployment Cost Surface v0.1
+
+in this task.
+
+Handoffs are internal.
+
+Article #03 only.
+
+────────────────────────────────────────
+69. GIT HYGIENE
+────────────────────────────────────────
+
+Before commit:
+
+git status
+git diff
+git diff --stat
+
+Do NOT commit:
+
+ZIP package
+
+temporary extraction
+
+internal QA files
+
+distribution drafts
+
+screenshots
+
+Playwright traces
+
+logs
+
+.env
+
+API secrets
+
+node_modules.
+
+Commit only:
+
+approved article
+
+public research assets
+
+public downloadable decision model/input template
+
+necessary site integration.
+
+────────────────────────────────────────
+70. COMMIT
+────────────────────────────────────────
+
+Preferred commit:
+
+feat: publish enterprise AI deployment analysis
+
+One coherent commit is preferred.
+
+Do not force push.
+
+Do not rewrite history.
+
+────────────────────────────────────────
+71. FINAL ACCEPTANCE — CONTENT
+────────────────────────────────────────
+
+✓ open-weight ≠ open-source distinction
+
+✓ four deployment policies
+
+✓ constraint-first framework
+
+✓ same-model Mistral control
+
+✓ no provider/model winner claim
+
+✓ no unsupported throughput claim
+
+✓ $0.0021 managed task cost
+
+✓ $27,564.80 capacity/month
+
+✓ 13.13M price-only boundary
+
+✓ 22,476 tasks/hour clearly REQUIRED, not measured
+
+✓ quality-adjusted break-even
+
+✓ no-finite-break-even condition
+
+✓ utilization trap
+
+✓ memory headroom
+
+✓ generic KV treatment bounded
+
+✓ security/license/privacy neutrality
+
+✓ workbook capacity gate preserved.
+
+────────────────────────────────────────
+72. FINAL ACCEPTANCE — VISUAL
+────────────────────────────────────────
+
+✓ five evidence-bearing figures
+
+✓ semantic `<figure>`
+
+✓ useful figcaptions
+
+✓ useful alt text
+
+✓ no generic card/dashboard look
+
+✓ Signal Blue carries information
+
+✓ Figure 02 break-even clear
+
+✓ Figure 03 regions correct
+
+✓ Figure 04 utilization reference clear
+
+✓ Figure 05 observed vs unknown clearly separated
+
+✓ CalculationBlocks real
+
+✓ ClaimChecks real
+
+✓ Assumption objects real
+
+✓ no duplicate visuals
+
+✓ no unnecessary hero imagery
+
+✓ article rhythm intentional.
+
+────────────────────────────────────────
+73. FINAL ACCEPTANCE — RESPONSIVE
+────────────────────────────────────────
+
+1440:
+PASS
+
+1024:
+PASS
+
+820:
+PASS
+
+768:
+PASS
+
+430:
+PASS
+
+390:
+PASS
+
+375:
+PASS
+
+Page horizontal overflow:
+0 REQUIRED
+
+Dense figure behavior:
+PASS
+
+Tables:
+PASS
+
+Math:
+PASS
+
+Download module:
+PASS
+
+Sources:
+PASS
+
+BRIEF:
+PASS
+
+Footer:
+PASS.
+
+────────────────────────────────────────
+74. FINAL RESPONSE FORMAT
+────────────────────────────────────────
+
+Return:
+
+# SECOND / PASS — FLAGSHIP #03 PUBLICATION
+
+## STATUS
+
+PASS / FAIL
+
+## ARTICLE
+
+Title:
+When should a company run its own AI model?
+
+Slug:
+when-should-a-company-run-its-own-ai-model
+
+Status:
+published / FAIL
+
+Published date:
+2026-08-10 / FAIL
+
+Featured:
+true / FAIL
+
+Live URL:
+
+HTTP:
+200 / FAIL
+
+## CONTENT INTEGRITY
+
+Open-weight/open-source distinction:
+PASS / FAIL
+
+Four policies:
+PASS / FAIL
+
+Constraint-first model:
+PASS / FAIL
+
+Same-model control:
+PASS / FAIL
+
+Unsupported throughput claims:
+0 REQUIRED
+
+## CORE NUMBERS
+
+Managed task:
+$0.0021 / FAIL
+
+Capacity month:
+$27,564.80 / FAIL
+
+Price-only break-even:
+13.13M / FAIL
+
+Required capacity:
+22,476 tasks/hour / FAIL
+
+Required rate:
+6.24 tasks/sec / FAIL
+
+Required ≠ measured label:
+PASS / FAIL
+
+## QUALITY-ADJUSTED MODEL
+
+CAO:
+PASS / FAIL
+
+Break-even equation:
+PASS / FAIL
+
+Finite-break-even condition:
+PASS / FAIL
+
+No-finite threshold in Figure 03:
+PASS / FAIL
+
+Figure 03 scenario clearly labelled:
+PASS / FAIL
+
+## UTILIZATION
+
+80%:
+1.00× / FAIL
+
+40%:
+2.00× / FAIL
+
+20%:
+4.00× / FAIL
+
+Simplified-model caveat:
+PASS / FAIL
+
+## MEMORY
+
+gpt-oss checkpoint:
+60.8 GiB / FAIL
+
+Total parameters:
+116.83B / FAIL
+
+Active parameters:
+5.13B / FAIL
+
+No fake KV number:
+PASS / FAIL
+
+Fit ≠ production capacity:
+PASS / FAIL
+
+## VISUALS
+
+01 Deployment policies:
+PASS / FAIL
+
+02 Same-model break-even:
+PASS / FAIL
+
+03 Quality frontier:
+PASS / FAIL
+
+04 Utilization:
+PASS / FAIL
+
+05 Memory headroom:
+PASS / FAIL
+
+Semantic figures:
+5 / FAIL
+
+Captions:
+5 / FAIL
+
+Alt text:
+5 / FAIL
+
+## HOUSE OBJECTS
+
+CalculationBlock:
+PASS / FAIL
+
+ClaimCheck:
+PASS / FAIL
+
+Assumption:
+PASS / FAIL
+
+QUESTION:
+PASS / FAIL
+
+INTELLIGENCE:
+PASS / FAIL
+
+## DOWNLOADS
+
+Decision workbook:
+PASS / FAIL
+Live URL:
+
+Input CSV:
+PASS / FAIL
+Live URL:
+
+Workbook unchanged:
+YES / NO
+
+Capacity gate preserved:
+YES / NO
+
+## VISUAL SCORE
+
+First screen:
+/10
+
+Typography:
+/10
+
+Article rhythm:
+/10
+
+Information design:
+/10
+
+Figures:
+/10
+
+Mathematics:
+/10
+
+Tables:
+/10
+
+House objects:
+/10
+
+Sources:
+/10
+
+Responsive:
+/10
+
+Accessibility:
+/10
+
+Polish:
+/10
+
+OVERALL:
+/10
+
+Any dimension under 9.0:
+YES / NO
+
+Average >=9.5:
+YES / NO
+
+## RESPONSIVE
+
+1440:
+PASS / FAIL
+
+1024:
+PASS / FAIL
+
+820:
+PASS / FAIL
+
+768:
+PASS / FAIL
+
+430:
+PASS / FAIL
+
+390:
+PASS / FAIL
+
+375:
+PASS / FAIL
+
+Horizontal overflow:
+0 REQUIRED
+
+## PIPELINE
+
+content-source-audit:
+PASS / FAIL
+
+article verify:
+PASS / FAIL
+
+content audit:
+PASS / FAIL
+
+Astro check:
+PASS / FAIL
+
+build:
+PASS / FAIL
+
+render audit:
+PASS / FAIL
+
+visual audit:
+PASS / FAIL
+
+responsive audit:
+PASS / FAIL
+
+prepublish:
+PASS / FAIL
+
+Pagefind:
+PASS / FAIL
+
+social generation:
+PASS / FAIL
+
+## PUBLICATION SURFACES
+
+Homepage:
+PASS / FAIL
+
+AI:
+PASS / FAIL
+
+Author:
+PASS / FAIL
+
+RSS:
+PASS / FAIL
+
+Sitemap:
+PASS / FAIL
+
+Pagefind:
+PASS / FAIL
+
+robots:
+PUBLIC / BLOCKED
+
+noindex:
+ABSENT / PRESENT
+
+## PRODUCTION
+
+Git commit SHA:
+
+Vercel deployment ID:
+
+Deployment commit SHA:
+
+SHA match:
+YES / NO
+
+## DISTRIBUTION
+
+Package:
+READY / FAIL
+
+Automatically posted:
+NO REQUIRED
+
+Daily BRIEF sent:
+NO REQUIRED
+
+## BLOCKERS
+
+None
+
+OR exact blocker.
+
+If every publication-critical gate passes, end exactly:
+
+SECOND / PASS FLAGSHIP #03: LIVE — 9.5+ PUBLICATION STANDARD PASS
+
+If article integration works but visual score remains below the publication standard:
+
+SECOND / PASS FLAGSHIP #03: VISUAL GATE BLOCKED — <exact defects>
+
+If a factual/source/calculation problem is discovered:
+
+SECOND / PASS FLAGSHIP #03: PUBLICATION BLOCKED — <exact issue>
+
+────────────────────────────────────────
+75. BEGIN NOW
+────────────────────────────────────────
+
+Do not return a plan.
+
+Execute:
+
+read AGENT.md
+→
+read PUBLICATION_STANDARD.md
+→
+inspect latest main
+→
+inspect approved ZIP
+→
+import canonical Markdown
+→
+apply human publication state
+→
+copy five research figures
+→
+copy public decision workbook/input template
+→
+replace package paths
+→
+apply semantic figures/captions
+→
+apply Calculation/ClaimCheck/Assumption house system
+→
+visually polish figures without changing data
+→
+reproduce critical calculations
+→
+run source/render/visual/responsive QA
+→
+inspect all seven viewport screenshots
+→
+fix anything below house standard
+→
+prepublish
+→
+full release audit
+→
+commit
+→
+deploy existing Vercel project
+→
+verify actual production HTML/assets/downloads
+→
+inspect production screenshots
+→
+return final report.
+
+The finish line is not:
+
+"Markdown imported."
+
+The finish line is:
+
+THE APPROVED RESEARCH IS LIVE AS A 9.5+ SECOND / PASS FLAGSHIP,
+WITH THE MATHEMATICS, VISUALS, DOWNLOADABLE DECISION MODEL,
+RESPONSIVE SYSTEM, SOURCE PRESENTATION AND HOUSE OBJECTS
+ALL WORKING TOGETHER.
+
+Proceed.

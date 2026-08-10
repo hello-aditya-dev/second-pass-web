@@ -24,7 +24,9 @@ if (!allFlag && !slug) {
 
 // ── Dist base ─────────────────────────────────────────────────────────
 // Vercel adapter outputs to dist/client/, static output to dist/
+// Post-build processing writes to .vercel/output/static/
 const DIST_CANDIDATES = [
+  path.join(".vercel", "output", "static", "articles"),
   path.join("dist", "client", "articles"),
   path.join("dist", "articles")
 ];
@@ -146,9 +148,24 @@ function auditOne(slug) {
   const bodyMatch = html.match(/<body[^>]*>([\s\S]*)<\/body>/i);
   const bodyContent = bodyMatch ? bodyMatch[1] : html;
   // Remove katex spans from body before checking
-  const bodySansKatex = bodyContent
-    .replace(/<span[^>]*class="[^"]*katex[^"]*"[^>]*>[\s\S]*?<\/span>/gi, "")
-    .replace(/<span[^>]*class="[^"]*katex-display[^"]*"[^>]*>[\s\S]*?<\/span>/gi, "");
+  // Strategy: replace all <span class="katex...">...</span> blocks using
+  // a marker-based approach since the non-greedy regex can't handle
+  // deeply nested spans. We mark opening tags, then remove everything
+  // between matched pairs.
+  let bodySansKatex = bodyContent;
+  // Remove all MathML annotation content first (contains LaTeX source)
+  bodySansKatex = bodySansKatex.replace(/<annotation[^>]*>[\s\S]*?<\/annotation>/gi, "");
+  // Then remove katex spans (multiple passes for nesting)
+  for (let pass = 0; pass < 15; pass++) {
+    const next = bodySansKatex
+      .replace(/<span[^>]*class="[^"]*katex[^"]*"[^>]*>[\s\S]*?<\/span>/gi, "")
+      .replace(/<span[^>]*class="[^"]*katex-display[^"]*"[^>]*>[\s\S]*?<\/span>/gi, "");
+    if (next === bodySansKatex) break;
+    bodySansKatex = next;
+  }
+  // Also remove math-inline spans (post-build KaTeX)
+  bodySansKatex = bodySansKatex
+    .replace(/<span[^>]*class="math-inline"[^>]*>[\s\S]*?<\/span>/gi, "");
   for (const pat of RAW_LATEX_PATTERNS) {
     const m = bodySansKatex.match(pat);
     if (m) rawLatexCount++;

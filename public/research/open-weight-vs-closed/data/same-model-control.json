@@ -1,0 +1,27 @@
+{
+  "snapshot_date": "2026-08-10",
+  "model": "Mistral Small 4",
+  "managed_api": {
+    "input_usd_per_mtok": 0.15,
+    "output_usd_per_mtok": 0.6
+  },
+  "workload": {
+    "input_tokens": 10000,
+    "output_tokens": 1000
+  },
+  "self_host_capacity": {
+    "instance": "AWS p5.48xlarge",
+    "region": "Mumbai",
+    "gpu_count": 8,
+    "gpu": "H100",
+    "usd_hour": 37.76,
+    "hours_month": 730
+  },
+  "calculations": {
+    "managed_cost_task": 0.0021,
+    "capacity_month": 27564.8,
+    "simple_break_even_tasks_month": 13126095.238095239,
+    "required_tasks_hour_at_80pct": 22476.190476190477
+  },
+  "warning": "Price boundary only; not proof of serving capacity/SLO."
+}
