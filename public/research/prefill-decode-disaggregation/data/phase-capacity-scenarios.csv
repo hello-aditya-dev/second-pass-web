@@ -1,0 +1,7 @@
+case_id,phase,capacity_reqeq_per_s_per_worker,gpus_per_worker,target_utilization,workers_required,gpu_count,observed_utilization_at_case_lambda,classification
+PRIMARY_LONG_PROMPT,AGGREGATED,2.0,2,0.8,4,8,0.7,SCENARIO
+PRIMARY_LONG_PROMPT,PREFILL,8.0,2,0.8,1,2,0.7,SCENARIO
+PRIMARY_LONG_PROMPT,DECODE,4.0,2,0.8,2,4,0.7,SCENARIO
+COUNTER_LOW_LOAD,AGGREGATED,2.0,2,0.8,1,2,0.3,SCENARIO
+COUNTER_LOW_LOAD,PREFILL,8.0,2,0.8,1,2,0.075,SCENARIO
+COUNTER_LOW_LOAD,DECODE,4.0,2,0.8,1,2,0.15,SCENARIO

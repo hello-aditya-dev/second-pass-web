@@ -1,0 +1,3 @@
+architecture,stage_order,new_boundary
+AGGREGATED,ROUTER → PREFILL + DECODE WORKER,none
+DISAGGREGATED,ROUTER → PREFILL POOL → KV HANDOFF → DECODE POOL,KV transfer + routing + separate queues
