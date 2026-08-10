@@ -3,10 +3,10 @@ interface Props {
   fallback?: "brief" | "data";
   label?: string;
 }
-const { fallback = "brief", label = "ADVERTISEMENT / RESERVED" } = Astro.props;
+const { fallback = "brief", label = fallback === "brief" ? "HOUSE / BRIEF" : "HOUSE / DATA" } = Astro.props;
 const isBrief = fallback === "brief";
 ---
-<aside class="ad-break" data-pagefind-ignore aria-label="Commercial break">
+<aside class="ad-break" data-pagefind-ignore aria-label="House promotion">
   <div class="ad-shell">
     <div class="ad-label">{label}</div>
     <div class="house-unit">

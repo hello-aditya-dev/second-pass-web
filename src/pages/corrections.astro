@@ -10,7 +10,29 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
     <div style="max-width:var(--reading);font:1.18rem/1.65 var(--reader)">
       <p>Material factual errors should be corrected promptly. Significant corrections should remain visible
 through the article change log rather than being hidden by silently rewriting the record.</p>
-<p>Normal developing-story updates, clarifications, and factual corrections should remain distinct.</p>
+<p>These categories remain distinct:</p>
+<ul>
+  <li><strong>CORRECTION</strong> — A material factual error has been fixed. The original claim was wrong.</li>
+  <li><strong>CLARIFICATION</strong> — The original was technically accurate but imprecise or misleading without additional context. No fact changed.</li>
+  <li><strong>UPDATE</strong> — New information or a developing story. The original was accurate at the time of publication.</li>
+  <li><strong>PRESENTATION CHANGE</strong> — Visual, structural, or formatting change with no factual impact. A chart was redrawn, a table was reformatted, or a figure was repositioned.</li>
+</ul>
+<p>Significant corrections remain visible in article change logs. Minor clarifications may be incorporated silently if they do not alter the meaning of any claim.</p>
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  ul {
+    margin: 12px 0;
+    padding-left: 20px;
+  }
+  li {
+    margin-bottom: 8px;
+  }
+  li strong {
+    font-family: var(--mono);
+    font-size: .88rem;
+    letter-spacing: .03em;
+  }
+</style>

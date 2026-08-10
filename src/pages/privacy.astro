@@ -1,17 +1,81 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
-<BaseLayout title="Pre-launch privacy notice." description="This foundation does not currently use an analytics provider, advertising provider, account system,">
+<BaseLayout title="Privacy notice" description="How SECOND / PASS collects and uses information.">
   <section class="shell route">
     <header class="route-head">
       <div class="kicker">/ PRIVACY</div>
-      <h1>Pre-launch privacy notice.</h1>
+      <h1>Privacy notice.</h1>
     </header>
     <div style="max-width:var(--reading);font:1.18rem/1.65 var(--reader)">
-      <p>This foundation does not currently use an analytics provider, advertising provider, account system,
-or newsletter collection service.</p>
-<p>Before any such system is enabled, this notice must be updated to describe the site's actual data
-collection and the consent or control mechanisms that apply.</p>
+      <p><strong>Effective:</strong> August 10, 2026. <strong>Last updated:</strong> August 10, 2026.</p>
+
+      <h2>What this covers</h2>
+      <p>This notice describes what information SECOND / PASS collects, how it is used, and who processes it. It applies to second-pass.vercel.app and any domain that serves the same site.</p>
+
+      <h2>Reading the publication</h2>
+      <p>Research articles are publicly accessible without personal data collection. Downloadable research files — CSV, XLSX, SVG — are static assets that require no personal data to access. No account is needed to read anything on this site.</p>
+
+      <h2>Newsletter: / BRIEF</h2>
+      <p>When you subscribe to / BRIEF, we collect your email address and send it to our newsletter provider, Beehiiv. If you arrived via a tracked link, we may also pass UTM attribution parameters (utm_source, utm_medium, utm_campaign, utm_content) and the domain of the referring site to Beehiiv for subscription attribution. We do not store your email ourselves; Beehiiv manages the subscriber list and delivery.</p>
+      <p>You can unsubscribe at any time via the link in every email.</p>
+
+      <h2>Partner inquiry</h2>
+      <p>The partner form collects: name, company, work email, website (optional), role (optional), objective, budget range (optional), timeline (optional), and additional context (optional). This information is sent via Resend as a transactional email to our internal team. We do not store it in a database. We use these details to respond to your inquiry.</p>
+
+      <h2>Intelligence inquiry</h2>
+      <p>The intelligence form collects: name, company, work email, role (optional), decision or problem description, desired outcome, decision deadline (optional), project budget (optional), and confidentiality level. This information is sent via Resend as a transactional email to our internal team. We do not store it in a database. We use these details to evaluate and respond to your research inquiry.</p>
+
+      <h2>Form security</h2>
+      <p>All forms use same-origin validation, honeypot spam detection, and input length limits. No CAPTCHA or fingerprinting technology is used.</p>
+
+      <h2>IP addresses and rate limiting</h2>
+      <p>Form submissions are validated for same-origin origin. API endpoints may apply rate limiting based on upstream provider responses. We do not log or store IP addresses for tracking purposes.</p>
+
+      <h2>Analytics</h2>
+      <p>If analytics is enabled, we use Vercel Web Analytics, which collects anonymized pageview data. It does not send personal information: no email, name, company, article text, or search queries. Analytics can be blocked by browser privacy extensions or by disabling JavaScript.</p>
+
+      <h2>Cookies and local storage</h2>
+      <p>This site does not set cookies. It does not use localStorage, sessionStorage, IndexedDB, service workers, tracking pixels, ad scripts, session replay, or fingerprinting. No cookie consent banner is needed because no non-essential storage technology is in use.</p>
+
+      <h2>Service providers</h2>
+      <ul>
+        <li><strong>Vercel</strong> — Hosting and serverless functions. Vercel processes HTTP requests and may log technical data per their privacy policy.</li>
+        <li><strong>Beehiiv</strong> — Newsletter delivery and subscriber management for / BRIEF.</li>
+        <li><strong>Resend</strong> — Transactional email delivery for partner and intelligence inquiry notifications.</li>
+      </ul>
+
+      <h2>Data retention</h2>
+      <p>Newsletter subscriber data is managed by Beehiiv and retained until you unsubscribe. Partner and intelligence inquiry data exists only in the transactional email delivered to our team; we have no separate database. Static research files have no associated personal data.</p>
+
+      <h2>Changes to this notice</h2>
+      <p>If we change what we collect or how we process it, we will update this notice with a revised last-updated date. If a new technology (analytics provider, newsletter system, lead form, advertising provider, payment system, or cookie/storage technology) is enabled, this notice will be reviewed in the same implementation.</p>
+
+      <p class="legal-blocker"><strong>LEGAL CONTACT BLOCKER — VERIFIED PRIVACY CONTACT REQUIRED</strong></p>
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  h2 {
+    font: 600 1.05rem/1.3 var(--sans);
+    letter-spacing: -.01em;
+    margin-top: 28px;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  ul {
+    margin: 8px 0;
+    padding-left: 20px;
+  }
+  li {
+    margin-bottom: 6px;
+  }
+  .legal-blocker {
+    margin-top: 32px;
+    padding: 12px 16px;
+    border: 2px solid var(--ink);
+    font: .88rem/1.4 var(--mono);
+    color: var(--ink);
+  }
+</style>

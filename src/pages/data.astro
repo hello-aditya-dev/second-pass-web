@@ -8,24 +8,47 @@ import AdBreak from "@/components/AdBreak.astro";
       <div class="kicker">/ DATA</div>
       <h1>Numbers with their assumptions still attached.</h1>
       <p>
-        These are product foundations, not fabricated live datasets. Real values enter only through
-        the newsroom's source-backed data workflow. Each product preserves source, date, method, and assumptions.
+        Each product preserves source, date, method, and assumptions.
+        Real values enter only through source-backed data workflow.
       </p>
     </header>
 
+    <h2 class="data-section-head">Published DATA</h2>
+    <div class="data-grid" style="background:var(--rule);border-color:var(--rule)">
+      <section id="inference-pricing" class="data-module">
+        <span class="number">01 / DATA</span>
+        <h3>AI Inference Price Surface</h3>
+        <p>Provider, model/version, input/output/cache pricing, context, effective date, source. Historical pricing with version-level provenance.</p>
+        <a class="mono" href="/research/ai-cost-quality-frontier">Research →</a>
+      </section>
+      <section id="rack-facility" class="data-module">
+        <span class="number">02 / DATA</span>
+        <h3>AI Rack Facility Capacity</h3>
+        <p>Power chain, thermal rejection, stranded GPU, capacity sensitivity, and PUE modeling for accelerator deployment.</p>
+        <a class="mono" href="/research/142kw-ai-rack">Research →</a>
+      </section>
+      <section id="roofline" class="data-module">
+        <span class="number">03 / DATA</span>
+        <h3>HBM Roofline Inference</h3>
+        <p>Operational intensity, decode bandwidth, batch-ridge thresholds, token roofs, and prefill-vs-decode for LLM inference.</p>
+        <a class="mono" href="/research/hbm-roofline-llm-inference">Research →</a>
+      </section>
+    </div>
+
+    <h2 class="data-section-head">In development</h2>
     <div class="data-grid" style="background:var(--rule);border-color:var(--rule)">
       <section id="model-pricing" class="data-module">
-        <span class="number">01 / FOUNDATION</span>
+        <span class="number">04 / IN DEVELOPMENT</span>
         <h3>Model Pricing Index</h3>
-        <p>Provider, model/version, input/output/cache pricing, context, effective date, source. Historical pricing with version-level provenance.</p>
+        <p>Continuous versioned API pricing across all providers. Not yet launched — will be versioned, sourced, and auditable when ready.</p>
       </section>
       <section id="accelerators" class="data-module">
-        <span class="number">02 / FOUNDATION</span>
+        <span class="number">05 / IN DEVELOPMENT</span>
         <h3>Accelerator Index</h3>
         <p>Vendor, SKU, memory, bandwidth, interconnect, power, availability, source. Architecture-level comparison context, not just peak specs.</p>
       </section>
       <section id="benchmarks" class="data-module">
-        <span class="number">03 / FOUNDATION</span>
+        <span class="number">06 / IN DEVELOPMENT</span>
         <h3>Benchmark Registry</h3>
         <p>Metric, workload, hardware, software, precision, test operator, methodology, source. Who ran the test, and under what conditions.</p>
       </section>
@@ -39,3 +62,22 @@ import AdBreak from "@/components/AdBreak.astro";
     <AdBreak fallback="data" label="DATA PRODUCT / FUTURE WHOLE-PRODUCT SPONSOR" />
   </section>
 </BaseLayout>
+
+<style>
+  .data-section-head {
+    font: 600 .78rem/1 var(--mono);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--graphite);
+    margin-top: 32px;
+    margin-bottom: 12px;
+  }
+  .data-section-head:first-of-type {
+    margin-top: 0;
+  }
+  .data-module a.mono {
+    display: inline-block;
+    margin-top: 8px;
+    color: var(--blue-dark);
+  }
+</style>

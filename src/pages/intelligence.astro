@@ -144,11 +144,11 @@ const formsEnabled = import.meta.env.PUBLIC_COMMERCIAL_FORMS_ENABLED === "true";
           <div class="form-status" role="status" aria-live="polite"></div>
         </div>
 
-        <p class="form-note">No file uploads in this form. If we proceed, we'll establish a secure channel for sensitive materials.</p>
+        <p class="form-note">We use these details to evaluate and respond to your research inquiry. <a href="/privacy">See Privacy</a>.</p>
       </form>
     ) : (
       <div class="commercial-disabled">
-        <p>Intelligence inquiries are not yet being accepted. When the notification system is connected, the form will appear here.</p>
+        <p>Intelligence inquiries are not currently available. When the form system is connected, the form will appear here.</p>
       </div>
     )}
   </section>
@@ -256,6 +256,7 @@ const formsEnabled = import.meta.env.PUBLIC_COMMERCIAL_FORMS_ENABLED === "true";
     font: 1.05rem/1.55 var(--reader);
     color: var(--graphite);
   }
+  .form-note a { color: var(--blue-dark); }
   @media (max-width: 1040px) {
     .intelligence-capabilities { grid-template-columns: repeat(2, 1fr); }
   }

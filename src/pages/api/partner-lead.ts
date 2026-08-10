@@ -54,7 +54,7 @@ export const POST: APIRoute = async ({ request }) => {
   const objective = validateString(body.objective, FIELD_LIMITS.objective, "objective");
   if (!objective) return safeErrorResponse("Objective is required", rid, 400);
 
-  // Budget and timing are optional at launch stage
+  // Budget and timing are optional
   const budgetRange = validateOptionalString(body.budgetRange, FIELD_LIMITS.budgetRange);
   const timing = validateOptionalString(body.timing, FIELD_LIMITS.timing);
 

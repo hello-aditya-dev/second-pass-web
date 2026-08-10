@@ -1,7 +1,5 @@
 ---
 import { SITE } from "@/lib/site";
-
-const prelaunch = import.meta.env.SITE_PRELAUNCH !== "false";
 ---
 <footer class="site-footer" data-pagefind-ignore>
   <div class="shell footer-grid">
@@ -15,6 +13,7 @@ const prelaunch = import.meta.env.SITE_PRELAUNCH !== "false";
       <a href="/editorial-policy">Editorial policy</a>
       <a href="/corrections">Corrections</a>
       <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
     </nav>
     <nav aria-label="Topics">
       <strong>Topics</strong>
@@ -33,6 +32,6 @@ const prelaunch = import.meta.env.SITE_PRELAUNCH !== "false";
   </div>
   <div class="shell footer-bottom">
     <span>© 2026 SECOND / PASS</span>
-    <span>{prelaunch ? "Pre-launch · Demo content is marked" : "Primary sources · Original calculations · Visible corrections"}</span>
+    <span>Primary sources · Original calculations · Visible corrections</span>
   </div>
 </footer>

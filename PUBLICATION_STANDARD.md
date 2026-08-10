@@ -93,3 +93,18 @@ Score each 0–10: A. FIRST-SCREEN HIERARCHY, B. TYPOGRAPHY, C. ARTICLE RHYTHM, 
 
 ## VISUAL SCREENSHOT CHECKLIST
 - FIRST SCREEN: headline/dek/meta balance. FIRST PASS: information density. ARTICLE RHYTHM: no wall of text. VISUAL PLACEMENT: figure arrives near relevant explanation. FIGURE SIZE: not tiny, not oversized. CAPTION: useful. CALCULATIONS: scannable. CLAIM CHECK: clearly distinct. TABLES: readable. MATH: clean. SOURCES: professional. INTELLIGENCE: subtle. BRIEF: strong but not intrusive. FOOTER: balanced. MOBILE: intentionally designed.
+
+## RESEARCH SVG TEXT SAFE ZONE
+Text inside a bounded rectangle must maintain deliberate internal padding. Recommended minimum: horizontal: 12px, vertical: 8px, or proportional equivalent at SVG coordinate scale. No glyph bounding box may intersect its containing border/stroke. No annotation may touch plot border, arrow, data point, axis, another annotation unless intentionally designed. Text must never rely on clipping to fit.
+
+## PRODUCTION-STATE TRUTH
+Public copy must reflect actual current functionality. Never leave temporary language such as pre-launch, coming soon, no newsletter, no forms, reserved advertisement after those facts change. Whenever a new analytics provider, newsletter system, lead form, advertising provider, payment system, database, authentication system, or cookie/storage technology is enabled, privacy/legal documentation must be reviewed in the SAME implementation. No feature ships first with policy cleanup deferred indefinitely.
+
+## PRIVACY BY MINIMUM COLLECTION
+SECOND / PASS should collect the minimum data needed to perform the reader-requested action. Examples: newsletter: email + justified attribution only; research inquiry: contact + decision context; partner inquiry: contact + commercial context. Do not add fingerprinting, session replay, behavioral advertising, cross-site tracking without explicit business case and separate privacy review.
+
+## COOKIE POLICY
+SECOND / PASS does not display a cookie-consent banner merely as legal decoration. First audit actual storage/access technologies. IF no non-essential technology: no banner. IF non-essential technology exists: block it until valid preference/consent requirements are satisfied. Policies must describe reality, not hypothetical future tracking.
+
+## SPONSORSHIP LABELING
+If money or consideration pays for placement, label clearly: ADVERTISEMENT, SPONSORED, PARTNER MESSAGE, or another unmistakable designation. Never disguise paid placement as editorial evidence. Sponsor receives no editorial conclusion rights.

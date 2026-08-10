@@ -12,13 +12,11 @@ const rest = articles.filter((item) => item.id !== lead?.id);
 const now = rest.filter((item) => item.data.format === "NOW").slice(0, 5);
 const analysis = rest.filter((item) => item.data.format !== "NOW").slice(0, 3);
 const research = rest.filter((item) => item.data.section === "Research" || item.data.format === "PROOF").slice(0, 2);
-
-const prelaunch = import.meta.env.SITE_PRELAUNCH !== "false";
 ---
 <BaseLayout>
   <div class="shell edition-line" data-pagefind-ignore>
-    <span>TECHNICAL INTELLIGENCE{prelaunch ? " / PRE-LAUNCH" : ""}</span>
-    <span>{prelaunch ? "DEMO STORIES ARE MARKED" : "PRIMARY SOURCES · ORIGINAL CALCULATIONS"}</span>
+    <span>TECHNICAL INTELLIGENCE</span>
+    <span>PRIMARY SOURCES · ORIGINAL CALCULATIONS</span>
   </div>
 
   {lead ? (
@@ -76,22 +74,22 @@ const prelaunch = import.meta.env.SITE_PRELAUNCH !== "false";
         href="/data"
       />
       <div class="data-grid">
-        <a class="data-module" href="/data#model-pricing">
-          <span class="number">01 / PLANNED</span>
-          <h3>Model Pricing Index</h3>
-          <p>Versioned API pricing, caching rules, effective dates, and provider conditions.</p>
+        <a class="data-module" href="/data#inference-pricing">
+          <span class="number">01 / DATA</span>
+          <h3>AI Inference Price Surface</h3>
+          <p>Versioned API pricing, caching rules, effective dates, and provider conditions for inference.</p>
           <span class="mono">OPEN →</span>
         </a>
-        <a class="data-module" href="/data#accelerators">
-          <span class="number">02 / PLANNED</span>
-          <h3>Accelerator Index</h3>
-          <p>GPU and accelerator specifications with architecture-level comparison context.</p>
+        <a class="data-module" href="/data#rack-facility">
+          <span class="number">02 / DATA</span>
+          <h3>AI Rack Facility Capacity</h3>
+          <p>Power, thermal, and stranded-capacity modeling for GPU accelerator deployment.</p>
           <span class="mono">OPEN →</span>
         </a>
-        <a class="data-module" href="/data#benchmarks">
-          <span class="number">03 / PLANNED</span>
-          <h3>Benchmark Registry</h3>
-          <p>Scores with workload, hardware, precision, methodology, and who ran the test.</p>
+        <a class="data-module" href="/data#roofline">
+          <span class="number">03 / DATA</span>
+          <h3>HBM Roofline Inference</h3>
+          <p>Operational intensity, decode bandwidth, and batch-ridge thresholds for LLM inference.</p>
           <span class="mono">OPEN →</span>
         </a>
       </div>

@@ -2,11 +2,11 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 const formsEnabled = import.meta.env.PUBLIC_COMMERCIAL_FORMS_ENABLED === "true";
 ---
-<BaseLayout title="/ PARTNER" description="Founding partnerships for a launch-stage technical intelligence publication.">
+<BaseLayout title="/ PARTNER" description="Partnerships for technical intelligence.">
   <section class="shell route">
     <header class="route-head">
       <div class="kicker">/ PARTNER</div>
-      <h1>Founding partnerships for a launch-stage publication.</h1>
+      <h1>Partnerships for technical intelligence.</h1>
       <p>
         SECOND / PASS is built for engineers, technical leaders and people making
         infrastructure decisions. Partnership preserves editorial integrity.
@@ -22,12 +22,12 @@ const formsEnabled = import.meta.env.PUBLIC_COMMERCIAL_FORMS_ENABLED === "true";
       </div>
       <div class="partner-card">
         <div class="kicker">02</div>
-        <h3>/ BRIEF Launch Pilot</h3>
+        <h3>/ BRIEF Sponsor</h3>
         <p>Dedicated placement in the technical briefing that subscribers actually read.</p>
       </div>
       <div class="partner-card">
         <div class="kicker">03</div>
-        <h3>/ DATA Launch Pilot</h3>
+        <h3>/ DATA Sponsor</h3>
         <p>Association with the reference products that engineers return to.</p>
       </div>
       <div class="partner-card">
@@ -111,11 +111,11 @@ const formsEnabled = import.meta.env.PUBLIC_COMMERCIAL_FORMS_ENABLED === "true";
           <div class="form-status" role="status" aria-live="polite"></div>
         </div>
 
-        <p class="form-note">We'll share current audience and placement information transparently.</p>
+        <p class="form-note">We use these details to respond to your inquiry. <a href="/privacy">See Privacy</a>.</p>
       </form>
     ) : (
       <div class="commercial-disabled">
-        <p>Partner inquiries are not yet being accepted. When the notification system is connected, the form will appear here.</p>
+        <p>Partner inquiries are not currently available. When the form system is connected, the form will appear here.</p>
       </div>
     )}
   </section>
@@ -192,6 +192,7 @@ const formsEnabled = import.meta.env.PUBLIC_COMMERCIAL_FORMS_ENABLED === "true";
     font: 1.05rem/1.55 var(--reader);
     color: var(--graphite);
   }
+  .form-note a { color: var(--blue-dark); }
   @media (max-width: 720px) {
     .partner-categories { grid-template-columns: 1fr; }
   }

@@ -83,10 +83,10 @@ z
    </g>
    <g id="patch_6">
     <path d="M 90.9 261.78048 
-L 481.5 261.78048 
-Q 487.08 261.78048 487.08 258.67584 
-L 487.08 209.0016 
-Q 487.08 205.89696 481.5 205.89696 
+L 558.64 261.78048 
+Q 564.22 261.78048 564.22 258.67584 
+L 564.22 209.0016 
+Q 564.22 205.89696 558.64 205.89696 
 L 90.9 205.89696 
 Q 85.32 205.89696 85.32 209.0016 
 L 85.32 258.67584 
@@ -1861,7 +1861,7 @@ z
    </g>
    <g id="text_11">
     <!-- NOT DERIVED: COOLING ELECTRICAL POWER -->
-    <g style="fill: #11110f" transform="translate(154.682578 227.62944) scale(0.105 -0.105)">
+    <g style="fill: #11110f" transform="translate(158.682578 227.62944) scale(0.105 -0.105)">
      <defs>
       <path id="DejaVuSans-Bold-3a" d="M 716 3500 
 L 1844 3500 
@@ -1918,7 +1918,7 @@ z
    </g>
    <g id="text_12">
     <!-- Pumps, fans, heat rejection and power conversion have their own efficiencies and topology. -->
-    <g style="fill: #5a5953" transform="translate(86.650547 244.70496) scale(0.087 -0.087)">
+    <g style="fill: #5a5953" transform="translate(108.320000 244.70496) scale(0.087 -0.087)">
      <defs>
       <path id="DejaVuSans-50" d="M 1259 4147 
 L 1259 2394 
