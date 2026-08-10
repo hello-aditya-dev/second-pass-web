@@ -1,0 +1,3098 @@
+# Z.ai — PUBLISH SECOND / PASS COMPUTE #01
+
+Repository:
+
+witejackel-eng/second-pass-web
+
+Production:
+
+https://second-pass.vercel.app
+
+Existing Vercel project:
+
+second-pass
+
+Attached APPROVED publication package:
+
+second-pass-142kw-ai-rack-2026-08-10-final(1).zip
+
+ARTICLE:
+
+A GB300 NVL72 rack can require up to 142 kW. What can your facility support?
+
+SLUG:
+
+a-142-kw-ai-rack-turns-gpu-procurement-into-a-power-problem
+
+SECTION:
+
+COMPUTE
+
+FORMAT:
+
+SECOND PASS
+
+AUTHOR:
+
+Aditya
+
+PUBLICATION DATE:
+
+2026-08-10
+
+THIS PROMPT IS THE HUMAN PUBLICATION APPROVAL.
+
+The research package deliberately contains:
+
+status: review
+publishedAt: ""
+changeLog: []
+
+Those values represented the human review gate.
+
+That gate is now APPROVED.
+
+Your job is:
+
+READ THE EXISTING SECOND / PASS PUBLICATION STANDARD
+→
+INSPECT LATEST MAIN
+→
+IMPORT THE APPROVED COMPUTE PACKAGE
+→
+INTEGRATE ITS RESEARCH VISUALS AND DOWNLOADS
+→
+APPLY THE HOUSE EDITORIAL SYSTEM
+→
+CHANGE THE ARTICLE TO PUBLISHED
+→
+RUN COMPLETE CONTENT / MATH / VISUAL / RESPONSIVE QA
+→
+DEPLOY TO THE EXISTING VERCEL PROJECT
+→
+VERIFY ACTUAL PRODUCTION
+→
+RETURN THE LIVE URL AND FINAL ACCEPTANCE REPORT.
+
+Do NOT re-research this article.
+
+Do NOT change verified calculations.
+
+Do NOT reinterpret PUE.
+
+Do NOT redesign SECOND / PASS.
+
+Do NOT create another repository.
+
+Do NOT create another Vercel project.
+
+Do NOT build new infrastructure.
+
+This is now a publication/integration task.
+
+────────────────────────────────────────
+0. READ PERMANENT REPOSITORY MEMORY FIRST
+────────────────────────────────────────
+
+Before ANY content work:
+
+READ COMPLETELY:
+
+AGENT.md
+
+PUBLICATION_STANDARD.md
+
+CURRENT_STATE.md
+
+DECISIONS.md
+
+and relevant docs.
+
+`PUBLICATION_STANDARD.md` is authoritative for:
+
+visual identity
+
+semantic figures
+
+figure captions
+
+Signal Blue usage
+
+/ CALCULATION
+
+/ CLAIM CHECK
+
+/ ASSUMPTION
+
+tables
+
+math
+
+responsive behavior
+
+sources
+
+accessibility
+
+visual QA
+
+9.5+ quality requirements.
+
+Do not create a parallel design system.
+
+Repository:
+
+PRESENTATION AUTHORITY
+
+Attached ZIP:
+
+APPROVED RESEARCH / ARTICLE / DATA AUTHORITY.
+
+────────────────────────────────────────
+1. START FROM LATEST MAIN
+────────────────────────────────────────
+
+Before editing:
+
+git status
+git branch
+git log -10 --oneline
+git diff
+
+Fetch/pull latest `main` safely.
+
+Preserve all current publication-system improvements.
+
+Especially preserve:
+
+PUBLICATION_STANDARD.md
+
+AGENT.md
+
+semantic figure renderer
+
+CalculationBlock
+
+ClaimCheck
+
+Assumption block
+
+automatic table wrapping
+
+KaTeX pipeline
+
+single-dollar currency protection
+
+visual:audit
+
+responsive:audit
+
+prepublish
+
+social-generation pipeline
+
+five-column footer
+
+mobile/tablet article architecture
+
+all previously published articles.
+
+Do not overwrite current site implementation with stale assumptions from the package.
+
+────────────────────────────────────────
+2. INSPECT THE CORRECTED ZIP
+────────────────────────────────────────
+
+Extract into a temporary working directory.
+
+Confirm the root is:
+
+second-pass-142kw-ai-rack/
+
+The archive should contain approximately 51 real files.
+
+Read at minimum:
+
+00_MANIFEST.md
+
+01_EDITORIAL_DECISION.md
+
+02_ARTICLE/a-142-kw-ai-rack-turns-gpu-procurement-into-a-power-problem.md
+
+03_RESEARCH/*.csv
+
+04_MODEL/ai-rack-facility-capacity-model.xlsx
+
+05_CHARTS/chart-specs.md
+
+all five SVG charts
+
+all five PNG charts
+
+05_CHARTS/data/*.csv
+
+06_QA/SOURCE_LEDGER.md
+
+06_QA/CLAIM_LEDGER.md
+
+06_QA/CALCULATION_LEDGER.md
+
+06_QA/FACT_CHECK.md
+
+06_QA/UNIT_AUDIT.md
+
+06_QA/PUE_AUDIT.md
+
+06_QA/REDUNDANCY_AUDIT.md
+
+06_QA/THERMAL_AUDIT.md
+
+06_QA/PUBLICATION_GATE.md
+
+08_BRIEF/brief-summary.md
+
+10_COMMERCIAL_HANDOFF.md
+
+11_SITE_HANDOFF.md.
+
+Do not publish directly from the extracted directory.
+
+Import only intended public-safe files.
+
+────────────────────────────────────────
+3. PACKAGE CONTAMINATION CHECK
+────────────────────────────────────────
+
+Before continuing confirm ZERO references to the previous open-weight package:
+
+second-pass-open-weight-vs-closed
+
+when-should-a-company-run-its-own-ai-model
+
+enterprise-ai-deployment-decision-model
+
+same-model-break-even
+
+quality-adjusted-frontier.
+
+If contamination exists:
+
+STOP.
+
+It should not exist in this corrected archive.
+
+────────────────────────────────────────
+4. CANONICAL ARTICLE
+────────────────────────────────────────
+
+The ONE canonical article is:
+
+02_ARTICLE/a-142-kw-ai-rack-turns-gpu-procurement-into-a-power-problem.md
+
+Import into the site's established article-content directory.
+
+Expected approximately:
+
+src/content/articles/a-142-kw-ai-rack-turns-gpu-procurement-into-a-power-problem.md
+
+but inspect current repository conventions.
+
+Do NOT create:
+
+.mdx duplicate
+
+-final.md
+
+-v2.md
+
+-published.md.
+
+ONE slug
+=
+ONE canonical source.
+
+────────────────────────────────────────
+5. HUMAN PUBLICATION STATE
+────────────────────────────────────────
+
+The package currently says:
+
+publishedAt: ""
+
+status: "review"
+
+changeLog: []
+
+Human approval is now granted.
+
+Set:
+
+publishedAt: "2026-08-10"
+
+status: "published"
+
+and:
+
+changeLog:
+  - at: "2026-08-10"
+    type: "published"
+    note: "Initial publication."
+
+Adapt date syntax only if required by current schema.
+
+Do not create a correction event.
+
+Do not create updatedAt unless current schema automatically requires it.
+
+────────────────────────────────────────
+6. FINAL APPROVED HEADLINE
+────────────────────────────────────────
+
+Use exactly:
+
+# A GB300 NVL72 rack can require up to 142 kW. What can your facility support?
+
+Do NOT revert to:
+
+A 142 kW AI rack turns GPU procurement into a power problem
+
+because the final headline deliberately preserves NVIDIA's:
+
+UP TO
+
+qualifier.
+
+────────────────────────────────────────
+7. CENTRAL FACTS — FROZEN
+────────────────────────────────────────
+
+Preserve:
+
+System:
+NVIDIA GB300 NVL72
+
+GPUs:
+72 Blackwell Ultra GPUs
+
+Enterprise RA:
+
+8 × 33 kW power shelves
+
+each:
+
+6 × 5.5 kW PSU
+
+rack requirement wording:
+
+FULL RACK REQUIRING UP TO 142 kW.
+
+The broader DGX GB rack guide contains a separate:
+
+approximately 120 kW
+
+statement.
+
+The article correctly retains this discrepancy.
+
+Do NOT silently delete it.
+
+Do NOT average:
+
+120
+and
+142.
+
+Use 142 kW only as the article's:
+
+CONSERVATIVE
+SYSTEM-SPECIFIC
+UPPER PLANNING REFERENCE.
+
+Never turn:
+
+up to 142 kW
+
+into:
+
+142 kW normal load
+
+142 kW typical load
+
+142 kW constant consumption.
+
+────────────────────────────────────────
+8. APPROVED CORE CALCULATIONS
+────────────────────────────────────────
+
+These results are frozen after independent verification.
+
+### ONE MW USABLE IT
+
+1000 / 142
+
+=
+
+7.0422535 rack-equivalents.
+
+Whole racks:
+
+7.
+
+GPUs:
+
+7 × 72
+=
+504.
+
+Normalized continuous metric:
+
+72 × 1000 / 142
+
+≈
+
+507.04 GPU-equivalents per usable IT MW.
+
+Rack electrical allocation per installed GPU:
+
+142 / 72
+
+≈
+
+1.97 kW/GPU.
+
+This is NOT GPU chip TDP.
+
+────────────────────────────────────────
+9. FOUR-MEGAWATT SCENARIO
+────────────────────────────────────────
+
+ILLUSTRATIVE SCENARIO:
+
+Facility-input budget:
+4.0 MW
+
+Planning PUE:
+1.20
+
+Usable-capacity factor:
+0.90
+
+Rack reference:
+up to 142 kW
+
+GPUs/rack:
+72
+
+Target/procured:
+24 racks.
+
+Approved math:
+
+4 / 1.20
+=
+3.333333 MW
+
+then:
+
+3.333333 × 0.90
+=
+3.000 MW usable IT.
+
+Whole racks:
+
+floor(3000 / 142)
+=
+21.
+
+GPUs:
+
+21 × 72
+=
+1,512.
+
+Actual upper-reference power used:
+
+21 × 142
+=
+2.982 MW.
+
+Remaining modeled usable IT:
+
+18 kW.
+
+Not enough for another complete rack.
+
+────────────────────────────────────────
+10. TARGET 24-RACK REQUIREMENT
+────────────────────────────────────────
+
+Approved:
+
+24 × 142 kW
+
+=
+
+3.408 MW IT.
+
+Under same planning assumptions:
+
+1.20 × (3.408 / 0.90)
+
+=
+
+4.544 MW facility-input requirement.
+
+Compared with 4.000 MW:
+
+additional:
+
+0.544 MW.
+
+This is:
+
+PLANNING MODEL OUTPUT.
+
+Not:
+
+electrical single-line design
+
+transformer specification
+
+UPS design
+
+or certified site capacity.
+
+Preserve that language.
+
+────────────────────────────────────────
+11. STRANDED CAPACITY
+────────────────────────────────────────
+
+Approved scenario:
+
+24 procured
+
+21 powerable
+
+=
+
+3 stranded racks.
+
+GPUs:
+
+3 × 72
+=
+216.
+
+“Stranded” means:
+
+hardware that the modeled facility cannot power simultaneously under the stated scenario.
+
+It does NOT mean:
+
+failed hardware
+
+unused forever
+
+or economically worthless.
+
+No public rack acquisition price exists in this article.
+
+Do not invent one.
+
+────────────────────────────────────────
+12. THERMAL RESULT
+────────────────────────────────────────
+
+Under the MODELED 142 kW electrical load:
+
+approximately:
+
+142 kW thermal
+
+484,524 Btu_IT/h
+
+40.38 refrigeration tons.
+
+Preserve the central warning:
+
+THERMAL LOAD
+≠
+COOLING-SYSTEM ELECTRICAL POWER.
+
+Do NOT say:
+
+142 kW rack
+requires
+142 kW cooling electricity.
+
+Do NOT say:
+
+the complete 142 kW necessarily enters the liquid loop.
+
+NVIDIA documents CPU/GPU cold-plate liquid cooling while other components may remain air cooled.
+
+────────────────────────────────────────
+13. PUE — CRITICAL SAFETY RULE
+────────────────────────────────────────
+
+This is the most important correctness constraint in the article.
+
+PUE is an:
+
+ENERGY-EFFICIENCY KPI.
+
+Do NOT present it as an exact instantaneous electrical-design derating factor.
+
+The article deliberately uses:
+
+$$
+P_{\text{IT}}
+\approx
+\frac{P_{\text{facility}}}{PUE_p}
+$$
+
+only as an explicitly labelled:
+
+PLANNING APPROXIMATION.
+
+Preserve the distinction between:
+
+ENERGY ACCOUNTING
+
+and:
+
+PLANNING APPROXIMATION.
+
+────────────────────────────────────────
+14. NEVER DOUBLE APPLY PUE
+────────────────────────────────────────
+
+The workbook has a critical safety branch.
+
+If facility input type is:
+
+FACILITY INPUT MW
+
+then PUE may be used in the planning normalization.
+
+If capacity type is:
+
+USABLE IT MW
+
+then PUE must NOT be applied to rack capacity again.
+
+Do not change this.
+
+Do not “simplify” the workbook formulas.
+
+The workbook has already passed alternate-branch testing.
+
+────────────────────────────────────────
+15. DO NOT CALL PUE OVERHEAD COOLING
+────────────────────────────────────────
+
+The article's Claim Check is correct:
+
+PUE 1.20
+
+does NOT mean:
+
+cooling consumes 20% of IT power.
+
+The difference between total facility energy and IT energy can contain:
+
+cooling
+
+pumps
+
+fans
+
+power conversion
+
+lighting
+
+controls
+
+other facility loads.
+
+Preserve.
+
+────────────────────────────────────────
+16. REDUNDANCY
+────────────────────────────────────────
+
+Do NOT invent:
+
+“N+1 means 20% reserve.”
+
+The article deliberately explains:
+
+N+1
+
+as:
+
+N modules required for load
++
+one additional module.
+
+The spare fraction:
+
+1/(N+1)
+
+is valid only for the simplified equal-module illustration.
+
+Facility redundancy is topology-specific.
+
+The article uses:
+
+h
+
+as a separate explicit:
+
+usable/headroom scenario factor.
+
+Do not label h=0.90 as an industry standard.
+
+It is an illustrative scenario.
+
+────────────────────────────────────────
+17. ARTICLE IMAGES CURRENTLY USE PACKAGE PATHS
+────────────────────────────────────────
+
+The package Markdown contains paths such as:
+
+../05_CHARTS/chart-01-rack-power-chain.svg
+
+These MUST NOT survive into production.
+
+Copy approved public visual files into the current site's stable static research path.
+
+Preferred namespace:
+
+/research/142kw-ai-rack/
+
+or current established convention.
+
+For example:
+
+/research/142kw-ai-rack/charts/rack-power-chain.svg
+
+/research/142kw-ai-rack/charts/racks-per-mw.svg
+
+/research/142kw-ai-rack/charts/capacity-sensitivity.svg
+
+/research/142kw-ai-rack/charts/stranded-gpus.svg
+
+/research/142kw-ai-rack/charts/thermal-load.svg
+
+But preserve existing repository conventions if another clean path exists.
+
+ZERO production occurrences:
+
+../05_CHARTS/
+
+../03_RESEARCH/
+
+../04_MODEL/
+
+/mnt/data/
+
+sandbox:
+
+file://
+
+temporary extraction paths.
+
+────────────────────────────────────────
+18. FIVE APPROVED FIGURES
+────────────────────────────────────────
+
+FIGURE 01
+
+The AI rack power chain
+
+Question:
+
+Where can electrical capacity bind before power reaches the GPUs?
+
+FIGURE 02
+
+One megawatt of what?
+
+Question:
+
+Why must a company define what its MW number measures?
+
+FIGURE 03
+
+4 MW facility-input capacity surface
+
+Question:
+
+How do PUE planning assumptions and usable-capacity headroom change rack count?
+
+FIGURE 04
+
+Stranded GPU boundary
+
+Question:
+
+What happens when racks are procured faster than facility capacity?
+
+FIGURE 05
+
+Electrical power vs thermal load
+
+Question:
+
+What heat-rejection requirement follows from rack electrical load—and what does not?
+
+Do not replace these with generic illustrations.
+
+────────────────────────────────────────
+19. VISUAL POLISH IS ALLOWED
+────────────────────────────────────────
+
+The approved charts are already analytically correct.
+
+You MAY improve purely presentational details if needed to reach the repository's 9.5+ standard:
+
+font size
+
+label placement
+
+spacing
+
+line weight
+
+mobile readability
+
+caption placement
+
+internal whitespace.
+
+You MUST NOT change:
+
+data
+
+scenario assumptions
+
+thresholds
+
+numbers
+
+meaning
+
+source basis.
+
+Do not redesign them into another visual language.
+
+────────────────────────────────────────
+20. FIGURE 01
+────────────────────────────────────────
+
+Preserve the conceptual chain:
+
+UTILITY / GRID
+
+↓
+
+SUBSTATION / TRANSFORMER
+
+↓
+
+SWITCHGEAR
+
+↓
+
+UPS / CRITICAL POWER
+
+↓
+
+PDU / RPP / BUSWAY
+
+↓
+
+RACK POWER DISTRIBUTION
+
+↓
+
+GB300 NVL72
+72 GPUs
+up to 142 kW.
+
+The upstream chain is:
+
+TOPOLOGY-DEPENDENT.
+
+Do not imply every facility has every stage.
+
+At mobile:
+
+stack/read vertically.
+
+No microscopic explanatory text.
+
+────────────────────────────────────────
+21. FIGURE 02
+────────────────────────────────────────
+
+Preserve:
+
+1 MW
+USABLE IT
+
+→
+
+7 racks
+504 GPUs.
+
+Illustrative comparison:
+
+1 MW
+FACILITY INPUT
+PUE 1.20
+h 0.90
+
+→
+
+5 racks
+360 GPUs.
+
+The second bar is a SCENARIO.
+
+Do not imply:
+
+every 1 MW facility supports five racks.
+
+Caption must make this unmistakable.
+
+────────────────────────────────────────
+22. FIGURE 03
+────────────────────────────────────────
+
+This is a scenario surface.
+
+Facility input:
+
+4 MW.
+
+PUE:
+
+1.10–1.40.
+
+h:
+
+0.80–1.00.
+
+Cells:
+
+whole rack counts after floor().
+
+The figure intentionally uses discrete SECOND / PASS palette bands.
+
+Do NOT turn it into a rainbow heatmap.
+
+Do NOT use a decorative gradient.
+
+Caption:
+
+PUE is used as a planning approximation.
+
+Not engineering design.
+
+At mobile:
+
+internal horizontal scroll is acceptable.
+
+Caption stays outside the scroll container.
+
+────────────────────────────────────────
+23. FIGURE 04
+────────────────────────────────────────
+
+Preserve:
+
+21-rack modeled powerable boundary.
+
+Stranded GPUs stay zero until procurement exceeds the limit.
+
+Each additional rack:
+
+72 GPUs.
+
+At:
+
+24 racks
+
+→
+
+216 stranded GPUs.
+
+Do not assign dollar capital value.
+
+No public rack acquisition cost is part of the article.
+
+────────────────────────────────────────
+24. FIGURE 05
+────────────────────────────────────────
+
+Preserve:
+
+up to 142 kW electrical reference
+
+→
+
+approximately 142 kW thermal
+
+→
+
+approximately 485k Btu/h
+
+→
+
+40.38 refrigeration tons.
+
+Keep the strong warning:
+
+NOT DERIVED:
+COOLING ELECTRICAL POWER.
+
+This distinction must remain visible.
+
+────────────────────────────────────────
+25. SEMANTIC FIGURES — MANDATORY
+────────────────────────────────────────
+
+Do NOT publish these research visuals as:
+
+<p><img></p>.
+
+Use the existing semantic research-figure system.
+
+Each analytical figure needs:
+
+<figure>
+
+research-figure container
+
+image
+
+figcaption.
+
+Use:
+
+05_CHARTS/chart-specs.md
+
+as source of truth for:
+
+alt text
+
+caption
+
+classification
+
+caveat
+
+mobile behavior.
+
+The canonical Markdown currently contains image syntax without complete public captions.
+
+During integration, add the required caption metadata using the current renderer-supported convention.
+
+Do NOT rewrite article conclusions.
+
+────────────────────────────────────────
+26. CAPTION REQUIREMENT
+────────────────────────────────────────
+
+All five figures require visible, useful captions.
+
+They should say:
+
+what the figure shows
+
+what is FACT vs CALCULATION vs SCENARIO
+
+what the reader must not infer.
+
+Examples:
+
+Figure 02 must distinguish:
+
+USABLE IT MW
+
+from:
+
+FACILITY INPUT MW.
+
+Figure 03 must state:
+
+PUE is a planning approximation.
+
+Figure 04 must state:
+
+the 21-rack limit is scenario-specific and power-only.
+
+Figure 05 must state:
+
+thermal load does not equal cooling electricity.
+
+────────────────────────────────────────
+27. HOUSE OBJECTS
+────────────────────────────────────────
+
+The article contains:
+
+/ QUESTION
+
+/ CALCULATION
+
+/ CLAIM CHECK
+
+/ ASSUMPTION
+
+/ INTELLIGENCE.
+
+Use the current SECOND / PASS renderer.
+
+Do not leave these as generic Markdown headings if the current renderer can transform them.
+
+Required:
+
+`.calculation-block`
+
+`.claim-check`
+
+`.assumption-block`
+
+or current equivalent.
+
+Do not convert the article to MDX.
+
+No React.
+
+No hand-written repeated HTML if the renderer already supports house objects.
+
+────────────────────────────────────────
+28. CALCULATION BLOCK
+────────────────────────────────────────
+
+The first major calculation currently uses:
+
+QUESTION
+
+INPUTS
+
+equations
+
+results.
+
+The permanent publication standard may use labels such as:
+
+QUESTION
+
+ASSUMPTIONS
+
+EQUATION
+
+RESULT
+
+SO WHAT
+
+CAVEAT.
+
+Do NOT alter the mathematics.
+
+You may normalize semantic labels to the existing CalculationBlock parser if required.
+
+For example:
+
+INPUTS
+
+may be presented as:
+
+ASSUMPTIONS / INPUTS
+
+if that is necessary for house rendering.
+
+Preserve all factual distinctions.
+
+────────────────────────────────────────
+29. CLAIM CHECKS
+────────────────────────────────────────
+
+There are two valuable Claim Checks.
+
+1.
+
+“A 1 MW data center can support seven 142 kW AI racks.”
+
+Core verdict:
+
+Only if that MW is genuinely usable IT capacity under the stated assumptions.
+
+2.
+
+“A PUE of 1.2 means cooling uses 20% of IT power.”
+
+Verdict:
+
+Incorrect.
+
+Give both the proper house treatment.
+
+These should be visually strong editorial evidence objects.
+
+Not giant colored cards.
+
+────────────────────────────────────────
+30. ASSUMPTION OBJECT
+────────────────────────────────────────
+
+The 4 MW scenario must render as a proper `/ ASSUMPTION` object.
+
+The reader must instantly see:
+
+4 MW facility-input
+
+PUE 1.20
+
+h 0.90
+
+142 kW/rack
+
+72 GPUs/rack
+
+24 target/procured racks
+
+no numerical thermal constraint
+
+no public rack acquisition price.
+
+Scenario assumptions must never visually look like sourced hardware facts.
+
+────────────────────────────────────────
+31. / INTELLIGENCE CTA
+────────────────────────────────────────
+
+The article currently ends with:
+
+START A RESEARCH BRIEF →
+
+Make it a real internal link to:
+
+/intelligence
+
+Do not make it a giant marketing button.
+
+No pricing.
+
+No urgency.
+
+Preserve restrained editorial separation.
+
+────────────────────────────────────────
+32. FACILITY WORKBOOK
+────────────────────────────────────────
+
+Publish:
+
+04_MODEL/ai-rack-facility-capacity-model.xlsx
+
+as a static public download.
+
+Do NOT rebuild it.
+
+Do NOT convert it into an interactive web calculator today.
+
+Use a clean stable path, e.g.:
+
+/research/142kw-ai-rack/downloads/ai-rack-facility-capacity-model.xlsx
+
+or current convention.
+
+────────────────────────────────────────
+33. INPUT TEMPLATE
+────────────────────────────────────────
+
+Also publish:
+
+03_RESEARCH/ai-rack-facility-input-template.csv
+
+as a simple public alternative.
+
+Use:
+
+/research/142kw-ai-rack/downloads/ai-rack-facility-input-template.csv
+
+or established convention.
+
+────────────────────────────────────────
+34. DOWNLOAD EDITORIAL OBJECT
+────────────────────────────────────────
+
+Add a restrained supporting-research object near the practical decision section.
+
+Suggested editorial treatment:
+
+/ USE THE MODEL
+
+AI RACK FACILITY CAPACITY MODEL
+XLSX
+
+FACILITY INPUT TEMPLATE
+CSV
+
+Model your own:
+facility MW
+PUE
+headroom
+rack target
+thermal capacity
+electricity rate
+
+DOWNLOAD →
+
+No email gate.
+
+No lead magnet.
+
+No bright SaaS card.
+
+This is research evidence.
+
+────────────────────────────────────────
+35. WORKBOOK INTEGRITY
+────────────────────────────────────────
+
+Before deployment verify the workbook still contains:
+
+README
+
+INPUTS
+
+POWER_MODEL
+
+REDUNDANCY
+
+THERMAL
+
+CAPACITY
+
+SENSITIVITY
+
+SOURCES.
+
+Do NOT edit workbook formulas unless necessary to repair corruption.
+
+Critical behavior:
+
+`FACILITY INPUT MW`
+
+can use planning PUE normalization.
+
+`USABLE IT MW`
+
+must NOT apply PUE again.
+
+Default branch:
+
+4 MW
+PUE 1.20
+h 0.90
+
+→
+3.000 MW usable IT
+→
+21 racks
+→
+1,512 GPUs.
+
+Alternate branch:
+
+1 MW USABLE IT
+
+→
+1.000 MW usable IT
+→
+7 racks
+→
+504 GPUs.
+
+Formula errors:
+
+0 REQUIRED.
+
+────────────────────────────────────────
+36. PUBLIC RESEARCH DATA
+────────────────────────────────────────
+
+Public-safe research data may include:
+
+gb300-rack-reference-2026-08-10.csv
+
+facility-capacity-scenarios.csv
+
+pue-sensitivity.csv
+
+headroom-sensitivity.csv
+
+stranded-capacity-scenarios.csv
+
+thermal-equivalents.csv.
+
+You do NOT have to expose every CSV visibly.
+
+But if copied publicly:
+
+use stable research paths.
+
+Do not create routable article pages from raw CSVs.
+
+────────────────────────────────────────
+37. PRIVATE MATERIAL
+────────────────────────────────────────
+
+Do NOT publish or index:
+
+00_MANIFEST.md
+
+01_EDITORIAL_DECISION.md
+
+06_QA/*
+
+07_DISTRIBUTION/*
+
+09_FOLLOWUPS/*
+
+10_COMMERCIAL_HANDOFF.md
+
+11_SITE_HANDOFF.md.
+
+These are internal newsroom/publication artifacts.
+
+Do not put them in:
+
+Pagefind
+
+RSS
+
+sitemap
+
+public content routes.
+
+────────────────────────────────────────
+38. FEATURED
+────────────────────────────────────────
+
+The package specifies:
+
+featured: true.
+
+Preserve.
+
+If the site's current feature logic expects a single current flagship:
+
+make this the current homepage flagship.
+
+Do NOT unpublish old featured articles.
+
+Do not delete prior analysis.
+
+Resolve multiple-featured behavior according to existing site convention.
+
+────────────────────────────────────────
+39. COMPUTE SECTION
+────────────────────────────────────────
+
+This is especially important because the COMPUTE desk previously had no human-approved publication.
+
+Verify after publishing:
+
+/compute
+
+no longer shows:
+
+“No human-approved stories are published here yet.”
+
+It must list the new article correctly.
+
+Do not redesign `/compute`.
+
+Just populate it through the existing article taxonomy.
+
+────────────────────────────────────────
+40. HOMEPAGE / RESEARCH / AUTHOR
+────────────────────────────────────────
+
+Verify appropriate publication surfaces:
+
+/
+
+ /compute
+
+ /research if current format logic includes SECOND PASS
+
+/authors/aditya
+
+RSS
+
+sitemap
+
+Pagefind.
+
+Do not force the article into unrelated desks.
+
+────────────────────────────────────────
+41. ARTICLE FIRST SCREEN
+────────────────────────────────────────
+
+This is a flagship COMPUTE article.
+
+At 1440 the opening should feel at least 9.5/10.
+
+Need:
+
+COMPUTE / SECOND PASS
+
+headline
+
+dek
+
+author/date
+
+FIRST PASS
+
+TOC
+
+evidence rail.
+
+No decorative hardware hero.
+
+Typography remains the hero.
+
+The first evidence visual arrives only after the opening has established why it matters.
+
+────────────────────────────────────────
+42. ARTICLE RHYTHM
+────────────────────────────────────────
+
+The article is approximately 2,862 words with five figures.
+
+Inspect flow.
+
+Avoid:
+
+five visual objects back-to-back
+
+huge unbroken text walls
+
+calculation repeated immediately as identical chart
+
+caption too far from figure.
+
+Visuals should appear close to the question they answer.
+
+Do not add more visuals.
+
+Five is enough.
+
+────────────────────────────────────────
+43. MATH
+────────────────────────────────────────
+
+Use current KaTeX pipeline.
+
+Do not alter:
+
+singleDollarTextMath behavior.
+
+Currency remains prose.
+
+Relevant equations include:
+
+rack equivalents
+
+whole-rack floor
+
+GPUs/rack
+
+PUE
+
+facility capacity
+
+target requirement
+
+thermal conversions
+
+energy
+
+stranded racks
+
+minimum-constraint expression.
+
+Zero raw visible:
+
+\frac
+
+\left
+
+\text
+
+\lfloor
+
+outside KaTeX.
+
+Zero mystery sentinels:
+
+24182
+24183
+24190
+24191.
+
+────────────────────────────────────────
+44. UNITS
+────────────────────────────────────────
+
+Production article must preserve strict unit distinctions:
+
+POWER:
+
+kW
+MW.
+
+ENERGY:
+
+kWh
+MWh.
+
+THERMAL:
+
+kW thermal
+Btu_IT/h
+refrigeration tons.
+
+Do not lose subscript/technical notation in rendering.
+
+Do not change:
+
+103.66 MWh/rack-month
+
+into:
+
+103.66 MW.
+
+────────────────────────────────────────
+45. SOURCE EVIDENCE
+────────────────────────────────────────
+
+Primary structured source set:
+
+NVIDIA NVL72 Enterprise RA
+
+NVIDIA DGX GB Rack Guide
+
+ISO/IEC 30134-2:2026
+
+ASHRAE Data Centers chapter
+
+Eaton UPS sizing guidance
+
+NIST SI conversion tables.
+
+Preserve these.
+
+Natural body links stay.
+
+Do not add opaque:
+
+S01
+
+S02
+
+markers.
+
+No manual duplicate Sources appendix.
+
+The renderer generates the final structured `/ SOURCES`.
+
+────────────────────────────────────────
+46. SOURCE LAST-MINUTE CHECK
+────────────────────────────────────────
+
+Before publishing:
+
+verify all six source URLs resolve.
+
+Do not run new broad research.
+
+Confirm there is no obvious same-day source change affecting:
+
+up to 142 kW
+
+72 GPUs
+
+120 kW discrepancy
+
+PUE standard
+
+thermal conversion.
+
+If a load-bearing source changed:
+
+STOP.
+
+Report:
+
+PUBLICATION BLOCKED — SOURCE CHANGED
+
+with exact value.
+
+Do not silently rewrite.
+
+────────────────────────────────────────
+47. RESPONSIVE QA
+────────────────────────────────────────
+
+Run the FULL flagship viewport suite:
+
+1440 × 1000
+
+1024 × 1366
+
+820 × 1180
+
+768 × 1024
+
+430 × 932
+
+390 × 844
+
+375 × 812.
+
+Not quick-only as the final flagship gate.
+
+────────────────────────────────────────
+48. MOBILE FIGURES
+────────────────────────────────────────
+
+Figure 01:
+
+must remain readable vertically.
+
+Figure 02:
+
+two scenarios and assumption labels must remain legible.
+
+Figure 03:
+
+may internally horizontal-scroll.
+
+Caption stays outside scroll area.
+
+Figure 04:
+
+full-width/readable.
+
+Figure 05:
+
+conversion boxes should stack if needed.
+
+No chart should be shrunk until labels are unreadable.
+
+No page-level horizontal overflow.
+
+────────────────────────────────────────
+49. RESPONSIVE ARTICLE OBJECTS
+────────────────────────────────────────
+
+Verify:
+
+headline
+
+FIRST PASS
+
+CalculationBlock
+
+ClaimCheck
+
+Assumption
+
+tables
+
+equations
+
+figures
+
+download object
+
+sources
+
+share controls
+
+BRIEF
+
+footer.
+
+At mobile:
+
+article remains one column.
+
+Side evidence hidden per house standard.
+
+No giant TOC.
+
+────────────────────────────────────────
+50. VISUAL QUALITY — 9.5+ GATE
+────────────────────────────────────────
+
+Actually inspect screenshots.
+
+Score:
+
+FIRST-SCREEN HIERARCHY
+
+TYPOGRAPHY
+
+ARTICLE RHYTHM
+
+INFORMATION DESIGN
+
+FIGURE QUALITY
+
+MATHEMATICAL PRESENTATION
+
+TABLE QUALITY
+
+HOUSE OBJECT CONSISTENCY
+
+SOURCE/EVIDENCE PRESENTATION
+
+RESPONSIVE DESIGN
+
+ACCESSIBILITY
+
+POLISH.
+
+Required:
+
+NO dimension below 9.0.
+
+Average:
+
+>=9.5.
+
+For this flagship specifically:
+
+Information Design:
+>=9.5
+
+Figure Quality:
+>=9.5
+
+Mathematical Presentation:
+>=9.5.
+
+Do not falsify scores.
+
+If something is 9.1:
+
+fix it before deploy.
+
+────────────────────────────────────────
+51. SCREENSHOT REVIEW
+────────────────────────────────────────
+
+Generate temporary screenshots at all seven viewports.
+
+Actually visually inspect them.
+
+Pay special attention to:
+
+Figure 01 small text
+
+Figure 03 matrix labels
+
+Figure 05 mobile stacking
+
+CalculationBlock equations
+
+Claim Check hierarchy
+
+workbook download
+
+footer.
+
+Remove temporary screenshots before commit.
+
+────────────────────────────────────────
+52. VISUAL AUDIT
+────────────────────────────────────────
+
+Run:
+
+bun run visual:audit -- --all
+
+or exact current equivalent.
+
+Required:
+
+semantic figures:
+PASS
+
+research alt text:
+PASS
+
+required captions:
+PASS
+
+CalculationBlock:
+PASS
+
+ClaimCheck:
+PASS
+
+Assumption:
+PASS
+
+table wrappers:
+PASS
+
+asset paths:
+PASS
+
+figure containment:
+PASS
+
+page horizontal overflow:
+0.
+
+Do not weaken checks.
+
+────────────────────────────────────────
+53. PREPUBLISH
+────────────────────────────────────────
+
+Run:
+
+bun run prepublish -- a-142-kw-ai-rack-turns-gpu-procurement-into-a-power-problem
+
+or current equivalent.
+
+Do not bypass a failure.
+
+Expected checks include current:
+
+content-source audit
+
+article verification
+
+content audit
+
+Astro check
+
+build
+
+render audit
+
+visual audit
+
+responsive audit
+
+social generation
+
+currency regression
+
+Pagefind.
+
+Fix implementation defects.
+
+Do not rewrite approved research simply to satisfy a parser unless semantic markup needs adaptation.
+
+────────────────────────────────────────
+54. FULL RELEASE REGRESSION
+────────────────────────────────────────
+
+Because shared house components may be involved, run the full current publication audit.
+
+At minimum:
+
+bun run content-source-audit
+
+bun run content:audit
+
+bun run check
+
+bun run build
+
+bun run render-audit -- --all
+
+bun run visual:audit -- --all
+
+bun run responsive:audit
+
+and any current publication:audit equivalent.
+
+Previously published articles must remain green.
+
+────────────────────────────────────────
+55. NO REGRESSION
+────────────────────────────────────────
+
+Do not break existing live articles including:
+
+when-should-a-company-run-its-own-ai-model
+
+an-ai-agent-is-no-longer-priced-in-tokens
+
+cheapest-ai-model-not-cheapest-system
+
+cheapest-ai-model-not-cheapest-system-proof
+
+ai-inference-price-surface-v0-1
+
+no-universal-long-context-premium
+
+prompt-cache-second-use-break-even
+
+sonnet-5-price-effective-date
+
+plus any additional current live publication.
+
+────────────────────────────────────────
+56. SOCIAL ASSETS
+────────────────────────────────────────
+
+Generate current SECOND / PASS house social assets:
+
+1200 × 630
+
+1080 × 1350
+
+1080 × 1080.
+
+No GPU stock photo.
+
+No glowing server.
+
+No electricity bolt graphic.
+
+Primary card direction:
+
+UP TO
+142 kW / RACK
+
+1 MW OF
+WHAT?
+
+GB300 NVL72
+FACILITY CAPACITY
+
+SECOND / PASS
+
+or a stronger publication-standard composition.
+
+Do not misrepresent 142 kW as continuous load.
+
+Keep:
+
+UP TO.
+
+────────────────────────────────────────
+57. SOCIAL NUMBER SAFETY
+────────────────────────────────────────
+
+You MAY use:
+
+7 racks / 504 GPUs
+
+only if card/context clearly says:
+
+1 MW USABLE IT
+
+and:
+
+142 kW upper planning reference.
+
+Do not publish:
+
+1 MW = 504 GPUs
+
+without the denominator qualifier.
+
+That would violate the central lesson of the article.
+
+────────────────────────────────────────
+58. SEO
+────────────────────────────────────────
+
+Preserve reviewed metadata direction.
+
+SEO title:
+
+How many GB300 NVL72 AI racks fit in a megawatt?
+
+SEO description:
+
+A source-backed facility-capacity model for NVIDIA GB300 NVL72 racks: 142 kW rack planning reference, PUE, headroom, thermal load, stranded GPUs and additional MW requirements.
+
+Verify:
+
+canonical
+
+OG title
+
+description
+
+image
+
+image alt
+
+Article JSON-LD
+
+Person author
+
+Organization publisher
+
+published date
+
+section COMPUTE
+
+tags.
+
+────────────────────────────────────────
+59. SITE ALREADY PUBLIC
+────────────────────────────────────────
+
+Do not set:
+
+SITE_PRELAUNCH=true.
+
+Do not introduce noindex.
+
+Verify after deploy:
+
+robots:
+PUBLIC
+
+noindex:
+ABSENT.
+
+Current canonical domain remains:
+
+https://second-pass.vercel.app
+
+until custom-domain migration happens separately.
+
+────────────────────────────────────────
+60. DEPLOYMENT
+────────────────────────────────────────
+
+Deploy to EXISTING Vercel project:
+
+second-pass.
+
+Do not create another Vercel project.
+
+Do not change project linkage.
+
+Do not change hosting.
+
+────────────────────────────────────────
+61. EXPECTED LIVE URL
+────────────────────────────────────────
+
+Expected:
+
+https://second-pass.vercel.app/articles/a-142-kw-ai-rack-turns-gpu-procurement-into-a-power-problem
+
+Fetch the ACTUAL production URL.
+
+HTTP:
+
+200 REQUIRED.
+
+Do not report preview/local success as production success.
+
+────────────────────────────────────────
+62. LIVE FIGURE VERIFICATION
+────────────────────────────────────────
+
+Fetch all five production SVG URLs.
+
+Each:
+
+200 REQUIRED.
+
+Fetch decision workbook:
+
+200 REQUIRED.
+
+Fetch CSV input template:
+
+200 REQUIRED.
+
+Fetch social assets:
+
+200 REQUIRED.
+
+Do not rely on local filesystem existence.
+
+────────────────────────────────────────
+63. PRODUCTION HTML QA
+────────────────────────────────────────
+
+Fetch actual production HTML.
+
+Verify:
+
+H1:
+1
+
+FIRST PASS:
+1
+
+FIRST PASS bullets:
+5
+
+status effectively published
+
+section COMPUTE
+
+five semantic research figures
+
+five useful captions
+
+correct figure order
+
+CalculationBlock
+
+two ClaimChecks
+
+Assumption block
+
+KaTeX
+
+structured Sources
+
+change log:
+Initial publication.
+
+INTELLIGENCE link:
+/intelligence
+
+article-bottom BRIEF
+
+canonical
+
+OG metadata
+
+JSON-LD.
+
+Zero:
+
+package-relative paths
+
+raw LaTeX
+
+sentinels
+
+duplicate H1
+
+duplicate FIRST PASS
+
+duplicate sources.
+
+────────────────────────────────────────
+64. PRODUCTION VISUAL QA
+────────────────────────────────────────
+
+After deployment run production screenshots at least:
+
+1440
+
+1024
+
+390
+
+375.
+
+Prefer all seven if quick.
+
+Inspect actual production, not just local.
+
+If Vercel rendering exposes a visual defect:
+
+fix
+
+rebuild
+
+redeploy
+
+reverify.
+
+────────────────────────────────────────
+65. COMPUTE PAGE — MANDATORY
+────────────────────────────────────────
+
+Fetch:
+
+https://second-pass.vercel.app/compute
+
+Verify:
+
+the empty state is gone.
+
+The page includes:
+
+A GB300 NVL72 rack can require up to 142 kW. What can your facility support?
+
+Correct date
+
+Correct SECOND PASS label
+
+Correct link.
+
+This is the first COMPUTE publication and must visibly populate the desk.
+
+────────────────────────────────────────
+66. OTHER PUBLICATION SURFACES
+────────────────────────────────────────
+
+Verify:
+
+homepage:
+article appropriately present
+
+/compute:
+present
+
+/research:
+present if current taxonomy includes it
+
+/authors/aditya:
+present
+
+RSS:
+present
+
+sitemap:
+present
+
+Pagefind:
+searchable.
+
+Useful Pagefind queries:
+
+142 kW
+
+GB300
+
+PUE
+
+504 GPUs
+
+facility capacity
+
+stranded GPUs
+
+heat rejection.
+
+────────────────────────────────────────
+67. DISTRIBUTION
+────────────────────────────────────────
+
+DO NOT automatically post to external platforms.
+
+The ZIP includes completed distribution drafts.
+
+Final report should say:
+
+DISTRIBUTION PACKAGE:
+READY
+
+AUTOMATICALLY POSTED:
+NO.
+
+Do not send daily BRIEF yet unless separately asked.
+
+────────────────────────────────────────
+68. COMMERCIAL HANDOFF
+────────────────────────────────────────
+
+Do NOT publish:
+
+10_COMMERCIAL_HANDOFF.md
+
+as editorial content.
+
+It defines the internal:
+
+AI FACILITY CAPACITY SPRINT
+
+commercial research opportunity.
+
+The public article may contain only the restrained `/INTELLIGENCE` CTA.
+
+────────────────────────────────────────
+69. SECURITY / SECRETS
+────────────────────────────────────────
+
+Do not expose:
+
+Vercel tokens
+
+GitHub tokens
+
+Beehiiv keys
+
+Resend keys
+
+internal QA docs
+
+local filesystem paths.
+
+Check:
+
+git diff
+
+before commit.
+
+────────────────────────────────────────
+70. GIT HYGIENE
+────────────────────────────────────────
+
+Do not commit:
+
+the ZIP
+
+temporary extraction directory
+
+QA markdown
+
+distribution drafts
+
+temporary screenshots
+
+Playwright traces
+
+logs
+
+.env
+
+node_modules.
+
+Commit:
+
+canonical article
+
+public research figures
+
+public decision workbook
+
+public input CSV
+
+required public supporting datasets if intentionally exposed
+
+required renderer/content integration.
+
+────────────────────────────────────────
+71. COMMIT
+────────────────────────────────────────
+
+Preferred commit:
+
+feat: publish GB300 facility capacity analysis
+
+One coherent commit preferred.
+
+No force push.
+
+No history rewriting.
+
+────────────────────────────────────────
+72. FINAL CONTENT ACCEPTANCE
+────────────────────────────────────────
+
+✓ headline preserves “up to 142 kW”
+
+✓ 72 GPUs
+
+✓ 8×33 kW shelves
+
+✓ 120 kW discrepancy retained
+
+✓ 1 MW usable IT = 7 racks / 504 GPUs
+
+✓ 507 is explicitly a continuous normalization
+
+✓ 1.97 kW/GPU is rack allocation, not chip TDP
+
+✓ 4 MW scenario = 3.000 MW usable IT
+
+✓ 21 racks / 1,512 GPUs
+
+✓ 24-rack target = 4.544 MW facility input
+
+✓ additional = 0.544 MW
+
+✓ stranded = 3 racks / 216 GPUs
+
+✓ PUE treated as planning approximation
+
+✓ PUE not double applied
+
+✓ PUE overhead not called cooling
+
+✓ no universal N+1 percentage
+
+✓ thermal load ≠ cooling electricity
+
+✓ no invented GB300 purchase price
+
+✓ planning model ≠ electrical design.
+
+────────────────────────────────────────
+73. FINAL VISUAL ACCEPTANCE
+────────────────────────────────────────
+
+✓ five figures
+
+✓ semantic figure markup
+
+✓ five captions
+
+✓ five useful alt texts
+
+✓ no decorative visuals
+
+✓ Signal Blue carries meaning
+
+✓ scenario labels visible
+
+✓ Figure 01 readable
+
+✓ Figure 02 denominator distinction obvious
+
+✓ Figure 03 no gradients
+
+✓ Figure 04 21-rack boundary visible
+
+✓ Figure 05 cooling-electricity warning visible
+
+✓ CalculationBlock
+
+✓ ClaimChecks
+
+✓ Assumption block
+
+✓ download object.
+
+────────────────────────────────────────
+74. FINAL RESPONSIVE ACCEPTANCE
+────────────────────────────────────────
+
+1440:
+PASS
+
+1024:
+PASS
+
+820:
+PASS
+
+768:
+PASS
+
+430:
+PASS
+
+390:
+PASS
+
+375:
+PASS
+
+Page-level horizontal overflow:
+
+0 REQUIRED.
+
+Math:
+PASS
+
+Figures:
+PASS
+
+Tables:
+PASS
+
+Downloads:
+PASS
+
+Sources:
+PASS
+
+BRIEF:
+PASS
+
+Footer:
+PASS.
+
+────────────────────────────────────────
+75. FINAL RESPONSE FORMAT
+────────────────────────────────────────
+
+Return exactly:
+
+# SECOND / PASS — COMPUTE #01 PUBLICATION
+
+## STATUS
+
+PASS / FAIL
+
+## ARTICLE
+
+Title:
+A GB300 NVL72 rack can require up to 142 kW. What can your facility support?
+
+Slug:
+a-142-kw-ai-rack-turns-gpu-procurement-into-a-power-problem
+
+Section:
+COMPUTE
+
+Status:
+published / FAIL
+
+Published date:
+2026-08-10 / FAIL
+
+Featured:
+true / FAIL
+
+Live URL:
+
+HTTP:
+200 / FAIL
+
+## CORE FACTS
+
+GB300 NVL72:
+PASS / FAIL
+
+GPUs:
+72 / FAIL
+
+Rack requirement:
+up to 142 kW / FAIL
+
+120 kW source discrepancy retained:
+PASS / FAIL
+
+## CORE MATH
+
+1 MW usable IT rack-equivalents:
+7.042 / FAIL
+
+Whole racks:
+7 / FAIL
+
+Whole GPUs:
+504 / FAIL
+
+Continuous GPUs/MW:
+507.04 / FAIL
+
+Rack kW per installed GPU:
+1.97 / FAIL
+
+4 MW scenario usable IT:
+3.000 MW / FAIL
+
+Powerable racks:
+21 / FAIL
+
+Powerable GPUs:
+1,512 / FAIL
+
+24-rack facility-input requirement:
+4.544 MW / FAIL
+
+Additional requirement:
+0.544 MW / FAIL
+
+Stranded racks:
+3 / FAIL
+
+Stranded GPUs:
+216 / FAIL
+
+## PUE
+
+PUE energy definition:
+PASS / FAIL
+
+Planning approximation clearly labelled:
+PASS / FAIL
+
+USABLE IT double-PUE protection:
+PASS / FAIL
+
+Cooling conflation:
+0 REQUIRED
+
+## REDUNDANCY
+
+N+1 definition:
+PASS / FAIL
+
+Universal reserve percentage:
+0 REQUIRED
+
+h clearly scenario:
+PASS / FAIL
+
+## THERMAL
+
+142 kW thermal:
+PASS / FAIL
+
+~484,524 Btu_IT/h:
+PASS / FAIL
+
+40.38 refrigeration tons:
+PASS / FAIL
+
+Cooling electricity falsely derived:
+NO REQUIRED
+
+## VISUALS
+
+01 Rack power chain:
+PASS / FAIL
+Live URL:
+
+02 One MW of what:
+PASS / FAIL
+Live URL:
+
+03 Capacity surface:
+PASS / FAIL
+Live URL:
+
+04 Stranded GPUs:
+PASS / FAIL
+Live URL:
+
+05 Thermal load:
+PASS / FAIL
+Live URL:
+
+Semantic figures:
+5 / FAIL
+
+Captions:
+5 / FAIL
+
+Alt text:
+5 / FAIL
+
+## HOUSE OBJECTS
+
+QUESTION:
+PASS / FAIL
+
+CalculationBlock:
+PASS / FAIL
+
+ClaimCheck count:
+2 / FAIL
+
+Assumption:
+PASS / FAIL
+
+INTELLIGENCE:
+PASS / FAIL
+
+INTELLIGENCE destination:
+/intelligence / FAIL
+
+## DOWNLOADS
+
+Facility workbook:
+PASS / FAIL
+
+Live URL:
+
+Input template:
+PASS / FAIL
+
+Live URL:
+
+Workbook formula errors:
+0 REQUIRED
+
+PUE branch protection:
+PASS / FAIL
+
+## VISUAL SCORE
+
+First screen:
+/10
+
+Typography:
+/10
+
+Article rhythm:
+/10
+
+Information design:
+/10
+
+Figures:
+/10
+
+Mathematics:
+/10
+
+House objects:
+/10
+
+Sources:
+/10
+
+Responsive:
+/10
+
+Accessibility:
+/10
+
+Polish:
+/10
+
+OVERALL:
+/10
+
+Average >=9.5:
+YES / NO
+
+Any dimension <9.0:
+YES / NO
+
+## RESPONSIVE
+
+1440:
+PASS / FAIL
+
+1024:
+PASS / FAIL
+
+820:
+PASS / FAIL
+
+768:
+PASS / FAIL
+
+430:
+PASS / FAIL
+
+390:
+PASS / FAIL
+
+375:
+PASS / FAIL
+
+Horizontal overflow:
+0 REQUIRED
+
+## PIPELINE
+
+content-source-audit:
+PASS / FAIL
+
+article verify:
+PASS / FAIL
+
+content audit:
+PASS / FAIL
+
+Astro check:
+PASS / FAIL
+
+build:
+PASS / FAIL
+
+render audit:
+PASS / FAIL
+
+visual audit:
+PASS / FAIL
+
+responsive audit:
+PASS / FAIL
+
+prepublish:
+PASS / FAIL
+
+Pagefind:
+PASS / FAIL
+
+social generation:
+PASS / FAIL
+
+## PUBLICATION SURFACES
+
+Homepage:
+PASS / FAIL
+
+Compute:
+PASS / FAIL
+
+Compute empty state removed:
+YES / NO
+
+Research:
+PASS / N/A / FAIL
+
+Author:
+PASS / FAIL
+
+RSS:
+PASS / FAIL
+
+Sitemap:
+PASS / FAIL
+
+Pagefind:
+PASS / FAIL
+
+robots:
+PUBLIC / BLOCKED
+
+noindex:
+ABSENT / PRESENT
+
+## PRODUCTION
+
+Git commit SHA:
+
+Vercel deployment ID:
+
+Deployment commit SHA:
+
+SHA match:
+YES / NO
+
+## DISTRIBUTION
+
+Distribution package:
+READY / FAIL
+
+Automatically posted:
+NO REQUIRED
+
+Daily BRIEF sent:
+NO REQUIRED
+
+## GIT
+
+Branch:
+
+Commit:
+
+Working tree:
+
+## BLOCKERS
+
+None
+
+OR exact blocker.
+
+If every publication-critical gate passes, end exactly:
+
+SECOND / PASS COMPUTE #01: LIVE — 9.5+ PUBLICATION STANDARD PASS
+
+If factual/math evidence changes:
+
+SECOND / PASS COMPUTE #01: PUBLICATION BLOCKED — <exact issue>
+
+If integration works but visual quality remains below standard:
+
+SECOND / PASS COMPUTE #01: VISUAL GATE BLOCKED — <exact defects>
+
+────────────────────────────────────────
+76. BEGIN NOW
+────────────────────────────────────────
+
+Do not return another plan.
+
+Execute:
+
+read AGENT.md
+→
+read PUBLICATION_STANDARD.md
+→
+inspect latest main
+→
+inspect corrected COMPUTE ZIP
+→
+verify no contamination
+→
+import canonical article
+→
+apply human publication state
+→
+copy five figures
+→
+copy workbook/input template
+→
+replace package paths
+→
+apply semantic figures/captions
+→
+apply Calculation/ClaimCheck/Assumption house styles
+→
+link INTELLIGENCE
+→
+reproduce critical math
+→
+run content/render/visual audits
+→
+run full seven-width responsive QA
+→
+inspect screenshots
+→
+fix anything below house standard
+→
+prepublish
+→
+run full regression
+→
+commit
+→
+deploy existing Vercel project
+→
+fetch actual production
+→
+verify live assets/downloads
+→
+verify COMPUTE section
+→
+inspect production screenshots
+→
+return final report.
+
+The finish line is not:
+
+“article imported.”
+
+The finish line is:
+
+THE GB300 FACILITY-CAPACITY RESEARCH IS LIVE AS THE FIRST
+9.5+ SECOND / PASS COMPUTE PUBLICATION, WITH EVERY NUMBER,
+ASSUMPTION, FIGURE, EQUATION, CAPTION, DOWNLOAD, SOURCE,
+MOBILE LAYOUT AND PUBLICATION SURFACE WORKING CORRECTLY.
+
+Proceed.

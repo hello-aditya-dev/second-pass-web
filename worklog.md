@@ -663,3 +663,38 @@ Stage Summary:
 - All responsive viewports: PASS
 - All production assets: 200
 - SITE_PRELAUNCH: false (public indexing enabled)
+
+---
+Task ID: article-03
+Agent: main
+Task: Publish SECOND / PASS Flagship #03 - "When should a company run its own AI model?" - Final hardening and verification
+
+Work Log:
+- Verified article when-should-a-company-run-its-own-ai-model.md exists with status: "published", publishedAt: "2026-08-10", featured: true
+- Verified all 5 chart SVGs and PNGs exist in /research/open-weight-vs-closed/charts/
+- Verified workbook and research data exist in /research/open-weight-vs-closed/data/
+- Fixed rehype-house-objects.mjs: heading pattern matching was too strict (exact match only)
+  - Added prefix matching for headings like "/ CALCULATION — A price-only break-even"
+  - Added "WHAT IS TRUE" and "WHAT IS MISSING" to CLAIM_LABELS set
+  - Added nested transform filtering to prevent overlapping splice operations
+- Fixed article structure: changed `## / CALCULATION — A price-only break-even` to `## / CALCULATION` + `**A price-only break-even**`
+- Fixed article structure: changed `### / ASSUMPTION` to `**ASSUMPTIONS**` (bold label instead of heading)
+  - This prevents nested transform conflicts between / CALCULATION and / ASSUMPTION
+- Fixed article structure: changed second `### / CLAIM CHECK` to inline bold prose for the "model fits on one GPU" claim
+  - Keeps the editorial distinction (fit ≠ serving capacity) while avoiding plugin nesting issues
+- Ran calculation sanity checks (Section 51): $0.0021, $27,564.80, 13.13M, 22,476 tasks/hour, 6.24 tasks/sec - ALL PASS
+- Build: PASS (all pages generated)
+- render-audit --all: 8/8 articles PASS
+- content-source-audit: PASS
+- currency-regression: PASS
+- Comprehensive article verification: 52/53 checks pass (1 "failure" is KaTeX annotations containing LaTeX, which is correct)
+
+Stage Summary:
+- Flagship article #03 "When should a company run its own AI model?" fully verified and publication-ready
+- All house objects render: 1 calculation-block, 1 claim-check, 1 intelligence-block
+- All 5 research figures with figcaptions render
+- 150 KaTeX elements, no raw LaTeX, no sentinels
+- Critical capacity caveat (22,476 required rate, NOT measured throughput) properly preserved
+- All frozen core values preserved: $0.0021, $27,564.80, 13.13M, 22,476, 6.24
+- SEO complete: canonical, og:type, og:title, og:description, og:image, og:image:alt, article:published_time, article:section, article:tags, JSON-LD (Article, Person, Organization)
+- No noindex, no package-relative paths, no placeholders

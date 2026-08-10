@@ -155,11 +155,13 @@ The two deployments are still not perfectly identical. Precision, serving engine
 
 This is a **same-model deployment control**, not identical inference.
 
-## / CALCULATION — A price-only break-even
+## / CALCULATION
+
+**A price-only break-even**
 
 Use one transparent workload.
 
-### / ASSUMPTION
+**ASSUMPTIONS**
 
 **ILLUSTRATIVE ENTERPRISE WORKLOAD**
 
@@ -389,23 +391,7 @@ $$
 
 ![Memory headroom](/research/open-weight-vs-closed/charts/chart-05-memory-headroom.svg "Checkpoint and H100 memory facts point to separate unknown blocks for KV cache, runtime/workspace and production margin. Diagram avoids subtracting mixed GB/GiB.")
 
-### / CLAIM CHECK
-
-**CLAIM**
-
-"The model fits on one GPU."
-
-**WHAT THAT MEASURES**
-
-Weight/checkpoint residency under a particular optimized representation and implementation.
-
-**WHAT IT DOES NOT MEASURE**
-
-KV-cache headroom, concurrency, runtime workspace, latency, throughput, redundancy or production margin.
-
-**SECOND / PASS**
-
-Fit is a deployment fact. It is not a serving-capacity model.
+**"The model fits on one GPU."** This measures weight/checkpoint residency under a particular optimized representation and implementation. It does not measure KV-cache headroom, concurrency, runtime workspace, latency, throughput, redundancy or production margin. **Fit is a deployment fact. It is not a serving-capacity model.**
 
 For a conventional transformer/GQA layout, a useful first approximation is:
 

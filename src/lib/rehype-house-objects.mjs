@@ -141,6 +141,8 @@ function processCalculationLabels(section) {
 
 const CLAIM_LABELS = new Set([
   "CLAIM",
+  "WHAT IS TRUE",
+  "WHAT IS MISSING",
   "WHAT THAT MEASURES",
   "WHAT IT DOES NOT MEASURE",
   "WHEN IT IS USEFUL",
@@ -234,9 +236,10 @@ export default function rehypeHouseObjects() {
       const level = headingLevel(node);
       if (level === Infinity) return;
 
-      // Check if this heading matches any pattern
+      // Check if this heading matches any pattern (prefix match for titles like "/ CALCULATION — A price-only break-even")
       const headingText = textContent(node).trim();
-      const pattern = PATTERNS.find((p) => headingText === p.match);
+      // Use includes() for flexible matching: "/ CALCULATION" can appear with trailing text
+      const pattern = PATTERNS.find((p) => headingText === p.match || headingText.startsWith(p.match + " ") || headingText.startsWith(p.match + " —") || headingText.startsWith(p.match + " –") || headingText.startsWith(p.match + ":"));
       if (!pattern) return;
 
       // Collect sibling elements after this heading until the next heading
@@ -250,12 +253,23 @@ export default function rehypeHouseObjects() {
         endIdx++;
       }
 
-      transforms.push({ index, endIdx, parent, pattern, collected });
+      transforms.push({ index, endIdx, parent, pattern, collected, headingText });
+    });
+
+    // Filter out nested transforms: if a transform's range is entirely inside another transform's range,
+    // skip it (the outer transform will handle the content including the inner heading).
+    // Also, the inner heading will be processed by the outer transform's label processor.
+    const filteredTransforms = transforms.filter((t, i) => {
+      return !transforms.some((other, j) => {
+        if (i === j) return false;
+        // t is inside other if other starts before t and other ends after t ends
+        return other.parent === t.parent && other.index < t.index && other.endIdx >= t.endIdx;
+      });
     });
 
     // Apply transforms in reverse order to preserve indices
-    for (let t = transforms.length - 1; t >= 0; t--) {
-      const { index, endIdx, parent, pattern, collected } = transforms[t];
+    for (let t = filteredTransforms.length - 1; t >= 0; t--) {
+      const { index, endIdx, parent, pattern, collected } = filteredTransforms[t];
 
       // Build the kicker div
       const kicker = elem("div", { className: [pattern.kickerClass] }, [text(pattern.match)]);
