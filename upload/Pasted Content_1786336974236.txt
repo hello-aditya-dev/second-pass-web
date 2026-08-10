@@ -1,0 +1,3077 @@
+# Z.ai — SECOND / PASS 9.5+ PUBLICATION SYSTEM UPGRADE
+
+Repository:
+
+witejackel-eng/second-pass-web
+
+Production:
+
+https://second-pass.vercel.app
+
+Existing Vercel project:
+
+second-pass
+
+MISSION:
+
+Take the entire SECOND / PASS publication system above a 9.5/10 standard in:
+
+VISUAL DESIGN
+EDITORIAL PRESENTATION
+MATHEMATICAL PRESENTATION
+DATA VISUALIZATION
+INFORMATION DESIGN
+RESPONSIVE QUALITY
+ACCESSIBILITY
+CONTENT RENDERING
+SOURCE PRESENTATION
+PUBLICATION CONSISTENCY
+FUTURE-PUBLISHING RELIABILITY
+
+This is NOT a redesign.
+
+Do not replace the SECOND / PASS identity.
+
+The current visual language is strong.
+
+The goal is to refine it into a repeatable, publication-grade system where:
+
+1. every existing article looks intentionally designed;
+2. every future article inherits the same high standard;
+3. Z.ai has permanent repository memory describing exactly how SECOND / PASS works;
+4. publication QA prevents visual/content regressions automatically;
+5. research visuals are treated as editorial evidence, not decoration.
+
+The publication should feel like:
+
+RESEARCH LABORATORY
+×
+NEWSPAPER
+×
+ENGINEERING DRAWING
+
+not:
+
+SaaS dashboard
+AI blog
+marketing website
+generic data-viz template.
+
+Target quality:
+
+9.5/10+
+
+in every material dimension.
+
+Do not claim 9.5 merely because a test passes.
+
+The result must actually withstand visual inspection.
+
+────────────────────────────────────────
+0. CURRENT CONFIRMED STATE
+────────────────────────────────────────
+
+The new article:
+
+/articles/an-ai-agent-is-no-longer-priced-in-tokens
+
+is live and substantially successful.
+
+Its publication-critical implementation is strong.
+
+Current visual quality is approximately:
+
+8.8/10.
+
+Current implementation quality is approximately:
+
+8.8/10.
+
+The publication is already public.
+
+robots.txt currently permits crawling.
+
+Do NOT re-enable prelaunch.
+
+Do NOT redesign unrelated pages.
+
+Do NOT reopen the research.
+
+Known defects to fix immediately:
+
+1. The agent-economics article contains a raw ASCII/code-block agent trace and then a polished graphical version of the same trace.
+
+DELETE THE RAW DUPLICATE.
+
+Keep the designed research figure.
+
+2. Research images currently render as plain Markdown:
+
+<p>
+  <img>
+</p>
+
+rather than semantic:
+
+<figure>
+  <img>
+  <figcaption>
+</figure>
+
+Fix the publication image pipeline so research figures are semantic automatically.
+
+3. `/ CALCULATION` content currently appears as ordinary headings and paragraphs even though dedicated house styling already exists.
+
+Make `/ CALCULATION` a real SECOND / PASS editorial object.
+
+4. `/ CLAIM CHECK` has the same problem.
+
+Make `/ CLAIM CHECK` a real SECOND / PASS editorial object.
+
+5. `/ ASSUMPTION` should receive an intentional but restrained house treatment.
+
+6. Desktop footer contains five logical groups:
+
+Brand
+Publication
+Topics
+/ BRIEF
+Commercial
+
+but current desktop CSS defines only four grid columns.
+
+This causes Commercial to wrap onto a second row.
+
+Fix the footer as a deliberate five-column desktop composition.
+
+7. Existing research figures need better semantic captions, alt text and responsive behavior.
+
+8. Some existing published articles were created before the current visual system matured.
+
+Retrofit them.
+
+────────────────────────────────────────
+1. BEGIN WITH REPOSITORY INSPECTION
+────────────────────────────────────────
+
+Before editing:
+
+git status
+git branch
+git log -10 --oneline
+git diff
+
+Inspect:
+
+AGENT.md if present
+
+README.md
+
+package.json
+
+astro.config.mjs
+
+src/content.config.ts
+
+src/pages/articles/[slug].astro
+
+src/styles/global.css
+
+src/components/
+
+src/content/articles/
+
+public/research/
+
+scripts/
+
+especially:
+
+content-source-audit.mjs
+content-audit.mjs
+render-audit.mjs
+responsive-audit.mjs
+prepublish.mjs
+generate-social-assets.mjs
+
+Inspect all live published articles.
+
+Do not assume old implementation descriptions remain current.
+
+────────────────────────────────────────
+2. CURRENT PUBLISHED ARTICLE SET
+────────────────────────────────────────
+
+Audit at minimum:
+
+/articles/an-ai-agent-is-no-longer-priced-in-tokens
+
+/articles/cheapest-ai-model-not-cheapest-system
+
+/articles/cheapest-ai-model-not-cheapest-system-proof
+
+/articles/ai-inference-price-surface-v0-1
+
+/articles/no-universal-long-context-premium
+
+/articles/prompt-cache-second-use-break-even
+
+/articles/sonnet-5-price-effective-date
+
+If additional genuine published non-demo articles now exist:
+
+include them too.
+
+Do not ignore a new article merely because it was not named in this prompt.
+
+────────────────────────────────────────
+3. CREATE PERMANENT REPOSITORY PUBLICATION MEMORY
+────────────────────────────────────────
+
+Create ONE canonical permanent file at repository root:
+
+PUBLICATION_STANDARD.md
+
+This is the authoritative SECOND / PASS publication specification.
+
+Do not create five overlapping policy documents.
+
+If AGENT.md already exists:
+
+add a short mandatory instruction near the top:
+
+BEFORE ANY CONTENT/PUBLICATION WORK:
+READ `PUBLICATION_STANDARD.md` COMPLETELY.
+
+If AGENT.md does not exist:
+
+create a concise AGENT.md containing that instruction and only essential repository-agent behavior.
+
+Do not duplicate the entire standard into AGENT.md.
+
+Single source of truth:
+
+PUBLICATION_STANDARD.md
+
+────────────────────────────────────────
+4. PURPOSE OF PUBLICATION_STANDARD.md
+────────────────────────────────────────
+
+This file exists so future Z.ai sessions do not forget:
+
+brand
+
+editorial philosophy
+
+content structure
+
+source rules
+
+math rules
+
+visual rules
+
+responsive rules
+
+figure rules
+
+house editorial objects
+
+mobile behavior
+
+publishing workflow
+
+quality thresholds
+
+things that must NEVER happen again.
+
+This should be the permanent "pre-file" for every future article.
+
+Future task flow becomes:
+
+READ PUBLICATION_STANDARD.md
+        ↓
+INSPECT CURRENT REPO
+        ↓
+IMPORT APPROVED PACKAGE
+        ↓
+IMPLEMENT
+        ↓
+SOURCE QA
+        ↓
+RENDER QA
+        ↓
+VISUAL QA
+        ↓
+RESPONSIVE QA
+        ↓
+PUBLISH
+
+────────────────────────────────────────
+5. PUBLICATION_STANDARD — BRAND
+────────────────────────────────────────
+
+Record:
+
+SECOND / PASS
+
+Core idea:
+
+"The first pass tells you what happened.
+The second pass tells you what it means."
+
+Core editorial question:
+
+"What changed technically, and what does it change economically?"
+
+Coverage:
+
+AI
+Compute
+Systems
+Infrastructure
+Security
+Research
+Data
+
+Publication character:
+
+technical intelligence
+
+not:
+
+generic tech blog
+press-release rewriting
+AI content farm
+vendor marketing
+generic SaaS site.
+
+────────────────────────────────────────
+6. PUBLICATION_STANDARD — VISUAL IDENTITY
+────────────────────────────────────────
+
+Record current visual system.
+
+Palette:
+
+Paper:
+#F2EFE7
+
+Ink:
+#11110F
+
+Graphite:
+#5A5953
+
+Rule:
+#C9C3B7
+
+Signal Blue:
+#2F5BFF
+
+Typography:
+
+Bricolage Grotesque Variable:
+masthead
+headlines
+navigation
+data numerals
+strong display labels
+
+Newsreader Variable:
+article prose
+deks
+captions
+
+System mono:
+timestamps
+units
+source types
+labels
+changelog
+technical metadata.
+
+Visual principle:
+
+Signal Blue must carry INFORMATION.
+
+It should indicate:
+
+important result
+active variable
+key annotation
+threshold
+important rule
+
+not decorative noise.
+
+No gradients except an already-approved extremely restrained editorial treatment if currently present.
+
+No glassmorphism.
+
+No shadows/cards everywhere.
+
+No neon.
+
+No stock imagery.
+
+No generic AI robot.
+
+No AI brain art.
+
+No ornamental 3D.
+
+No decorative graphs.
+
+────────────────────────────────────────
+7. 9.5+ VISUAL QUALITY DEFINITION
+────────────────────────────────────────
+
+Record that "9.5+" requires:
+
+VISUAL HIERARCHY
+
+reader knows what matters immediately.
+
+INFORMATION DENSITY
+
+high information per screen without crowding.
+
+ORIGINAL INFORMATION DESIGN
+
+figures answer actual questions.
+
+MATHEMATICAL CLARITY
+
+equations are readable and contextualized.
+
+HOUSE CONSISTENCY
+
+FIRST PASS
+CALCULATION
+CLAIM CHECK
+ASSUMPTION
+SOURCES
+CHANGE LOG
+INTELLIGENCE
+BRIEF
+
+look unmistakably related.
+
+RESPONSIVE INTENT
+
+mobile/tablet feel designed rather than collapsed.
+
+SEMANTICS
+
+figures
+captions
+tables
+headings
+links
+
+are structurally correct.
+
+RESTRAINT
+
+no visual added merely because "every article needs a visual."
+
+Every object must increase understanding.
+
+────────────────────────────────────────
+8. FORMAT-SPECIFIC VISUAL STANDARD
+────────────────────────────────────────
+
+Add to PUBLICATION_STANDARD.md:
+
+/ NOW
+
+Typical:
+
+300–700 words.
+
+Minimum visual-information requirement:
+
+at least ONE meaningful structured visual object when the topic supports it.
+
+Examples:
+
+compact comparison table
+small calculation
+effective-date timeline
+changed-spec table
+small architecture diagram
+single analytical figure.
+
+Do NOT create meaningless charts just to satisfy a quota.
+
+/ SECOND PASS
+
+Typical:
+
+1,500–3,500 words.
+
+Expected:
+
+2–4 strong visual/information objects.
+
+At least one should normally contain original information gain:
+
+calculation
+data normalization
+threshold
+architecture
+cost model
+comparison.
+
+/ PROOF
+
+Math/evidence heavy.
+
+Expected:
+
+formal equations
+assumption objects
+methodology
+decision boundary
+architecture/derivation diagram
+reproducibility.
+
+Visuals must clarify the proof rather than decorate it.
+
+/ DATA
+
+Expected:
+
+structured table
+one or more analytical views
+clear units
+downloadable data where appropriate
+methodology.
+
+/ DEEP
+
+Expected:
+
+3–6 meaningful visual objects where warranted.
+
+No arbitrary chart count.
+
+Quality beats volume.
+
+────────────────────────────────────────
+9. EVERY VISUAL MUST ANSWER A QUESTION
+────────────────────────────────────────
+
+Add the rule:
+
+Before creating a figure, define:
+
+DECISION QUESTION
+
+Example:
+
+BAD:
+
+"AI agent cost chart"
+
+GOOD:
+
+"Which billing meter is largest in this worked trace?"
+
+BAD:
+
+"Provider comparison"
+
+GOOD:
+
+"Which billable meter families exist in each provider stack?"
+
+Each figure must have:
+
+figure_id
+
+question
+
+title
+
+data/source basis
+
+observed/calculated/scenario status
+
+main takeaway
+
+caveat
+
+alt text
+
+caption
+
+mobile behavior.
+
+────────────────────────────────────────
+10. FIGURE PIPELINE — SEMANTIC BY DEFAULT
+────────────────────────────────────────
+
+Fix the Markdown rendering system.
+
+Standalone article research images should NOT render as:
+
+<p><img></p>
+
+They should render semantically.
+
+Implement a small Astro/remark/rehype-native transformation.
+
+Preferred source convention:
+
+![Alt text](/research/path/chart.svg "Caption text")
+
+should render approximately:
+
+<figure class="research-figure">
+  <div class="research-figure-scroll">
+    <img
+      src="..."
+      alt="..."
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+
+  <figcaption>
+    Caption text
+  </figcaption>
+</figure>
+
+Do not require MDX.
+
+Do not add React.
+
+Do not add client JS.
+
+Keep canonical Markdown publishing.
+
+If no title/caption exists:
+
+figure may omit figcaption ONLY if there is genuinely no useful caption.
+
+But all analytical research figures should normally have captions.
+
+────────────────────────────────────────
+11. FIGURE CAPTION STANDARD
+────────────────────────────────────────
+
+Captions are not decorative subtitles.
+
+A good caption tells the reader:
+
+what the figure shows
+
+what assumptions apply
+
+whether values are observed/calculated/scenario
+
+what not to infer.
+
+Example:
+
+At the fixed illustrative workload, web search becomes the largest individual meter at the third search. This is a scenario threshold, not a universal agent rule.
+
+Do not duplicate the chart title word-for-word.
+
+────────────────────────────────────────
+12. RESEARCH FIGURE STYLE
+────────────────────────────────────────
+
+Standardize static SVG figures.
+
+House style:
+
+Paper background or transparent for article integration.
+
+Ink:
+primary structure.
+
+Graphite:
+secondary context.
+
+Rule:
+grid lines.
+
+Signal Blue:
+one important series / threshold / variable.
+
+Avoid:
+
+rainbow charts
+
+unnecessary legends
+
+thick borders
+
+gradients
+
+pie charts unless part-to-whole genuinely requires one
+
+3D charts
+
+excessive grid lines
+
+tiny labels.
+
+Charts should feel like technical editorial illustrations.
+
+────────────────────────────────────────
+13. CHART TYPOGRAPHY
+────────────────────────────────────────
+
+Research charts must use the site's visual family.
+
+Display/labels should visually harmonize with Bricolage/mono.
+
+Do not rely on fonts that will not exist in the SVG/web environment.
+
+Use web-safe or embedded presentation decisions that render reliably without distributing font files.
+
+Never share font files.
+
+Text must be readable on mobile.
+
+For dense charts:
+
+minimum internal width may exceed phone viewport and scroll inside the figure.
+
+Do not shrink labels below useful reading size.
+
+────────────────────────────────────────
+14. DENSE FIGURE MOBILE RULE
+────────────────────────────────────────
+
+If a figure becomes unreadable when fluid at 375–430px:
+
+mark it:
+
+research-figure--scroll
+
+and use:
+
+scrollable internal visual container
+
+minimum image width around 560–640px as appropriate
+
+caption OUTSIDE the scroll area.
+
+Page-level horizontal overflow remains prohibited.
+
+────────────────────────────────────────
+15. DELETE DUPLICATE RAW AGENT TRACE
+────────────────────────────────────────
+
+In:
+
+an-ai-agent-is-no-longer-priced-in-tokens.md
+
+remove the raw text code block:
+
+USER
+↓
+MODEL
+↓
+SEARCH
+...
+
+because the polished figure immediately following communicates the same information better.
+
+Do not remove the designed:
+
+chart-01-agent-billing-path.svg
+
+The opening should become:
+
+paragraph
+→
+accounting question
+→
+brief explanation
+→
+designed billing-path figure
+
+without duplicated information.
+
+────────────────────────────────────────
+16. / CALCULATION — HOUSE OBJECT
+────────────────────────────────────────
+
+Existing CSS already contains CalculationBlock styles.
+
+But Markdown articles currently render:
+
+### / CALCULATION
+
+as ordinary H3 + paragraphs.
+
+Fix this SYSTEMICALLY.
+
+Do NOT manually style each article.
+
+Implement a static Markdown AST/HTML transform.
+
+Recognize an exact heading:
+
+/ CALCULATION
+
+at the appropriate article heading level.
+
+Group the content belonging to that calculation until the next peer/higher structural heading.
+
+Render semantic structure approximately:
+
+<section class="calculation-block" aria-labelledby="...">
+
+  <div class="calc-kicker">/ CALCULATION</div>
+
+  ...
+
+</section>
+
+Recognize labeled fields where present:
+
+QUESTION
+
+ASSUMPTIONS
+
+EQUATION
+
+RESULT
+
+SO WHAT?
+
+CAVEAT
+
+Give each its correct existing house style.
+
+Do not rewrite equations.
+
+Do not modify calculation semantics.
+
+────────────────────────────────────────
+17. CALCULATION VISUAL PRIORITY
+────────────────────────────────────────
+
+Inside CalculationBlock:
+
+QUESTION:
+small display emphasis.
+
+ASSUMPTIONS:
+compact and scan-friendly.
+
+EQUATION:
+clean KaTeX.
+
+RESULT:
+visually strongest element.
+
+Signal Blue may highlight RESULT.
+
+SO WHAT:
+plain-English economic interpretation.
+
+CAVEAT:
+lower-contrast uncertainty.
+
+The reader should be able to skim only CalculationBlocks and understand the analytical findings.
+
+────────────────────────────────────────
+18. / CLAIM CHECK — HOUSE OBJECT
+────────────────────────────────────────
+
+Systemically transform:
+
+/ CLAIM CHECK
+
+into:
+
+<section class="claim-check">
+
+Recognize labels such as:
+
+CLAIM
+
+WHAT THAT MEASURES
+
+WHAT IT DOES NOT MEASURE
+
+EVIDENCE STATUS
+
+WHEN IT IS USEFUL
+
+WHEN IT IS NOT ENOUGH
+
+SECOND / PASS
+
+Use the existing ClaimCheck styling as the base.
+
+Improve it where necessary.
+
+It should resemble:
+
+research verification
+
+not:
+
+warning box
+marketing card
+UI alert.
+
+Signal Blue may be used for the SECOND / PASS verdict.
+
+────────────────────────────────────────
+19. / ASSUMPTION — HOUSE OBJECT
+────────────────────────────────────────
+
+Create a restrained semantic treatment for:
+
+/ ASSUMPTION
+
+Do not turn it into a colored card.
+
+Suggested visual grammar:
+
+thin top rule
+
+mono kicker
+
+compact label
+
+slightly differentiated background only if extremely subtle
+
+clear list spacing.
+
+Its purpose is to make scenario assumptions impossible to confuse with observed facts.
+
+────────────────────────────────────────
+20. OTHER HOUSE OBJECTS
+────────────────────────────────────────
+
+Ensure the visual system remains coherent for:
+
+/ FIRST PASS
+
+/ SOURCES
+
+/ CHANGE LOG
+
+/ INTELLIGENCE
+
+/ BRIEF
+
+/ END
+
+Do not add a separate boxed style to every object.
+
+The publication should remain restrained.
+
+Use hierarchy, rules, typography and spacing more than containers.
+
+────────────────────────────────────────
+21. CONTENT PIPELINE FOR HOUSE OBJECTS
+────────────────────────────────────────
+
+Canonical authoring should remain easy.
+
+Writers should be able to write:
+
+### / CALCULATION
+
+**QUESTION**
+
+...
+
+**ASSUMPTIONS**
+
+...
+
+**EQUATION**
+
+...
+
+**RESULT**
+
+...
+
+**SO WHAT?**
+
+...
+
+**CAVEAT**
+
+...
+
+and receive the house treatment automatically.
+
+Similarly:
+
+## / CLAIM CHECK
+
+and:
+
+### / ASSUMPTION
+
+Do not require HTML in research packages.
+
+Do not require Astro imports in Markdown.
+
+The renderer owns presentation.
+
+Content packages own semantics.
+
+────────────────────────────────────────
+22. FOOTER — FIX FIVE-COLUMN DESKTOP GRID
+────────────────────────────────────────
+
+Current footer logically has:
+
+1. Brand
+2. Publication
+3. Topics
+4. / BRIEF
+5. Commercial
+
+Current CSS uses four columns.
+
+Fix desktop composition intentionally.
+
+Suggested direction:
+
+grid-template-columns:
+1.6fr
+0.9fr
+0.9fr
+1.1fr
+0.8fr
+
+or a visually superior nearby balance.
+
+Do not blindly use these numbers.
+
+Inspect at 1440 and 1280.
+
+Requirements:
+
+all five groups in one row on desktop
+
+no awkward Commercial second row
+
+balanced whitespace
+
+brand remains visually dominant
+
+Commercial remains subtle.
+
+At ≤1040px:
+
+2-column layout remains good.
+
+At ≤720px:
+
+1-column layout remains good.
+
+────────────────────────────────────────
+23. RETROFIT EVERY PUBLISHED ARTICLE
+────────────────────────────────────────
+
+Now perform a VISUAL EDITORIAL PASS on every real published article.
+
+Do not rewrite verified research.
+
+Do not alter conclusions except to fix obvious formatting/semantic defects.
+
+For each article:
+
+inspect full page
+
+identify weak visual sections
+
+identify missing house-object treatment
+
+identify duplicated visual information
+
+identify raw/unsemantic image rendering
+
+identify weak captions
+
+identify unreadable dense visuals
+
+identify tables needing better information hierarchy
+
+identify equations that would benefit from calculation grouping.
+
+Target:
+
+9.5/10+ visual presentation.
+
+────────────────────────────────────────
+24. AGENT ECONOMICS ARTICLE
+────────────────────────────────────────
+
+For:
+
+an-ai-agent-is-no-longer-priced-in-tokens
+
+required:
+
+✓ delete duplicate raw trace
+
+✓ semantic figure wrappers
+
+✓ strong captions
+
+✓ CalculationBlocks real
+
+✓ ClaimCheck real
+
+✓ Assumption real
+
+✓ chart-01 polished
+
+✓ chart-02 polished
+
+✓ chart-04 polished
+
+✓ chart-03 text enlarged / internal whitespace improved
+
+✓ provider matrix clearly separates:
+
+BASE METER FAMILIES
+
+from:
+
+PRICING / APPLICABILITY LAYERS
+
+✓ mobile dense-chart behavior
+
+✓ figure alt text
+
+✓ no research claim changed.
+
+────────────────────────────────────────
+25. CHEAPEST AI MODEL FLAGSHIP
+────────────────────────────────────────
+
+For:
+
+cheapest-ai-model-not-cheapest-system
+
+Inspect its current multiple charts and calculations.
+
+Required:
+
+✓ calculation objects receive house treatment
+
+✓ CLAIM CHECK receives house treatment
+
+✓ all charts semantic figures
+
+✓ captions strengthen interpretation
+
+✓ central 1.71 percentage-point result visually obvious
+
+✓ no giant visual bloat
+
+✓ repeated equations grouped logically
+
+✓ evidence hierarchy remains strong
+
+✓ move no additional research unless required.
+
+This article should feel like a flagship research object.
+
+Target visual score:
+
+9.6+.
+
+────────────────────────────────────────
+26. PROOF ARTICLE
+────────────────────────────────────────
+
+For:
+
+cheapest-ai-model-not-cheapest-system-proof
+
+This is math-heavy.
+
+Prioritize:
+
+equation hierarchy
+
+assumption objects
+
+derivation clarity
+
+formal routing model
+
+decision boundary.
+
+Do not decorate math.
+
+Use space and structure.
+
+Where useful, add ONE high-value conceptual diagram using existing verified equations/data.
+
+Do not create speculative values.
+
+Long equations must remain internally scrollable.
+
+Target:
+
+mathematical presentation 9.7+.
+
+────────────────────────────────────────
+27. DATA ARTICLE
+────────────────────────────────────────
+
+For:
+
+ai-inference-price-surface-v0-1
+
+Treat the data itself as the visual.
+
+Prioritize:
+
+tables
+
+units
+
+grouping
+
+effective dates
+
+provider/configuration distinctions
+
+download visibility
+
+source clarity.
+
+If an existing dataset supports one genuinely useful visualization without adding new research:
+
+create it.
+
+Possible useful forms:
+
+price-band comparison
+
+configuration surface
+
+provider × modifier matrix.
+
+Do not create a chart merely for aesthetics.
+
+────────────────────────────────────────
+28. LONG-CONTEXT NOW
+────────────────────────────────────────
+
+For:
+
+no-universal-long-context-premium
+
+Short NOW article.
+
+It should not become visually heavy.
+
+Ideal:
+
+one compact comparison table
+
+and optionally one small conceptual rule visual.
+
+Ensure the table clearly distinguishes:
+
+provider/configuration
+trigger
+input multiplier
+output multiplier.
+
+If the existing article already achieves this well:
+
+do not add noise.
+
+────────────────────────────────────────
+29. PROMPT CACHE NOW
+────────────────────────────────────────
+
+For:
+
+prompt-cache-second-use-break-even
+
+Make the calculation itself the primary visual.
+
+Use CalculationBlock.
+
+Ensure reader can immediately see:
+
+NORMAL
+N
+
+CACHE
+1.25 + 0.10(N−1)
+
+BREAK-EVEN
+N > 1.278
+
+INTEGER RESULT
+2 eligible uses
+
+and one-hour case where relevant.
+
+A small threshold diagram is acceptable if supported entirely by existing calculation data.
+
+No decorative chart needed.
+
+────────────────────────────────────────
+30. SONNET EFFECTIVE-DATE NOW
+────────────────────────────────────────
+
+For:
+
+sonnet-5-price-effective-date
+
+Primary visual should be the temporal price table.
+
+Make the date transition extremely obvious.
+
+Also visually distinguish:
+
+BAD DATA MODEL
+
+model
+input_price
+output_price
+scraped_at
+
+from:
+
+BETTER TEMPORAL MODEL
+
+model
+effective_from
+effective_to
+input_price
+output_price
+source_accessed_at.
+
+This can be a restrained schema comparison object.
+
+Do not turn the short article into an infographic.
+
+────────────────────────────────────────
+31. NO UNSOURCED NEW VISUAL DATA
+────────────────────────────────────────
+
+This is critical.
+
+Visual refinement may use:
+
+existing article facts
+
+verified calculations
+
+existing public data
+
+existing research datasets
+
+existing primary-source facts already cited.
+
+Do NOT invent:
+
+benchmarks
+
+percentages
+
+throughput
+
+quality differences
+
+latency
+
+market share
+
+GPU performance
+
+model performance.
+
+If a visual requires new facts:
+
+either:
+
+do not create it
+
+OR
+
+stop and mark it as requiring separate research.
+
+This task is visual/editorial implementation.
+
+Not new research.
+
+────────────────────────────────────────
+32. REMOVE VISUAL DUPLICATION
+────────────────────────────────────────
+
+No article should contain:
+
+raw text diagram
++
+designed diagram
+
+showing the same thing.
+
+No article should contain:
+
+table
++
+chart
+
+with identical data
+
+unless each answers a different question.
+
+No calculation should be repeated in:
+
+prose
+table
+chart
+callout
+
+without reason.
+
+Visual information should compress understanding.
+
+Not multiply page length.
+
+────────────────────────────────────────
+33. FIGURE ASSET NAMING
+────────────────────────────────────────
+
+Use stable paths:
+
+/research/<research-slug>/charts/<descriptive-file>.svg
+
+Do not use:
+
+chart-final.svg
+
+new-chart.svg
+
+image1.svg
+
+final-final.svg.
+
+Prefer:
+
+review-break-even.svg
+
+cache-reuse-threshold.svg
+
+agent-cost-composition.svg
+
+provider-meter-matrix.svg.
+
+Do not rename existing assets unnecessarily if current paths are already stable and public.
+
+Avoid breaking links.
+
+────────────────────────────────────────
+34. ACCESSIBILITY STANDARD
+────────────────────────────────────────
+
+Every research figure:
+
+useful alt text.
+
+Every data table:
+
+semantic th/td.
+
+Every scrollable table:
+
+keyboard-accessible bounded region.
+
+Every house object:
+
+semantic section where possible.
+
+Every heading:
+
+correct hierarchy.
+
+No color-only meaning.
+
+Signal Blue emphasis must also have:
+
+label
+position
+shape
+text
+
+when necessary.
+
+Captions must remain readable.
+
+────────────────────────────────────────
+35. VISUAL QA AUTOMATION
+────────────────────────────────────────
+
+Create:
+
+scripts/visual-audit.mjs
+
+and package command:
+
+"visual:audit": "node scripts/visual-audit.mjs"
+
+Do not pretend subjective visual quality can be fully automated.
+
+This script is a STRUCTURAL visual integrity gate.
+
+It should inspect built HTML and/or browser output.
+
+At minimum check published articles for:
+
+1. standalone research images wrapped in semantic figure
+2. research image alt text present
+3. analytical figures have figcaption where required
+4. no direct `.article-body > p > img` for research charts after transformation
+5. no broken figure source
+6. no package-relative/local paths
+7. table wrappers present
+8. no duplicate figure IDs
+9. Calculation objects receive `.calculation-block`
+10. Claim Check objects receive `.claim-check`
+11. Assumption objects receive the expected house class
+12. figure fits viewport or uses internal-scroll treatment
+13. captions remain within viewport
+14. no page-level horizontal overflow
+15. no missing research asset.
+
+Do not add a giant dependency if Playwright/current DOM tools can perform these checks.
+
+────────────────────────────────────────
+36. DUPLICATE VISUAL CONTENT AUDIT
+────────────────────────────────────────
+
+Automation cannot reliably determine semantic duplication.
+
+Therefore add a mandatory MANUAL VISUAL QA item to PUBLICATION_STANDARD.md:
+
+DUPLICATE VISUAL INFORMATION:
+
+PASS / FAIL
+
+Reviewer asks:
+
+Does the article present the same diagram/table/calculation twice in different forms without gaining information?
+
+This would have caught the agent trace problem.
+
+────────────────────────────────────────
+37. SCREENSHOT REVIEW SYSTEM
+────────────────────────────────────────
+
+Extend current responsive/visual QA.
+
+For each major SECOND PASS / PROOF / DATA publication:
+
+capture at least:
+
+1440
+
+1024
+
+390.
+
+For full release audit use:
+
+1440
+1024
+820
+768
+430
+390
+375.
+
+For short NOW articles:
+
+1440
+390
+
+may be sufficient during normal prepublish if the shared renderer already passes full responsive regression.
+
+But full publication-release suite must remain available.
+
+────────────────────────────────────────
+38. VISUAL SCREENSHOT CHECKLIST
+────────────────────────────────────────
+
+Manual screenshot inspection must evaluate:
+
+FIRST SCREEN
+
+headline/dek/meta balance.
+
+FIRST PASS
+
+information density.
+
+ARTICLE RHYTHM
+
+no wall of text.
+
+VISUAL PLACEMENT
+
+figure arrives near relevant explanation.
+
+FIGURE SIZE
+
+not tiny, not oversized.
+
+CAPTION
+
+useful.
+
+CALCULATIONS
+
+scannable.
+
+CLAIM CHECK
+
+clearly distinct.
+
+TABLES
+
+readable.
+
+MATH
+
+clean.
+
+SOURCES
+
+professional.
+
+INTELLIGENCE
+
+subtle.
+
+BRIEF
+
+strong but not intrusive.
+
+FOOTER
+
+balanced.
+
+MOBILE
+
+intentionally designed.
+
+────────────────────────────────────────
+39. 9.5+ ARTICLE VISUAL SCORECARD
+────────────────────────────────────────
+
+Add this rubric to PUBLICATION_STANDARD.md.
+
+Score each 0–10:
+
+A. FIRST-SCREEN HIERARCHY
+
+B. TYPOGRAPHY
+
+C. ARTICLE RHYTHM
+
+D. INFORMATION DESIGN
+
+E. FIGURE QUALITY
+
+F. MATHEMATICAL PRESENTATION
+
+G. TABLE QUALITY
+
+H. HOUSE OBJECT CONSISTENCY
+
+I. SOURCE/EVIDENCE PRESENTATION
+
+J. RESPONSIVE DESIGN
+
+K. ACCESSIBILITY
+
+L. POLISH / LACK OF VISUAL DEFECTS
+
+Publication target:
+
+NO dimension below 9.0.
+
+AVERAGE target:
+
+>= 9.5.
+
+For flagship SECOND PASS / PROOF / DATA:
+
+Information Design
+Figure Quality
+Mathematical Presentation where applicable
+
+must each be >=9.5.
+
+Do not fabricate the score.
+
+If a dimension is weak:
+
+fix it.
+
+────────────────────────────────────────
+40. CONTENT QUALITY STANDARD IN PRE-FILE
+────────────────────────────────────────
+
+PUBLICATION_STANDARD.md must also preserve the content-quality system.
+
+A sentence should preferably:
+
+state a fact
+
+explain a mechanism
+
+provide a number
+
+define something
+
+show evidence
+
+perform a calculation
+
+draw a consequence
+
+state uncertainty.
+
+Avoid generic AI filler.
+
+No:
+
+revolutionary
+game-changing
+cutting-edge
+dynamic landscape
+paradigm shift
+transformative
+unlock
+
+unless genuinely required.
+
+No fake tests.
+
+No fake quotes.
+
+No invented numbers.
+
+No unsourced benchmark claims.
+
+────────────────────────────────────────
+41. INFORMATION GAIN STANDARD
+────────────────────────────────────────
+
+Record:
+
+Every substantial SECOND / PASS piece must add something beyond the primary-source page.
+
+Possible information gain:
+
+original calculation
+
+normalized data
+
+source reconciliation
+
+break-even threshold
+
+architecture diagram
+
+decision boundary
+
+changed-spec table
+
+cost model
+
+sensitivity analysis
+
+explicit uncertainty
+
+reproducible methodology.
+
+Internal information-gain model may remain:
+
+IG =
+.25O
++ .20D
++ .20M
++ .15V
++ .10R
++ .10A
+
+where:
+
+O original calculation
+
+D normalized/original data
+
+M mechanism
+
+V verification
+
+R reproducibility
+
+A actionability.
+
+Do not display this publicly.
+
+────────────────────────────────────────
+42. SOURCE STANDARD
+────────────────────────────────────────
+
+Record:
+
+Primary sources strongly preferred.
+
+Current prices/specs must be reverified before publication.
+
+Every technical number needs provenance.
+
+Vendor benchmark must be labelled vendor benchmark.
+
+Calculated values must be labelled calculation.
+
+Scenarios must be labelled scenario.
+
+Do not turn scenario outputs into universal claims.
+
+────────────────────────────────────────
+43. MATH STANDARD
+────────────────────────────────────────
+
+Record current permanent rule:
+
+ordinary money uses normal `$`.
+
+Example:
+
+The request costs $0.0768.
+
+Single-dollar inline math is disabled.
+
+Display equations use:
+
+$$
+...
+$$
+
+No sentinel substitutions.
+
+Forbidden forever:
+
+24182
+24183
+24190
+24191
+
+No raw LaTeX outside math.
+
+Math exists to answer a question.
+
+Not to make articles look technical.
+
+────────────────────────────────────────
+44. TABLE STANDARD
+────────────────────────────────────────
+
+All Markdown tables automatically receive:
+
+.table-wrap
+
+with internal horizontal scroll.
+
+Page itself never horizontally scrolls.
+
+Units explicit.
+
+Numeric columns aligned where appropriate.
+
+Headers compact.
+
+No tiny unreadable table on mobile.
+
+────────────────────────────────────────
+45. RESPONSIVE STANDARD
+────────────────────────────────────────
+
+Permanent breakpoints:
+
+Desktop:
+>1040px
+
+Tablet:
+721–1040px
+
+Mobile:
+≤720px
+
+Desktop article:
+
+TOC | ARTICLE | EVIDENCE
+
+Tablet:
+
+centered ARTICLE
+compact horizontal TOC
+evidence hidden.
+
+Mobile:
+
+ARTICLE
+no side evidence
+no giant TOC
+internal table/math/chart scrolling only.
+
+No page-level horizontal overflow.
+
+────────────────────────────────────────
+46. FUTURE VISUAL DESIGN PROCESS
+────────────────────────────────────────
+
+Every future publication package should provide a VISUAL PLAN.
+
+When Z.ai receives an approved article without a visual plan:
+
+it must first inspect:
+
+article
+
+data
+
+calculations
+
+existing public-safe assets.
+
+Then identify the minimum set of visuals required to communicate the analysis.
+
+Do not fabricate research.
+
+For each visual:
+
+QUESTION
+TYPE
+SOURCE DATA
+PLACEMENT
+TAKEAWAY
+CAVEAT
+MOBILE BEHAVIOR.
+
+Then implement.
+
+Do not return to the user asking them to choose basic visual placement unless there is genuine ambiguity.
+
+────────────────────────────────────────
+47. HOUSE VISUAL TYPES
+────────────────────────────────────────
+
+SECOND / PASS standard visual vocabulary:
+
+RESEARCH FIGURE
+
+CALCULATION
+
+CLAIM CHECK
+
+ASSUMPTION
+
+COMPARISON TABLE
+
+DECISION TABLE
+
+ARCHITECTURE DIAGRAM
+
+TIMELINE
+
+COST WATERFALL
+
+SENSITIVITY CURVE
+
+DECISION BOUNDARY
+
+DATA TABLE
+
+SOURCE/EVIDENCE OBJECT.
+
+Do not invent a new style for every article.
+
+Reuse this grammar.
+
+────────────────────────────────────────
+48. VISUALS ARE EVIDENCE
+────────────────────────────────────────
+
+Record this sentence in PUBLICATION_STANDARD.md:
+
+"SECOND / PASS visuals are evidence-bearing editorial objects, not decoration."
+
+A figure must be traceable to:
+
+source
+
+calculation
+
+dataset
+
+or article mechanism.
+
+Every figure should be defensible under fact check.
+
+────────────────────────────────────────
+49. NO DECORATIVE HERO IMAGES FOR RESEARCH
+────────────────────────────────────────
+
+Default research article hero:
+
+typography.
+
+Not:
+
+stock photo
+
+AI illustration
+
+futuristic server room
+
+robot
+
+abstract neural network.
+
+If a real technical image is essential:
+
+use only when it carries information.
+
+Research charts and diagrams are preferable.
+
+────────────────────────────────────────
+50. PREPUBLISH INTEGRATION
+────────────────────────────────────────
+
+Update prepublish logically.
+
+Target sequence:
+
+1. content-source-audit
+2. article:verify
+3. content:audit
+4. Astro check
+5. build
+6. render-audit
+7. visual-audit
+8. responsive-audit
+9. social-generation
+10. currency regression
+11. Pagefind
+12. final HTML/asset verification.
+
+Do not weaken any existing checks.
+
+visual-audit failure must block publication.
+
+────────────────────────────────────────
+51. FULL RELEASE QA
+────────────────────────────────────────
+
+Add/update a script if useful:
+
+publication:audit
+
+that runs:
+
+content-source-audit
+content:audit
+check
+build
+render-audit --all
+visual-audit --all
+responsive-audit
+Pagefind verification.
+
+Avoid duplicating expensive builds if scripts can reuse output cleanly.
+
+Do not spend hours optimizing script runtime.
+
+Correctness first.
+
+────────────────────────────────────────
+52. RESPONSIVE AUDIT IMPROVEMENTS
+────────────────────────────────────────
+
+Current responsive-audit is strong.
+
+Extend it to assert:
+
+NEWSLETTER
+
+container within viewport.
+
+INPUT
+
+within viewport.
+
+BUTTON
+
+within viewport.
+
+BREAKPOINT BEHAVIOR
+
+>1040:
+article rail visible
+evidence visible.
+
+721–1040:
+article rail tablet behavior
+evidence hidden.
+
+≤720:
+article rail hidden
+evidence hidden.
+
+FIGURE SCROLL
+
+dense research figure has correct internal scroll behavior.
+
+FIGCAPTION
+
+caption fits viewport.
+
+Do not remove existing assertions.
+
+────────────────────────────────────────
+53. PRODUCTION VISUAL QA
+────────────────────────────────────────
+
+After local PASS and deployment:
+
+verify representative pages on ACTUAL production.
+
+At minimum:
+
+new agent-economics article
+
+original flagship
+
+PROOF
+
+one NOW
+
+one DATA.
+
+Verify:
+
+assets 200
+
+CSS correct
+
+figures correct
+
+house objects correct
+
+footer correct.
+
+Do not trust local screenshots only.
+
+────────────────────────────────────────
+54. CURRENT ARTICLE CONTENT MUST NOT BE RE-RESEARCHED
+────────────────────────────────────────
+
+This phase does not reopen existing research.
+
+Do not update current provider prices merely because the article is being visually improved.
+
+If you discover an obvious current factual problem while touching content:
+
+STOP for that claim and report it.
+
+Do not silently alter a published claim without proper correction process.
+
+Visual-only changes do not require correction-log entries.
+
+────────────────────────────────────────
+55. EXISTING ARTICLE VISUAL CHANGES ARE NOT EDITORIAL CORRECTIONS
+────────────────────────────────────────
+
+Do not add:
+
+"Updated visuals."
+
+to article change logs unless the site's editorial policy explicitly requires presentation-only updates.
+
+Do not fabricate corrections.
+
+If no substantive claim changed:
+
+preserve current publication history.
+
+────────────────────────────────────────
+56. SOCIAL ASSETS
+────────────────────────────────────────
+
+Regenerate article social assets only if:
+
+headline treatment changed
+
+figure-based social layout is now materially superior
+
+current asset is broken/inconsistent.
+
+Do not regenerate all assets merely to touch timestamps.
+
+Social visual system should match article system:
+
+paper
+
+ink
+
+blue
+
+Bricolage
+
+no promotional gradients.
+
+────────────────────────────────────────
+57. PERFORMANCE
+────────────────────────────────────────
+
+Remain static-first.
+
+No runtime chart library.
+
+No React.
+
+No canvas rendering.
+
+No chart hydration.
+
+No giant JS framework.
+
+SVG preferred.
+
+Images optimized.
+
+Article HTML readable without JS.
+
+────────────────────────────────────────
+58. DO NOT OVERBUILD
+────────────────────────────────────────
+
+DO NOT add:
+
+CMS
+
+database
+
+auth
+
+new analytics
+
+visual editor
+
+chart dashboard
+
+WYSIWYG
+
+runtime design system
+
+React
+
+Vue
+
+Svelte
+
+new hosting
+
+new repo
+
+new Vercel project
+
+client-side chart package
+
+MathJax.
+
+We need:
+
+static publication primitives
++
+good renderer
++
+strong QA.
+
+────────────────────────────────────────
+59. VISUAL SYSTEM SHOULD SCALE TO HIGH VOLUME
+────────────────────────────────────────
+
+Today's goal is not just prettier existing articles.
+
+The system must make tomorrow's high-volume publishing faster.
+
+Future approved article package should be implementable as:
+
+Markdown
++
+data
++
+SVG visuals
+
+without redesigning the site.
+
+Z.ai should know the publication grammar from PUBLICATION_STANDARD.md.
+
+That is the scalability objective.
+
+────────────────────────────────────────
+60. RETROFIT VISUAL SCORE REPORT
+────────────────────────────────────────
+
+For each current article create an internal audit during this task.
+
+Report:
+
+SLUG
+
+BEFORE SCORE
+
+VISUAL DEFECTS
+
+CHANGES MADE
+
+AFTER SCORE
+
+FIRST SCREEN
+
+FIGURES
+
+MATH
+
+TABLES
+
+HOUSE OBJECTS
+
+RESPONSIVE
+
+ACCESSIBILITY
+
+Do not commit unnecessary audit files unless genuinely useful.
+
+Final report is sufficient.
+
+────────────────────────────────────────
+61. TARGET ARTICLE SCORES
+────────────────────────────────────────
+
+Aim for:
+
+an-ai-agent-is-no-longer-priced-in-tokens
+>=9.6
+
+cheapest-ai-model-not-cheapest-system
+>=9.6
+
+cheapest-ai-model-not-cheapest-system-proof
+>=9.6
+
+ai-inference-price-surface-v0-1
+>=9.5
+
+no-universal-long-context-premium
+>=9.5
+
+prompt-cache-second-use-break-even
+>=9.5
+
+sonnet-5-price-effective-date
+>=9.5
+
+These are quality targets.
+
+Not permission to falsify a score.
+
+If one cannot reach 9.5 without inventing research:
+
+do not invent research.
+
+Explain the limitation.
+
+────────────────────────────────────────
+62. SCREENSHOT REVIEW
+────────────────────────────────────────
+
+Generate temporary screenshots for every current article at:
+
+1440
+
+390.
+
+For flagships / PROOF / DATA additionally inspect:
+
+1024
+
+820.
+
+For the agent-economics article specifically inspect all:
+
+1440
+1024
+820
+768
+430
+390
+375.
+
+Actually inspect images.
+
+Do not report visual PASS merely because browser tests are green.
+
+Remove temporary screenshots before commit unless intentionally retained outside Git.
+
+────────────────────────────────────────
+63. AGENT ARTICLE REQUIRED FINAL VISUAL RESULT
+────────────────────────────────────────
+
+The opening should look approximately:
+
+HEADLINE
+
+DEK
+
+META
+
+FIRST PASS
+
+opening prose
+
+designed AGENT BILLING PATH FIGURE
+
+not:
+
+opening prose
+
+ASCII diagram
+
+same diagram again.
+
+Calculation sections should look like publication objects.
+
+Claim Check should look like a publication object.
+
+Provider matrix should be readable.
+
+Sources should remain excellent.
+
+Footer should be correct.
+
+────────────────────────────────────────
+64. ARTICLE RHYTHM
+────────────────────────────────────────
+
+Every long article should alternate intelligently among:
+
+prose
+
+visual
+
+calculation
+
+table
+
+mechanism
+
+evidence
+
+without becoming:
+
+TEXT
+TEXT
+TEXT
+TEXT
+TEXT
+CHART DUMP.
+
+No mechanical "one visual every 500 words" rule.
+
+Placement follows the argument.
+
+A visual should appear immediately after the reader understands why they need it.
+
+────────────────────────────────────────
+65. MOBILE ARTICLE RHYTHM
+────────────────────────────────────────
+
+On mobile:
+
+avoid multiple giant objects back-to-back.
+
+Keep captions close to figures.
+
+Keep house-object padding compact.
+
+Keep results visible without excessive scrolling.
+
+Tables/charts may scroll internally.
+
+No huge blank spaces.
+
+No clipped equations.
+
+No tiny figure text.
+
+────────────────────────────────────────
+66. FOOTER ACCEPTANCE
+────────────────────────────────────────
+
+Desktop:
+
+Brand | Publication | Topics | / BRIEF | Commercial
+
+single deliberate row.
+
+Tablet:
+
+balanced two-column collapse.
+
+Mobile:
+
+one-column.
+
+No orphan "Commercial" line.
+
+No unexpected second-row element on desktop.
+
+────────────────────────────────────────
+67. AUTOMATED ACCEPTANCE
+────────────────────────────────────────
+
+Run actual repository commands.
+
+At minimum:
+
+bun install
+
+bun run content-source-audit
+
+bun run content:audit
+
+bun run check
+
+bun run build
+
+bun run render-audit -- --all
+
+bun run visual:audit -- --all
+
+bun run responsive:audit
+
+and prepublish every current real article if practical.
+
+If exact command interface differs:
+
+use the implemented equivalent.
+
+Do not fake a PASS.
+
+────────────────────────────────────────
+68. LIVE ACCEPTANCE
+────────────────────────────────────────
+
+After deployment:
+
+all current article URLs:
+200
+
+all research figure URLs:
+200
+
+robots:
+PUBLIC
+
+no noindex
+
+footer:
+fixed
+
+agent raw trace:
+absent
+
+semantic figures:
+present
+
+calculation-block:
+present
+
+claim-check:
+present
+
+assumption treatment:
+present
+
+Pagefind:
+working
+
+RSS:
+working
+
+sitemap:
+working.
+
+────────────────────────────────────────
+69. GIT HYGIENE
+────────────────────────────────────────
+
+Before commit:
+
+git status
+git diff
+git diff --stat
+
+No:
+
+screenshots
+
+test-result directories
+
+Playwright traces
+
+logs
+
+ZIP files
+
+research QA packages
+
+.env
+
+secrets
+
+node_modules.
+
+Do not delete legitimate public research assets.
+
+────────────────────────────────────────
+70. COMMIT
+────────────────────────────────────────
+
+Preferred coherent commit:
+
+feat: raise Second Pass publication system to house visual standard
+
+If implementation naturally separates:
+
+1.
+feat: add permanent publication standard and visual QA
+
+2.
+fix: retrofit published research visuals
+
+that is acceptable.
+
+Do not create dozens of tiny commits.
+
+No force push.
+
+────────────────────────────────────────
+71. FINAL REPORT FORMAT
+────────────────────────────────────────
+
+Return:
+
+# SECOND / PASS — 9.5+ PUBLICATION SYSTEM
+
+## STATUS
+
+PASS / FAIL
+
+## REPOSITORY MEMORY
+
+PUBLICATION_STANDARD.md:
+PASS / FAIL
+
+AGENT.md instruction:
+PASS / FAIL
+
+Single source of publication truth:
+YES / NO
+
+## SYSTEMIC VISUAL FEATURES
+
+Semantic figures:
+PASS / FAIL
+
+Automatic figure transformation:
+PASS / FAIL
+
+Figure captions:
+PASS / FAIL
+
+Dense figure mobile scrolling:
+PASS / FAIL
+
+CalculationBlock:
+PASS / FAIL
+
+ClaimCheck:
+PASS / FAIL
+
+Assumption object:
+PASS / FAIL
+
+Table system:
+PASS / FAIL
+
+Math system:
+PASS / FAIL
+
+## KNOWN FIXES
+
+Duplicate agent trace:
+REMOVED / FAIL
+
+Agent chart semantics:
+PASS / FAIL
+
+Agent CalculationBlock:
+PASS / FAIL
+
+Agent ClaimCheck:
+PASS / FAIL
+
+Agent Assumption:
+PASS / FAIL
+
+Provider matrix polish:
+PASS / FAIL
+
+Five-column footer:
+PASS / FAIL
+
+## ARTICLE SCORES
+
+### Agent economics
+
+Before:
+8.8
+
+After:
+
+First screen:
+/10
+
+Typography:
+/10
+
+Information design:
+/10
+
+Figures:
+/10
+
+Math:
+/10
+
+Tables:
+/10
+
+House objects:
+/10
+
+Responsive:
+/10
+
+Accessibility:
+/10
+
+Overall:
+/10
+
+### Cheapest model flagship
+
+Before:
+
+After overall:
+
+### PROOF
+
+After overall:
+
+### DATA
+
+After overall:
+
+### Long-context NOW
+
+After overall:
+
+### Cache NOW
+
+After overall:
+
+### Sonnet NOW
+
+After overall:
+
+## VISUAL QA
+
+visual:audit:
+PASS / FAIL
+
+Semantic image failures:
+0 REQUIRED
+
+Missing alt:
+0 REQUIRED
+
+Missing required captions:
+0 REQUIRED
+
+Unstyled Calculation objects:
+0 REQUIRED
+
+Unstyled Claim Check objects:
+0 REQUIRED
+
+Broken research assets:
+0 REQUIRED
+
+## RESPONSIVE
+
+1440:
+PASS / FAIL
+
+1024:
+PASS / FAIL
+
+820:
+PASS / FAIL
+
+768:
+PASS / FAIL
+
+430:
+PASS / FAIL
+
+390:
+PASS / FAIL
+
+375:
+PASS / FAIL
+
+Horizontal page overflow:
+0 REQUIRED
+
+Newsletter containment:
+PASS / FAIL
+
+Evidence breakpoint behavior:
+PASS / FAIL
+
+TOC breakpoint behavior:
+PASS / FAIL
+
+Dense-figure containment:
+PASS / FAIL
+
+## PIPELINE
+
+content source audit:
+PASS / FAIL
+
+content audit:
+PASS / FAIL
+
+Astro check:
+PASS / FAIL
+
+build:
+PASS / FAIL
+
+render audit:
+PASS / FAIL
+
+visual audit:
+PASS / FAIL
+
+responsive audit:
+PASS / FAIL
+
+Pagefind:
+PASS / FAIL
+
+## PRODUCTION
+
+Deployment URL:
+
+Git commit:
+
+Vercel deployment:
+
+SHA match:
+YES / NO
+
+robots:
+PUBLIC / BLOCKED
+
+noindex:
+ABSENT / PRESENT
+
+## LIVE ARTICLE QA
+
+Agent economics:
+PASS / FAIL
+
+Flagship:
+PASS / FAIL
+
+PROOF:
+PASS / FAIL
+
+DATA:
+PASS / FAIL
+
+Long-context:
+PASS / FAIL
+
+Cache:
+PASS / FAIL
+
+Sonnet:
+PASS / FAIL
+
+## FOOTER
+
+Desktop five-column:
+PASS / FAIL
+
+Tablet:
+PASS / FAIL
+
+Mobile:
+PASS / FAIL
+
+## FUTURE-PUBLISHING READINESS
+
+Z.ai permanent publication context:
+PASS / FAIL
+
+Future visual standard:
+PASS / FAIL
+
+Format-specific visual requirements:
+PASS / FAIL
+
+House-object rules:
+PASS / FAIL
+
+Math rules:
+PASS / FAIL
+
+Responsive rules:
+PASS / FAIL
+
+Information-gain rules:
+PASS / FAIL
+
+## BLOCKERS
+
+None
+
+OR exact blocker.
+
+If all critical requirements pass:
+
+SECOND / PASS PUBLICATION SYSTEM: 9.5+ STANDARD LOCKED
+
+If implementation is technically complete but visual inspection still reveals material defects:
+
+SECOND / PASS PUBLICATION SYSTEM: VISUAL GATE BLOCKED — <exact defects>
+
+Do NOT declare success merely because automated tests pass.
+
+────────────────────────────────────────
+72. BEGIN NOW
+────────────────────────────────────────
+
+Do not return a plan.
+
+Execute.
+
+Order:
+
+inspect latest repository
+→
+create/update PUBLICATION_STANDARD.md
+→
+wire AGENT.md to it
+→
+fix semantic figure pipeline
+→
+fix CalculationBlock renderer
+→
+fix ClaimCheck renderer
+→
+fix Assumption renderer
+→
+remove duplicate agent trace
+→
+fix provider matrix polish
+→
+fix five-column footer
+→
+retrofit every published article
+→
+add visual:audit
+→
+extend responsive audit
+→
+integrate visual audit into prepublish
+→
+build
+→
+run all audits
+→
+capture and inspect screenshots
+→
+make any remaining visual refinements
+→
+deploy EXISTING Vercel project
+→
+inspect actual production pages
+→
+verify deployment commit
+→
+return final report.
+
+The final system must satisfy three permanent rules:
+
+1.
+
+EVERY SECOND / PASS VISUAL MUST INCREASE UNDERSTANDING.
+
+2.
+
+CONTENT SEMANTICS COME FROM THE ARTICLE.
+PRESENTATION COMES FROM THE PUBLICATION RENDERER.
+
+3.
+
+A FUTURE Z.ai SESSION MUST BE ABLE TO READ
+PUBLICATION_STANDARD.md AND UNDERSTAND HOW TO PUBLISH
+A SECOND / PASS ARTICLE WITHOUT RELEARNING THE SYSTEM
+OR REPEATING PAST MISTAKES.
+
+Proceed.
