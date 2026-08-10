@@ -1,0 +1,9 @@
+action,resource,scope,required,granted,overhang
+READ,support_ticket,same_ticket,YES,YES,NO
+READ,customer_profile,same_tenant,YES,YES,NO
+WRITE,support_ticket,same_ticket,YES,YES,NO
+SEND,email,arbitrary_external,NO,YES,YES
+DELETE,support_ticket,same_tenant,NO,YES,YES
+EXECUTE,code,host_environment,NO,YES,YES
+ADMIN,account_permissions,workspace,NO,YES,YES
+NETWORK,http,arbitrary_internet,NO,YES,YES

@@ -1,0 +1,7 @@
+source,INTERNAL_WRITE,SEND_EXTERNAL,DELETE_RECORD,EXECUTE_CODE,ADMIN_CHANGE,PURCHASE_OR_TRANSFER
+user_message,A,G,B,B,B,B
+inbound_email,A,G,B,B,B,B
+web_content,A,G,B,B,B,B
+uploaded_document,A,G,B,B,B,B
+retrieval_result,A,G,B,B,B,B
+tool_or_mcp_result,A,G,B,B,B,B

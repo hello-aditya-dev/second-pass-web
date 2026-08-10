@@ -1,0 +1,5 @@
+envelope,autonomous_consequential_sinks,examples
+A — Document summarizer,0,READ document only; no write; no network
+B — Support triage,5,Broad write/send/delete/execute/admin before containment
+C — Email assistant,2,Mailbox read + external send
+D — Operations agent,4,Execute/deploy/admin if broadly granted

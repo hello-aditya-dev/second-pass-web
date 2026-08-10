@@ -1,0 +1,6 @@
+node_order,node,type,policy_state
+1,UNTRUSTED SOURCE,source,input
+2,MANIPULATED MODEL,model,assumed
+3,POLICY GATE,external policy,enforced
+4,TOOL,capability,allowed only when policy permits
+5,SINK,consequence,reachable or blocked

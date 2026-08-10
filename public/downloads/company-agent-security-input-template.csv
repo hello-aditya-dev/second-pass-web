@@ -1,0 +1,2 @@
+workflow,legitimate_objective,untrusted_source,tool,action,resource,destination,required_yes_no,granted_yes_no,credential,credential_audience,credential_scope,credential_ttl,approval_gate,network_egress,sandbox_boundary,prohibited_sink_yes_no,buyer_impact_weight_optional
+,,,,,,,,,,,,,,,,,

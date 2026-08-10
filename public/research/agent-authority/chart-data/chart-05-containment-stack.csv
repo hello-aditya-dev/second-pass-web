@@ -1,0 +1,6 @@
+stage,autonomous_consequential_sinks,non_autonomous_or_blocked
+Broad credentials,5,0
+Task-scoped credential,3,2
+Independent approval for SEND,2,3
+Destination allowlist,1,4
+Sandbox + no host secrets/network,1,4

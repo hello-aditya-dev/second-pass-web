@@ -1,0 +1,9 @@
+workflow,action,resource,destination_scope,required,granted,authority_overhang
+Support ticket triage,READ,support_ticket,same_ticket,YES,YES,NO
+Support ticket triage,READ,customer_profile,same_tenant,YES,YES,NO
+Support ticket triage,WRITE,support_ticket,same_ticket,YES,YES,NO
+Support ticket triage,SEND,email,arbitrary_external,NO,YES,YES
+Support ticket triage,DELETE,support_ticket,same_tenant,NO,YES,YES
+Support ticket triage,EXECUTE,code,host_environment,NO,YES,YES
+Support ticket triage,ADMIN,account_permissions,workspace,NO,YES,YES
+Support ticket triage,NETWORK,http,arbitrary_internet,NO,YES,YES

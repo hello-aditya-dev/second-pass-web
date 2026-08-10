@@ -1,0 +1,5 @@
+case_id,load_bucket,mode,arrival_qps,gpu_count,p95_ttft_ms,p95_tpot_ms,ttft_sla_ms,tpot_sla_ms,slo_success_rate,slo_goodput_rps,gpu_normalized_slo_goodput,cost_per_hour,cost_per_slo_request,cost_per_slo_output_token,classification
+PRIMARY_MEDIUM_LOAD,LOW/MEDIUM,BASELINE,10.0,4,180.0,24.0,250.0,20.0,0.82,8.2,2.05,16.0,0.0005420054200542006,2.1172086720867213e-06,SCENARIO — not benchmark evidence
+PRIMARY_MEDIUM_LOAD,LOW/MEDIUM,SPECULATIVE,10.0,4,185.0,15.0,250.0,20.0,0.95,9.5,2.375,16.0,0.00046783625730994154,1.8274853801169591e-06,SCENARIO — not benchmark evidence
+COUNTER_HIGH_LOAD,HIGH,BASELINE,40.0,4,140.0,13.0,250.0,15.0,0.94,37.599999999999994,9.399999999999999,16.0,0.00011820330969267142,4.617316784869977e-07,SCENARIO — not benchmark evidence
+COUNTER_HIGH_LOAD,HIGH,SPECULATIVE,40.0,4,150.0,18.0,250.0,15.0,0.7,28.0,7.0,16.0,0.00015873015873015873,6.200396825396825e-07,SCENARIO — not benchmark evidence

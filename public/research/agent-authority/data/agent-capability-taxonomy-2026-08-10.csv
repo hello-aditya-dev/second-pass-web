@@ -1,0 +1,12 @@
+action_class,definition,security_role,notes
+READ,Obtain data without intentional side effect,data source,Usually source-side; may expose sensitive data to model
+CREATE,Create a new object,write sink,Side effect; scope resource and tenant
+WRITE,Modify an existing object,write sink,Side effect; constrain resource and fields
+SEND,Transmit data/message to a destination,egress sink,Destination and data transmitted are part of authority
+PUBLISH,Make content externally visible,egress sink,Visibility scope matters
+DELETE,Remove an object/resource,destructive sink,High consequence in many workflows
+EXECUTE,Run code or commands in an environment,execution sink,"Sandbox, filesystem, secrets and network must be modeled separately"
+FINANCIAL,Purchase/transfer/commit funds,financial sink,"Amount, payee, account and approval policy matter"
+DEPLOY,Change production software/configuration,operations sink,Environment and rollback authority matter
+ADMIN,"Change permissions, identities, infrastructure or policy",administrative sink,Broad authority; usually not required by ordinary content workflows
+NETWORK,Open outbound connection to destination,egress capability,"No network, allowlist and arbitrary Internet are distinct states"
