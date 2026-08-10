@@ -1,5 +1,7 @@
 # AGENT — SECOND / PASS Web
 
+**BEFORE ANY CONTENT/PUBLICATION WORK: READ `PUBLICATION_STANDARD.md` COMPLETELY.**
+
 ## Mission
 
 Build and maintain the fastest, most useful, most legible technical publication experience in its

@@ -61,29 +61,18 @@ A plain model request can be easy to price: text goes in, text comes out, and th
 
 An agent can take a longer path. It may search the web, read the result, call a tool, run code, return that output to the model, check its work, and only then answer.
 
-```text
-USER
-  ↓
-MODEL
-  ↓
-SEARCH
-  ↓
-MODEL
-  ↓
-TOOL / RUNTIME
-  ↓
-MODEL / VERIFY
-  ↓
-ANSWER
-```
-
 The accounting question is simple: **which parts of that path does "$ per million tokens" actually measure?**
 
 It measures token-billed model work. It does not automatically include a search invocation, a container or session charge, or data kept over time. Product rules can change the picture again: a service tier may change the unit price, a free allowance may remove a charge for part of the month, and one managed runtime may replace a container fee that would otherwise appear separately.
 
 Token price still matters. It is just one input to the cost of an agent task.
 
-![Agent billing path](/research/agent-economics/charts/chart-01-agent-billing-path.svg)
+<figure class="research-figure">
+  <div class="research-figure-scroll research-figure--scroll">
+    <img src="/research/agent-economics/charts/chart-01-agent-billing-path.svg" alt="A vertical agent workflow shows user request, model, search, model, tool or runtime, model or verify, and answer, with billing notes beside the steps." loading="lazy" decoding="async" />
+  </div>
+  <figcaption>Which steps in an agent path can touch separate billable meters? Not every provider separately bills every step.</figcaption>
+</figure>
 
 ## Four base meters, then two layers of rules
 
@@ -229,7 +218,12 @@ Search is the largest individual meter in this trace. Model tokens are still abo
 
 Change the token count, number of searches, running time, cache use, model, or product path and the result can change. This is a transparent scenario, not observed production behavior.
 
-![Worked agent cost composition](/research/agent-economics/charts/chart-02-cost-waterfall.svg)
+<figure class="research-figure">
+  <div class="research-figure-scroll research-figure--scroll">
+    <img src="/research/agent-economics/charts/chart-02-cost-waterfall.svg" alt="Three bars show $0.0220 model tokens, $0.0300 web search, and $0.0133 session runtime, with a total of $0.0653." loading="lazy" decoding="async" />
+  </div>
+  <figcaption>Search is the largest individual meter in this worked trace, not more than half of total cost. Workload is illustrative.</figcaption>
+</figure>
 
 ## The third search becomes the largest individual meter
 
@@ -279,7 +273,12 @@ These are price equivalences, not claims that a search, 10,000 input tokens, 2,0
 
 The three-search threshold belongs to this fixed workload and the current price table. It is not a general rule for agents.
 
-![Search-count sensitivity](/research/agent-economics/charts/chart-04-sensitivity.svg)
+<figure class="research-figure">
+  <div class="research-figure-scroll research-figure--scroll">
+    <img src="/research/agent-economics/charts/chart-04-sensitivity.svg" alt="Search cost rises by one cent per search and crosses the fixed 2.2-cent model-token line at the third search; session runtime stays at about 1.33 cents." loading="lazy" decoding="async" />
+  </div>
+  <figcaption>Search cost rises by one cent per search and crosses the fixed 2.2-cent model-token line at the third search. Threshold changes with fixed assumptions.</figcaption>
+</figure>
 
 ## A one-cent meter becomes visible at volume
 
@@ -300,7 +299,12 @@ Large ratios and large business effects are not the same thing. The useful quest
 
 There is no shared provider-independent "agent price." The useful comparison is which **meter families and pricing rules** appear in each product stack, not which provider is cheapest.
 
-![Provider billing-meter matrix](/research/agent-economics/charts/chart-03-meter-matrix.svg)
+<figure class="research-figure">
+  <div class="research-figure-scroll research-figure--scroll">
+    <img src="/research/agent-economics/charts/chart-03-meter-matrix.svg" alt="Matrix with four base meter columns—token volume, calls, runtime, stored state—followed by a visual divider and two pricing-rule columns for configuration modifiers and inclusion or applicability rules." loading="lazy" decoding="async" />
+  </div>
+  <figcaption>Four base meter families across reviewed provider stacks, with a visual separator before two pricing-rule columns. Presence does not imply overall provider economics equivalence.</figcaption>
+</figure>
 
 ### OpenAI: a search call and search content can both be billable
 

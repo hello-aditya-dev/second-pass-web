@@ -355,7 +355,7 @@ button, input { font: inherit; }
 
 /* ── Footer ── */
 .site-footer { border-top: 1px solid var(--ink); padding: 42px 0 24px; }
-.footer-grid { display: grid; grid-template-columns: 1.6fr repeat(2,1fr) 1.2fr; gap: 34px; }
+.footer-grid { display: grid; grid-template-columns: 1.6fr 0.9fr 0.9fr 1.1fr 0.8fr; gap: 34px; }
 .footer-grid nav { display: grid; gap: 7px; align-content: start; font-size: .82rem; }
 .footer-grid strong { font: .68rem var(--mono); text-transform: uppercase; letter-spacing: .04em; }
 .footer-grid p { color: var(--graphite); font: .92rem/1.38 var(--reader); max-width: 320px; }
@@ -703,10 +703,48 @@ button, input { font: inherit; }
   color: var(--graphite);
 }
 
+/* ── Assumption block ── */
+.assumption-block {
+  margin: 2rem 0;
+  border-top: 1px solid var(--rule);
+  padding: 14px 0 18px;
+}
+.assumption-kicker {
+  margin: 0 0 6px;
+  font: .72rem var(--mono);
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--graphite);
+}
+.assumption-block ul,
+.assumption-block ol {
+  padding-left: 1.15rem;
+}
+.assumption-block li {
+  font: .92rem/1.45 var(--reader);
+  color: var(--graphite);
+}
+
+/* ── Intelligence block ── */
+.intelligence-block {
+  margin: 2rem 0;
+  border-top: 1px solid var(--rule);
+  padding: 14px 0 18px;
+}
+.intelligence-kicker {
+  margin: 0 0 6px;
+  font: .72rem var(--mono);
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--graphite);
+}
+
 /* ── Component responsive ── */
 @media (max-width: 720px) {
   .calculation-block,
-  .claim-check {
+  .claim-check,
+  .assumption-block,
+  .intelligence-block {
     padding: 14px 0 16px;
   }
 }

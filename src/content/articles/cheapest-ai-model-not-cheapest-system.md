@@ -218,8 +218,10 @@ If the more expensive configuration reduces review incidence by more than 1.71 p
 
 This is a **break-even threshold**, not a measured result. It does not establish that Sol has a lower review rate. That must be measured on the organization's workload.
 
-<figure>
-  <img src="/charts/chart-01-review-break-even.svg" alt="Break-even review-rate reduction" />
+<figure class="research-figure">
+  <div class="research-figure-scroll">
+    <img src="/charts/chart-01-review-break-even.svg" alt="Break-even review-rate reduction" loading="lazy" decoding="async" />
+  </div>
   <figcaption>Break-even review-rate reduction: the 1.71 pp threshold under the assumed review cost.</figcaption>
 </figure>
 
@@ -249,8 +251,10 @@ Under those assumptions, the configuration with 25× higher token rates has **32
 
 That is a scenario result. It is intentionally not labelled "Sol is cheaper." Change the review rates and the answer changes.
 
-<figure>
-  <img src="/charts/chart-04-cost-composition.svg" alt="Illustrative cost composition" />
+<figure class="research-figure">
+  <div class="research-figure-scroll">
+    <img src="/charts/chart-04-cost-composition.svg" alt="Illustrative cost composition" loading="lazy" decoding="async" />
+  </div>
   <figcaption>Illustrative cost composition: model tokens vs. human review in total system cost.</figcaption>
 </figure>
 
@@ -302,8 +306,10 @@ $$
 
 not simply `model`.
 
-<figure>
-  <img src="/charts/chart-05-long-context.svg" alt="Long-context pricing multipliers" />
+<figure class="research-figure">
+  <div class="research-figure-scroll">
+    <img src="/charts/chart-05-long-context.svg" alt="Long-context pricing multipliers" loading="lazy" decoding="async" />
+  </div>
   <figcaption>Long-context pricing multipliers vary by provider and context threshold.</figcaption>
 </figure>
 
@@ -357,8 +363,10 @@ so the theoretical break-even is the **third eligible use**.
 
 TTL, minimum cacheable length, prefix stability and cache misses can erase the theoretical saving.
 
-<figure>
-  <img src="/charts/chart-02-cache-reuse.svg" alt="Cache reuse economics" />
+<figure class="research-figure">
+  <div class="research-figure-scroll">
+    <img src="/charts/chart-02-cache-reuse.svg" alt="Cache reuse economics" loading="lazy" decoding="async" />
+  </div>
   <figcaption>Cache reuse economics: when the write premium pays back.</figcaption>
 </figure>
 
@@ -378,8 +386,10 @@ It is:
 
 > synchronous configuration A vs asynchronous configuration A.
 
-<figure>
-  <img src="/charts/chart-03-batch-cost.svg" alt="Standard versus Batch" />
+<figure class="research-figure">
+  <div class="research-figure-scroll">
+    <img src="/charts/chart-03-batch-cost.svg" alt="Standard versus Batch" loading="lazy" decoding="async" />
+  </div>
   <figcaption>Standard versus Batch pricing for the same nominal configuration.</figcaption>
 </figure>
 

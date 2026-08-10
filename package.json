@@ -23,6 +23,7 @@
     "content-source-audit": "node scripts/content-source-audit.mjs",
     "currency-regression": "node scripts/currency-regression-test.mjs",
     "responsive:audit": "node scripts/responsive-audit.mjs",
+    "visual:audit": "node scripts/visual-audit.mjs",
     "prepublish": "node scripts/prepublish.mjs"
   },
   "dependencies": {
