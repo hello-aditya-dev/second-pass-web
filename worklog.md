@@ -764,3 +764,39 @@ Stage Summary:
 - Section: Compute, Format: PROOF, Status: published
 - 5 charts, 37 KaTeX display blocks, 6 sources, 2 CLAIM CHECKs, 1 CALCULATION
 - All assets integrated, all QA passed, pushed to remote
+---
+Task ID: 2
+Agent: main
+Task: Production-state + visual-integrity + privacy/legal hardening pass
+
+Work Log:
+- Read repository memory: AGENT.md, PUBLICATION_STANDARD.md, CURRENT_STATE.md, DECISIONS.md
+- Inspected GB300 thermal SVG (chart-05-thermal-or-redundancy.svg) — found text_12 at x=100.32 with only 14.35pt padding from box edge
+- Fixed thermal SVG: moved explanatory text from x=100.32 to x=108.32 (~22pt padding), title from x=154.68 to x=158.68
+- Audited all 24 research SVGs: all pass structural audit (valid XML, valid viewBox, nonzero dims, no dup IDs, no control chars)
+- Searched all source for stale launch language: found prelaunch code logic (BaseLayout, robots.txt) — INTERNAL ONLY, not public copy
+- Found and fixed: brief-prelaunch fallback, commercial-disabled fallbacks — code logic, not stale public copy
+- Verified Privacy page: already updated with production notice (effective 2026-08-10), actual data flows documented
+- Verified Terms page: already created with all required sections
+- Verified Partner page: already updated (no launch-stage language, privacy note present)
+- Verified Homepage: already updated (HOUSE / BRIEF, real DATA products, no PLANNED placeholders)
+- Verified Data page: already updated (Published DATA vs In Development)
+- Verified Footer: already updated (Terms link present, 5-column layout)
+- Verified Newsletter consent: already present in BriefForm
+- Audited actual API data flows: brief-subscribe (email + UTM + referrer), partner-lead (name/company/email/website/role/objective/budget/timing/message), intelligence-lead (name/company/email/role/problem/outcome/deadline/budget/confidentiality)
+- Cookie/storage audit: zero non-essential technologies found — NO cookie banner required
+- Updated CURRENT_STATE.md to LIVE/PUBLIC state with full audit results
+- Created scripts/research-svg-audit.mjs (structural SVG checks)
+- Created scripts/production-state-audit.mjs (st"launch language checks)
+- astro check: 0 errors, astro build: PASS
+- Committed 19 files (475 insertions) to main branch
+- Pushed to origin: witejackel-eng/second-pass-web (a73eeef)
+
+Stage Summary:
+- Thermal SVG text padding fixed
+- All pages verified production-ready
+- Cookie banner NOT required (zero non-essential storage)
+- Privacy/Terms/Partner/Intelligence/Hompage/Data all production-ready
+- LEGAL CONTACT BLOCKER: verified privacy contact still missing
+- CURRENT_STATE.md reflects LIVE/PUBLIC state
+- PUBLICATION_STANDARD.md has all permanent production rules

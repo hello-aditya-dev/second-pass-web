@@ -1,0 +1,3002 @@
+# Z.ai — SECOND / PASS PRODUCTION-STATE + VISUAL-INTEGRITY + PRIVACY/LEGAL PASS
+
+Repository:
+
+witejackel-eng/second-pass-web
+
+Production:
+
+https://second-pass.vercel.app
+
+Existing Vercel project:
+
+second-pass
+
+DATE:
+
+2026-08-10
+
+STATUS:
+
+SECOND / PASS IS NOW A LIVE PUBLICATION.
+
+THIS IS NOT A PRE-LAUNCH WEBSITE ANYMORE.
+
+Your task is to perform a focused production-hardening pass covering:
+
+1. research-figure text overlap / clipping;
+2. stale pre-launch / pre-production language;
+3. privacy notice accuracy;
+4. newsletter and commercial-form disclosures;
+5. cookie/storage-access audit;
+6. Terms of Use and necessary publication formalities;
+7. production-state consistency across the entire public site;
+8. permanent repository rules so these problems do not return.
+
+This is NOT a redesign.
+
+Do not alter approved article research.
+
+Do not change article calculations.
+
+Do not change the established SECOND / PASS visual language.
+
+Do not add unnecessary legal-tech tooling.
+
+Do not install a generic cookie CMP unless the site actually requires one.
+
+Do not invent a legal entity, company registration, address, privacy email, processor, analytics system or retention policy.
+
+Everything legal/privacy-related must describe what the site ACTUALLY does.
+
+────────────────────────────────────────
+0. READ REPOSITORY MEMORY FIRST
+────────────────────────────────────────
+
+Before editing read:
+
+AGENT.md
+
+PUBLICATION_STANDARD.md
+
+CURRENT_STATE.md
+
+DECISIONS.md
+
+README.md
+
+package.json
+
+Astro configuration
+
+content schema
+
+API routes
+
+shared layouts
+
+footer
+
+newsletter components
+
+commercial forms
+
+research-figure renderer
+
+research SVG assets.
+
+Also inspect latest:
+
+git status
+git branch
+git log -10 --oneline
+git diff
+
+Work from latest main.
+
+────────────────────────────────────────
+1. CONFIRMED PRODUCTION STATE
+────────────────────────────────────────
+
+SECOND / PASS is publicly publishing articles.
+
+The public site currently includes:
+
+published articles
+
+/ BRIEF subscription forms
+
+/partner commercial inquiry form
+
+/intelligence research inquiry form
+
+search
+
+RSS
+
+sitemap
+
+Pagefind
+
+downloadable research assets
+
+public source/evidence systems.
+
+Therefore all copy saying:
+
+pre-launch
+
+prelaunch
+
+launch-stage publication
+
+foundation before launch
+
+newsletter not enabled
+
+commercial forms not enabled
+
+or equivalent
+
+must be re-evaluated.
+
+Do not blindly replace text.
+
+Determine the current factual state first.
+
+────────────────────────────────────────
+2. FIRST VISUAL DEFECT — THERMAL SVG
+────────────────────────────────────────
+
+A live article currently contains a research SVG titled approximately:
+
+142 kW ELECTRICAL LOAD BECOMES A THERMAL-REJECTION PROBLEM
+
+Inside it is a box:
+
+NOT DERIVED: COOLING ELECTRICAL POWER
+
+with explanatory copy approximately:
+
+Pumps, fans, heat rejection and power conversion have their own efficiencies and topology.
+
+The explanatory line visually collides with / starts on the LEFT BORDER of its containing rectangle.
+
+This is unacceptable.
+
+The text must have real internal padding.
+
+Fix the SVG SOURCE.
+
+Do NOT conceal the problem using article-level overflow CSS.
+
+Do NOT shrink all SVG text globally.
+
+The box should have approximately:
+
+12–18px horizontal inner padding
+
+appropriate vertical padding
+
+text fully inside the rectangle
+
+no text touching stroke
+
+no text crossing arrow/path
+
+no clipping.
+
+Preserve:
+
+data
+
+meaning
+
+caption
+
+title
+
+numbers
+
+visual hierarchy.
+
+────────────────────────────────────────
+3. AUDIT EVERY RESEARCH SVG
+────────────────────────────────────────
+
+This defect must trigger a SYSTEMIC research-visual audit.
+
+Inspect every SVG under current public research directories.
+
+At minimum inspect figures used by all published articles.
+
+Check for:
+
+text touching borders
+
+text crossing box strokes
+
+text crossing arrows
+
+labels clipped at viewBox edges
+
+titles colliding with subtitles
+
+axis labels colliding
+
+tick labels overlapping
+
+captions baked into SVG colliding
+
+annotations overlapping data
+
+legend collisions
+
+text extending outside background boxes
+
+tiny mobile text
+
+cropped final letters
+
+foreignObject rendering inconsistencies
+
+incorrect line wrapping.
+
+Do not alter factual content.
+
+Fix presentation only.
+
+────────────────────────────────────────
+4. SVG SAFE-ZONE RULE
+────────────────────────────────────────
+
+Add a permanent rule to PUBLICATION_STANDARD.md:
+
+RESEARCH SVG TEXT SAFE ZONE
+
+Text inside a bounded rectangle must maintain deliberate internal padding.
+
+Recommended minimum:
+
+horizontal:
+12px
+
+vertical:
+8px
+
+or a proportional equivalent at the SVG's coordinate scale.
+
+No glyph bounding box may intersect its containing border/stroke.
+
+No annotation may touch:
+
+plot border
+
+arrow
+
+data point
+
+axis
+
+another annotation
+
+unless intentionally designed.
+
+Text must never rely on clipping to fit.
+
+────────────────────────────────────────
+5. SVG QA AUTOMATION
+────────────────────────────────────────
+
+Extend or create:
+
+scripts/research-svg-audit.mjs
+
+and package command if needed:
+
+research-svg:audit
+
+Do NOT pretend perfect visual-overlap detection is easy.
+
+Automated checks should catch what can be reliably detected:
+
+valid XML
+
+valid viewBox
+
+nonzero dimensions
+
+no missing font-family fallback
+
+no malformed text/tspan
+
+no text outside viewBox where measurable
+
+no duplicate IDs
+
+no missing accessibility metadata where required
+
+no broken external asset references
+
+no illegal local paths
+
+no unexpected control characters.
+
+Then retain a mandatory:
+
+MANUAL FIGURE VISUAL REVIEW
+
+for:
+
+text-border overlap
+
+annotation collisions
+
+cognitive readability.
+
+────────────────────────────────────────
+6. RESEARCH-VISUAL SCREENSHOT QA
+────────────────────────────────────────
+
+For each published analytical figure:
+
+render its article at:
+
+1440
+1024
+820
+768
+430
+390
+375.
+
+For dense figures also open the SVG directly at useful widths.
+
+Actually inspect them.
+
+No:
+
+text overlap
+
+border collision
+
+clipped labels
+
+microscopic text.
+
+Do not report PASS from Playwright alone.
+
+────────────────────────────────────────
+7. SEARCH THE ENTIRE SITE FOR STALE LAUNCH COPY
+────────────────────────────────────────
+
+Search source AND built output for case-insensitive variants of:
+
+pre-launch
+prelaunch
+pre production
+pre-production
+launch-stage
+launch stage
+launch pilot
+FOUNDATION
+PLANNED
+FUTURE
+RESERVED
+coming soon
+not yet published
+not yet live
+human-approved stories are published here yet
+commercial-disabled
+SITE_PRELAUNCH
+noindex
+
+For each occurrence classify:
+
+A.
+STALE — remove/update
+
+B.
+STILL FACTUALLY TRUE — keep but improve wording if necessary
+
+C.
+INTERNAL ONLY — leave if useful and non-public.
+
+Do NOT remove an honest "in development" state merely to make the company look larger.
+
+Truth takes priority.
+
+────────────────────────────────────────
+8. CONFIRMED STALE PRIVACY PAGE
+────────────────────────────────────────
+
+The current public `/privacy` page is stale.
+
+It currently contains wording equivalent to:
+
+“Pre-launch privacy notice.”
+
+and claims the foundation does not currently use:
+
+newsletter collection
+
+or other systems.
+
+But the live site now contains newsletter subscription and inquiry forms.
+
+Replace this page completely with an ACTUAL CURRENT PRIVACY NOTICE.
+
+Title:
+
+/ PRIVACY
+
+Suggested H1:
+
+Privacy notice.
+
+NOT:
+
+Pre-launch privacy notice.
+
+Add:
+
+Effective date:
+August 10, 2026
+
+Last updated:
+August 10, 2026
+
+unless implementation occurs on a later date.
+
+────────────────────────────────────────
+9. PRIVACY NOTICE MUST COME FROM ACTUAL DATA FLOW
+────────────────────────────────────────
+
+Before writing `/privacy`, inspect actual code for:
+
+/api/brief-subscribe
+
+/api/partner-lead
+
+/api/intelligence-lead
+
+hosting
+
+logging
+
+analytics
+
+rate limiting
+
+email processing
+
+newsletter provider
+
+lead-delivery provider
+
+database/storage if any
+
+UTM attribution
+
+referrer collection
+
+server-side IP use
+
+security logs.
+
+Build an internal data-flow table:
+
+DATA
+
+SOURCE
+
+PURPOSE
+
+DESTINATION
+
+RETENTION
+
+PROCESSOR
+
+USER CONTROL.
+
+Only then write the policy.
+
+Do NOT derive the privacy policy from this prompt alone.
+
+────────────────────────────────────────
+10. CURRENTLY VISIBLE NEWSLETTER DATA FLOW
+────────────────────────────────────────
+
+The live newsletter form visibly handles at least:
+
+email address
+
+utm_content
+
+optional URL:
+
+utm_source
+
+utm_medium
+
+utm_campaign
+
+external referring-site ORIGIN
+
+when present.
+
+Audit backend behavior to determine what is actually retained and where.
+
+Do not claim:
+
+“we collect only an email address”
+
+if attribution fields are actually transmitted.
+
+Do not overstate collection either.
+
+────────────────────────────────────────
+11. CURRENT PARTNER FORM
+────────────────────────────────────────
+
+Audit actual `/partner` submission processing.
+
+The public form currently requests fields including:
+
+name
+
+company
+
+work email
+
+website
+
+role
+
+objective
+
+budget range
+
+timeline
+
+additional context.
+
+Privacy notice must accurately cover these if transmitted/stored.
+
+Add a small privacy note beside/under submission:
+
+We use these details to respond to your inquiry. See Privacy.
+
+Link:
+
+/privacy
+
+No separate marketing opt-in should be implied by submitting a commercial inquiry.
+
+Do not automatically add commercial leads to / BRIEF.
+
+────────────────────────────────────────
+12. CURRENT INTELLIGENCE FORM
+────────────────────────────────────────
+
+Audit actual `/intelligence` processing.
+
+The form currently includes:
+
+name
+
+company
+
+work email
+
+role
+
+decision/problem
+
+desired outcome
+
+deadline
+
+budget range
+
+confidentiality level.
+
+Privacy notice must cover the actual flow.
+
+Preserve the good warning:
+
+Do not include confidential data or documents in this first message.
+
+Also add a concise privacy note:
+
+We use these details to evaluate and respond to your research inquiry. See Privacy.
+
+Do not add these users to marketing/newsletter lists without separate consent.
+
+────────────────────────────────────────
+13. NEWSLETTER CONSENT TEXT
+────────────────────────────────────────
+
+The subscription action itself clearly asks the reader to join:
+
+/ BRIEF.
+
+Keep consent simple.
+
+Use approximately:
+
+By subscribing, you agree to receive SECOND / PASS / BRIEF by email. You can unsubscribe at any time. Privacy →
+
+No unnecessary checkbox is required merely to subscribe to the product they explicitly requested.
+
+However:
+
+do not bundle unrelated marketing consent.
+
+Verify the newsletter provider includes a functional unsubscribe mechanism.
+
+Do not claim unsubscribe behavior without checking.
+
+────────────────────────────────────────
+14. ACTUAL THIRD-PARTY PROCESSORS
+────────────────────────────────────────
+
+Inspect code/env-variable names/docs to determine actual providers.
+
+Possible systems may include:
+
+Vercel
+
+Beehiiv
+
+Resend
+
+or others.
+
+DO NOT assume these names.
+
+Do not expose API keys.
+
+Privacy notice may name processors/services only if actually used.
+
+Describe their role accurately.
+
+Example categories:
+
+hosting/infrastructure
+
+newsletter delivery
+
+inquiry email delivery
+
+analytics
+
+security/logging.
+
+────────────────────────────────────────
+15. IP ADDRESSES / RATE LIMITING
+────────────────────────────────────────
+
+Inspect APIs for IP-based rate limiting or abuse prevention.
+
+If an IP address is:
+
+processed transiently
+
+hashed
+
+stored
+
+logged
+
+forwarded
+
+then document only the actual behavior.
+
+Do not claim:
+
+“We never process IP addresses”
+
+if server infrastructure or application rate limiting does.
+
+Do not claim long-term storage if none occurs.
+
+────────────────────────────────────────
+16. PRIVACY NOTICE CONTENT
+────────────────────────────────────────
+
+The final privacy page should cover, as applicable:
+
+1. Who operates SECOND / PASS
+
+2. What data is collected
+
+3. Data readers provide directly
+
+4. Newsletter subscriptions
+
+5. Partnership / research inquiries
+
+6. Technical and security data
+
+7. Attribution data such as UTM/referring origin if retained
+
+8. Why the data is used
+
+9. Service providers
+
+10. Retention
+
+11. Security
+
+12. International processing/transfers where actually relevant
+
+13. Reader rights / requests
+
+14. Newsletter unsubscribe
+
+15. Cookies and storage/access technologies
+
+16. Children's data if genuinely relevant
+
+17. Changes to notice
+
+18. Contact.
+
+Do not create fictional compliance claims such as:
+
+“GDPR certified”
+
+“DPDP compliant”
+
+“CCPA certified.”
+
+A privacy notice should describe behavior.
+
+Not award ourselves a certificate.
+
+────────────────────────────────────────
+17. OPERATOR IDENTITY — NEVER INVENT
+────────────────────────────────────────
+
+Inspect the repository for a verified public operator identity/contact.
+
+Do NOT invent:
+
+SECOND / PASS Pvt Ltd
+
+SECOND / PASS Inc.
+
+registration number
+
+registered office
+
+legal address
+
+privacy@secondpass.net
+
+DPO
+
+company number.
+
+If SECOND / PASS is currently an independent publication operated by an individual:
+
+use only a verified identity already approved for public display.
+
+If the repository contains no verified privacy/contact method:
+
+DO NOT invent one.
+
+Report:
+
+LEGAL CONTACT BLOCKER — VERIFIED PRIVACY CONTACT REQUIRED
+
+and leave the rest of the implementation complete.
+
+Do not put placeholder text on production.
+
+────────────────────────────────────────
+18. COOKIE / STORAGE-ACCESS AUDIT
+────────────────────────────────────────
+
+Before adding ANY cookie banner inspect the actual site for:
+
+document.cookie
+
+Set-Cookie response headers
+
+cookies created by scripts
+
+localStorage
+
+sessionStorage
+
+IndexedDB
+
+service-worker persistent identifiers
+
+analytics scripts
+
+tracking pixels
+
+advertising scripts
+
+affiliate tracking
+
+session replay
+
+heatmaps
+
+embedded social widgets
+
+third-party video embeds
+
+CAPTCHA
+
+device fingerprinting
+
+cross-site identifiers
+
+third-party storage/access technology.
+
+Also inspect:
+
+built HTML
+
+network requests
+
+response headers
+
+client runtime.
+
+Create internal:
+
+COOKIE_AND_STORAGE_AUDIT.md
+
+with:
+
+technology
+
+provider
+
+purpose
+
+essential/non-essential
+
+storage mechanism
+
+duration if applicable
+
+consent required assessment
+
+action.
+
+────────────────────────────────────────
+19. DO NOT ADD A COOKIE BANNER BY DEFAULT
+────────────────────────────────────────
+
+If the audit finds:
+
+ZERO non-essential storage/access technologies,
+
+then:
+
+DO NOT ADD A COOKIE BANNER.
+
+That is the preferred outcome.
+
+A consent banner with nothing meaningful to consent to creates needless friction.
+
+Instead add a clear privacy subsection:
+
+### Cookies and similar technologies
+
+Explain accurately that the site currently does not use non-essential cookies or comparable tracking technologies, IF TRUE AFTER AUDIT.
+
+If strictly necessary technology exists:
+
+describe it.
+
+No consent banner is needed solely because the word "cookie" exists.
+
+────────────────────────────────────────
+20. IF NON-ESSENTIAL TECHNOLOGY EXISTS
+────────────────────────────────────────
+
+ONLY if the audit finds non-essential cookies/storage/access:
+
+implement a real consent system.
+
+Requirements:
+
+non-essential technology OFF before consent
+
+Accept optional
+
+Reject optional
+
+Manage preferences
+
+equal visual prominence
+
+no pre-ticked optional categories
+
+no dark patterns
+
+consent stored appropriately
+
+withdraw/change preference link in footer
+
+no analytics/advertising script loads before required consent
+
+keyboard accessible
+
+mobile accessible.
+
+Categories should reflect ACTUAL technologies.
+
+Do not create fake:
+
+Analytics
+Marketing
+Personalization
+
+categories if no such technology exists.
+
+────────────────────────────────────────
+21. VERCEL ANALYTICS
+────────────────────────────────────────
+
+Do NOT enable new analytics as part of this task unless it is already intentionally configured.
+
+If Vercel Web Analytics is already active:
+
+inspect its current configuration and official privacy behavior
+
+determine exactly what data it collects
+
+update privacy accordingly
+
+determine whether any storage/access consent is necessary for the deployed configuration.
+
+Do not guess.
+
+If analytics is absent:
+
+leave it absent for this task.
+
+Analytics can be enabled separately after its privacy implications are intentionally reviewed.
+
+────────────────────────────────────────
+22. TERMS OF USE
+────────────────────────────────────────
+
+Create:
+
+/terms
+
+This publication is now distributing:
+
+articles
+
+technical calculations
+
+research figures
+
+CSV datasets
+
+XLSX decision models
+
+commercial research information.
+
+A production publication should have basic usage terms.
+
+Keep them readable.
+
+Not a 20-page legal template.
+
+Cover:
+
+SITE / PUBLICATION USE
+
+content is for general informational/research purposes
+
+TECHNICAL RESEARCH
+
+models and calculations depend on assumptions and must be verified against the reader's actual system
+
+NO PROFESSIONAL ADVICE
+
+publication is not a substitute for professional:
+
+engineering
+
+legal
+
+financial
+
+security
+
+or other regulated/professional advice where applicable
+
+INTELLECTUAL PROPERTY
+
+SECOND / PASS original writing/figures/design and permitted personal/internal reference use
+
+SOURCE RIGHTS
+
+third-party names/trademarks/source material remain with their owners
+
+DOWNLOADS
+
+CSV/XLSX models are provided with assumptions and no guarantee they fit a specific deployment
+
+EXTERNAL LINKS
+
+third-party sources are controlled by third parties
+
+COMMERCIAL SERVICES
+
+research engagements are governed by separately agreed scope/terms
+
+ACCEPTABLE USE
+
+no abuse of forms/services
+
+WARRANTY / LIABILITY
+
+reasonable, restrained language
+
+CHANGES
+
+effective/last updated date
+
+CONTACT
+
+verified method only.
+
+Do NOT invent governing-law jurisdiction unless verified/approved.
+
+Do NOT claim an incorporated company if none exists.
+
+────────────────────────────────────────
+23. LEGAL DISCLAIMER STYLE
+────────────────────────────────────────
+
+Do NOT litter every article with giant:
+
+LEGAL DISCLAIMER
+
+boxes.
+
+Articles already use:
+
+assumptions
+
+caveats
+
+claim checks
+
+source ledgers.
+
+Keep the site Terms as the general legal layer.
+
+Article-specific high-risk technical caveats remain where analytically necessary.
+
+This is a research publication.
+
+It should not look frightened of its own analysis.
+
+────────────────────────────────────────
+24. FOOTER FORMALITIES
+────────────────────────────────────────
+
+Update Publication navigation intentionally.
+
+Preferred:
+
+About
+
+Editorial policy
+
+Corrections
+
+Privacy
+
+Terms
+
+If cookie preferences are actually required:
+
+Privacy choices
+
+or:
+
+Cookie settings
+
+ONLY THEN.
+
+Do not add:
+
+Cookies
+
+as a separate link if the site has no cookies and the privacy notice already explains that.
+
+Keep five-column footer visually balanced.
+
+Do not reintroduce the previous Commercial-column compression.
+
+────────────────────────────────────────
+25. EDITORIAL POLICY — PRODUCTION REVIEW
+────────────────────────────────────────
+
+Current editorial policy is broadly correct.
+
+Do not rewrite it unnecessarily.
+
+But expand slightly if needed to document the now-active publication system:
+
+primary sources preferred
+
+vendor claims identified
+
+calculations distinguish fact vs scenario
+
+human approval before publication
+
+AI may assist but does not remove editorial responsibility
+
+sponsored material clearly labelled
+
+advertising cannot buy conclusions
+
+material corrections remain visible.
+
+Keep concise.
+
+Do not publish internal scoring formulas.
+
+────────────────────────────────────────
+26. CORRECTIONS PAGE — PRODUCTION REVIEW
+────────────────────────────────────────
+
+Current corrections policy is fundamentally sound.
+
+Ensure it distinguishes:
+
+CORRECTION
+
+material factual/math error
+
+CLARIFICATION
+
+meaning unchanged but wording/context improved
+
+UPDATE
+
+new information after publication
+
+PRESENTATION CHANGE
+
+visual/style-only changes generally do not imply factual correction.
+
+Tell readers significant corrections remain visible in article change logs.
+
+Do not promise an SLA we cannot guarantee.
+
+────────────────────────────────────────
+27. ABOUT PAGE
+────────────────────────────────────────
+
+Current About page is generally production-appropriate.
+
+Audit for stale wording only.
+
+Ensure it clearly states:
+
+SECOND / PASS is a technical intelligence publication
+
+coverage:
+
+AI
+compute
+systems
+security
+research
+data
+
+AI may assist research organization/drafting/editing
+
+human editorial accountability remains.
+
+Do not say:
+
+launching
+
+preparing to publish
+
+coming soon.
+
+────────────────────────────────────────
+28. PARTNER PAGE — CONFIRMED STALE LANGUAGE
+────────────────────────────────────────
+
+Current `/partner` contains:
+
+“Founding partnerships for a launch-stage publication.”
+
+and labels such as:
+
+/ BRIEF Launch Pilot
+
+/ DATA Launch Pilot.
+
+The publication is now live.
+
+Update to current production language.
+
+Suggested direction:
+
+H1:
+
+Partnerships for technical intelligence.
+
+Dek:
+
+Reach engineers and technical decision-makers without buying editorial conclusions.
+
+Possible offerings only if actually available:
+
+Founding Partner
+
+/ BRIEF Sponsor
+
+Research / Data Sponsor
+
+Selected Format / Category
+
+Custom placement.
+
+Do not promise audience scale we do not have.
+
+Keep:
+
+We'll share current audience and placement information transparently.
+
+That is good.
+
+────────────────────────────────────────
+29. SPONSORSHIP LABELING
+────────────────────────────────────────
+
+Create a permanent rule:
+
+If money or consideration pays for placement:
+
+label clearly:
+
+ADVERTISEMENT
+
+SPONSORED
+
+PARTNER MESSAGE
+
+or another unmistakable designation.
+
+Never disguise paid placement as:
+
+FIRST PASS
+
+SECOND PASS
+
+PROOF
+
+DATA
+
+editorial evidence.
+
+Sponsor receives no editorial conclusion rights.
+
+Preserve in Editorial Policy.
+
+────────────────────────────────────────
+30. HOMEPAGE FAKE/RESERVED AD STATE
+────────────────────────────────────────
+
+The homepage currently contains a house unit labelled:
+
+ADVERTISEMENT / RESERVED
+
+even though the content is `/ BRIEF`.
+
+If there is NO paying advertiser in that slot:
+
+do not label an internal house promotion as an advertisement.
+
+Replace with something like:
+
+HOUSE / BRIEF
+
+or simply:
+
+/ BRIEF
+
+and use an appropriate aria label:
+
+House promotion
+
+not:
+
+Advertisement.
+
+When a real ad exists later:
+
+use the explicit paid label.
+
+Do not pretend an empty commercial reservation is a live ad.
+
+────────────────────────────────────────
+31. DATA PAGE — DO NOT FAKE LAUNCH
+────────────────────────────────────────
+
+Current `/data` uses:
+
+FOUNDATION
+
+and says certain data products have not launched.
+
+Audit the real state.
+
+Important distinction:
+
+PUBLISHED DATA ARTICLES
+
+are not necessarily the same thing as:
+
+LIVE DATABASE PRODUCTS.
+
+If:
+
+AI Inference Price Surface
+
+and other DATA-formatted articles exist,
+
+show those as actual published DATA research.
+
+Do NOT pretend:
+
+Model Pricing Index
+
+Accelerator Index
+
+Benchmark Registry
+
+are operational live databases if they are not.
+
+Preferred production structure:
+
+/ DATA
+
+PUBLISHED DATA
+
+real currently published DATA pieces/downloads
+
+then:
+
+IN DEVELOPMENT
+
+Model Pricing Index
+
+Accelerator Index
+
+Benchmark Registry
+
+if they genuinely remain future products.
+
+Remove vague:
+
+FOUNDATION
+
+if it reads like pre-launch scaffolding.
+
+Use honest:
+
+IN DEVELOPMENT
+
+where needed.
+
+────────────────────────────────────────
+32. HOMEPAGE DATA BAND
+────────────────────────────────────────
+
+Current homepage shows:
+
+01 / PLANNED
+02 / PLANNED
+03 / PLANNED
+
+for future data products.
+
+The publication now has real published research/data.
+
+Do not devote a prominent homepage band to three fake-live/planned products.
+
+Prefer:
+
+actual published DATA articles
+
+actual downloadable datasets
+
+actual research models.
+
+If the future indexes still matter:
+
+move them lower on `/data` under:
+
+IN DEVELOPMENT.
+
+Homepage should primarily showcase what readers can use TODAY.
+
+────────────────────────────────────────
+33. REMOVE DEAD PRE-LAUNCH CSS / FLAGS
+────────────────────────────────────────
+
+Audit:
+
+commercial-disabled
+
+prelaunch classes
+
+prelaunch components
+
+unused launch toggles
+
+noindex toggles
+
+launch banners
+
+disabled forms.
+
+Remove dead code where safe.
+
+Do not remove reusable state machinery if still deliberately needed.
+
+But:
+
+the production site should have one clear state:
+
+PUBLIC.
+
+────────────────────────────────────────
+34. CURRENT_STATE.md — UPDATE PERMANENTLY
+────────────────────────────────────────
+
+Update CURRENT_STATE.md with:
+
+SECOND / PASS PUBLICATION STATE:
+LIVE / PUBLIC
+
+Launch date:
+2026-08-10
+
+robots:
+public
+
+noindex:
+off
+
+Newsletter:
+actual current state
+
+Partner inquiry:
+actual current state
+
+Intelligence inquiry:
+actual current state
+
+Analytics:
+actual current state
+
+Cookies/storage:
+actual audited current state
+
+Cookie banner:
+required YES/NO and why
+
+Privacy:
+production notice active
+
+Terms:
+active
+
+Published desks:
+actual state
+
+DATA products:
+distinguish published DATA research vs future reference products.
+
+This prevents future agents from reintroducing pre-launch copy.
+
+────────────────────────────────────────
+35. PUBLICATION_STANDARD.md — ADD PRODUCTION TRUTH RULE
+────────────────────────────────────────
+
+Add:
+
+## PRODUCTION-STATE TRUTH
+
+Public copy must reflect actual current functionality.
+
+Never leave temporary language such as:
+
+pre-launch
+
+coming soon
+
+no newsletter
+
+no forms
+
+reserved advertisement
+
+after those facts change.
+
+Whenever a new:
+
+analytics provider
+
+newsletter system
+
+lead form
+
+advertising provider
+
+payment system
+
+database
+
+authentication system
+
+cookie/storage technology
+
+is enabled,
+
+privacy/legal documentation must be reviewed in the SAME implementation.
+
+No feature ships first with policy cleanup deferred indefinitely.
+
+────────────────────────────────────────
+36. PUBLICATION_STANDARD — PRIVACY RULE
+────────────────────────────────────────
+
+Add:
+
+## PRIVACY BY MINIMUM COLLECTION
+
+SECOND / PASS should collect the minimum data needed to perform the reader-requested action.
+
+Examples:
+
+newsletter:
+email + justified attribution only
+
+research inquiry:
+contact + decision context
+
+partner inquiry:
+contact + commercial context.
+
+Do not add:
+
+fingerprinting
+
+session replay
+
+behavioral advertising
+
+cross-site tracking
+
+without an explicit business case and separate privacy review.
+
+────────────────────────────────────────
+37. COOKIE POLICY RULE
+────────────────────────────────────────
+
+Add:
+
+SECOND / PASS does not display a cookie-consent banner merely as legal decoration.
+
+First audit actual storage/access technologies.
+
+IF no non-essential technology:
+
+no banner.
+
+IF non-essential technology exists:
+
+block it until valid preference/consent requirements are satisfied.
+
+Policies must describe reality.
+
+Not hypothetical future tracking.
+
+────────────────────────────────────────
+38. FORM DATA MINIMIZATION
+────────────────────────────────────────
+
+Review all form fields.
+
+Ask for each field:
+
+Is this needed to complete the requested action?
+
+Keep useful fields.
+
+Do not collect data simply because forms can.
+
+Especially review:
+
+budget
+
+role
+
+website
+
+confidentiality level
+
+referrer/UTM.
+
+Commercial qualification fields can be legitimate.
+
+But avoid unnecessary sensitive information.
+
+Never request confidential documents in first-contact forms.
+
+────────────────────────────────────────
+39. FORM SECURITY
+────────────────────────────────────────
+
+Preserve current:
+
+honeypot
+
+server-side validation
+
+rate limiting
+
+field length limits.
+
+Audit:
+
+injection safety
+
+email-header safety
+
+HTML escaping
+
+logging
+
+error leakage
+
+CORS
+
+CSRF relevance
+
+abuse handling.
+
+Do not expose submitted form content in:
+
+client logs
+
+analytics
+
+URLs.
+
+Do not put form data into query strings.
+
+────────────────────────────────────────
+40. DATA RETENTION
+────────────────────────────────────────
+
+Do not invent:
+
+“we delete all leads after 30 days”
+
+unless system actually enforces that.
+
+Determine existing retention.
+
+If retention currently depends on a service provider/account:
+
+describe it honestly and conservatively.
+
+Prefer adding an intentional retention policy only if implementation can actually enforce/document it.
+
+Policy and system must agree.
+
+────────────────────────────────────────
+41. DOWNLOADED RESEARCH FILES
+────────────────────────────────────────
+
+Privacy/Terms should recognize that downloadable:
+
+XLSX
+
+CSV
+
+SVG
+
+data/model files
+
+are static research artifacts.
+
+Do not inject tracking pixels into download URLs.
+
+No email gate.
+
+Do not collect personal data solely to download research.
+
+────────────────────────────────────────
+42. ACCESSIBILITY FORMALITY
+────────────────────────────────────────
+
+Audit legal/formality pages for accessibility.
+
+Requirements:
+
+proper H1/H2 hierarchy
+
+meaningful link text
+
+keyboard navigation
+
+focus states
+
+form labels
+
+error announcements
+
+contrast
+
+mobile readability.
+
+Optional:
+
+create `/accessibility`
+
+ONLY if there is a meaningful statement to make.
+
+Do not add a ceremonial accessibility page with claims we have not verified.
+
+────────────────────────────────────────
+43. SEO / INDEXING FOR LEGAL PAGES
+────────────────────────────────────────
+
+Privacy:
+
+index/follow is acceptable.
+
+Terms:
+
+index/follow acceptable.
+
+Cookie settings/preferences UI if present:
+
+no need to optimize for search.
+
+Ensure:
+
+canonical
+
+title
+
+description.
+
+Do not put:
+
+Pre-launch
+
+in metadata.
+
+────────────────────────────────────────
+44. SEARCH FOR STALE META COPY
+────────────────────────────────────────
+
+Audit not only visible body text but:
+
+<title>
+
+meta description
+
+Open Graph title
+
+Open Graph description
+
+Twitter title
+
+Twitter description
+
+JSON-LD
+
+structured data
+
+manifest
+
+RSS descriptions.
+
+The current Privacy page's metadata still says:
+
+Pre-launch privacy notice.
+
+Remove it.
+
+No stale launch language in social metadata.
+
+────────────────────────────────────────
+45. PUBLIC CONTACT / LEGAL IDENTITY CHECK
+────────────────────────────────────────
+
+Before final acceptance list:
+
+operator identity:
+VERIFIED / MISSING
+
+privacy contact:
+VERIFIED / MISSING
+
+general contact:
+VERIFIED / MISSING
+
+commercial contact path:
+VERIFIED
+
+correction-reporting method:
+VERIFIED / MISSING.
+
+If privacy/correction requests have no usable route:
+
+create one only from verified existing infrastructure.
+
+Do not invent an email domain.
+
+────────────────────────────────────────
+46. OPTIONAL CONTACT PAGE
+────────────────────────────────────────
+
+If the publication currently lacks any clear general contact surface and the repo contains a verified address/channel:
+
+create:
+
+/contact
+
+with purpose-specific paths:
+
+Editorial corrections
+
+Privacy requests
+
+Research / Intelligence
+
+Partnerships.
+
+Keep simple.
+
+Do not create inbox addresses that do not exist.
+
+────────────────────────────────────────
+47. VISUAL SYSTEM FOR LEGAL PAGES
+────────────────────────────────────────
+
+Legal/formality pages should still look like SECOND / PASS.
+
+Use:
+
+Paper
+
+Ink
+
+Graphite
+
+Rule
+
+Signal Blue sparingly.
+
+No generic lawyer-template cards.
+
+No giant legal walls.
+
+Readable width.
+
+Strong section titles.
+
+Last-updated metadata.
+
+Table of contents if the Privacy/Terms page becomes long.
+
+────────────────────────────────────────
+48. DO NOT OVERLAWYER
+────────────────────────────────────────
+
+Write plain English.
+
+Avoid filler such as:
+
+“to the fullest extent permitted by applicable law”
+
+repeated throughout.
+
+Use precise clauses.
+
+Readers should be able to understand:
+
+what we collect
+
+why
+
+who receives it
+
+how to stop it.
+
+Terms should protect the publication without making it look untrustworthy.
+
+────────────────────────────────────────
+49. LEGAL REVIEW BOUNDARY
+────────────────────────────────────────
+
+This implementation is:
+
+technical + editorial policy implementation
+
+not licensed legal advice.
+
+Do not claim:
+
+“legally compliant in every jurisdiction.”
+
+Final report should identify any field requiring owner/counsel confirmation.
+
+Especially:
+
+operator legal identity
+
+postal address if legally required
+
+jurisdiction/governing law
+
+specific retention commitments
+
+international-transfer mechanism
+
+jurisdiction-specific rights language.
+
+Do not fabricate certainty.
+
+────────────────────────────────────────
+50. COOKIE ACCEPTANCE TEST
+────────────────────────────────────────
+
+Open production in a clean browser context.
+
+Before user interaction inspect:
+
+cookies
+
+localStorage
+
+sessionStorage
+
+IndexedDB
+
+network requests.
+
+If decision is:
+
+NO COOKIE BANNER REQUIRED
+
+prove:
+
+non-essential client storage/access:
+0
+
+or document the strictly necessary exceptions.
+
+If decision is:
+
+BANNER REQUIRED
+
+prove non-essential scripts do not execute before preference.
+
+────────────────────────────────────────
+51. PRIVACY ↔ CODE CROSS-CHECK
+────────────────────────────────────────
+
+Create internal:
+
+PRIVACY_DATA_FLOW_AUDIT.md
+
+For every policy statement classify:
+
+CODE VERIFIED
+
+PROVIDER VERIFIED
+
+OWNER INPUT
+
+LEGAL INTERPRETATION.
+
+Any statement contradicted by code:
+
+FAIL.
+
+Example:
+
+If form sends UTM/referring origin,
+
+privacy cannot say:
+
+“we collect only your email.”
+
+────────────────────────────────────────
+52. PRODUCTION COPY AUDIT
+────────────────────────────────────────
+
+Build site.
+
+Search built HTML for:
+
+pre-launch
+prelaunch
+launch-stage
+launch pilot
+ADVERTISEMENT / RESERVED
+PLANNED
+FOUNDATION
+
+and other stale terms.
+
+Expected:
+
+ZERO STALE OCCURRENCES.
+
+Some honest product-development copy may remain, but each occurrence must have been explicitly classified.
+
+────────────────────────────────────────
+53. SITE-WIDE RESPONSIVE VISUAL QA
+────────────────────────────────────────
+
+Test at:
+
+1440
+1024
+820
+768
+430
+390
+375.
+
+At minimum inspect:
+
+homepage
+
+current GB300 article
+
+HBM Roofline PROOF if published
+
+/privacy
+
+/terms
+
+/about
+
+/editorial-policy
+
+/corrections
+
+/partner
+
+/intelligence
+
+/data.
+
+No:
+
+image-text overlap
+
+footer compression
+
+legal-page overflow
+
+form overflow.
+
+────────────────────────────────────────
+54. SPECIFIC SCREENSHOT DEFECT ACCEPTANCE
+────────────────────────────────────────
+
+For the GB300 thermal figure:
+
+At desktop confirm:
+
+"NOT DERIVED: COOLING ELECTRICAL POWER"
+
+fully inside its outlined box.
+
+Supporting line fully inside.
+
+Left padding visible.
+
+Right padding visible.
+
+No glyph touches box stroke.
+
+No text collides with arrows.
+
+At 375px:
+
+same semantic readability
+
+or controlled internal figure scrolling.
+
+Screenshot before/after for internal QA.
+
+Do not commit QA screenshots.
+
+────────────────────────────────────────
+55. FIGURE VISUAL SCORE
+────────────────────────────────────────
+
+Every published analytical figure should target:
+
+>=9.5/10.
+
+Evaluate:
+
+text spacing
+
+label hierarchy
+
+border spacing
+
+caption
+
+mobile readability
+
+information density
+
+lack of collisions.
+
+Any material overlap:
+
+automatic FAIL.
+
+────────────────────────────────────────
+56. PRIVACY PAGE ACCEPTANCE
+────────────────────────────────────────
+
+Required:
+
+H1:
+Privacy notice.
+
+Pre-launch wording:
+0
+
+Actual newsletter data:
+documented
+
+Actual inquiry data:
+documented
+
+Actual providers:
+documented
+
+Cookies/storage:
+documented
+
+Retention:
+accurate
+
+Rights/contact:
+usable
+
+Effective date:
+present
+
+Last updated:
+present
+
+Fake legal claims:
+0.
+
+────────────────────────────────────────
+57. TERMS ACCEPTANCE
+────────────────────────────────────────
+
+Required:
+
+/terms
+HTTP 200
+
+Readable
+
+Production metadata
+
+Research/download usage covered
+
+No-professional-advice boundary
+
+IP/source rights
+
+External links
+
+Commercial services
+
+No invented legal entity
+
+No invented jurisdiction
+
+Verified contact.
+
+────────────────────────────────────────
+58. PARTNER ACCEPTANCE
+────────────────────────────────────────
+
+/partner:
+
+“launch-stage publication”:
+REMOVED
+
+“BRIEF Launch Pilot”:
+REMOVED / intentionally justified
+
+“DATA Launch Pilot”:
+REMOVED / intentionally justified
+
+form privacy note:
+PASS
+
+editorial independence:
+PASS
+
+no invented audience numbers:
+PASS.
+
+────────────────────────────────────────
+59. HOMEPAGE ACCEPTANCE
+────────────────────────────────────────
+
+Homepage:
+
+ADVERTISEMENT / RESERVED:
+0 unless a paid ad actually occupies that slot
+
+internal BRIEF promotion:
+clearly house content
+
+PLANNED data products:
+not occupying prominent production space unless explicitly intentional
+
+real published research:
+prioritized.
+
+────────────────────────────────────────
+60. DATA PAGE ACCEPTANCE
+────────────────────────────────────────
+
+/data clearly separates:
+
+PUBLISHED / AVAILABLE NOW
+
+from:
+
+IN DEVELOPMENT
+
+if both exist.
+
+No fake live database.
+
+No vague launch scaffolding.
+
+Actual downloadable research/data should be discoverable where appropriate.
+
+────────────────────────────────────────
+61. FOOTER ACCEPTANCE
+────────────────────────────────────────
+
+Desktop five-column layout:
+
+PASS
+
+Publication nav contains:
+
+About
+Editorial policy
+Corrections
+Privacy
+Terms
+
+Cookie/privacy choices link only if required.
+
+Commercial column:
+
+no cramped Partner/Intelligence collision.
+
+Tablet:
+
+PASS
+
+Mobile:
+
+PASS.
+
+────────────────────────────────────────
+62. SECURITY HEADERS
+────────────────────────────────────────
+
+Preserve existing production headers including as applicable:
+
+HSTS
+
+X-Content-Type-Options
+
+frame protection
+
+Referrer-Policy
+
+Permissions-Policy.
+
+Do not weaken them.
+
+Review CSP only if current site uses one.
+
+Do not introduce unsafe-inline expansion merely for cookie code.
+
+────────────────────────────────────────
+63. AUTOMATED TESTS
+────────────────────────────────────────
+
+Run existing:
+
+content-source-audit
+
+content-audit
+
+check
+
+build
+
+render-audit --all
+
+visual-audit --all
+
+responsive-audit
+
+Pagefind
+
+prepublish where applicable.
+
+Add:
+
+research-svg:audit
+
+privacy/data-flow audit checks
+
+stale-production-copy audit
+
+if useful.
+
+Do not add fragile tests that merely search one exact sentence.
+
+────────────────────────────────────────
+64. NEW PRODUCTION-STATE AUDIT
+────────────────────────────────────────
+
+Create:
+
+scripts/production-state-audit.mjs
+
+It should inspect built output for obviously prohibited stale state markers such as:
+
+Pre-launch privacy notice
+
+SITE_PRELAUNCH public markers
+
+noindex
+
+“newsletter collection service” absence claims that no longer match current implementation
+
+“launch-stage publication”
+
+ADVERTISEMENT / RESERVED house placeholder.
+
+Use a small deliberate denylist.
+
+Do not ban generic words like:
+
+launch
+
+future
+
+planned
+
+globally because some contexts can be legitimate.
+
+Add command:
+
+production-state:audit
+
+Integrate into full release verification.
+
+────────────────────────────────────────
+65. DO NOT BREAK PUBLICATIONS
+────────────────────────────────────────
+
+No article research changes.
+
+No calculations changed.
+
+No source lists changed unless a broken link requires maintenance.
+
+No article timestamps changed.
+
+No correction logs for:
+
+SVG padding fixes
+
+legal-page updates
+
+production-state copy.
+
+These are site/presentation changes.
+
+────────────────────────────────────────
+66. CURRENT_STATE FINAL TRUTH
+────────────────────────────────────────
+
+At completion CURRENT_STATE.md must let the next agent answer instantly:
+
+Is the site live?
+YES
+
+Is the site prelaunch?
+NO
+
+Does newsletter collection exist?
+ACTUAL STATE
+
+Do commercial inquiry forms exist?
+YES
+
+Does analytics exist?
+ACTUAL STATE
+
+Do non-essential cookies/storage exist?
+ACTUAL STATE
+
+Is a cookie banner required?
+YES/NO + reason
+
+Privacy effective date:
+
+Terms effective date:
+
+Current canonical:
+
+https://second-pass.vercel.app
+
+Current public legal/formality routes:
+
+list them.
+
+────────────────────────────────────────
+67. GIT HYGIENE
+────────────────────────────────────────
+
+Before commit:
+
+git status
+git diff
+git diff --stat
+
+Do not commit:
+
+screenshots
+
+audit logs
+
+browser profiles
+
+cookies
+
+local-storage dumps
+
+.env
+
+secrets
+
+Playwright traces
+
+node_modules.
+
+────────────────────────────────────────
+68. COMMIT
+────────────────────────────────────────
+
+Preferred coherent commit:
+
+fix: harden production visuals and publication policies
+
+or two commits if cleaner:
+
+fix: prevent research figure text collisions
+
+feat: update production privacy and site formalities
+
+Do not create dozens of commits.
+
+No force push.
+
+────────────────────────────────────────
+69. DEPLOY
+────────────────────────────────────────
+
+Deploy ONLY to existing Vercel project:
+
+second-pass.
+
+Do not change project.
+
+Do not change canonical.
+
+Do not create second deployment project.
+
+────────────────────────────────────────
+70. LIVE VERIFICATION
+────────────────────────────────────────
+
+After deployment fetch actual production:
+
+/
+
+GB300 article
+
+/privacy
+
+/terms
+
+/about
+
+/editorial-policy
+
+/corrections
+
+/partner
+
+/intelligence
+
+/data
+
+/robots.txt
+
+/sitemap-index.xml
+
+/rss.xml.
+
+Verify HTTP 200 as appropriate.
+
+────────────────────────────────────────
+71. LIVE STORAGE AUDIT
+────────────────────────────────────────
+
+Run a clean production browser session.
+
+Report:
+
+cookies on first load:
+
+list / none
+
+localStorage:
+
+list / none
+
+sessionStorage:
+
+list / none
+
+IndexedDB:
+
+list / none
+
+non-essential third-party scripts:
+
+list / none.
+
+Then state:
+
+COOKIE BANNER REQUIRED:
+YES / NO
+
+with exact technical basis.
+
+Do not decide based on appearance.
+
+────────────────────────────────────────
+72. FINAL REPORT
+────────────────────────────────────────
+
+Return:
+
+# SECOND / PASS — PRODUCTION HARDENING
+
+## STATUS
+
+PASS / FAIL
+
+## RESEARCH FIGURES
+
+Published SVGs audited:
+
+[number]
+
+Text-border collisions before:
+
+[number]
+
+Text-border collisions after:
+
+0 REQUIRED
+
+GB300 thermal warning box:
+PASS / FAIL
+
+Mobile figure containment:
+PASS / FAIL
+
+research-svg:audit:
+PASS / FAIL
+
+## PRODUCTION STATE
+
+Site:
+LIVE / FAIL
+
+Pre-launch public language:
+0 REQUIRED
+
+Launch-stage partner copy:
+0 REQUIRED
+
+False newsletter-disabled copy:
+0 REQUIRED
+
+Public noindex:
+ABSENT / PRESENT
+
+robots:
+PUBLIC / BLOCKED
+
+## PRIVACY
+
+/privacy:
+PASS / FAIL
+
+Effective date:
+
+Actual newsletter flow documented:
+YES / NO
+
+Partner form flow documented:
+YES / NO
+
+Intelligence form flow documented:
+YES / NO
+
+Hosting/provider flow documented:
+YES / NO
+
+Retention accurate:
+YES / NO
+
+Verified privacy contact:
+YES / NO
+
+Invented legal claims:
+0 REQUIRED
+
+## COOKIES / STORAGE
+
+Cookies on clean load:
+
+Strictly necessary:
+
+Non-essential:
+
+localStorage:
+
+sessionStorage:
+
+IndexedDB:
+
+Analytics:
+
+Tracking pixels:
+
+COOKIE BANNER REQUIRED:
+YES / NO
+
+Reason:
+
+Consent implementation:
+PASS / N/A / FAIL
+
+Preference withdrawal:
+PASS / N/A / FAIL
+
+## TERMS
+
+/terms:
+PASS / FAIL
+
+Research disclaimer:
+PASS / FAIL
+
+Download/model terms:
+PASS / FAIL
+
+IP/source rights:
+PASS / FAIL
+
+Invented entity/jurisdiction:
+0 REQUIRED
+
+## EDITORIAL FORMALITIES
+
+About:
+PASS / FAIL
+
+Editorial policy:
+PASS / FAIL
+
+Corrections:
+PASS / FAIL
+
+Partner:
+PASS / FAIL
+
+Intelligence:
+PASS / FAIL
+
+Data:
+PASS / FAIL
+
+## HOMEPAGE
+
+Fake reserved-ad label:
+0 REQUIRED
+
+Real current research prioritized:
+PASS / FAIL
+
+Stale planned/foundation state:
+PASS / EXPLICITLY JUSTIFIED / FAIL
+
+## FOOTER
+
+Five-column desktop:
+PASS / FAIL
+
+Terms link:
+PASS / FAIL
+
+Privacy link:
+PASS / FAIL
+
+Cookie settings link:
+PASS / N/A / FAIL
+
+Commercial spacing:
+PASS / FAIL
+
+## REPOSITORY MEMORY
+
+CURRENT_STATE.md:
+UPDATED / FAIL
+
+PUBLICATION_STANDARD.md:
+UPDATED / FAIL
+
+Production-state truth rule:
+PASS / FAIL
+
+Privacy-by-minimum-collection rule:
+PASS / FAIL
+
+Cookie rule:
+PASS / FAIL
+
+## PIPELINE
+
+check:
+PASS / FAIL
+
+build:
+PASS / FAIL
+
+render audit:
+PASS / FAIL
+
+visual audit:
+PASS / FAIL
+
+research SVG audit:
+PASS / FAIL
+
+responsive audit:
+PASS / FAIL
+
+production-state audit:
+PASS / FAIL
+
+Pagefind:
+PASS / FAIL
+
+## RESPONSIVE
+
+1440:
+PASS / FAIL
+
+1024:
+PASS / FAIL
+
+820:
+PASS / FAIL
+
+768:
+PASS / FAIL
+
+430:
+PASS / FAIL
+
+390:
+PASS / FAIL
+
+375:
+PASS / FAIL
+
+Horizontal overflow:
+0 REQUIRED
+
+## LIVE
+
+Homepage:
+PASS / FAIL
+
+GB300 article:
+PASS / FAIL
+
+Privacy:
+PASS / FAIL
+
+Terms:
+PASS / FAIL
+
+Partner:
+PASS / FAIL
+
+Intelligence:
+PASS / FAIL
+
+Data:
+PASS / FAIL
+
+## GIT
+
+Commit:
+
+Deployment:
+
+SHA match:
+YES / NO
+
+## OWNER / LEGAL INPUT STILL REQUIRED
+
+None
+
+OR list exact facts that could not be truthfully inferred, such as:
+
+verified privacy contact
+operator legal identity
+governing-law jurisdiction
+retention commitment.
+
+Do NOT invent them merely to make this section empty.
+
+## BLOCKERS
+
+None
+
+OR exact blocker.
+
+If all technical/production gates pass but an owner/legal identity field remains unresolved:
+
+SECOND / PASS PRODUCTION HARDENING: TECHNICAL PASS — OWNER LEGAL INPUT REQUIRED: <item>
+
+If all passes:
+
+SECOND / PASS: LIVE PRODUCTION STATE LOCKED — VISUAL + PRIVACY + FORMALITY PASS
+
+────────────────────────────────────────
+73. BEGIN NOW
+────────────────────────────────────────
+
+Do not return a plan.
+
+Execute:
+
+read repository memory
+→
+inspect latest main
+→
+inspect GB300 thermal SVG source
+→
+fix text-border overlap
+→
+audit every published research SVG
+→
+search all public copy for stale launch state
+→
+inspect all actual data flows
+→
+build accurate privacy data map
+→
+audit cookies/storage/access technology
+→
+decide cookie-banner requirement from reality
+→
+replace pre-launch Privacy page
+→
+add Terms
+→
+update newsletter/form privacy notices
+→
+update Partner launch-stage copy
+→
+fix homepage fake RESERVED ad state
+→
+separate real DATA from in-development products
+→
+update footer
+→
+update CURRENT_STATE.md
+→
+update PUBLICATION_STANDARD.md
+→
+add production-state audit
+→
+run complete tests
+→
+run seven-width screenshots
+→
+inspect every changed figure/page
+→
+commit
+→
+deploy existing Vercel project
+→
+audit live cookies/storage
+→
+verify production pages
+→
+return final report.
+
+The guiding rule is:
+
+THE PUBLIC WEBSITE MUST DESCRIBE THE BUSINESS AND DATA FLOWS THAT EXIST TODAY.
+
+NOT THE SITE WE EXPECTED TO HAVE BEFORE LAUNCH.
+
+And:
+
+DO NOT ADD A COOKIE BANNER UNLESS THERE IS ACTUALLY SOMETHING NON-ESSENTIAL THAT REQUIRES A USER CHOICE.
+
+Proceed.

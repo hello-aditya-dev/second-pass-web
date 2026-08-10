@@ -1712,7 +1712,7 @@ z
   </g>
   <g id="text_11">
    <!-- THE SAME MODEL CAN OCCUPY DIFFERENT SIDES OF THE ROOFLINE -->
-   <g style="fill: #11110f" transform="translate(7.2 18.14175) scale(0.144 -0.144)">
+   <g style="fill: #11110f" transform="translate(12.200000 18.14175) scale(0.144 -0.144)">
     <defs>
      <path id="DejaVuSans-Bold-54" d="M 31 4666 
 L 4331 4666 
@@ -2066,7 +2066,7 @@ z
   </g>
   <g id="text_12">
    <!-- Decode uses the ideal weight-reuse model; prefill is one illustrative BF16 GEMM traffic scenario. -->
-   <g style="fill: #5a5953" transform="translate(7.2 35.334656) scale(0.086 -0.086)">
+   <g style="fill: #5a5953" transform="translate(12.200000 35.334656) scale(0.086 -0.086)">
     <defs>
      <path id="DejaVuSans-44" d="M 1259 4147 
 L 1259 519 

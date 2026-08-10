@@ -1727,7 +1727,7 @@ z
   </g>
   <g id="text_15">
    <!-- IDEALIZED SINGLE-TOKEN DECODE REMAINS FAR LEFT -->
-   <g style="fill: #11110f" transform="translate(7.2 18.977578) scale(0.155 -0.155)">
+   <g style="fill: #11110f" transform="translate(12.200000 18.977578) scale(0.155 -0.155)">
     <defs>
      <path id="DejaVuSans-Bold-49" d="M 588 4666 
 L 1791 4666 
@@ -2064,7 +2064,7 @@ z
   </g>
   <g id="text_16">
    <!-- Each payload marker is paired with the corresponding precision-specific hardware roof. -->
-   <g style="fill: #5a5953" transform="translate(7.2 36.054656) scale(0.086 -0.086)">
+   <g style="fill: #5a5953" transform="translate(12.200000 36.054656) scale(0.086 -0.086)">
     <defs>
      <path id="DejaVuSans-45" d="M 628 4666 
 L 3578 4666 
@@ -2249,7 +2249,7 @@ z
   </g>
   <g id="text_17">
    <!-- FP4/MXFP4 are separate vendor cases — not a claim of cross-vendor format equivalence. -->
-   <g style="fill: #5a5953" transform="translate(7.2 49.446656) scale(0.086 -0.086)">
+   <g style="fill: #5a5953" transform="translate(12.200000 49.446656) scale(0.086 -0.086)">
     <defs>
      <path id="DejaVuSans-76" d="M 191 3500 
 L 800 3500 
