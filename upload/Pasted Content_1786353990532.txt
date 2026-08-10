@@ -1,0 +1,3643 @@
+# Z.ai — PUBLISH SECOND / PASS COMPUTE / PROOF #02
+
+Repository:
+
+witejackel-eng/second-pass-web
+
+Production:
+
+https://second-pass.vercel.app
+
+Existing Vercel project:
+
+second-pass
+
+ATTACHED APPROVED PACKAGE:
+
+second-pass-hbm-roofline-llm-inference-2026-08-10-final-review(1).zip
+
+ARTICLE:
+
+When FLOPs stop being the binding spec: the HBM roofline for LLM inference
+
+SLUG:
+
+when-flops-stop-mattering-hbm-roofline-llm-inference
+
+SECTION:
+
+COMPUTE
+
+FORMAT:
+
+PROOF
+
+AUTHOR:
+
+Aditya
+
+PUBLICATION DATE:
+
+2026-08-10
+
+TIMEZONE:
+
+Asia/Kolkata
+
+THIS PROMPT IS EXPLICIT HUMAN PUBLICATION APPROVAL.
+
+The package currently contains:
+
+status: review
+publishedAt: ""
+changeLog: []
+
+because the research package required a human publication gate.
+
+That gate is now APPROVED.
+
+Your task is NOT to research this article again.
+
+Your task is to:
+
+READ THE PERMANENT SECOND / PASS STANDARD
+→
+INSPECT THE LATEST REPOSITORY
+→
+IMPORT THE APPROVED PACKAGE
+→
+APPLY THE EXISTING HOUSE RENDERER
+→
+POLISH THE RESEARCH VISUALS TO >=9.5
+→
+PUBLISH THE ARTICLE
+→
+RUN COMPLETE CONTENT / MATH / VISUAL / RESPONSIVE QA
+→
+DEPLOY TO THE EXISTING VERCEL PROJECT
+→
+VERIFY ACTUAL PRODUCTION
+→
+RETURN A FINAL ACCEPTANCE REPORT.
+
+Do not reinterpret the research.
+
+Do not change verified equations.
+
+Do not change approved numeric results.
+
+Do not reopen vendor comparison.
+
+Do not create another repository.
+
+Do not create another Vercel project.
+
+Do not convert the article to MDX.
+
+Do not add a runtime charting library.
+
+Do not add React.
+
+Do not build a new calculator.
+
+This is publication integration.
+
+────────────────────────────────────────
+0. READ REPOSITORY MEMORY BEFORE TOUCHING CONTENT
+────────────────────────────────────────
+
+Before ANY publication work read completely:
+
+AGENT.md
+
+PUBLICATION_STANDARD.md
+
+CURRENT_STATE.md
+
+DECISIONS.md
+
+and relevant publication/docs files.
+
+`PUBLICATION_STANDARD.md` is authoritative for:
+
+SECOND / PASS visual identity
+
+9.5+ quality standard
+
+semantic figures
+
+figure captions
+
+CalculationBlock
+
+ClaimCheck
+
+Assumption objects where applicable
+
+tables
+
+KaTeX
+
+math safety
+
+responsive behavior
+
+source/evidence treatment
+
+accessibility
+
+visual QA
+
+footer
+
+BRIEF
+
+INTELLIGENCE.
+
+Do not build another visual system.
+
+The authority split is:
+
+APPROVED ZIP:
+research / calculations / data / article meaning
+
+REPOSITORY:
+presentation / rendering / routing / responsive behavior.
+
+────────────────────────────────────────
+1. INSPECT LATEST MAIN
+────────────────────────────────────────
+
+Before editing:
+
+git status
+git branch
+git log -10 --oneline
+git diff
+
+Fetch/pull latest `main` safely.
+
+Preserve all current publication improvements.
+
+Especially preserve:
+
+semantic `<figure>` rendering
+
+CalculationBlock system
+
+ClaimCheck system
+
+table wrappers
+
+KaTeX configuration
+
+currency safety
+
+visual:audit
+
+responsive:audit
+
+prepublish
+
+Pagefind
+
+social-generation pipeline
+
+five-column footer
+
+PUBLICATION_STANDARD.md
+
+all existing articles.
+
+Do not overwrite current renderer code with assumptions from the ZIP.
+
+────────────────────────────────────────
+2. VERIFY THE ATTACHED PACKAGE
+────────────────────────────────────────
+
+Extract temporarily.
+
+Required root:
+
+second-pass-hbm-roofline-llm-inference/
+
+Canonical source:
+
+02_ARTICLE/when-flops-stop-mattering-hbm-roofline-llm-inference.md
+
+Package includes approximately:
+
+54 actual files
+
+including:
+
+research CSVs
+
+one XLSX workbook
+
+five SVG figures
+
+five PNG figures
+
+chart source data
+
+QA ledgers
+
+distribution copy
+
+BRIEF handoff
+
+commercial handoff
+
+site handoff.
+
+Read at minimum:
+
+00_MANIFEST.md
+
+01_EDITORIAL_DECISION.md
+
+02_ARTICLE/when-flops-stop-mattering-hbm-roofline-llm-inference.md
+
+03_RESEARCH/*.csv
+
+04_MODEL/llm-inference-roofline-model.xlsx
+
+05_CHARTS/chart-specs.md
+
+all five SVGs
+
+all five source CSVs
+
+06_QA/CONTROL_CHARACTER_AUDIT.md
+
+06_QA/CALCULATION_LEDGER.md
+
+06_QA/CLAIM_LEDGER.md
+
+06_QA/BENCHMARK_LEDGER.md
+
+06_QA/PRECISION_AND_OPS_LEDGER.md
+
+06_QA/ROOFLINE_AUDIT.md
+
+06_QA/VENDOR_FAIRNESS_AUDIT.md
+
+06_QA/PUBLICATION_GATE.md
+
+08_BRIEF/brief-summary.md
+
+11_SITE_HANDOFF.md.
+
+Do not publish directly from the extraction directory.
+
+────────────────────────────────────────
+3. SOURCE-INTEGRITY REPAIR IS COMPLETE
+────────────────────────────────────────
+
+The original package previously contained corrupted LaTeX caused by literal control characters.
+
+That defect has already been repaired.
+
+DO NOT reintroduce it.
+
+The final package must retain:
+
+TAB U+0009:
+0
+
+FORM FEED U+000C:
+0
+
+other unexpected C0 controls:
+0
+
+UTF-8:
+PASS
+
+BOM:
+ABSENT
+
+display `$$` delimiters:
+74
+
+display blocks:
+37
+
+balanced:
+PASS
+
+body H1:
+0
+
+raw unintended LaTeX outside display math:
+0
+
+sentinels:
+0.
+
+Do not perform text serialization that turns:
+
+\text
+
+into a TAB.
+
+Do not turn:
+
+\frac
+
+into FORM FEED + `rac`.
+
+────────────────────────────────────────
+4. HUMAN PUBLICATION STATE
+────────────────────────────────────────
+
+Change:
+
+publishedAt: ""
+
+to:
+
+publishedAt: "2026-08-10"
+
+Change:
+
+status: "review"
+
+to:
+
+status: "published"
+
+Change:
+
+changeLog: []
+
+to the repository-schema equivalent of:
+
+changeLog:
+  - at: "2026-08-10"
+    type: "published"
+    note: "Initial publication."
+
+Do not add:
+
+correction
+
+updated
+
+visual update
+
+or other history.
+
+This is the initial publication.
+
+────────────────────────────────────────
+5. CANONICAL ARTICLE
+────────────────────────────────────────
+
+Import exactly ONE canonical source.
+
+Expected destination approximately:
+
+src/content/articles/when-flops-stop-mattering-hbm-roofline-llm-inference.md
+
+but inspect current conventions.
+
+Do NOT create:
+
+.mdx
+
+-v2.md
+
+-final.md
+
+-published.md
+
+duplicate content.
+
+ONE SLUG
+=
+ONE ARTICLE SOURCE.
+
+The renderer owns the H1.
+
+FIRST PASS comes from frontmatter.
+
+────────────────────────────────────────
+6. FINAL HEADLINE — FROZEN
+────────────────────────────────────────
+
+Use:
+
+# When FLOPs stop being the binding spec: the HBM roofline for LLM inference
+
+Do not revert to:
+
+"When FLOPs stop mattering"
+
+because the approved headline is more technically precise.
+
+The article does NOT claim FLOPs are irrelevant.
+
+It establishes when FLOPs cease to be the tighter Roofline resource.
+
+────────────────────────────────────────
+7. CENTRAL THESIS — FROZEN
+────────────────────────────────────────
+
+Preserve:
+
+Peak arithmetic throughput is only one hardware ceiling.
+
+For a workload with arithmetic intensity:
+
+I
+
+and hardware with:
+
+peak compute P
+
+HBM bandwidth B
+
+the simplified Roofline bound is:
+
+P_attainable
+<=
+min(P_peak, B_mem × I).
+
+The machine-balance point is:
+
+I*
+=
+P_peak / B_mem.
+
+When:
+
+I < I*
+
+the local HBM-bandwidth roof is tighter under the simplified Roofline model.
+
+When:
+
+I > I*
+
+the compute roof can become tighter.
+
+Do not turn this into:
+
+GPU benchmark prediction.
+
+Do not turn this into:
+
+measured serving performance.
+
+────────────────────────────────────────
+8. CURRENT APPROVED HARDWARE NORMALIZATION
+────────────────────────────────────────
+
+Preserve these approved values.
+
+### NVIDIA B300
+
+Source basis:
+
+HGX B300
+
+BF16/FP16 Tensor Core spec:
+36 PFLOPS shown as sparse
+
+vendor footnote:
+dense = 1/2 sparse.
+
+Therefore:
+
+HGX dense BF16:
+18 PFLOP/s
+
+8 GPUs
+
+normalized per-GPU equivalent:
+
+2.25 PFLOP/s
+
+HBM:
+
+288 GB HBM3E / GPU
+
+peak HBM bandwidth:
+
+up to 8 TB/s / GPU.
+
+Dense BF16 machine balance:
+
+2.25e15 / 8e12
+
+=
+
+281.25 FLOP/byte.
+
+────────────────────────────────────────
+9. AMD MI355X — FROZEN
+────────────────────────────────────────
+
+Preserve:
+
+288 GB HBM3E
+
+8 TB/s peak HBM bandwidth
+
+BF16 dense matrix:
+
+2.5 PFLOP/s
+
+BF16 structured sparse:
+
+5 PFLOP/s.
+
+Dense BF16 machine balance:
+
+2.5e15 / 8e12
+
+=
+
+312.5 FLOP/byte.
+
+Do not compare:
+
+NVIDIA sparse
+
+against:
+
+AMD dense.
+
+Do not change approved dense-BF16 normalization.
+
+────────────────────────────────────────
+10. VENDOR FAIRNESS
+────────────────────────────────────────
+
+The article is NOT:
+
+B300 vs MI355X — which wins?
+
+Do not add a winner.
+
+The direct comparison is permitted only for:
+
+DENSE BF16 MACHINE BALANCE.
+
+Preserve:
+
+FP4 / NVFP4
+
+and:
+
+AMD MXFP4
+
+as NOT directly comparison-safe for cross-vendor performance conclusions.
+
+Do not make them visually appear like equivalent formats.
+
+Do not use Signal Blue to imply one vendor is recommended.
+
+────────────────────────────────────────
+11. DECODE DERIVATION — FROZEN
+────────────────────────────────────────
+
+Preserve:
+
+$$
+F_{\text{token}}
+\approx
+2P
+$$
+
+and:
+
+$$
+D_{\text{weights}}
+\approx
+Pb_w
+$$
+
+therefore:
+
+$$
+I_{\text{decode}}
+\approx
+\frac{2P}{Pb_w}
+=
+\frac{2}{b_w}.
+$$
+
+The key result:
+
+parameter count cancels
+
+under this deliberately idealized:
+
+dense
+weight-only
+single-token
+
+model.
+
+Do not broaden this to all LLM serving.
+
+────────────────────────────────────────
+12. APPROVED IDEAL PAYLOAD INTENSITIES
+────────────────────────────────────────
+
+Preserve:
+
+BF16:
+1 FLOP/byte
+
+8-bit payload:
+2 FLOP/byte
+
+4-bit payload:
+4 FLOP/byte.
+
+These are:
+
+IDEALIZED PAYLOAD VALUES.
+
+They exclude:
+
+KV traffic
+
+activation traffic
+
+quantization metadata
+
+alignment
+
+kernel overhead
+
+scheduler effects
+
+communication.
+
+Do not label:
+
+observed.
+
+Do not label:
+
+benchmark.
+
+────────────────────────────────────────
+13. APPROVED ROOFLINE FRACTIONS
+────────────────────────────────────────
+
+For BF16 single-token idealized weight-only decode:
+
+B300:
+
+1 / 281.25
+≈
+0.0035556
+
+=
+
+0.356%.
+
+MI355X:
+
+1 / 312.5
+
+=
+
+0.0032
+
+=
+
+0.320%.
+
+These represent:
+
+ROOFLINE COMPUTE-CEILING FRACTION
+
+under this model.
+
+They are NOT:
+
+GPU utilization
+
+SM occupancy
+
+tensor-core utilization
+
+measured MFU.
+
+Make that visually explicit.
+
+────────────────────────────────────────
+14. BATCHING DERIVATION — FROZEN
+────────────────────────────────────────
+
+Preserve:
+
+$$
+I_{\text{batch}}
+\approx
+\frac{2q}{b_w}.
+$$
+
+Set:
+
+$$
+I_{\text{batch}}=I^*.
+$$
+
+Then:
+
+$$
+q^*
+=
+\frac{b_wI^*}{2}
+=
+\frac{b_wP_{\text{peak}}}
+{2B_{\text{HBM}}}.
+$$
+
+At BF16:
+
+b_w = 2
+
+therefore:
+
+q* = I*.
+
+Approved:
+
+B300:
+281.25
+
+first integer >= ridge:
+282
+
+MI355X:
+312.5
+
+first integer:
+313.
+
+────────────────────────────────────────
+15. q* IS NOT PRODUCTION CONCURRENCY
+────────────────────────────────────────
+
+This warning must remain attached to:
+
+article
+
+CalculationBlock
+
+Figure 03
+
+caption
+
+FIRST PASS where used.
+
+q* is:
+
+AN IDEALIZED WEIGHT-REUSE ROOFLINE THRESHOLD.
+
+It is NOT:
+
+recommended batch
+
+recommended concurrency
+
+latency-optimal setting
+
+throughput-optimal scheduler configuration.
+
+Real serving may hit:
+
+latency SLO
+
+KV capacity
+
+queueing
+
+fragmentation
+
+activation traffic
+
+scheduler limitations
+
+before q*.
+
+────────────────────────────────────────
+16. PREFILL — FROZEN
+────────────────────────────────────────
+
+Preserve the approved teaching example:
+
+m = 2048
+
+k = 8192
+
+n = 8192
+
+BF16:
+2-byte A/B/C.
+
+Simple one-pass GEMM model:
+
+approximately:
+
+1365.33 FLOP/byte.
+
+This lies above:
+
+281.25
+
+and:
+
+312.5
+
+machine-balance points.
+
+But the article MUST preserve:
+
+THIS DOES NOT MEAN ALL PREFILL IS COMPUTE-BOUND.
+
+It demonstrates:
+
+greater matrix dimensions
+
+and:
+
+weight reuse
+
+can put the same model in a different part of the Roofline.
+
+────────────────────────────────────────
+17. QWEN2.5-72B CASE — FROZEN
+────────────────────────────────────────
+
+Preserve:
+
+Qwen2.5-72B-Instruct
+
+total parameters:
+72.7B
+
+non-embedding:
+70.0B
+
+layers:
+80
+
+GQA query heads:
+64
+
+KV heads:
+8
+
+hidden size:
+8192
+
+head dimension used:
+128
+
+full context:
+131,072
+
+where used.
+
+This is a dense teaching case.
+
+Not a recommendation.
+
+────────────────────────────────────────
+18. APPROVED WEIGHT PAYLOAD
+────────────────────────────────────────
+
+BF16 teaching payload:
+
+72.7B × 2 bytes
+
+=
+
+145.4 GB.
+
+This is:
+
+DECIMAL IDEAL WEIGHT PAYLOAD.
+
+Not:
+
+checkpoint size
+
+runtime HBM allocation
+
+total production memory.
+
+Keep the distinction visible.
+
+────────────────────────────────────────
+19. APPROVED THEORETICAL TOKEN ROOFS
+────────────────────────────────────────
+
+With:
+
+8 TB/s
+
+and:
+
+145.4 GB ideal payload,
+
+HBM weight-stream ceiling:
+
+approximately:
+
+55.02 tokens/s.
+
+B300 2P arithmetic ceiling:
+
+approximately:
+
+15,474.55 tokens/s.
+
+The tighter simple roof:
+
+HBM WEIGHT STREAMING.
+
+These are:
+
+THEORETICAL UPPER BOUNDS.
+
+They are NOT:
+
+measured B300 tokens/s
+
+production throughput
+
+latency
+
+goodput
+
+benchmark results.
+
+Use:
+
+THEORETICAL
+
+and:
+
+NOT MEASURED THROUGHPUT
+
+where appropriate.
+
+────────────────────────────────────────
+20. BANDWIDTH SENSITIVITY
+────────────────────────────────────────
+
+Approved sensitivity:
+
+40% peak:
+~22.01 theoretical tokens/s
+
+60%:
+~33.01
+
+80%:
+~44.02
+
+100%:
+~55.02.
+
+These are:
+
+SCENARIO EFFECTIVE-BANDWIDTH VALUES.
+
+Do not describe them as typical B300 bandwidth efficiency.
+
+────────────────────────────────────────
+21. KV TREATMENT — KEEP BOUNDED
+────────────────────────────────────────
+
+Preserve generic conventional GQA approximation:
+
+$$
+D_{\text{KV}}
+\approx
+2Ln_{\text{kv}}d_hSb_{\text{kv}}.
+$$
+
+Approved Qwen teaching case:
+
+L = 80
+
+n_kv = 8
+
+d_h = 128
+
+S = 8192
+
+BF16 KV payload.
+
+Approximate conservative read traffic:
+
+2.684 GB/token.
+
+This is NOT:
+
+measured kernel traffic.
+
+Do not expand this into the full KV article.
+
+That is a separate future publication.
+
+────────────────────────────────────────
+22. KEEP SCOPE BOUNDARY
+────────────────────────────────────────
+
+Do NOT turn this article into:
+
+network Roofline
+
+NVLink article
+
+Infinity Fabric comparison
+
+multi-node all-reduce analysis
+
+KV-capacity article
+
+SLO-goodput article
+
+GPU-price leaderboard.
+
+Those are separate planned stories.
+
+This publication is:
+
+LOCAL HBM ROOFLINE
++
+ARITHMETIC INTENSITY
++
+INFERENCE HARDWARE SCREENING.
+
+────────────────────────────────────────
+23. SOURCE LAST-MINUTE RESOLUTION CHECK
+────────────────────────────────────────
+
+Do NOT perform broad new research.
+
+Immediately before publishing verify only that load-bearing primary URLs still resolve:
+
+NVIDIA HGX
+
+NVIDIA HGX AI Factory components
+
+AMD MI355X
+
+Berkeley Lab Roofline
+
+Qwen2.5-72B-Instruct
+
+Qwen config.
+
+If a page is temporarily unavailable:
+
+do not change the research automatically.
+
+If a LOAD-BEARING SPECIFICATION itself has materially changed:
+
+STOP.
+
+Report:
+
+PUBLICATION BLOCKED — SOURCE CHANGED
+
+with exact discrepancy.
+
+Do not silently rewrite approved work.
+
+────────────────────────────────────────
+24. ARTICLE FIGURES — IMPORT ALL FIVE
+────────────────────────────────────────
+
+Package figure order from SITE_HANDOFF:
+
+1.
+chart-01-inference-roofline.svg
+
+2.
+chart-02-decode-intensity.svg
+
+3.
+chart-03-batch-ridge.svg
+
+4.
+chart-05-prefill-vs-decode.svg
+
+5.
+chart-04-token-roofs.svg
+
+IMPORTANT:
+
+The numeric filenames are NOT the article placement order.
+
+Follow SITE_HANDOFF.
+
+Do not blindly sort filenames.
+
+────────────────────────────────────────
+25. STABLE PUBLIC ASSET PATHS
+────────────────────────────────────────
+
+The canonical Markdown uses package-relative paths.
+
+Replace them with stable production URLs.
+
+Use the site's established research namespace.
+
+Suggested:
+
+/research/hbm-roofline-llm-inference/charts/
+
+and:
+
+/research/hbm-roofline-llm-inference/downloads/
+
+unless current repository convention provides a better established structure.
+
+ZERO production occurrences:
+
+../05_CHARTS/
+
+../03_RESEARCH/
+
+../04_MODEL/
+
+/mnt/data/
+
+sandbox:
+
+file://
+
+temporary paths.
+
+────────────────────────────────────────
+26. SEMANTIC FIGURES
+────────────────────────────────────────
+
+All five analytical visuals MUST use the current semantic figure renderer.
+
+Required conceptual output:
+
+<figure class="research-figure">
+
+  <div class="research-figure-scroll">
+    <img ...>
+  </div>
+
+  <figcaption>
+    ...
+  </figcaption>
+
+</figure>
+
+No analytical figure should remain:
+
+<p><img></p>.
+
+Use:
+
+05_CHARTS/chart-specs.md
+
+as source of truth for:
+
+question
+
+title
+
+classification
+
+caption
+
+alt text
+
+assumptions
+
+caveat
+
+mobile behavior.
+
+────────────────────────────────────────
+27. FIGURE 01 — ROOFLINE
+────────────────────────────────────────
+
+Question:
+
+When does local HBM bandwidth become tighter than dense BF16 compute?
+
+Preserve:
+
+log-log scale
+
+shared 8 TB/s memory slope
+
+B300 dense BF16 roof
+
+MI355X dense BF16 roof
+
+ridge markers:
+
+281.25
+
+312.5
+
+single-token BF16 ideal decode:
+
+I=1.
+
+Required visible label:
+
+THEORETICAL PEAK ROOFLINE.
+
+No benchmark language.
+
+Do not imply real throughput.
+
+This figure is already conceptually strong.
+
+Only polish if needed for:
+
+label size
+
+mobile legibility
+
+line hierarchy.
+
+────────────────────────────────────────
+28. FIGURE 02 — DECODE INTENSITY
+────────────────────────────────────────
+
+Question:
+
+How far are idealized decode intensities from precision-specific machine balance?
+
+Preserve:
+
+BF16:
+I=1
+
+8-bit:
+I=2
+
+4-bit:
+I=4.
+
+Preserve:
+
+precision-specific hardware ridge treatment.
+
+Do NOT revert to an earlier version comparing:
+
+4-bit workload intensity
+
+against:
+
+BF16 ridge.
+
+Do NOT create direct NVIDIA FP4 vs AMD MXFP4 performance comparison.
+
+Make the three left-side workload markers visually easy to identify.
+
+The reader should immediately understand:
+
+WORKLOAD IS HERE
+
+HARDWARE RIDGE IS FAR RIGHT.
+
+────────────────────────────────────────
+29. FIGURE 03 — REQUIRED VISUAL POLISH
+────────────────────────────────────────
+
+Current research data are approved.
+
+Do NOT change them.
+
+But make this figure easier to read before publication.
+
+Question:
+
+How much ideal BF16 weight reuse is required to reach the machine-balance point?
+
+Current chart uses powers-of-two axis notation such as:
+
+2¹
+2³
+2⁵
+...
+
+That adds unnecessary cognitive load.
+
+Prefer explicit familiar batch values where space allows:
+
+1
+2
+4
+8
+16
+32
+64
+128
+256
+512
+
+while retaining a logarithmic axis if mathematically useful.
+
+Make:
+
+q*=281.25
+
+and:
+
+q*=312.5
+
+visually explicit.
+
+Annotate integer implications if useful:
+
+282
+
+313.
+
+Do NOT imply those are recommended production concurrency.
+
+Required visible qualifier:
+
+q* IS NOT RECOMMENDED PRODUCTION CONCURRENCY.
+
+Target:
+
+>=9.5 visual quality.
+
+────────────────────────────────────────
+30. FIGURE 04 — REQUIRED VISUAL POLISH
+────────────────────────────────────────
+
+File:
+
+chart-04-token-roofs.svg
+
+Question:
+
+For Qwen2.5-72B, which theoretical roof is lower across payload precision?
+
+Current approved data are correct.
+
+But avoid a conventional BAR CHART on a logarithmic magnitude axis if it reduces interpretability.
+
+Preferred refinement:
+
+PAIRED DOT / DUMBBELL PLOT
+
+on a logarithmic horizontal or vertical scale.
+
+For each precision:
+
+BF16
+8-bit payload
+4-bit payload
+
+show:
+
+HBM weight-stream ceiling
+
+versus:
+
+compute ceiling.
+
+The visual objective is:
+
+SHOW THE GAP.
+
+Do not change numeric values.
+
+Do not claim observed speedup.
+
+Required visible label:
+
+NOT MEASURED THROUGHPUT.
+
+Caption remains:
+
+lower weight payload raises the ideal HBM roof, but real speedup is not automatically proportional.
+
+If the current chart, after actual browser inspection, is already clearer than a dumbbell implementation:
+
+retain it.
+
+But final Figure 04 must score >=9.5 for information design.
+
+────────────────────────────────────────
+31. FIGURE 05 — REQUIRED VISUAL POLISH
+────────────────────────────────────────
+
+File:
+
+chart-05-prefill-vs-decode.svg
+
+This concept should become one of the signature visuals.
+
+Question:
+
+Why can the same model occupy different sides of the Roofline?
+
+Prefer a single horizontal arithmetic-intensity continuum:
+
+MEMORY-ROOF SIDE
+→
+COMPUTE-POSSIBLE SIDE
+
+with ordered markers approximately:
+
+I=1
+single-token decode
+
+I≈128
+BF16 decode q=128
+
+281.25
+B300 BF16 ridge
+
+312.5
+MI355X BF16 ridge
+
+I≈1365.33
+illustrative prefill GEMM.
+
+This is much easier to understand than visually floating points with a meaningless vertical position.
+
+Do NOT change data.
+
+Do NOT claim:
+
+all prefill is compute-bound.
+
+Caption must preserve:
+
+phase, batch and data movement determine which roof is tighter.
+
+Target:
+
+>=9.6 information-design quality.
+
+────────────────────────────────────────
+32. VISUAL SYSTEM
+────────────────────────────────────────
+
+Use existing SECOND / PASS palette:
+
+Paper:
+#F2EFE7
+
+Ink:
+#11110F
+
+Graphite:
+#5A5953
+
+Rule:
+#C9C3B7
+
+Signal Blue:
+#2F5BFF.
+
+Signal Blue carries:
+
+active variable
+
+important threshold
+
+key result.
+
+No:
+
+gradients
+
+vendor colors
+
+NVIDIA green
+
+AMD red
+
+GPU photographs
+
+chip renders
+
+3D
+
+glows
+
+glass cards
+
+generic SaaS chart style.
+
+The figures must look:
+
+RESEARCH LAB
+×
+NEWSPAPER
+×
+ENGINEERING DRAWING.
+
+────────────────────────────────────────
+33. CAPTIONS
+────────────────────────────────────────
+
+Every figure needs a meaningful visible figcaption.
+
+Use chart-specs.md.
+
+Captions must identify:
+
+what is shown
+
+what is theoretical/scenario/calculated
+
+what must not be inferred.
+
+Do not duplicate titles word-for-word.
+
+Do not make captions so low-contrast that readers miss critical caveats.
+
+Figure 03 and 04 captions are especially important.
+
+────────────────────────────────────────
+34. HOUSE `/ CALCULATION`
+────────────────────────────────────────
+
+The article contains:
+
+## / CALCULATION — the current BF16 machine balance
+
+Use the existing CalculationBlock renderer.
+
+Do NOT leave it as generic H2 prose.
+
+Required house hierarchy:
+
+/ CALCULATION
+
+QUESTION
+
+INPUTS / ASSUMPTIONS
+
+EQUATION
+
+RESULT
+
+SO WHAT
+
+CAVEAT
+
+where source semantics support these fields.
+
+Do not rewrite math.
+
+The key result should be easily scannable:
+
+B300:
+281.25 FLOP/B
+
+MI355X:
+312.5 FLOP/B.
+
+Signal Blue may emphasize the RESULT.
+
+No giant SaaS card.
+
+────────────────────────────────────────
+35. CLAIM CHECKS
+────────────────────────────────────────
+
+There are two approved Claim Checks.
+
+1.
+
+“GPU A has twice the FLOPs, so it should serve this model twice as fast.”
+
+2.
+
+“An 8 TB/s GPU can stream 8 TB of model weights every second.”
+
+Render both through the existing:
+
+.claim-check
+
+house object.
+
+Strengthen internal hierarchy:
+
+CLAIM
+
+WHAT THAT MEASURES
+
+WHAT IT DOES NOT MEASURE
+
+SECOND / PASS
+
+where appropriate.
+
+Do not make warning/alert cards.
+
+The final verdict may use restrained Signal Blue.
+
+────────────────────────────────────────
+36. `/ QUESTION`
+────────────────────────────────────────
+
+Preserve:
+
+/ QUESTION
+
+For an LLM inference workload, what arithmetic intensity are we generating, where is the accelerator's machine-balance point, and is compute or local HBM bandwidth the tighter theoretical roof?
+
+Use current house `/QUESTION` presentation.
+
+Do not turn it into a giant hero box.
+
+────────────────────────────────────────
+37. ARTICLE-FIRST-SCREEN STANDARD
+────────────────────────────────────────
+
+At 1440px the article should clearly show:
+
+COMPUTE / PROOF
+
+headline
+
+dek
+
+Aditya
+
+Published Aug 10, 2026
+
+TOC
+
+FIRST PASS
+
+evidence rail.
+
+No hero image.
+
+Typography is the hero.
+
+Target first screen:
+
+>=9.7/10.
+
+────────────────────────────────────────
+38. FIRST PASS
+────────────────────────────────────────
+
+Preserve exactly the five approved findings unless repository syntax requires cosmetic formatting.
+
+It must communicate:
+
+B300:
+281.25 FLOP/B
+
+MI355X:
+312.5 FLOP/B
+
+decode:
+2/b_w
+
+parameter count cancels
+
+q* thresholds
+
+prefill:
+~1365 FLOP/B
+
+Qwen theoretical HBM vs compute ceilings
+
+and:
+
+NOT MEASURED THROUGHPUT
+
+where necessary.
+
+Do not simplify this into:
+
+“memory bandwidth matters.”
+
+────────────────────────────────────────
+39. ARTICLE RHYTHM
+────────────────────────────────────────
+
+Article length:
+
+approximately 2,986 words.
+
+Five figures.
+
+Do not create a visual dump.
+
+Inspect placement so argument flows:
+
+opening
+→
+question
+→
+Figure 01
+→
+Roofline mechanics
+→
+Calculation
+→
+Claim Check
+→
+decode cancellation
+→
+Figure 02
+→
+batching
+→
+Figure 03
+→
+prefill
+→
+Figure 05
+→
+Qwen case
+→
+Figure 04
+→
+KV correction
+→
+procurement rule
+→
+second pass
+→
+INTELLIGENCE
+→
+sources.
+
+Use exact article content order where already stronger.
+
+But preserve conceptual proximity.
+
+────────────────────────────────────────
+40. DOWNLOADABLE WORKBOOK
+────────────────────────────────────────
+
+Publish:
+
+04_MODEL/llm-inference-roofline-model.xlsx
+
+as a static research download.
+
+Suggested public path:
+
+/research/hbm-roofline-llm-inference/downloads/llm-inference-roofline-model.xlsx
+
+or current convention.
+
+Do NOT make an interactive calculator.
+
+Do NOT rebuild workbook logic.
+
+────────────────────────────────────────
+41. WORKBOOK INTEGRITY
+────────────────────────────────────────
+
+Workbook sheets:
+
+README
+
+HARDWARE
+
+MODEL
+
+WORKLOAD
+
+ROOFLINE
+
+DECODE
+
+PREFILL
+
+BATCHING
+
+SENSITIVITY
+
+COST
+
+SOURCES.
+
+Formula-error requirement:
+
+0.
+
+Preserve safety protections:
+
+precision match
+
+dense/sparse match
+
+MoE warning
+
+measured compute <= selected peak
+
+measured HBM <= selected peak
+
+theoretical-vs-measured labeling.
+
+Do not simplify these validations.
+
+────────────────────────────────────────
+42. WORKBOOK DEFAULT OUTPUTS
+────────────────────────────────────────
+
+Current approved default includes:
+
+machine balance:
+281.25 FLOP/B
+
+decode weight-only intensity:
+1 FLOP/B
+
+Roofline feed ratio:
+0.0035555556
+
+classification:
+MEMORY ROOF TIGHTER
+
+bandwidth compute roof:
+8e12 FLOP/s
+
+Roofline compute-ceiling fraction:
+0.0035555556
+
+ideal ridge batch:
+281.25
+
+current q:
+1.
+
+These should not change during publication integration.
+
+────────────────────────────────────────
+43. PUBLIC INPUT TEMPLATE
+────────────────────────────────────────
+
+Publish:
+
+03_RESEARCH/llm-roofline-company-input-template.csv
+
+as a second static download.
+
+Use clean public path.
+
+No email gate.
+
+No lead form.
+
+The research model itself is part of reader value.
+
+────────────────────────────────────────
+44. DOWNLOAD OBJECT
+────────────────────────────────────────
+
+Add a restrained house object near the procurement-decision section:
+
+/ USE THE MODEL
+
+LLM INFERENCE ROOFLINE MODEL
+XLSX
+
+COMPANY INPUT TEMPLATE
+CSV
+
+Replace:
+model
+precision
+HBM bandwidth
+batch
+context
+measured bandwidth
+GPU price
+
+with your own inputs.
+
+DOWNLOAD →
+
+No bright CTA.
+
+No SaaS card.
+
+No gated download.
+
+────────────────────────────────────────
+45. `/ INTELLIGENCE`
+────────────────────────────────────────
+
+Public article CTA should link to:
+
+/intelligence
+
+Suggested approved concept:
+
+Evaluating accelerators for an inference workload?
+
+SECOND / PASS research sprints apply this model to your actual model mix, latency targets, concurrency and candidate hardware.
+
+START A RESEARCH BRIEF →
+
+No price.
+
+No false scarcity.
+
+Do not publish:
+
+10_COMMERCIAL_HANDOFF.md.
+
+────────────────────────────────────────
+46. PUBLIC / PRIVATE BOUNDARY
+────────────────────────────────────────
+
+PUBLIC:
+
+canonical article
+
+five SVG figures
+
+PNG fallbacks if needed
+
+chart source data if intentionally exposed
+
+roofline workbook
+
+company input CSV
+
+selected public-safe research CSVs if useful.
+
+PRIVATE / DO NOT ROUTE:
+
+00_MANIFEST.md
+
+01_EDITORIAL_DECISION.md
+
+06_QA/*
+
+07_DISTRIBUTION/*
+
+09_FOLLOWUPS/*
+
+10_COMMERCIAL_HANDOFF.md
+
+11_SITE_HANDOFF.md.
+
+Do not let these appear in:
+
+Pagefind
+
+RSS
+
+sitemap
+
+public routes.
+
+────────────────────────────────────────
+47. FEATURED STATE
+────────────────────────────────────────
+
+The package uses:
+
+featured: true.
+
+Preserve unless latest repository convention requires exactly one current feature.
+
+If exactly one flagship can be featured:
+
+make this the current appropriate flagship after inspecting current feature behavior.
+
+Do not unpublish older articles.
+
+Do not delete previous content.
+
+────────────────────────────────────────
+48. COMPUTE SECTION
+────────────────────────────────────────
+
+This becomes the second serious COMPUTE publication.
+
+Verify:
+
+/compute
+
+contains:
+
+A GB300 NVL72 rack can require up to 142 kW. What can your facility support?
+
+AND:
+
+When FLOPs stop being the binding spec: the HBM roofline for LLM inference
+
+in correct date/order.
+
+No empty state.
+
+Do not redesign `/compute`.
+
+────────────────────────────────────────
+49. RESEARCH SECTION
+────────────────────────────────────────
+
+Because format is:
+
+PROOF
+
+inspect current taxonomy.
+
+If `/research` currently includes PROOF-formatted publications:
+
+ensure it appears there.
+
+If `/research` is driven by another explicit rule:
+
+follow the existing rule.
+
+Do not hard-code category duplication merely to force it.
+
+────────────────────────────────────────
+50. AUTHOR / SEARCH / RSS / SITEMAP
+────────────────────────────────────────
+
+Verify article appears appropriately in:
+
+/authors/aditya
+
+RSS
+
+sitemap
+
+Pagefind.
+
+Useful Pagefind test queries:
+
+HBM roofline
+
+FLOP byte
+
+machine balance
+
+281.25
+
+312.5
+
+Qwen2.5-72B
+
+ridge batch
+
+prefill
+
+decode.
+
+────────────────────────────────────────
+51. EVIDENCE RAIL
+────────────────────────────────────────
+
+Use only load-bearing sources.
+
+Do not display every QA source.
+
+Prioritize:
+
+NVIDIA HGX Platform
+
+NVIDIA HGX AI Factory
+
+AMD MI355X
+
+Berkeley Lab Roofline
+
+Qwen2.5-72B-Instruct
+
+Qwen config
+
+as appropriate.
+
+Full sources remain at article end.
+
+No opaque internal IDs.
+
+────────────────────────────────────────
+52. MATH SOURCE INTEGRITY — HARD GATE
+────────────────────────────────────────
+
+The canonical article was repaired specifically because previous text serialization corrupted LaTeX.
+
+Therefore after importing into the repository run a raw-byte/control scan AGAIN.
+
+Canonical site Markdown must contain:
+
+unexpected C0 controls:
+0
+
+TAB:
+0 unless normal repository indentation intentionally requires it OUTSIDE math — preferably 0
+
+FORM FEED:
+0
+
+NULL:
+0
+
+DEL:
+0
+
+UTF-8:
+PASS
+
+BOM:
+ABSENT
+
+sentinels:
+0.
+
+Specifically verify literal:
+
+\text
+
+and:
+
+\frac
+
+remain literal backslash commands.
+
+────────────────────────────────────────
+53. KATEX QA
+────────────────────────────────────────
+
+Run actual build/render.
+
+Verify every equation visually.
+
+Required:
+
+no raw:
+
+\frac
+
+\text
+
+\eta
+
+\times
+
+\approx
+
+visible outside rendered math.
+
+No malformed braces.
+
+No missing equations.
+
+No equation accidentally becomes:
+
+H1
+
+H2
+
+blockquote
+
+code block.
+
+No:
+
+# $$
+
+patterns.
+
+Display math must use current house KaTeX pipeline.
+
+────────────────────────────────────────
+54. RESPONSIVE QA — FULL FLAGSHIP SUITE
+────────────────────────────────────────
+
+Run:
+
+1440 × 1000
+
+1024 × 1366
+
+820 × 1180
+
+768 × 1024
+
+430 × 932
+
+390 × 844
+
+375 × 812.
+
+This is PROOF / flagship content.
+
+Do NOT use quick-only responsive QA as final acceptance.
+
+────────────────────────────────────────
+55. DENSE FIGURE MOBILE BEHAVIOR
+────────────────────────────────────────
+
+Figure 01:
+internal scroll below 390 if needed.
+
+Figure 02:
+internal scroll below 390 if needed.
+
+Figure 03:
+log-axis labels must remain legible.
+
+Figure 04:
+paired roof comparison must remain legible.
+
+Figure 05:
+horizontal continuum may internally scroll rather than shrink.
+
+Caption always remains OUTSIDE scrollable image region.
+
+No page-level horizontal overflow.
+
+────────────────────────────────────────
+56. HOUSE OBJECT RESPONSIVE QA
+────────────────────────────────────────
+
+Verify:
+
+QUESTION
+
+CALCULATION
+
+CLAIM CHECK ×2
+
+download object
+
+INTELLIGENCE
+
+sources.
+
+At 375px:
+
+no giant padding
+
+no clipped math
+
+no tiny result labels
+
+no broken rule lines
+
+no overflow.
+
+────────────────────────────────────────
+57. VISUAL SCORE GATE
+────────────────────────────────────────
+
+Do NOT declare success because automated tests pass.
+
+Capture and inspect screenshots.
+
+Score:
+
+FIRST-SCREEN HIERARCHY
+
+TYPOGRAPHY
+
+ARTICLE RHYTHM
+
+INFORMATION DESIGN
+
+FIGURE QUALITY
+
+MATHEMATICAL PRESENTATION
+
+HOUSE OBJECT CONSISTENCY
+
+TABLE QUALITY
+
+SOURCE/EVIDENCE PRESENTATION
+
+RESPONSIVE DESIGN
+
+ACCESSIBILITY
+
+POLISH.
+
+Required:
+
+NO dimension < 9.0.
+
+Average:
+
+>= 9.5.
+
+For this PROOF article:
+
+Information Design:
+>=9.5
+
+Figure Quality:
+>=9.5
+
+Mathematical Presentation:
+>=9.6.
+
+If current Figure 03/04/05 prevent this:
+
+polish them as specified above.
+
+Do NOT lower the scoring requirement.
+
+────────────────────────────────────────
+58. SCREENSHOT REVIEW
+────────────────────────────────────────
+
+Generate temporary screenshots for all seven viewports.
+
+Actually inspect:
+
+first screen
+
+Figure 01
+
+CalculationBlock
+
+Claim Check #1
+
+Figure 02
+
+Figure 03
+
+prefill section
+
+Figure 05
+
+Qwen case
+
+Figure 04
+
+Claim Check #2
+
+KV section
+
+procurement rule
+
+download object
+
+INTELLIGENCE
+
+Sources
+
+BRIEF
+
+footer.
+
+Temporary screenshots must not be committed.
+
+────────────────────────────────────────
+59. ACCESSIBILITY
+────────────────────────────────────────
+
+All figures:
+
+meaningful alt.
+
+All figures:
+
+semantic `<figure>`.
+
+Captions:
+
+visible.
+
+Charts:
+
+not color-only.
+
+Signal Blue plus labels/position.
+
+Tables:
+
+semantic.
+
+Scrollable figures:
+
+keyboard-safe where applicable.
+
+Links:
+
+descriptive.
+
+Heading hierarchy:
+
+valid.
+
+H1:
+
+exactly one from renderer.
+
+────────────────────────────────────────
+60. SOCIAL ASSETS
+────────────────────────────────────────
+
+Generate current SECOND / PASS house social assets:
+
+1200×630
+
+1080×1350
+
+1080×1080.
+
+No GPU photograph.
+
+No NVIDIA/AMD logos battling.
+
+No vendor colors.
+
+Primary direction:
+
+WHEN FLOPs STOP
+BEING THE
+BINDING SPEC
+
+THE HBM ROOFLINE
+FOR LLM INFERENCE
+
+FLOP / BYTE
+
+SECOND / PASS
+
+or stronger equivalent.
+
+Secondary research-stat card may use:
+
+1 FLOP/B
+vs
+281–313 FLOP/B RIDGE
+
+only if clearly labelled:
+
+IDEALIZED BF16 DECODE
+vs
+DENSE BF16 MACHINE BALANCE.
+
+Do not imply measured performance.
+
+────────────────────────────────────────
+61. SEO
+────────────────────────────────────────
+
+Preserve reviewed metadata.
+
+Title:
+
+When FLOPs stop being the binding spec for LLM inference
+
+Description:
+
+A mathematical HBM Roofline model for LLM inference: B300 and MI355X machine balance, dense decode arithmetic intensity, ridge batch, prefill, KV traffic and procurement implications.
+
+Verify:
+
+canonical
+
+Article JSON-LD
+
+Person
+
+Organization
+
+article section COMPUTE
+
+PROOF format where schema supports it
+
+published date
+
+tags
+
+OG title
+
+OG description
+
+OG image
+
+OG image alt.
+
+────────────────────────────────────────
+62. PREPUBLISH
+────────────────────────────────────────
+
+Run current equivalent of:
+
+bun run prepublish -- when-flops-stop-mattering-hbm-roofline-llm-inference
+
+No bypasses.
+
+Required expected gates:
+
+content-source audit
+
+article verification
+
+content audit
+
+Astro check
+
+build
+
+render audit
+
+visual audit
+
+responsive audit
+
+social generation
+
+currency regression
+
+Pagefind.
+
+Fix implementation failures.
+
+Do NOT alter approved research merely to silence a test incorrectly.
+
+────────────────────────────────────────
+63. FULL RELEASE REGRESSION
+────────────────────────────────────────
+
+Also run:
+
+bun run content-source-audit
+
+bun run content:audit
+
+bun run check
+
+bun run build
+
+bun run render-audit -- --all
+
+bun run visual:audit -- --all
+
+bun run responsive:audit
+
+plus current:
+
+publication:audit
+
+if it exists.
+
+Do not weaken shared tests.
+
+All existing articles must remain green.
+
+────────────────────────────────────────
+64. NO REGRESSIONS
+────────────────────────────────────────
+
+At minimum preserve:
+
+a-142-kw-ai-rack-turns-gpu-procurement-into-a-power-problem
+
+when-should-a-company-run-its-own-ai-model
+
+an-ai-agent-is-no-longer-priced-in-tokens
+
+cheapest-ai-model-not-cheapest-system
+
+cheapest-ai-model-not-cheapest-system-proof
+
+ai-inference-price-surface-v0-1
+
+no-universal-long-context-premium
+
+prompt-cache-second-use-break-even
+
+sonnet-5-price-effective-date
+
+plus any newer current article.
+
+Do not fix this publication by breaking another.
+
+────────────────────────────────────────
+65. SITE IS PUBLIC
+────────────────────────────────────────
+
+Do not enable prelaunch.
+
+Do not add noindex.
+
+Current canonical remains:
+
+https://second-pass.vercel.app
+
+until custom-domain migration is separately executed.
+
+Verify:
+
+robots:
+PUBLIC
+
+noindex:
+ABSENT.
+
+────────────────────────────────────────
+66. COMMIT
+────────────────────────────────────────
+
+Before commit:
+
+git status
+git diff
+git diff --stat
+
+Do not commit:
+
+the ZIP
+
+temporary extraction
+
+QA files
+
+distribution files
+
+screenshots
+
+Playwright artifacts
+
+logs
+
+.env
+
+node_modules.
+
+Commit only intentional:
+
+canonical article
+
+public figures
+
+public workbook
+
+input template
+
+public-safe research assets
+
+required renderer/integration refinements.
+
+Preferred commit:
+
+feat: publish HBM roofline inference proof
+
+No force push.
+
+────────────────────────────────────────
+67. DEPLOYMENT
+────────────────────────────────────────
+
+Deploy ONLY to the existing Vercel project:
+
+second-pass.
+
+Do not create another project.
+
+Do not change team/project linkage.
+
+Do not create a new canonical domain.
+
+────────────────────────────────────────
+68. EXPECTED LIVE URL
+────────────────────────────────────────
+
+Expected:
+
+https://second-pass.vercel.app/articles/when-flops-stop-mattering-hbm-roofline-llm-inference
+
+Fetch ACTUAL production.
+
+HTTP 200 required.
+
+Do not report success from local or preview URL.
+
+────────────────────────────────────────
+69. LIVE STATIC-ASSET VERIFICATION
+────────────────────────────────────────
+
+Fetch all five production SVG URLs.
+
+Each:
+
+HTTP 200.
+
+Fetch:
+
+llm-inference-roofline-model.xlsx
+
+200.
+
+Fetch:
+
+llm-roofline-company-input-template.csv
+
+200.
+
+Fetch social assets:
+
+200.
+
+No package-relative or local path may remain.
+
+────────────────────────────────────────
+70. PRODUCTION HTML QA
+────────────────────────────────────────
+
+Fetch actual production HTML.
+
+Verify:
+
+one H1
+
+one FIRST PASS
+
+five FIRST PASS bullets
+
+COMPUTE
+
+PROOF
+
+Published Aug 10, 2026
+
+five semantic figures
+
+five useful captions
+
+one CalculationBlock
+
+two ClaimChecks
+
+QUESTION house object
+
+KaTeX
+
+structured Sources
+
+Initial publication change log
+
+INTELLIGENCE link
+
+download module
+
+article-bottom BRIEF
+
+canonical
+
+OG
+
+JSON-LD.
+
+Zero:
+
+raw relative package paths
+
+raw LaTeX
+
+control characters
+
+sentinels
+
+duplicate H1
+
+duplicate FIRST PASS
+
+duplicate Sources.
+
+────────────────────────────────────────
+71. PRODUCTION MATH QA
+────────────────────────────────────────
+
+Specifically inspect production rendering for:
+
+machine-balance equations
+
+2/b_w cancellation
+
+q* derivation
+
+GEMM intensity
+
+Qwen weight payload
+
+HBM token roof
+
+compute token roof
+
+KV formula.
+
+No corrupted:
+
+\text
+
+or:
+
+\frac.
+
+No missing symbols.
+
+No clipping at:
+
+375px.
+
+────────────────────────────────────────
+72. PRODUCTION VISUAL QA
+────────────────────────────────────────
+
+Capture production at least:
+
+1440
+
+1024
+
+390
+
+375.
+
+Prefer all seven if practical.
+
+Do not trust local screenshots alone.
+
+Inspect especially:
+
+Figure 03
+
+Figure 04
+
+Figure 05.
+
+If any remains below the 9.5 target:
+
+fix
+
+rebuild
+
+redeploy
+
+verify again.
+
+────────────────────────────────────────
+73. COMPUTE PAGE QA
+────────────────────────────────────────
+
+Fetch:
+
+https://second-pass.vercel.app/compute
+
+Verify the article is visible.
+
+Expected current COMPUTE desk should include at least:
+
+A GB300 NVL72 rack can require up to 142 kW. What can your facility support?
+
+and:
+
+When FLOPs stop being the binding spec: the HBM roofline for LLM inference
+
+with correct hierarchy/order.
+
+────────────────────────────────────────
+74. SEARCH QA
+────────────────────────────────────────
+
+Pagefind should find the article using:
+
+HBM
+
+Roofline
+
+281.25
+
+312.5
+
+Qwen2.5
+
+FLOP byte
+
+decode
+
+prefill
+
+ridge batch.
+
+Do not index internal QA documents.
+
+────────────────────────────────────────
+75. DISTRIBUTION
+────────────────────────────────────────
+
+DO NOT automatically publish externally.
+
+Package already contains distribution material.
+
+Report:
+
+DISTRIBUTION READY:
+YES
+
+AUTOMATICALLY POSTED:
+NO.
+
+Do not send BRIEF yet unless separately instructed.
+
+────────────────────────────────────────
+76. FINAL CONTENT ACCEPTANCE
+────────────────────────────────────────
+
+Require all:
+
+✓ headline says binding spec, not “FLOPs don't matter”
+
+✓ B300 dense normalization = 2.25 PFLOP/s
+
+✓ B300 HBM = 8 TB/s peak
+
+✓ B300 machine balance = 281.25 FLOP/B
+
+✓ MI355X dense BF16 = 2.5 PFLOP/s
+
+✓ MI355X HBM = 8 TB/s peak
+
+✓ MI355X machine balance = 312.5 FLOP/B
+
+✓ dense/sparse not mixed
+
+✓ FP4/MXFP4 not falsely equivalent
+
+✓ I_decode ≈ 2/b_w
+
+✓ parameter count cancels only in ideal model
+
+✓ BF16 = 1 FLOP/B
+
+✓ 8-bit = 2
+
+✓ 4-bit = 4
+
+✓ q* B300 = 281.25 / integer 282
+
+✓ q* MI355X = 312.5 / integer 313
+
+✓ q* not recommended production concurrency
+
+✓ illustrative prefill = ~1365.33 FLOP/B
+
+✓ Qwen = 72.7B parameters
+
+✓ BF16 ideal payload = 145.4 GB
+
+✓ HBM theoretical roof = ~55.02 tokens/s
+
+✓ B300 arithmetic roof = ~15474.55 tokens/s
+
+✓ measured throughput claimed = NO
+
+✓ KV treatment bounded
+
+✓ 2.684 GB/token called model approximation
+
+✓ no vendor winner.
+
+────────────────────────────────────────
+77. FINAL VISUAL ACCEPTANCE
+────────────────────────────────────────
+
+✓ Figure 01 >=9.5
+
+✓ Figure 02 >=9.5
+
+✓ Figure 03 >=9.5
+
+✓ Figure 04 >=9.5
+
+✓ Figure 05 >=9.5
+
+✓ semantic figures = 5
+
+✓ captions = 5
+
+✓ useful alt text = 5
+
+✓ Signal Blue semantic
+
+✓ no vendor colors
+
+✓ no decorative imagery
+
+✓ CalculationBlock clear
+
+✓ two ClaimChecks clear
+
+✓ download object clear
+
+✓ INTELLIGENCE restrained
+
+✓ no duplicate visuals.
+
+────────────────────────────────────────
+78. FINAL MATH SOURCE ACCEPTANCE
+────────────────────────────────────────
+
+Canonical Markdown:
+
+UTF-8:
+PASS
+
+Unexpected control chars:
+0
+
+TAB corruption:
+0
+
+FORM FEED corruption:
+0
+
+Raw LaTeX leaks:
+0
+
+Sentinels:
+0
+
+Display math:
+balanced
+
+KaTeX render:
+PASS
+
+No accidental body H1:
+PASS.
+
+This is a HARD publication gate.
+
+────────────────────────────────────────
+79. FINAL RESPONSIVE ACCEPTANCE
+────────────────────────────────────────
+
+1440:
+PASS
+
+1024:
+PASS
+
+820:
+PASS
+
+768:
+PASS
+
+430:
+PASS
+
+390:
+PASS
+
+375:
+PASS
+
+Page-level horizontal overflow:
+0
+
+Math:
+PASS
+
+Figure internal scrolling:
+PASS
+
+Figure captions:
+PASS
+
+Download object:
+PASS
+
+Sources:
+PASS
+
+BRIEF:
+PASS
+
+Footer:
+PASS.
+
+────────────────────────────────────────
+80. FINAL RESPONSE FORMAT
+────────────────────────────────────────
+
+Return:
+
+# SECOND / PASS — COMPUTE / PROOF #02 PUBLICATION
+
+## STATUS
+
+PASS / FAIL
+
+## ARTICLE
+
+Title:
+When FLOPs stop being the binding spec: the HBM roofline for LLM inference
+
+Slug:
+when-flops-stop-mattering-hbm-roofline-llm-inference
+
+Section:
+COMPUTE
+
+Format:
+PROOF
+
+Status:
+published / FAIL
+
+Published:
+2026-08-10 / FAIL
+
+Featured:
+true / FAIL
+
+Live URL:
+
+HTTP:
+200 / FAIL
+
+## HARDWARE
+
+B300 dense BF16:
+2.25 PFLOP/s / FAIL
+
+B300 HBM:
+8 TB/s / FAIL
+
+B300 machine balance:
+281.25 FLOP/B / FAIL
+
+MI355X dense BF16:
+2.5 PFLOP/s / FAIL
+
+MI355X HBM:
+8 TB/s / FAIL
+
+MI355X machine balance:
+312.5 FLOP/B / FAIL
+
+Dense/sparse:
+PASS / FAIL
+
+Precision comparison:
+PASS / FAIL
+
+## DECODE
+
+2/b_w derivation:
+PASS / FAIL
+
+BF16:
+1 FLOP/B / FAIL
+
+8-bit:
+2 FLOP/B / FAIL
+
+4-bit:
+4 FLOP/B / FAIL
+
+Parameter cancellation bounded:
+PASS / FAIL
+
+## BATCHING
+
+q* equation:
+PASS / FAIL
+
+B300:
+281.25 / FAIL
+
+Integer:
+282 / FAIL
+
+MI355X:
+312.5 / FAIL
+
+Integer:
+313 / FAIL
+
+Production-concurrency caveat:
+PASS / FAIL
+
+## PREFILL
+
+Illustrative intensity:
+1365.33 FLOP/B / FAIL
+
+Universal prefill claim:
+NO REQUIRED
+
+## QWEN CASE
+
+Parameters:
+72.7B / FAIL
+
+BF16 payload:
+145.4 GB / FAIL
+
+HBM theoretical ceiling:
+55.02 tokens/s / FAIL
+
+Compute theoretical ceiling:
+15474.55 tokens/s / FAIL
+
+Measured throughput claimed:
+NO REQUIRED
+
+## KV
+
+Generic formula:
+PASS / FAIL
+
+Bounded example:
+2.684 GB/token / FAIL
+
+Measured traffic claimed:
+NO REQUIRED
+
+Detailed KV analysis deferred:
+YES / NO
+
+## MATH SOURCE INTEGRITY
+
+UTF-8:
+PASS / FAIL
+
+Unexpected controls:
+0 REQUIRED
+
+TAB:
+0 REQUIRED
+
+FORM FEED:
+0 REQUIRED
+
+Raw LaTeX:
+0 REQUIRED
+
+Sentinels:
+0 REQUIRED
+
+Display math:
+PASS / FAIL
+
+KaTeX:
+PASS / FAIL
+
+## VISUALS
+
+01 Roofline:
+/10
+
+02 Decode intensity:
+/10
+
+03 Batch ridge:
+/10
+
+04 Token roofs:
+/10
+
+05 Prefill vs decode:
+/10
+
+Five >=9.5:
+YES / NO
+
+Semantic figures:
+5 / FAIL
+
+Captions:
+5 / FAIL
+
+Alt text:
+5 / FAIL
+
+## HOUSE OBJECTS
+
+QUESTION:
+PASS / FAIL
+
+CalculationBlock:
+PASS / FAIL
+
+ClaimChecks:
+2 / FAIL
+
+INTELLIGENCE:
+PASS / FAIL
+
+INTELLIGENCE URL:
+/intelligence / FAIL
+
+## DOWNLOADS
+
+Roofline workbook:
+PASS / FAIL
+
+Live URL:
+
+Company input CSV:
+PASS / FAIL
+
+Live URL:
+
+Workbook sheets:
+11 / FAIL
+
+Formula errors:
+0 REQUIRED
+
+Precision guard:
+PASS / FAIL
+
+Dense/sparse guard:
+PASS / FAIL
+
+MoE guard:
+PASS / FAIL
+
+Measured > peak guards:
+PASS / FAIL
+
+## VISUAL SCORE
+
+First screen:
+/10
+
+Typography:
+/10
+
+Article rhythm:
+/10
+
+Information design:
+/10
+
+Figures:
+/10
+
+Mathematics:
+/10
+
+House objects:
+/10
+
+Sources:
+/10
+
+Responsive:
+/10
+
+Accessibility:
+/10
+
+Polish:
+/10
+
+OVERALL:
+/10
+
+Average >=9.5:
+YES / NO
+
+Any dimension <9.0:
+YES / NO
+
+## RESPONSIVE
+
+1440:
+PASS / FAIL
+
+1024:
+PASS / FAIL
+
+820:
+PASS / FAIL
+
+768:
+PASS / FAIL
+
+430:
+PASS / FAIL
+
+390:
+PASS / FAIL
+
+375:
+PASS / FAIL
+
+Horizontal overflow:
+0 REQUIRED
+
+## PIPELINE
+
+content-source-audit:
+PASS / FAIL
+
+article verify:
+PASS / FAIL
+
+content audit:
+PASS / FAIL
+
+Astro check:
+PASS / FAIL
+
+build:
+PASS / FAIL
+
+render audit:
+PASS / FAIL
+
+visual audit:
+PASS / FAIL
+
+responsive audit:
+PASS / FAIL
+
+prepublish:
+PASS / FAIL
+
+Pagefind:
+PASS / FAIL
+
+social generation:
+PASS / FAIL
+
+## PUBLICATION SURFACES
+
+Homepage:
+PASS / FAIL
+
+Compute:
+PASS / FAIL
+
+Research:
+PASS / N/A / FAIL
+
+Author:
+PASS / FAIL
+
+RSS:
+PASS / FAIL
+
+Sitemap:
+PASS / FAIL
+
+Pagefind:
+PASS / FAIL
+
+robots:
+PUBLIC / BLOCKED
+
+noindex:
+ABSENT / PRESENT
+
+## PRODUCTION
+
+Git commit SHA:
+
+Vercel deployment ID:
+
+Deployment commit SHA:
+
+SHA match:
+YES / NO
+
+## DISTRIBUTION
+
+Package:
+READY / FAIL
+
+Automatically posted:
+NO REQUIRED
+
+Daily BRIEF sent:
+NO REQUIRED
+
+## BLOCKERS
+
+None
+
+OR exact blocker.
+
+If every publication-critical gate passes, end exactly:
+
+SECOND / PASS COMPUTE / PROOF #02: LIVE — 9.5+ PUBLICATION STANDARD PASS
+
+If math/source integrity fails:
+
+SECOND / PASS COMPUTE / PROOF #02: PUBLICATION BLOCKED — <exact defect>
+
+If content works but visual quality remains below standard:
+
+SECOND / PASS COMPUTE / PROOF #02: VISUAL GATE BLOCKED — <exact remaining visual defects>
+
+────────────────────────────────────────
+81. BEGIN NOW
+────────────────────────────────────────
+
+Do not return a plan.
+
+Execute:
+
+read AGENT.md
+→
+read PUBLICATION_STANDARD.md
+→
+inspect latest main
+→
+inspect repaired final ZIP
+→
+verify source-integrity repair
+→
+import canonical article
+→
+apply human publication state
+→
+copy five research figures
+→
+copy workbook / company input template
+→
+replace package-relative paths
+→
+apply semantic figure renderer
+→
+apply five captions
+→
+apply QUESTION / CALCULATION / CLAIM CHECK house system
+→
+perform required Figure 03–05 visual polish without changing data
+→
+add `/ USE THE MODEL` download object
+→
+link `/INTELLIGENCE`
+→
+re-run raw-byte/control scan
+→
+verify all major calculations
+→
+run content/render/visual audits
+→
+run full seven-width responsive suite
+→
+inspect screenshots
+→
+fix anything below 9.5 visual standard
+→
+prepublish
+→
+full regression
+→
+commit
+→
+deploy existing Vercel project
+→
+fetch actual live URL
+→
+fetch live figures/downloads
+→
+verify production HTML/math
+→
+verify `/compute`
+→
+verify Pagefind/RSS/sitemap/author
+→
+inspect production screenshots
+→
+return final report.
+
+THE RESEARCH IS ALREADY APPROVED.
+
+DO NOT SPEND THIS TURN RESEARCHING IT AGAIN.
+
+THE FINISH LINE IS:
+
+THE HBM ROOFLINE PROOF IS LIVE AS A 9.5+ SECOND / PASS
+COMPUTE PUBLICATION WITH CLEAN LATEX SOURCE, CORRECT MATHEMATICS,
+SEMANTIC RESEARCH FIGURES, THE DOWNLOADABLE ROOFLINE MODEL,
+FULL RESPONSIVE QA, AND ZERO REGRESSION TO EXISTING ARTICLES.
+
+Proceed.

@@ -1,0 +1,9 @@
+vendor,accelerator,model,precision,bandwidth_efficiency_scenario,effective_hbm_bandwidth_tb_s,ideal_weight_stream_token_ceiling_tokens_s,compute_token_ceiling_tokens_s,lower_theoretical_roof_tokens_s,type,caveat
+NVIDIA,B300,Qwen2.5-72B-Instruct,BF16,0.4,3.2,22.008253094910593,15474.55295735901,22.008253094910593,SENSITIVITY / NOT MEASURED,"Efficiency ratio is a user scenario, not a claim about typical sustained bandwidth."
+AMD,MI355X,Qwen2.5-72B-Instruct,BF16,0.4,3.2,22.008253094910593,17193.9477303989,22.008253094910593,SENSITIVITY / NOT MEASURED,"Efficiency ratio is a user scenario, not a claim about typical sustained bandwidth."
+NVIDIA,B300,Qwen2.5-72B-Instruct,BF16,0.6,4.8,33.012379642365886,15474.55295735901,33.012379642365886,SENSITIVITY / NOT MEASURED,"Efficiency ratio is a user scenario, not a claim about typical sustained bandwidth."
+AMD,MI355X,Qwen2.5-72B-Instruct,BF16,0.6,4.8,33.012379642365886,17193.9477303989,33.012379642365886,SENSITIVITY / NOT MEASURED,"Efficiency ratio is a user scenario, not a claim about typical sustained bandwidth."
+NVIDIA,B300,Qwen2.5-72B-Instruct,BF16,0.8,6.4,44.016506189821186,15474.55295735901,44.016506189821186,SENSITIVITY / NOT MEASURED,"Efficiency ratio is a user scenario, not a claim about typical sustained bandwidth."
+AMD,MI355X,Qwen2.5-72B-Instruct,BF16,0.8,6.4,44.016506189821186,17193.9477303989,44.016506189821186,SENSITIVITY / NOT MEASURED,"Efficiency ratio is a user scenario, not a claim about typical sustained bandwidth."
+NVIDIA,B300,Qwen2.5-72B-Instruct,BF16,1.0,8.0,55.02063273727648,15474.55295735901,55.02063273727648,SENSITIVITY / NOT MEASURED,"Efficiency ratio is a user scenario, not a claim about typical sustained bandwidth."
+AMD,MI355X,Qwen2.5-72B-Instruct,BF16,1.0,8.0,55.02063273727648,17193.9477303989,55.02063273727648,SENSITIVITY / NOT MEASURED,"Efficiency ratio is a user scenario, not a claim about typical sustained bandwidth."

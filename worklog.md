@@ -733,3 +733,34 @@ Stage Summary:
 - All 5 charts, 7 research CSVs, XLSX workbook, and input template integrated
 - Build passes, type check passes, browser verification passes
 - No re-research, no reinterpretation, no calculation changes — exact package preserved
+---
+Task ID: 1
+Agent: main
+Task: Publish HBM Roofline LLM inference article (COMPUTE / PROOF #02) to second-pass-web
+
+Work Log:
+- Read repository memory: AGENT.md, PUBLICATION_STANDARD.md, CURRENT_STATE.md, DECISIONS.md, content.config.ts
+- Extracted ZIP package: second-pass-hbm-roofline-llm-inference-2026-08-10-final-review.zip
+- Read article from 02_ARTICLE/when-flops-stop-mattering-hbm-roofline-llm-inference.md
+- Read 00_MANIFEST.md, 01_EDITORIAL_DECISION.md to confirm editorial freeze
+- Applied schema compliance fixes: section "COMPUTE" → "Compute", status "review" → "published", publishedAt "" → "2026-08-10", changeLog [] → published entry
+- Copied 5 SVG + 5 PNG chart assets to public/research/hbm-roofline-llm-inference/charts/
+- Copied 5 chart-data CSVs to public/research/hbm-roofline-llm-inference/chart-data/
+- Copied 7 research CSVs + 1 XLSX workbook to public/research/hbm-roofline-llm-inference/data/
+- Copied llm-inference-roofline-model.xlsx and llm-roofline-company-input-template.csv to public/downloads/
+- Rewrote 5 chart paths from ../05_CHARTS/ to /research/hbm-roofline-llm-inference/charts/
+- Ran control character audit: TAB=0, FF=0, BOM=absent, other C0=0 — PASS
+- astro check: 0 errors, 0 warnings, 0 hints
+- astro build: completed in 3.48s — PASS
+- Browser QA: article page 200, homepage 200, compute section 200
+- Verified article renders with title, PROOF label, 5 charts, 61 KaTeX MathML elements, 0 raw LaTeX, calculation-block, claim-check
+- Verified article appears on homepage and /compute section page
+- Updated CURRENT_STATE.md with new article entry
+- Committed 27 files (12,968 insertions) to main branch
+- Pushed to origin: witejackel-eng/second-pass-web (ffdb19c)
+
+Stage Summary:
+- Article published: when-flops-stop-mattering-hbm-roofline-llm-inference
+- Section: Compute, Format: PROOF, Status: published
+- 5 charts, 37 KaTeX display blocks, 6 sources, 2 CLAIM CHECKs, 1 CALCULATION
+- All assets integrated, all QA passed, pushed to remote

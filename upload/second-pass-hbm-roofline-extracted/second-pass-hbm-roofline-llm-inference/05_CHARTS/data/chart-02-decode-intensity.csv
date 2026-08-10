@@ -1,0 +1,7 @@
+payload_model,ideal_decode_intensity_flop_per_byte,hardware_ridge,machine_balance_flop_per_byte,comparison_note
+BF16 ideal payload,1.0,NVIDIA B300 BF16 dense ridge,281.25,YES
+BF16 ideal payload,1.0,AMD MI355X BF16 dense ridge,312.5,YES
+8-bit ideal payload,2.0,NVIDIA B300 FP8 dense ridge,562.5,SEPARATE PRECISION
+8-bit ideal payload,2.0,AMD MI355X OCP-FP8 dense ridge,625.0,SEPARATE PRECISION
+4-bit ideal payload,4.0,NVIDIA B300 FP4 dense ridge,1687.5,NO CROSS-VENDOR FORMAT EQUIVALENCE
+4-bit ideal payload,4.0,AMD MI355X MXFP4 ridge,1262.5,NO CROSS-VENDOR FORMAT EQUIVALENCE
