@@ -544,3 +544,71 @@ Stage Summary:
 - Critical fixes: grid centering, evidence rail hiding, TOC hiding, headline reduction, word-breaking normalization, math containment, scroll offsets, width invariant (min-width: 0), table scroll cue
 - Mobile touch targets: share buttons 42px min-height, brief form inputs 44px min-height
 - Build passes: 0 errors, all pages generated
+
+---
+Task ID: responsive-hardening
+Agent: main
+Task: Responsive article hardening + final UX cleanup + responsive QA automation
+
+Work Log:
+- Read full 63-section specification for responsive hardening
+- Inspected all current source files: global.css (683 lines), [slug].astro, components, articles, astro.config.mjs, package.json
+- CSS Responsive Hardening (18 changes to global.css + ArticleShare.astro):
+  - Article grid centered on tablet (margin-inline: auto at ≤1040px)
+  - Evidence rail hidden at ≤1040px (desktop only)
+  - Article rail/TOC hidden at ≤720px (mobile)
+  - Mobile headline reduced: clamp(2.3rem, 10.5vw, 4.5rem), line-height .92
+  - Removed aggressive word-breaking on headlines (overflow-wrap/word-break/hyphens: normal)
+  - Added overflow-wrap for inline code only (not prose)
+  - Hardened math: max-width, overscroll-behavior-inline, -webkit-overflow-scrolling
+  - Added mobile touch targets for share controls (42px min-height)
+  - Added full-width BRIEF form fields on mobile (44px min-height)
+  - Added scroll-margin-top for anchored headings (90px desktop, 20px mobile)
+  - Added overflow-wrap: anywhere for .article-end slug
+  - Added min-width:0 on grid children to prevent width overflow
+  - Added source-row link wrapping
+  - Added footer-bottom overflow-wrap
+  - Added table-wrap scroll cue pseudo-element
+  - Added research-figure--scroll mobile treatment
+  - Added code block max-width containment
+- Rehype table-wrap plugin:
+  - Created src/lib/rehype-table-wrap.mjs using unist-util-visit
+  - Wraps all <table> elements in <div class="table-wrap" role="region" tabindex="0" aria-label="Scrollable data table">
+  - Integrated into astro.config.mjs rehypePlugins after rehypeKatex
+  - Guards against double-wrapping
+  - Expanded .table-wrap CSS with full width/max-width/overflow/margin rules
+- Content fixes:
+  - Removed duplicate manual ## Sources from flagship article body (17 [S1]-[S17] entries)
+  - Improved 11 inline source references with clickable natural-language markdown links
+  - Fixed 5 change log entries: "Draft." / "Initial review package." → "Initial publication."
+  - Fixed config equation: wrapped words in \text{} for proper KaTeX rendering
+- Playwright responsive QA:
+  - Installed @playwright/test and playwright as devDependencies
+  - Created scripts/responsive-audit.mjs with 12 assertion types (A-L)
+  - 7 required viewports: 1440, 1024, 820, 768, 430, 390, 375
+  - 6 real articles tested: flagship, proof, long-context, cache, sonnet, data
+  - Added responsive:audit command to package.json
+  - Integrated responsive audit into prepublish pipeline (after render-audit)
+  - Added QA output directories to .gitignore
+- Verification results:
+  - astro check: 0 errors, 0 warnings, 0 hints
+  - astro build: succeeds, all pages generated
+  - content-source-audit: PASS
+  - content:audit: 0 warnings, 0 failures
+  - render-audit --all: PASS (all 6 articles)
+  - currency-regression: PASS
+  - responsive-audit (full): 42/42 PASS (6 articles × 7 viewports)
+- Committed and pushed to GitHub: witejackel-eng/second-pass-web (8d0af98)
+
+Stage Summary:
+- All responsive hardening implemented and verified
+- Zero page-level horizontal overflow at all 7 viewports
+- Table auto-wrap via rehype plugin prevents table overflow
+- Evidence rail hidden on tablet/mobile (desktop preserved)
+- Mobile headline no longer creates giant wall of text
+- All touch targets meet 42-44px minimum
+- Math equations scroll internally, never break page layout
+- Duplicate sources removed, inline citations improved
+- Change log cleaned for published articles
+- Playwright responsive audit: 42/42 PASS
+- Full publication pipeline: source → render → responsive → publish

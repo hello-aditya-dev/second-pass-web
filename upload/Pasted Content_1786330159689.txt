@@ -1,0 +1,2318 @@
+# Z.ai — SECOND / PASS RESPONSIVE ARTICLE HARDENING + FINAL PUBLIC-LAUNCH QA
+
+Work directly in the existing repository:
+
+witejackel-eng/second-pass-web
+
+Existing production project:
+
+second-pass
+
+Current canonical production URL:
+
+https://second-pass.vercel.app
+
+CURRENT IMPORTANT STATE:
+
+The major math-rendering failure has already been repaired.
+
+Latest known production commit:
+
+78cf55d8a041d33d64adf4f849d9054fe9b51f17
+
+Production is already serving that commit.
+
+Current article source architecture is canonical `.md`, not parallel `.md` + `.mdx`.
+
+Do NOT reopen the previous math-source migration unless current inspection proves a new defect.
+
+Current working math behavior includes:
+
+- remark-math
+- rehype-katex
+- singleDollarTextMath: false
+- ordinary currency such as $1, $4.50 and $5/M remains normal prose
+- KaTeX equations render correctly
+- sentinel artifacts are gone
+- render/source audits already exist
+
+This task is now:
+
+RESPONSIVE ARTICLE HARDENING
++
+FINAL ARTICLE UX CLEANUP
++
+RESPONSIVE QA AUTOMATION
++
+PUBLIC-LAUNCH VERIFICATION
+
+Do not redesign the publication.
+
+Do not rewrite the research.
+
+Do not create new architecture.
+
+Do not stop at recommendations.
+
+Inspect → implement → test → visually verify → deploy → verify production.
+
+────────────────────────────────────────────────────────────
+0. OBJECTIVE
+────────────────────────────────────────────────────────────
+
+SECOND / PASS is a technical intelligence publication.
+
+The article renderer must work reliably for:
+
+long-form research
+technical mathematics
+data tables
+source-heavy writing
+charts
+code
+technical identifiers
+FIRST PASS
+evidence
+PROOF
+DATA
+NOW
+newsletter conversion
+
+across:
+
+desktop
+tablet
+mobile
+
+The desktop experience is already strong.
+
+The remaining task is to make smaller screens genuinely publication-grade rather than merely technically responsive.
+
+The permanent publication pipeline should become:
+
+FACTUAL INTEGRITY
+        ↓
+SOURCE INTEGRITY
+        ↓
+RENDER INTEGRITY
+        ↓
+RESPONSIVE INTEGRITY
+        ↓
+PUBLISH
+
+Responsive integrity must become a repeatable QA gate, not a manual afterthought.
+
+────────────────────────────────────────────────────────────
+1. BEGIN WITH CURRENT-STATE INSPECTION
+────────────────────────────────────────────────────────────
+
+Before making changes:
+
+git status
+git branch
+git log -5 --oneline
+git diff
+
+Inspect at minimum:
+
+src/styles/global.css
+
+src/pages/articles/[slug].astro
+
+src/components/FirstPass.astro
+
+src/components/EvidencePanel.astro
+
+src/components/NewsletterCTA.astro
+
+src/components/ArticleShare.astro
+
+src/components/CalculationBlock.astro
+
+src/components/ClaimCheck.astro
+
+src/components/ResearchFigure.astro
+
+scripts/render-audit.mjs
+
+scripts/prepublish.mjs
+
+scripts/content-source-audit.mjs
+
+package.json
+
+astro.config.mjs
+
+all six current real articles.
+
+Also inspect actual production HTML from:
+
+https://second-pass.vercel.app/articles/cheapest-ai-model-not-cheapest-system
+
+Do not assume repository source and production are identical until confirmed.
+
+────────────────────────────────────────────────────────────
+2. CURRENT ARTICLE BREAKPOINT MODEL
+────────────────────────────────────────────────────────────
+
+The current design roughly uses:
+
+Desktop:
+>1040px
+
+Tablet:
+721–1040px
+
+Mobile:
+≤720px
+
+Preserve that high-level model unless current CSS demonstrates a compelling reason to adjust it.
+
+Target final article architecture:
+
+DESKTOP >1040px
+
+TOC | ARTICLE | KEY EVIDENCE
+
+Three-column editorial layout.
+
+Article reading width approximately 720px.
+
+Tablet 721–1040px
+
+Centered article column.
+
+Horizontal compact TOC allowed.
+
+Evidence side rail hidden.
+
+Full structured sources remain at bottom.
+
+Mobile ≤720px
+
+TITLE
+DEK
+META
+FIRST PASS
+ARTICLE
+SOURCES
+CHANGE LOG
+SHARE
+BRIEF
+
+No side evidence rail.
+
+No persistent horizontal TOC.
+
+No page-level horizontal overflow.
+
+Tables scroll inside themselves.
+
+Long equations scroll inside themselves.
+
+Dense charts remain readable.
+
+────────────────────────────────────────────────────────────
+3. TABLE RESPONSIVENESS — HIGH PRIORITY
+────────────────────────────────────────────────────────────
+
+Confirmed issue:
+
+Current CSS contains approximately:
+
+.article-body table {
+  width: 100%;
+  min-width: 620px;
+}
+
+and:
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+But actual Markdown-generated article tables render as:
+
+<table>...</table>
+
+without a `.table-wrap`.
+
+This means a 620px table can overflow a 375px/390px/430px viewport.
+
+Fix this globally.
+
+DO NOT require authors to manually wrap every table.
+
+Implement a renderer-level solution.
+
+Preferred approach:
+
+Create a very small local rehype plugin/transform that wraps article tables:
+
+<div class="table-wrap" role="region" tabindex="0" aria-label="Scrollable data table">
+  <table>...</table>
+</div>
+
+Use appropriate accessibility semantics.
+
+Do not add a heavy framework.
+
+Do not add a JavaScript table library.
+
+Do not convert Markdown tables to images.
+
+All future Markdown tables should automatically inherit this behavior.
+
+Required CSS approximately:
+
+.table-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 2rem 0;
+}
+
+.table-wrap table {
+  margin: 0;
+}
+
+On mobile, keep cells readable rather than crushing them.
+
+A minimum table width is acceptable INSIDE the scroll container.
+
+Page-level overflow is not acceptable.
+
+Verify specifically on:
+
+/articles/no-universal-long-context-premium
+
+because it contains the provider comparison table.
+
+────────────────────────────────────────────────────────────
+4. TABLE MOBILE UX
+────────────────────────────────────────────────────────────
+
+At ≤720px:
+
+- table text should remain legible
+- table header labels should not collapse into unreadable vertical text
+- user should scroll the table, not the whole page
+- table container should not exceed article viewport
+- no 620px object may force `document.documentElement.scrollWidth` above viewport width
+
+If useful, add a subtle visual cue such as:
+
+`Scroll table →`
+
+using CSS/pseudo-element or small static label.
+
+Keep it subtle.
+
+Do not add interactive JavaScript solely for this.
+
+────────────────────────────────────────────────────────────
+5. ARTICLE GRID — CENTER TABLET CONTENT
+────────────────────────────────────────────────────────────
+
+Current tablet rule approximately becomes:
+
+.article-grid {
+  grid-template-columns: 1fr;
+  max-width: var(--reading);
+}
+
+Ensure the collapsed article grid is deliberately centered.
+
+At ≤1040px use:
+
+width: 100%;
+max-width: var(--reading);
+margin-inline: auto;
+
+or equivalent.
+
+The tablet article body should not look accidentally left-aligned inside a much wider shell.
+
+Verify at:
+
+1024px
+820px
+768px
+
+────────────────────────────────────────────────────────────
+6. EVIDENCE RAIL — DESKTOP ONLY
+────────────────────────────────────────────────────────────
+
+Desktop evidence rail is valuable.
+
+On tablet/mobile it becomes long duplicate content because structured `/ SOURCES` already exists at the bottom.
+
+Add a semantic class to the right-side article evidence aside if needed:
+
+article-evidence
+
+At >1040px:
+
+show normally.
+
+At ≤1040px:
+
+hide the article evidence side rail.
+
+Do NOT remove structured sources.
+
+Do NOT remove inline sourcing.
+
+Do NOT remove EvidencePanel on desktop.
+
+This change should shorten and simplify mobile/tablet articles significantly.
+
+────────────────────────────────────────────────────────────
+7. ARTICLE TOC RESPONSIVENESS
+────────────────────────────────────────────────────────────
+
+Desktop:
+
+keep sticky left article rail.
+
+Tablet:
+
+a horizontal overflow TOC is acceptable:
+
+FIRST PASS
+section 2
+section 3
+...
+SOURCES
+
+but make sure:
+
+- it scrolls horizontally inside itself
+- it never causes page overflow
+- touch scrolling works
+- text remains one line
+- no scrollbar visual clutter if current design hides it intentionally
+
+Mobile:
+
+do NOT show the full horizontal TOC.
+
+At ≤720px either:
+
+OPTION A — preferred fastest solution:
+hide `.article-rail`.
+
+OR
+
+OPTION B:
+convert it to a compact semantic `<details>`:
+
+ON THIS PAGE +
+
+if this can be implemented cleanly without adding unnecessary complexity.
+
+Do not spend significant time on a custom navigation component.
+
+The important mobile outcome:
+
+title → FIRST PASS → article
+
+with minimal obstruction.
+
+────────────────────────────────────────────────────────────
+8. MOBILE ARTICLE HEADLINES
+────────────────────────────────────────────────────────────
+
+Current mobile article headline is still very aggressive.
+
+Current approximate rule:
+
+.article-header h1 {
+  font-size: clamp(2.6rem, 12vw, 5.9rem);
+}
+
+For long flagship titles, this consumes too much of the first screen.
+
+Preserve SECOND / PASS visual identity but reduce mobile size slightly.
+
+Target approximately:
+
+@media (max-width: 720px) {
+  .article-header h1 {
+    font-size: clamp(2.3rem, 10.5vw, 4.5rem);
+    line-height: .90–.93;
+    letter-spacing: approximately -.06em;
+  }
+}
+
+Do not blindly copy values if visual inspection suggests a better nearby result.
+
+The goal:
+
+strong editorial headline
+without creating a giant six-to-eight-line wall.
+
+────────────────────────────────────────────────────────────
+9. REMOVE AGGRESSIVE HEADLINE WORD BREAKING
+────────────────────────────────────────────────────────────
+
+Current article headline CSS uses approximately:
+
+overflow-wrap: break-word;
+word-break: break-word;
+hyphens: auto;
+
+This may break normal words unnecessarily on narrow devices.
+
+For article H1:
+
+prefer:
+
+overflow-wrap: normal;
+word-break: normal;
+hyphens: none;
+
+Test long existing titles.
+
+If a rare technical slug/identifier needs special handling, handle that object separately.
+
+Do not degrade normal editorial typography to solve hypothetical identifiers.
+
+────────────────────────────────────────────────────────────
+10. ARTICLE BODY TYPOGRAPHY
+────────────────────────────────────────────────────────────
+
+Preserve Newsreader for article body.
+
+Verify at 375/390/430:
+
+body text is approximately 18–19px equivalent.
+
+Line-height approximately 1.6–1.7.
+
+No overly narrow lines.
+
+No giant paragraph width.
+
+No tiny footnote text.
+
+No unexpected hyphenation.
+
+Normal English must wrap at word boundaries.
+
+Do NOT globally use:
+
+word-break: break-all
+
+or:
+
+overflow-wrap: anywhere
+
+on article prose.
+
+────────────────────────────────────────────────────────────
+11. INLINE CODE / TECHNICAL IDENTIFIERS
+────────────────────────────────────────────────────────────
+
+Inline technical strings can exceed phone width.
+
+Examples:
+
+long_context_multiplier
+
+source_accessed_at
+
+effective_from
+
+effective_to
+
+configuration identifiers
+
+URLs
+
+Use controlled wrapping only for technical tokens.
+
+Example:
+
+.article-body :not(pre) > code {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+Verify inline code does not create horizontal page overflow.
+
+Do NOT apply this rule to normal body text.
+
+────────────────────────────────────────────────────────────
+12. CODE BLOCKS
+────────────────────────────────────────────────────────────
+
+Existing pre blocks already use overflow.
+
+Verify on mobile:
+
+- code remains readable
+- horizontal scrolling is contained to the code block
+- no page-level overflow
+- padding is not excessive on 375px
+- font size does not become tiny
+- syntax theme remains legible
+
+No need for copy-code buttons.
+
+────────────────────────────────────────────────────────────
+13. MATH RESPONSIVENESS
+────────────────────────────────────────────────────────────
+
+Math rendering is now functionally correct.
+
+Do NOT rewrite equations.
+
+Responsive behavior must now be hardened.
+
+Current rules include approximately:
+
+.article-body .katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+Keep this principle.
+
+Verify long equations at:
+
+1024
+820
+768
+430
+390
+375
+
+Requirements:
+
+- equation remains legible
+- equation container may horizontally scroll
+- the PAGE may not horizontally scroll
+- no equation overlaps the edge
+- no equation becomes microscopic
+- no clipping of fractions/subscripts
+- inline math aligns naturally with text
+- display math vertical spacing remains deliberate
+
+The PROOF article is the stress test.
+
+If necessary add:
+
+max-width: 100%;
+
+overscroll-behavior-inline: contain;
+
+-webkit-overflow-scrolling: touch;
+
+to the correct equation container.
+
+Do not reduce all math font size substantially.
+
+────────────────────────────────────────────────────────────
+14. FIX TEXTUAL CONFIGURATION EQUATION
+────────────────────────────────────────────────────────────
+
+The flagship contains an expression approximately:
+
+a=(model, context, cache, tier, batch, reasoning, region)
+
+Current KaTeX may render each word as a sequence of math variables.
+
+Improve typography if appropriate using:
+
+\text{model}
+\text{context}
+\text{cache}
+...
+
+For example:
+
+$$
+a =
+(
+\text{model},
+\text{context},
+\text{cache},
+\text{tier},
+\text{batch},
+\text{reasoning},
+\text{region}
+)
+$$
+
+Only do this if current output clearly improves.
+
+Keep mathematical meaning unchanged.
+
+This will also make the long expression easier to read on tablets/phones.
+
+────────────────────────────────────────────────────────────
+15. FIGURE RESPONSIVENESS
+────────────────────────────────────────────────────────────
+
+The current SVG figures technically scale to width.
+
+But dense analytical charts can become unreadably small on mobile.
+
+Differentiate between:
+
+SIMPLE FIGURE
+safe to scale to 100%.
+
+DENSE ANALYTICAL FIGURE
+should preserve a readable minimum internal width and scroll horizontally.
+
+Do not use one rule blindly for every figure.
+
+Inspect all flagship research charts:
+
+chart-01-review-break-even.svg
+chart-02-cache-reuse.svg
+chart-03-batch-cost.svg
+chart-04-cost-composition.svg
+chart-05-long-context.svg
+
+Determine which need scroll treatment on mobile.
+
+Preferred structure:
+
+<figure class="research-figure research-figure--scroll">
+  <div class="research-figure-scroll">
+    <img ...>
+  </div>
+  <figcaption>...</figcaption>
+</figure>
+
+For dense figures at ≤720px:
+
+image min-width approximately 560–640px
+
+inside:
+
+overflow-x: auto
+
+The page itself remains fixed-width.
+
+Do NOT force every chart to 600px if it remains clear when fluid.
+
+Use judgment.
+
+────────────────────────────────────────────────────────────
+16. FIGURE CAPTIONS
+────────────────────────────────────────────────────────────
+
+Captions must remain outside the horizontal chart-scroll area where possible.
+
+A user should not need to horizontally scroll to read a caption.
+
+Use:
+
+figure
+  scrollable chart container
+  figcaption
+
+rather than making entire figure horizontally scroll.
+
+Caption font should remain comfortably readable on mobile.
+
+────────────────────────────────────────────────────────────
+17. IMAGE LAYOUT SHIFT
+────────────────────────────────────────────────────────────
+
+Inspect research images.
+
+If width/height metadata is reasonably known from assets, provide dimensions/aspect-ratio so the layout does not jump during loading.
+
+Do not hardcode incorrect aspect ratios.
+
+SVGs may use intrinsic sizing.
+
+This is secondary to launch—do not overengineer.
+
+────────────────────────────────────────────────────────────
+18. FIRST PASS MOBILE
+────────────────────────────────────────────────────────────
+
+FIRST PASS is a signature editorial object.
+
+Preserve it.
+
+Verify at mobile:
+
+- 4px blue rule not visually overpowering
+- bullets fit comfortably
+- no text overflow
+- readable spacing
+- no giant left padding
+- no clipped bullet markers
+- heading remains clear
+- background remains subtle
+
+Do not turn FIRST PASS into accordion content.
+
+It should stay immediately visible.
+
+────────────────────────────────────────────────────────────
+19. CALCULATION BLOCK
+────────────────────────────────────────────────────────────
+
+The current flagship still renders some `/ CALCULATION` content as ordinary article headings/body instead of always using the dedicated component.
+
+Inspect current implementation.
+
+If CalculationBlock is already available and production-safe:
+
+use it for the central 1.71 pp calculation.
+
+Potentially use it for cache break-even if clean.
+
+Do NOT create component complexity if it introduces rendering risk.
+
+Mobile CalculationBlock requirements:
+
+- width 100%
+- no nested page overflow
+- equation container scrolls if needed
+- assumptions wrap normally
+- result remains prominent
+- no giant typography
+- labels readable
+- touch-safe
+
+The most important result:
+
+1.71 percentage points
+
+must remain immediately visible.
+
+────────────────────────────────────────────────────────────
+20. CLAIM CHECK MOBILE
+────────────────────────────────────────────────────────────
+
+If ClaimCheck component is used:
+
+verify on phone:
+
+CLAIM
+WHAT WAS MEASURED
+WHAT WAS NOT MEASURED
+EVIDENCE STATUS
+SECOND / PASS
+
+remain readable.
+
+No horizontal two-column layout on mobile.
+
+No tiny labels.
+
+No alert-box/SaaS styling.
+
+────────────────────────────────────────────────────────────
+21. SHARE CONTROLS
+────────────────────────────────────────────────────────────
+
+Current share controls use approximately:
+
+padding: 5px 10px
+font-size: .68rem
+
+Good visually on desktop, undersized for touch.
+
+At ≤720px:
+
+- min-height approximately 42–44px
+- padding approximately 9px 12px
+- display inline-flex
+- align-items center
+- controls wrap cleanly
+- no horizontal overflow
+
+Preserve:
+
+COPY LINK
+LINKEDIN
+X
+SHARE
+
+Do not turn them into giant full-width marketing buttons.
+
+────────────────────────────────────────────────────────────
+22. NEWSLETTER CTA
+────────────────────────────────────────────────────────────
+
+Article-bottom `/ BRIEF` conversion must be excellent on mobile.
+
+Current fields already stack below 720px.
+
+Finish the mobile behavior.
+
+At ≤720px:
+
+.brief-form-fields {
+  flex-direction: column;
+}
+
+.brief-input,
+.brief-submit {
+  width: 100%;
+  min-height: approximately 44–48px;
+}
+
+Button must not be tiny.
+
+Email input must not overflow.
+
+Status/error text must wrap.
+
+Consent/privacy text must remain readable.
+
+Keep:
+
+utm_content=article-bottom
+
+Do not regress Beehiiv integration.
+
+────────────────────────────────────────────────────────────
+23. HEADER — TABLET
+────────────────────────────────────────────────────────────
+
+Current primary nav hides below 1040px and topic strip becomes horizontally scrollable.
+
+Verify at:
+
+1024
+820
+768
+
+Requirements:
+
+- wordmark visible
+- search visible
+- / BRIEF visible
+- topic strip scrollable
+- no cropped items
+- no page horizontal overflow
+- masthead does not consume excessive vertical space
+- topic strip touch scrolling works
+
+No hamburger menu is required.
+
+Do not invent one unless absolutely necessary.
+
+────────────────────────────────────────────────────────────
+24. HEADER — MOBILE
+────────────────────────────────────────────────────────────
+
+At ≤720px verify:
+
+SECOND / PASS fits without awkward compression.
+
+Search icon remains accessible.
+
+/ BRIEF remains visible.
+
+Topic strip remains usable.
+
+No overlap.
+
+No sticky masthead obscuring anchors.
+
+The existing mobile masthead becomes non-sticky; preserve that unless evidence shows a problem.
+
+────────────────────────────────────────────────────────────
+25. ANCHOR OFFSET
+────────────────────────────────────────────────────────────
+
+Desktop sticky masthead can obscure article section anchors.
+
+Verify clicking:
+
+FIRST PASS
+The wrong denominator
+Sources
+
+lands with heading visible.
+
+If needed, use:
+
+scroll-margin-top
+
+on:
+
+.article-body h2
+#first-pass
+#sources
+
+with suitable responsive values.
+
+Tablet/mobile non-sticky header may need smaller/no offset.
+
+Do not add JS.
+
+────────────────────────────────────────────────────────────
+26. DUPLICATE MANUAL SOURCE APPENDIX
+────────────────────────────────────────────────────────────
+
+Confirmed live flagship issue:
+
+The article body contains a manually written:
+
+## Sources
+
+[S1] ...
+[S2] ...
+...
+
+AND the renderer later produces the structured:
+
+/ SOURCES
+
+section.
+
+This is redundant and particularly poor on mobile.
+
+Remove the manually written body Sources appendix from the flagship.
+
+Use the structured frontmatter `sources` collection as the one full source list.
+
+Do not remove source information.
+
+Do not remove the renderer source section.
+
+Do not create duplicate `id="sources"`.
+
+────────────────────────────────────────────────────────────
+27. INLINE SOURCE REFERENCES
+────────────────────────────────────────────────────────────
+
+The flagship body currently contains plain references such as:
+
+([S1], [S2], [S3])
+
+which are not useful clickable references.
+
+Improve this without building a citation framework.
+
+Preferred simple approach:
+
+Replace opaque source IDs with natural inline links where useful.
+
+Example:
+
+(OpenAI pricing, GPT-5.6 Sol, GPT-5.6 Luna)
+
+Each relevant label may be an external link.
+
+OR:
+
+use semantic numbered links:
+
+[S1]
+[S2]
+
+only if they reliably point to the structured source section.
+
+Do not add a complex citation engine now.
+
+The reader must be able to move from claim → source.
+
+Prioritize load-bearing claims.
+
+────────────────────────────────────────────────────────────
+28. EVIDENCE HIERARCHY
+────────────────────────────────────────────────────────────
+
+Desktop EvidencePanel currently shows around 10 sources on the flagship.
+
+Reduce desktop evidence rail to approximately the most load-bearing 4–6 sources if easy.
+
+Complete sources remain at bottom.
+
+Do not spend significant implementation time here.
+
+This is secondary to responsive integrity.
+
+At tablet/mobile evidence rail is hidden anyway.
+
+────────────────────────────────────────────────────────────
+29. CHANGE LOG CLEANUP
+────────────────────────────────────────────────────────────
+
+Current live NOW article contains approximately:
+
+published
+Draft.
+
+That is contradictory.
+
+Flagship contains:
+
+Initial review package.
+
+For already public-status content, clean these to truthful publication wording.
+
+Preferred:
+
+Initial publication.
+
+or another accurate equivalent.
+
+Do not fabricate corrections.
+
+Do not alter substantive publication dates for a responsive-only fix.
+
+Rendering/responsive changes do not need fake editorial correction entries.
+
+────────────────────────────────────────────────────────────
+30. ARTICLE-END MOBILE
+────────────────────────────────────────────────────────────
+
+Current:
+
+/ END — article-slug
+
+uses mono text.
+
+Long slugs may overflow on phones.
+
+Allow technical wrapping there specifically.
+
+Use:
+
+overflow-wrap: anywhere
+
+for `.article-end`.
+
+Do not apply that to normal body text.
+
+────────────────────────────────────────────────────────────
+31. SOURCE ROW MOBILE
+────────────────────────────────────────────────────────────
+
+Current mobile source rows already change to one column.
+
+Verify:
+
+- long source titles wrap
+- long URLs do not leak outside viewport
+- no giant empty column
+- source type remains legible
+- tap target for source link is reasonable
+
+External URLs should not visually display raw long URL unless the article specifically requires it.
+
+Structured source labels are preferable.
+
+────────────────────────────────────────────────────────────
+32. FOOTER MOBILE/TABLET
+────────────────────────────────────────────────────────────
+
+Verify footer at:
+
+1024
+768
+430
+390
+375
+
+Current model:
+
+desktop multi-column
+tablet 2 columns
+mobile 1 column
+
+Ensure:
+
+- no awkward spacing
+- wordmark not oversized
+- commercial links still present
+- footer bottom stacks
+- no horizontal overflow
+
+Do not redesign footer.
+
+────────────────────────────────────────────────────────────
+33. ARTICLE WIDTH INVARIANT
+────────────────────────────────────────────────────────────
+
+At every viewport:
+
+article reading width must never exceed available viewport width.
+
+Use `min-width: 0` on grid/flex children where needed.
+
+This is especially important for:
+
+article-body
+math
+tables
+figures
+code
+source rows
+
+No child should force the outer shell wider.
+
+────────────────────────────────────────────────────────────
+34. GLOBAL HORIZONTAL OVERFLOW RULE
+────────────────────────────────────────────────────────────
+
+Do NOT solve overflow by blindly adding:
+
+body {
+  overflow-x: hidden;
+}
+
+That merely hides bugs.
+
+The QA gate must prove there is no unintended overflow.
+
+Only add `overflow-x: clip` or similar globally if there is a sound design reason AND the underlying wide components are correctly contained.
+
+Fix the offenders.
+
+────────────────────────────────────────────────────────────
+35. RESPONSIVE QA AUTOMATION
+────────────────────────────────────────────────────────────
+
+The project now has:
+
+source integrity
+render integrity
+
+Add:
+
+responsive integrity
+
+This should be browser-level because CSS layout cannot be reliably tested from static HTML alone.
+
+Use Playwright as a DEV-ONLY QA dependency if it is not already installed.
+
+Do not ship Playwright to production runtime.
+
+Do not add browser code to the website.
+
+Create a focused script/test such as:
+
+tests/responsive-articles.spec.ts
+
+or:
+
+scripts/responsive-audit.mjs
+
+Choose whichever integrates cleanly with the current project.
+
+Do not build a huge E2E suite.
+
+────────────────────────────────────────────────────────────
+36. REQUIRED VIEWPORTS
+────────────────────────────────────────────────────────────
+
+Test:
+
+DESKTOP
+
+1440 × 1000
+
+TABLET
+
+1024 × 1366
+820 × 1180
+768 × 1024
+
+MOBILE
+
+430 × 932
+390 × 844
+375 × 812
+
+These are the required minimum viewports.
+
+────────────────────────────────────────────────────────────
+37. REQUIRED RESPONSIVE ASSERTIONS
+────────────────────────────────────────────────────────────
+
+At every viewport assert:
+
+A. PAGE OVERFLOW
+
+document.documentElement.scrollWidth
+<=
+document.documentElement.clientWidth + tiny tolerance
+
+No page-level horizontal overflow.
+
+B. ARTICLE BODY
+
+article body bounding box fits within viewport.
+
+C. ARTICLE HEADER
+
+headline fits viewport.
+
+No overflow.
+
+D. TABLES
+
+every table wider than article content must have a scrollable ancestor.
+
+table itself may be wider.
+
+page may not be wider.
+
+E. KATEX
+
+every `.katex-display` fits inside article width OR has internal horizontal overflow.
+
+F. FIGURES
+
+figure container fits viewport.
+
+dense charts may scroll inside themselves.
+
+G. CODE
+
+pre blocks contained.
+
+H. SHARE
+
+all share buttons inside viewport.
+
+I. NEWSLETTER
+
+input + button inside viewport.
+
+J. HEADER
+
+masthead/topic strip do not expand document width.
+
+K. SOURCES
+
+source rows inside viewport.
+
+L. ARTICLE END
+
+slug does not expand document width.
+
+────────────────────────────────────────────────────────────
+38. BREAKPOINT-SPECIFIC ASSERTIONS
+────────────────────────────────────────────────────────────
+
+At >1040px:
+
+article rail visible.
+
+evidence rail visible.
+
+three-column grid active.
+
+At 721–1040px:
+
+article grid is single-column.
+
+article grid centered.
+
+article rail visible as horizontal navigation if retained.
+
+evidence rail hidden.
+
+At ≤720px:
+
+article rail hidden OR compact details treatment.
+
+evidence rail hidden.
+
+body one column.
+
+newsletter fields stack.
+
+share controls have touch-sized targets.
+
+footer one column.
+
+────────────────────────────────────────────────────────────
+39. TEST ARTICLES
+────────────────────────────────────────────────────────────
+
+Minimum responsive automated testing must cover:
+
+FLAGSHIP
+
+/articles/cheapest-ai-model-not-cheapest-system
+
+PROOF
+
+/articles/cheapest-ai-model-not-cheapest-system-proof
+
+TABLE STRESS
+
+/articles/no-universal-long-context-premium
+
+CACHE MATH
+
+/articles/prompt-cache-second-use-break-even
+
+SONNET TABLE/CURRENCY
+
+/articles/sonnet-5-price-effective-date
+
+DATA
+
+/articles/ai-inference-price-surface-v0-1
+
+All six current real articles.
+
+────────────────────────────────────────────────────────────
+40. SCREENSHOT QA
+────────────────────────────────────────────────────────────
+
+Generate local temporary screenshots during QA for at least:
+
+flagship 1440
+flagship 1024
+flagship 820
+flagship 390
+
+PROOF 390
+
+long-context 390
+
+Sonnet 390
+
+Inspect them visually.
+
+Temporary screenshots should not be committed unless there is an intentional test-baseline system.
+
+Prefer cleaning temporary screenshots before final commit.
+
+Do not claim visual PASS without actually inspecting output.
+
+────────────────────────────────────────────────────────────
+41. RESPONSIVE QA SCRIPT
+────────────────────────────────────────────────────────────
+
+Add a package command.
+
+For example:
+
+"responsive:audit": "playwright test tests/responsive-articles.spec.ts"
+
+or equivalent.
+
+Keep naming consistent with existing scripts.
+
+Then integrate responsive audit into final publication verification.
+
+Do not necessarily run the entire seven-viewport suite for every tiny local author save if it makes publishing unnecessarily slow.
+
+A good approach:
+
+prepublish target article:
+run representative responsive checks
+
+full release:
+run all required viewports/all six articles
+
+Choose a balance that keeps the system fast.
+
+────────────────────────────────────────────────────────────
+42. PREPUBLISH
+────────────────────────────────────────────────────────────
+
+Current prepublish should already contain source/render checks.
+
+Extend logically.
+
+Preferred order:
+
+1. content-source-audit
+2. article verification
+3. content audit
+4. Astro check
+5. build
+6. render audit
+7. responsive audit for target article
+8. social asset verification
+9. Pagefind/output verification
+
+Do not allow responsive failures to be warnings for a published article.
+
+FAIL the prepublish gate for:
+
+page-level overflow
+uncontained table
+uncontained math
+broken mobile layout
+
+────────────────────────────────────────────────────────────
+43. RESPONSIVE PERFORMANCE
+────────────────────────────────────────────────────────────
+
+Do not solve responsive design by adding client JavaScript.
+
+Maintain static-first architecture.
+
+Allowed JS remains limited to useful existing behavior such as:
+
+share
+reading progress
+newsletter
+forms
+
+Do not add resize observers unless genuinely necessary.
+
+CSS should solve layout.
+
+────────────────────────────────────────────────────────────
+44. ACCESSIBILITY
+────────────────────────────────────────────────────────────
+
+During responsive work preserve/improve:
+
+keyboard access
+
+focus states
+
+semantic headings
+
+table accessibility
+
+details/summary if used
+
+tap targets
+
+form labels
+
+source links
+
+alt text
+
+reduced motion
+
+Do not regress existing accessibility.
+
+If wrapping a table in a focusable horizontal region:
+
+provide an appropriate accessible label.
+
+────────────────────────────────────────────────────────────
+45. LIVE INDEXING STATE
+────────────────────────────────────────────────────────────
+
+Current production still returns:
+
+<meta name="robots" content="noindex,nofollow">
+
+and footer still says:
+
+Pre-launch · Demo content is marked
+
+KEEP THAT during responsive implementation.
+
+Do NOT expose the site to indexing until:
+
+source audit PASS
+render audit PASS
+responsive audit PASS
+all six article QA PASS
+provider health PASS
+production preview/live verification PASS
+
+────────────────────────────────────────────────────────────
+46. PUBLIC LAUNCH CONDITION
+────────────────────────────────────────────────────────────
+
+ONLY after every responsive requirement passes:
+
+set production environment:
+
+SITE_PRELAUNCH=false
+
+Use the existing Vercel project:
+
+second-pass
+
+Do not create another project.
+
+Do not change canonical domain.
+
+Canonical remains:
+
+https://second-pass.vercel.app
+
+until secondpass.net is actually connected later.
+
+────────────────────────────────────────────────────────────
+47. AFTER SITE_PRELAUNCH=false
+────────────────────────────────────────────────────────────
+
+Redeploy production.
+
+Verify actual live HTML.
+
+Need:
+
+no `<meta name="robots" content="noindex,nofollow">`
+
+robots.txt allows public crawling
+
+footer no longer says prelaunch
+
+sitemap accessible
+
+RSS accessible
+
+Pagefind accessible
+
+all six articles 200
+
+homepage 200
+
+/brief 200
+
+/intelligence 200
+
+/partner 200
+
+/api/health 200
+
+Do not assume environment change worked.
+
+Fetch production.
+
+────────────────────────────────────────────────────────────
+48. PUBLIC FOOTER
+────────────────────────────────────────────────────────────
+
+When public, use the already-approved public state:
+
+Primary sources · Original calculations · Visible corrections
+
+or current equivalent if already implemented.
+
+Do not redesign footer.
+
+────────────────────────────────────────────────────────────
+49. HEALTH
+────────────────────────────────────────────────────────────
+
+Verify:
+
+https://second-pass.vercel.app/api/health
+
+Expected approximately:
+
+{
+  "status": "ok",
+  "brief": "configured",
+  "leads": "configured"
+}
+
+Do not print secrets.
+
+Do not send repeated test leads.
+
+────────────────────────────────────────────────────────────
+50. ALL SIX PREPUBLISH
+────────────────────────────────────────────────────────────
+
+Run prepublish for:
+
+cheapest-ai-model-not-cheapest-system
+
+cheapest-ai-model-not-cheapest-system-proof
+
+ai-inference-price-surface-v0-1
+
+no-universal-long-context-premium
+
+prompt-cache-second-use-break-even
+
+sonnet-5-price-effective-date
+
+ALL SIX must pass.
+
+No bypass.
+
+────────────────────────────────────────────────────────────
+51. FINAL BUILD GATES
+────────────────────────────────────────────────────────────
+
+Run the real project equivalents of:
+
+bun install
+
+bun run content-source-audit
+
+bun run content:audit
+
+bun run check
+
+bun run build
+
+bun run render-audit -- --all
+
+bun run responsive:audit
+
+Then all six prepublish commands.
+
+If exact script names differ, inspect package.json and use actual supported commands.
+
+Do not invent a passing command that does not exist.
+
+────────────────────────────────────────────────────────────
+52. PRODUCTION RESPONSIVE CHECK
+────────────────────────────────────────────────────────────
+
+After deployment, run responsive audit AGAIN against production URLs or at least the critical representative pages.
+
+Local PASS is not enough.
+
+Minimum production checks:
+
+flagship at 1440
+
+flagship at 1024
+
+flagship at 820
+
+flagship at 390
+
+PROOF at 390
+
+long-context at 390
+
+Sonnet at 390
+
+Confirm production is serving the intended commit.
+
+────────────────────────────────────────────────────────────
+53. PRODUCTION COMMIT IDENTITY
+────────────────────────────────────────────────────────────
+
+Report:
+
+Git commit SHA
+
+Vercel deployment ID
+
+deployment Git commit SHA
+
+They must match.
+
+No accidental old deployment.
+
+────────────────────────────────────────────────────────────
+54. DO NOT DO
+────────────────────────────────────────────────────────────
+
+DO NOT:
+
+redesign site
+
+change brand colors
+
+change fonts
+
+change publication identity
+
+rewrite research
+
+reopen pricing research unless a broken display requires it
+
+add CMS
+
+add database
+
+add auth
+
+add React
+
+add Vue
+
+add Svelte
+
+add a table JS library
+
+add client-side chart library
+
+add MathJax
+
+replace KaTeX
+
+add a mobile app
+
+add hamburger navigation unless absolutely necessary
+
+add popups
+
+add sticky newsletter UI
+
+add mobile advertising
+
+add new analytics
+
+add payment flow
+
+change hosting
+
+change repo
+
+change Vercel project
+
+change canonical domain
+
+This task is:
+
+RESPONSIVE HARDENING + FINAL QA + LAUNCH.
+
+────────────────────────────────────────────────────────────
+55. GIT HYGIENE
+────────────────────────────────────────────────────────────
+
+Before commit:
+
+git status
+git diff
+git diff --stat
+
+Ensure no:
+
+screenshots
+Playwright videos
+trace ZIPs
+logs
+.env
+API keys
+node_modules
+temporary browser artifacts
+test output directories
+
+are accidentally committed.
+
+Add appropriate QA output directories to `.gitignore` if needed.
+
+────────────────────────────────────────────────────────────
+56. COMMIT
+────────────────────────────────────────────────────────────
+
+Preferred commit:
+
+fix: harden responsive technical article renderer
+
+If the public launch state deserves a separate commit:
+
+feat: take Second Pass public
+
+Do not force push.
+
+Do not rewrite history.
+
+────────────────────────────────────────────────────────────
+57. FINAL ACCEPTANCE — DESKTOP
+────────────────────────────────────────────────────────────
+
+1440:
+
+✓ three-column article layout
+✓ centered reading column
+✓ sticky TOC
+✓ evidence visible
+✓ math clean
+✓ tables clean
+✓ figures clean
+✓ no overflow
+✓ sources clean
+✓ BRIEF clean
+
+────────────────────────────────────────────────────────────
+58. FINAL ACCEPTANCE — TABLET
+────────────────────────────────────────────────────────────
+
+1024:
+
+✓ article grid one column
+✓ centered article
+✓ horizontal TOC contained
+✓ evidence hidden
+✓ table scrolling contained
+✓ math scrolling contained
+✓ charts readable
+✓ header clean
+✓ footer clean
+✓ no page overflow
+
+820:
+
+same requirements.
+
+768:
+
+same requirements.
+
+────────────────────────────────────────────────────────────
+59. FINAL ACCEPTANCE — MOBILE
+────────────────────────────────────────────────────────────
+
+430:
+
+✓ no side evidence
+✓ no giant horizontal TOC
+✓ headline readable
+✓ body readable
+✓ FIRST PASS clean
+✓ equations readable
+✓ long equations internally scroll
+✓ tables internally scroll
+✓ charts readable/scroll when dense
+✓ code contained
+✓ sources wrap
+✓ share touch targets
+✓ BRIEF full-width
+✓ footer single-column
+✓ no page overflow
+
+390:
+
+same.
+
+375:
+
+same.
+
+────────────────────────────────────────────────────────────
+60. FINAL ACCEPTANCE — ARTICLE CONTENT CLEANUP
+────────────────────────────────────────────────────────────
+
+✓ manual duplicate body Sources removed from flagship
+
+✓ one structured `/ SOURCES` section
+
+✓ no duplicate `id="sources"`
+
+✓ opaque [S1] references improved where useful
+
+✓ published change logs do not say `Draft.`
+
+✓ flagship publication log no longer says `review package` if that is no longer accurate
+
+✓ no substantive research altered accidentally
+
+────────────────────────────────────────────────────────────
+61. FINAL ACCEPTANCE — RESPONSIVE PIPELINE
+────────────────────────────────────────────────────────────
+
+✓ Playwright or equivalent browser QA added
+
+✓ dev-only
+
+✓ responsive:audit command exists
+
+✓ all seven required viewports covered
+
+✓ all six real articles covered
+
+✓ page-overflow assertion
+
+✓ table containment assertion
+
+✓ math containment assertion
+
+✓ figure containment assertion
+
+✓ newsletter assertion
+
+✓ share assertion
+
+✓ breakpoint visibility assertion
+
+✓ prepublish includes responsive integrity
+
+────────────────────────────────────────────────────────────
+62. FINAL ACCEPTANCE — LAUNCH
+────────────────────────────────────────────────────────────
+
+Only if everything passes:
+
+✓ SITE_PRELAUNCH=false
+
+✓ noindex absent
+
+✓ robots public
+
+✓ public footer state
+
+✓ RSS good
+
+✓ sitemap good
+
+✓ Pagefind good
+
+✓ six real articles 200
+
+✓ no demo articles
+
+✓ Beehiiv configured
+
+✓ Resend configured
+
+✓ production commit matches Git
+
+────────────────────────────────────────────────────────────
+63. FINAL RESPONSE FORMAT
+────────────────────────────────────────────────────────────
+
+Return exactly:
+
+# SECOND / PASS — RESPONSIVE PUBLICATION HARDENING
+
+## STATUS
+
+PASS / FAIL
+
+## PRODUCTION BEFORE
+
+Commit:
+Deployment:
+Prelaunch:
+YES / NO
+
+## TABLE SYSTEM
+
+Automatic table wrapper:
+PASS / FAIL
+
+Page-level table overflow:
+0 REQUIRED
+
+Long-context table mobile:
+PASS / FAIL
+
+DATA tables mobile:
+PASS / FAIL
+
+## ARTICLE GRID
+
+Desktop 3-column:
+PASS / FAIL
+
+Tablet centered:
+PASS / FAIL
+
+Tablet evidence hidden:
+PASS / FAIL
+
+Mobile evidence hidden:
+PASS / FAIL
+
+Tablet TOC:
+PASS / FAIL
+
+Mobile TOC:
+HIDDEN / DETAILS / FAIL
+
+## TYPOGRAPHY
+
+Mobile H1:
+PASS / FAIL
+
+Normal word wrapping:
+PASS / FAIL
+
+Inline code wrapping:
+PASS / FAIL
+
+Body reading size:
+PASS / FAIL
+
+## MATH
+
+Desktop:
+PASS / FAIL
+
+1024:
+PASS / FAIL
+
+820:
+PASS / FAIL
+
+768:
+PASS / FAIL
+
+430:
+PASS / FAIL
+
+390:
+PASS / FAIL
+
+375:
+PASS / FAIL
+
+Page-level math overflow:
+0 REQUIRED
+
+## FIGURES
+
+Dense chart mobile handling:
+PASS / FAIL
+
+Figure captions:
+PASS / FAIL
+
+Page-level figure overflow:
+0 REQUIRED
+
+## SOURCES
+
+Duplicate body sources:
+0 REQUIRED
+
+Structured source section:
+PASS / FAIL
+
+Duplicate sources ID:
+0 REQUIRED
+
+Mobile evidence rail:
+HIDDEN REQUIRED
+
+## CONVERSION
+
+Share touch targets:
+PASS / FAIL
+
+Article BRIEF mobile:
+PASS / FAIL
+
+article-bottom attribution:
+PASS / FAIL
+
+## RESPONSIVE AUTOMATION
+
+Tool:
+PLAYWRIGHT / OTHER
+
+responsive:audit:
+PASS / FAIL
+
+Viewport 1440:
+PASS / FAIL
+
+Viewport 1024:
+PASS / FAIL
+
+Viewport 820:
+PASS / FAIL
+
+Viewport 768:
+PASS / FAIL
+
+Viewport 430:
+PASS / FAIL
+
+Viewport 390:
+PASS / FAIL
+
+Viewport 375:
+PASS / FAIL
+
+Horizontal overflow failures:
+0 REQUIRED
+
+## ARTICLE QA
+
+Flagship:
+PASS / FAIL
+
+PROOF:
+PASS / FAIL
+
+DATA:
+PASS / FAIL
+
+Long-context:
+PASS / FAIL
+
+Cache:
+PASS / FAIL
+
+Sonnet:
+PASS / FAIL
+
+## PREPUBLISH
+
+Flagship:
+PASS / FAIL
+
+PROOF:
+PASS / FAIL
+
+DATA:
+PASS / FAIL
+
+Long-context:
+PASS / FAIL
+
+Cache:
+PASS / FAIL
+
+Sonnet:
+PASS / FAIL
+
+## BUILD
+
+source audit:
+PASS / FAIL
+
+content audit:
+PASS / FAIL
+
+Astro check:
+PASS / FAIL
+
+build:
+PASS / FAIL
+
+render audit:
+PASS / FAIL
+
+responsive audit:
+PASS / FAIL
+
+Pagefind:
+PASS / FAIL
+
+## PROVIDERS
+
+Beehiiv:
+configured / not configured
+
+Resend:
+configured / not configured
+
+## PUBLIC LAUNCH
+
+SITE_PRELAUNCH:
+false / true
+
+noindex:
+ABSENT / PRESENT
+
+robots:
+PUBLIC / BLOCKED
+
+footer:
+PUBLIC / PRELAUNCH
+
+## PRODUCTION
+
+Git commit SHA:
+
+Vercel deployment ID:
+
+Deployment commit SHA:
+
+SHA match:
+YES / NO
+
+## LIVE URLs
+
+Homepage:
+PASS / FAIL
+
+Flagship:
+PASS / FAIL
+
+PROOF:
+PASS / FAIL
+
+DATA:
+PASS / FAIL
+
+Long-context:
+PASS / FAIL
+
+Cache:
+PASS / FAIL
+
+Sonnet:
+PASS / FAIL
+
+Brief:
+PASS / FAIL
+
+Intelligence:
+PASS / FAIL
+
+Health:
+PASS / FAIL
+
+## BLOCKERS
+
+None
+
+OR exact blocker.
+
+If everything passes and the site is public, end exactly:
+
+SECOND / PASS RESPONSIVE SYSTEM: PASS — PUBLICATION LIVE, DISTRIBUTE NOW
+
+If responsive work passes but site remains intentionally prelaunch:
+
+SECOND / PASS RESPONSIVE SYSTEM: PASS — READY TO FLIP PUBLIC
+
+If anything important fails:
+
+SECOND / PASS RESPONSIVE SYSTEM: BLOCKED — <exact blocker>
+
+────────────────────────────────────────────────────────────
+64. BEGIN NOW
+────────────────────────────────────────────────────────────
+
+Do not return another plan.
+
+Begin with current repo + production verification.
+
+Then:
+
+inspect
+→ fix automatic table containment
+→ center tablet article
+→ hide evidence on tablet/mobile
+→ simplify mobile TOC
+→ tune mobile headline
+→ fix technical-token wrapping
+→ harden KaTeX responsive behavior
+→ harden dense research figures
+→ improve share/BRIEF touch UX
+→ remove duplicate manual Sources
+→ clean change-log language
+→ add responsive browser QA
+→ test seven viewports
+→ prepublish all six articles
+→ build
+→ inspect screenshots
+→ deploy
+→ verify production
+→ flip public only after all gates pass
+→ verify actual live HTML
+→ return final report.
+
+The most important invariant is:
+
+NO ARTICLE ELEMENT MAY FORCE THE PAGE WIDER THAN THE VIEWPORT.
+
+Wide technical content may scroll inside its own bounded container.
+
+The page itself must never horizontally scroll.
+
+The second invariant is:
+
+DESKTOP, TABLET AND MOBILE MUST ALL FEEL INTENTIONALLY DESIGNED — NOT LIKE THE DESKTOP LAYOUT SIMPLY COLLAPSED.
+
+Do not finish until both are provably true.
