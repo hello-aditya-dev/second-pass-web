@@ -7,3 +7,4 @@ dev.log
 test-results/
 playwright-report/
 playwright/.cache/
+upload/
