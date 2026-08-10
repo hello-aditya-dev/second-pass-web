@@ -1,0 +1,5 @@
+provider,token_volume,calls,runtime,stored_state,configuration_modifiers,applicability_rules,note
+OpenAI,PAID,PAID,PAID,PAID,YES,YES,Search content can add model-token usage; container/session minimums and allowances apply by product.
+Anthropic,PAID,PAID,PAID,—,YES,YES,Managed Agents excludes Messages API Batch/Fast/inference_geo modifiers and replaces separate code-container billing.
+Google,PAID,PAID,—,PAID,YES,YES,Code Execution has no separate runtime fee; Managed Agents environment compute is currently unbilled during preview.
+xAI,PAID,PAID,—,PAID,YES,YES,Several server tools use fixed invocation fees; Remote MCP has no fixed invocation fee.

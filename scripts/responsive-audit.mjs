@@ -20,6 +20,7 @@ import { readFileSync } from "fs";
 import { join } from "path";
 
 const ARTICLES = [
+  "an-ai-agent-is-no-longer-priced-in-tokens",     // AGENT ECONOMICS
   "cheapest-ai-model-not-cheapest-system",        // FLAGSHIP
   "cheapest-ai-model-not-cheapest-system-proof",   // PROOF
   "no-universal-long-context-premium",             // TABLE STRESS

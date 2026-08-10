@@ -28,8 +28,8 @@ const steps = [
   { name: "render-audit", cmd: `node scripts/render-audit.mjs ${slug}` },
   { name: "responsive-audit", cmd: `node scripts/responsive-audit.mjs ${slug} --quick` },
   { name: "social:generate", cmd: `node scripts/generate-social-assets.mjs ${slug}` },
-  { name: "pagefind", cmd: "bun run search:index" },
-  { name: "currency-regression", cmd: "node scripts/currency-regression-test.mjs" }
+  { name: "currency-regression", cmd: "node scripts/currency-regression-test.mjs" },
+  { name: "pagefind", cmd: "bun run search:index" }
 ];
 
 let failed = false;

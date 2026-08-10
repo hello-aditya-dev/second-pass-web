@@ -1,0 +1,8 @@
+step,event,meter,status
+1,USER REQUEST,none at this node,scenario
+2,MODEL,input/output tokens; repeated turns accumulate,metered
+3,SEARCH,search invocation + returned text may become token input,metered
+4,MODEL,more input/output tokens,metered
+5,TOOL / RUNTIME,"call, runtime, or included execution depends on provider",provider-specific
+6,MODEL / VERIFY,more tokens; retries add repeated meters,metered
+7,ANSWER,terminal output already counted above,scenario

@@ -1,0 +1,5 @@
+step,event,provider,meter,quantity,unit,unit_price_usd,cost_usd,observed_or_assumed,source_id,notes
+1,Cumulative model input across agent turns,Anthropic,Claude Haiku 4.5 input tokens,12000,tokens,1e-06,0.012,ASSUMED quantity; OBSERVED price,ANT-PRICING,"Includes initial input, repeated agent context, tool schemas/results, and search-result content that enters context. No cache assumed."
+2,Cumulative model output across agent turns,Anthropic,Claude Haiku 4.5 output tokens,2000,tokens,5e-06,0.01,ASSUMED quantity; OBSERVED price,ANT-PRICING,Cumulative output across the illustrative agent trace.
+3,Web searches,Anthropic,Web search,3,searches,0.01,0.03,ASSUMED quantity; OBSERVED price,ANT-PRICING,Each search is billed once; search content that enters context is already included in cumulative input-token assumption.
+4,Managed Agent running time,Anthropic,Session runtime,10,minutes,0.0013333333333333333,0.013333333333333332,ASSUMED quantity; OBSERVED price,ANT-PRICING,Runtime only while session status is running. Do not add separate code-execution container billing in Managed Agents.
