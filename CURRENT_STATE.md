@@ -83,6 +83,10 @@ All engineering for distribution, authorship, social assets, and commercial acti
   - 5 charts (SVG+PNG+CSV), XLSX workbook, 7 research CSVs
   - 6 sources, 5 FIRST PASS bullets, 2 CLAIM CHECKs
   - Full math (KaTeX), house editorial objects (/ QUESTION, / ASSUMPTION, / CALCULATION, / CLAIM CHECK, / INTELLIGENCE)
+- `when-flops-stop-mattering-hbm-roofline-llm-inference` — COMPUTE / PROOF — 2026-08-10 — FEATURED
+  - 5 charts (SVG+PNG+CSV), XLSX workbook, 7 research CSVs + 1 input template CSV
+  - 6 sources, 5 FIRST PASS bullets, 2 CLAIM CHECKs, 1 CALCULATION
+  - Full math (KaTeX, 37 display blocks, 74 $$ delimiters), house editorial objects (/ QUESTION, / CALCULATION, / CLAIM CHECK, / INTELLIGENCE)
 
 ## Activation inputs still pending
 

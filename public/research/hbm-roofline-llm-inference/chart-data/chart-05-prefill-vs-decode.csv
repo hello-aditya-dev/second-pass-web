@@ -1,0 +1,6 @@
+case,arithmetic_intensity_flop_per_byte,type
+single-token decode BF16,1.0,IDEALIZED WEIGHT-ONLY
+decode BF16 q=128,128.0,IDEALIZED WEIGHT-ONLY
+B300 BF16 ridge,281.25,CALCULATION
+MI355X BF16 ridge,312.5,CALCULATION
+"illustrative prefill GEMM m=2048,k=n=8192",1365.3333333333333,SCENARIO / SIMPLE ONE-PASS TRAFFIC

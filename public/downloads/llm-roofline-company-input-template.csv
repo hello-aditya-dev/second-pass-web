@@ -1,0 +1,2 @@
+model_name,parameter_count,dense_or_moe,weight_precision,bytes_per_weight,context_length,batch_or_concurrency,peak_compute_flops_s,peak_hbm_bandwidth_bytes_s,measured_hbm_bandwidth_optional,measured_compute_optional,gpu_hour_price_optional
+Qwen2.5-72B-Instruct,72700000000,DENSE,BF16,2.0,8192,1,2250000000000000.0,8000000000000.0,,,

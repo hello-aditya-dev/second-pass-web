@@ -1,0 +1,7 @@
+vendor,accelerator,precision,machine_balance_flops_per_byte,bytes_per_weight_payload_assumption,idealized_ridge_batch_q_star,type,comparison_safe,caveat
+NVIDIA,B300,BF16/FP16 dense,281.25,2.0,281.25,CALCULATION / IDEALIZED WEIGHT-ONLY,YES,"Not recommended production concurrency; KV/activation traffic, latency SLOs and kernel efficiency can move the real threshold."
+AMD,MI355X,BF16/FP16 dense,312.5,2.0,312.5,CALCULATION / IDEALIZED WEIGHT-ONLY,YES,"Not recommended production concurrency; KV/activation traffic, latency SLOs and kernel efficiency can move the real threshold."
+NVIDIA,B300,FP8 dense,562.5,1.0,281.25,CALCULATION / IDEALIZED WEIGHT-ONLY,NO — precision-specific only,"Not recommended production concurrency; KV/activation traffic, latency SLOs and kernel efficiency can move the real threshold."
+AMD,MI355X,OCP-FP8 dense,625.0,1.0,312.5,CALCULATION / IDEALIZED WEIGHT-ONLY,NO — precision-specific only,"Not recommended production concurrency; KV/activation traffic, latency SLOs and kernel efficiency can move the real threshold."
+NVIDIA,B300,FP4 dense,1687.5,0.5,421.875,CALCULATION / IDEALIZED WEIGHT-ONLY,NO — precision-specific only,"Not recommended production concurrency; KV/activation traffic, latency SLOs and kernel efficiency can move the real threshold."
+AMD,MI355X,MXFP4,1262.5,0.5,315.625,CALCULATION / IDEALIZED WEIGHT-ONLY,NO — precision-specific only,"Not recommended production concurrency; KV/activation traffic, latency SLOs and kernel efficiency can move the real threshold."
