@@ -60,15 +60,15 @@ This proof uses Qwen2.5-72B-Instruct as a teaching case because its current offi
 
 A GPU serving process does not have one bucket called "model memory." Conceptually:
 
-\[
+$$
 M_{GPU}=M_{weights}+M_{KV}+M_{activations}+M_{workspace}+M_{runtime}+M_{communication}+M_{margin}.
-\]
+$$
 
 The useful capacity input is therefore not "GPU memory minus checkpoint size." It is the amount the running system can actually make available to KV:
 
-\[
+$$
 M_{KV,budget}=M_{GPU,usable}-M_{non-KV}.
-\]
+$$
 
 That subtraction is why model fit is not serving fit. A checkpoint can fit while leaving too little room for a useful batch, long contexts, workspaces or reliability headroom.
 
@@ -82,23 +82,28 @@ So there are three different quantities to keep separate:
 
 The first explains the mechanism. The last is usually the better operational input.
 
+
+![Equation-style memory budget diagram showing usable memory minus non-KV allocations equals KV budget, with an 80 GiB worked scenario.](/research/kv-cache-concurrency/charts/chart-01-gpu-memory-budget.svg)
+
 ## / CALCULATION — how many bytes does one token require?
 
-For a conventional transformer with \(L\) attention layers, \(n_{kv}\) key-value heads, head dimension \(d_h\), and \(b_{kv}\) bytes per stored KV element, each cached token stores a key and a value at each layer:
+For a conventional transformer with $L$ attention layers, $n_{kv}$ key-value heads, head dimension $d_h$, and $b_{kv}$ bytes per stored KV element, each cached token stores a key and a value at each layer:
 
-\[
+$$
 \boxed{m_{KV/token}=2L n_{kv} d_h b_{kv}}
-\]
+$$
 
 The factor of two is simply **K + V**.
+
+![Five-factor equation ending at 320 KiB of logical BF16 KV per token.](/research/kv-cache-concurrency/charts/chart-02-kv-bytes-per-token.svg)
 
 Qwen's current Qwen2.5-72B-Instruct configuration reports 80 layers, hidden size 8192, 64 query heads, 8 KV heads, BF16 weights, and `use_sliding_window: false`. The head dimension is 8192 / 64 = 128. The [official model card](https://huggingface.co/Qwen/Qwen2.5-72B-Instruct) also identifies the model as GQA with 64 query heads and 8 KV heads.
 
 For BF16 KV, using two bytes per element:
 
-\[
+$$
 2\times80\times8\times128\times2=327{,}680\text{ bytes/token}.
-\]
+$$
 
 That is exactly:
 
@@ -114,11 +119,11 @@ The arithmetic still tells us something important about architecture. Qwen has e
 
 ## / CALCULATION — one active sequence
 
-For a sequence with \(S\) cached tokens:
+For a sequence with $S$ cached tokens:
 
-\[
+$$
 M_{KV,seq}=S\,m_{KV/token}.
-\]
+$$
 
 For the Qwen teaching case, the numbers become unusually clean:
 
@@ -134,19 +139,19 @@ The memory law itself is linear for this conventional full-attention case: twice
 
 ## / CALCULATION — concurrency is a token budget
 
-For multiple independent sequences with active lengths \(S_i\):
+For multiple independent sequences with active lengths $S_i$:
 
-\[
+$$
 M_{KV,total}=m_{KV/token}\sum_i S_i.
-\]
+$$
 
 That is more useful than multiplying every request by the model's maximum context. Real traffic is heterogeneous.
 
 For a fixed-length teaching case, the ideal maximum is:
 
-\[
+$$
 \boxed{N_{max}\approx\left\lfloor\frac{M_{KV,budget}}{S\,m_{KV/token}}\right\rfloor}
-\]
+$$
 
 Now define an **80 GiB aggregate KV-budget scenario** for the serving instance after non-KV allocations. This is not a measured H100, B200 or B300 deployment. It is a round scenario chosen so the capacity relationship is visible.
 
@@ -167,15 +172,18 @@ That gives:
 
 This is the reciprocal context law:
 
-\[
+$$
 N_{max}\propto\frac{1}{S}.
-\]
+$$
 
 Double reserved context and, while KV is the binding capacity resource, ideal concurrency roughly halves.
 
 It does **not** mean throughput halves. Tokens per second can bind on compute, HBM bandwidth, batching, scheduler policy and SLOs. This is a memory-capacity relationship.
 
 Another way to use the equation is as a boundary. In the same 80 GiB scenario, if the platform must hold at least 16 concurrent sequences, the BF16-GQA cache frontier is 16,384 reserved tokens per sequence. For eight sequences it is 32,768. For four it is 65,536. The "binding context length" is therefore not a single model property; it depends on the concurrency target and the real KV budget.
+
+
+![Three curves fall as context grows; BF16 GQA goes from 64 slots at 4K to 2 at 128K.](/research/kv-cache-concurrency/charts/chart-03-concurrency-frontier.svg)
 
 ## Max context is the wrong everyday sizing input
 
@@ -194,17 +202,17 @@ That does not prove either distribution is globally representative. It proves th
 
 ## Output is future KV, not just future text
 
-KV grows during decode. If request \(i\) currently has \(S_i\) cached tokens and policy reserves \(R_i\) additional output tokens, a safer planning length is:
+KV grows during decode. If request $i$ currently has $S_i$ cached tokens and policy reserves $R_i$ additional output tokens, a safer planning length is:
 
-\[
+$$
 S_{i,reserve}=S_i+R_i.
-\]
+$$
 
 Then:
 
-\[
+$$
 M_{reserve}=m_{KV/token}\sum_i(S_i+R_i).
-\]
+$$
 
 In the 80 GiB Qwen scenario, 8,192 current tokens fit 32 ideal sequences. Add a 2,048-token output reserve and each request becomes a 10,240-token reservation, or 3.125 GiB of logical KV. Ideal concurrency falls to **25**.
 
@@ -218,17 +226,20 @@ Paged KV managers avoid allocating every sequence as one giant contiguous buffer
 
 But blocks still round.
 
-If a simplified uniform cache uses \(B\) tokens per block, a request with \(S_i\) reserved tokens consumes:
 
-\[
+![Horizontal bars show used tokens and small tail-block waste for five requests.](/research/kv-cache-concurrency/charts/chart-04-block-rounding.svg)
+
+If a simplified uniform cache uses $B$ tokens per block, a request with $S_i$ reserved tokens consumes:
+
+$$
 S_{i,alloc}=B\left\lceil\frac{S_i}{B}\right\rceil.
-\]
+$$
 
 The tail waste is:
 
-\[
+$$
 W_{tokens}=\sum_i\left[B\left\lceil\frac{S_i}{B}\right\rceil-S_i\right].
-\]
+$$
 
 For a 16-token block scenario and request lengths 1,001; 2,047; 4,097; 8,191; and 12,003, the block-rounded allocation is 27,376 tokens for 27,339 used tokens. The tail loss is 37 tokens, about **0.135%** of those active tokens, or **11.5625 MiB** in the Qwen BF16 logical model.
 
@@ -240,9 +251,9 @@ Hold layers, head dimension and element size constant. Standard MHA stores KV fo
 
 The ideal memory ratio is:
 
-\[
+$$
 \frac{M_{KV,GQA}}{M_{KV,MHA}}=\frac{n_{kv}}{n_q}.
-\]
+$$
 
 For the Qwen dimensions, 8 KV heads versus 64 query heads gives an **8×** ideal reduction relative to the hypothetical same-dimension MHA case.
 
@@ -254,15 +265,25 @@ This is architecture sensitivity, not a claim that you can convert one trained m
 
 Current vLLM exposes multiple KV cache dtypes, including BF16/FP16 and FP8 variants. SGLang likewise exposes FP8 E4M3 and E5M2 KV-cache modes. Where one byte per element is valid and supported, the ideal payload term halves:
 
-\[
+$$
 320\text{ KiB/token}\rightarrow160\text{ KiB/token}.
-\]
+$$
 
 In the same 80 GiB scenario, the ideal 8,192-token concurrency moves from 32 to 64; 32,768 moves from eight to 16; and 131,072 moves from two to four.
 
 That is a capacity result, not a throughput result. Scales, metadata, kernel support and accuracy behavior still matter. If KV memory was not the binding resource, halving its payload may not increase admitted concurrency at all.
 
-**Claim check: "FP8 KV doubles serving throughput." — Not necessarily.** It approximately halves the ideal KV payload under the one-byte assumption. Throughput moves only if the removed KV capacity constraint was actually limiting the system and the rest of the serving path can use the extra concurrency.
+## / CLAIM CHECK
+
+### "FP8 KV doubles serving throughput."
+
+**CLAIM**
+
+FP8 approximately halves the ideal KV payload under the one-byte assumption.
+
+**VERDICT: NOT NECESSARILY**
+
+Throughput moves only if the removed KV capacity constraint was actually limiting the system and the rest of the serving path can use the extra concurrency.
 
 ## Prefix reuse changes physical tokens, not logical request length
 
@@ -274,15 +295,15 @@ A simple block-aligned scenario makes the capacity effect visible. Suppose 16 re
 
 Without physical sharing:
 
-\[
+$$
 16(4096+2048)=98{,}304\text{ physical token slots}.
-\]
+$$
 
 With one shared prefix plus 16 unique suffixes:
 
-\[
+$$
 4096+16(2048)=36{,}864\text{ token slots}.
-\]
+$$
 
 That is a **62.5% reduction** in physical token slots for this synthetic prefix-sharing pattern. At 320 KiB/token it is 30 GiB without sharing versus 11.25 GiB with sharing.
 
@@ -294,11 +315,11 @@ KV cache no longer has to live only in GPU HBM. vLLM now supports KV offloading 
 
 Capacity therefore becomes a hierarchy problem.
 
-If \(M_{recall}\) bytes must be brought back over a path with effective bandwidth \(B_{offload}\) and latency \(L_{offload}\), a simple lower bound is:
+If $M_{recall}$ bytes must be brought back over a path with effective bandwidth $B_{offload}$ and latency $L_{offload}$, a simple lower bound is:
 
-\[
+$$
 T_{recall}\gtrsim L_{offload}+\frac{M_{recall}}{B_{offload}}.
-\]
+$$
 
 For a labeled scenario — 4 GiB recalled, 64 GB/s effective bandwidth, 0.05 ms latency — the lower bound is about **67.16 ms**. If recall must finish within 50 ms, the required effective bandwidth is about **85.99 GB/s**.
 
@@ -339,17 +360,31 @@ If the runtime prints a group-aware token capacity, start there. For example, vL
 
 The formula remains valuable because it lets you explain why capacity moved. Fewer KV heads? Lower bytes per element? Longer contexts? More output reserve? Block rounding? Shared prefixes? Offload? Each change has a different mechanism.
 
-## / CLAIM CHECK — "the model fits, so long context fits"
+## / CLAIM CHECK
 
-**Verdict: incomplete.**
+### "The model fits in GPU memory, so the server can handle long context."
 
-Weight fit proves that model state can reside under some placement. It does not prove that the remaining memory can sustain the active KV state, workspace, runtime allocations and operating margin needed for the target concurrency.
+**CLAIM**
 
-## / CLAIM CHECK — "a 128K model uses 128K of KV all the time"
+Weight fit only proves model state can reside under some placement.
 
-**Verdict: no.**
+**VERDICT: INCOMPLETE**
 
-KV follows active cached tokens and the runtime's allocation policy. A short request does not automatically occupy the entire maximum context. Capacity planning may reserve future output or other headroom, but that is a policy decision and should be modeled as one.
+It does not prove that the remaining memory can sustain the active KV state, workspace, runtime allocations and operating margin needed for the target concurrency.
+
+## / CLAIM CHECK
+
+### "A 128K context model uses 128K worth of KV memory all the time."
+
+**CLAIM**
+
+KV follows active cached tokens. A short request does not automatically occupy the entire maximum context.
+
+**VERDICT: NO**
+
+Capacity planning may reserve future output or other headroom, but that is a policy decision and should be modeled as one.
+
+![Three columns show 8K, 32K and 128K contexts increasing KV per sequence from 2.5 to 40 GiB and reducing ideal slots from 32 to 2.](/research/kv-cache-concurrency/charts/chart-05-model-fit-vs-serving-fit.svg)
 
 ## SECOND PASS
 

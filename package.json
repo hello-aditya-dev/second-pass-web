@@ -25,6 +25,7 @@
     "currency-regression": "node scripts/currency-regression-test.mjs",
     "responsive:audit": "node scripts/responsive-audit.mjs",
     "visual:audit": "node scripts/visual-audit.mjs",
+    "math:audit": "node scripts/math-render-audit.mjs",
     "prepublish": "node scripts/prepublish.mjs"
   },
   "dependencies": {
