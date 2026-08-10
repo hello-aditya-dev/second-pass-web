@@ -1,0 +1,7 @@
+context_tokens,bf16_gqa,fp8_gqa_scenario,bf16_mha_hypothetical
+4096,64,128,8
+8192,32,64,4
+16384,16,32,2
+32768,8,16,1
+65536,4,8,0
+131072,2,4,0

@@ -1,0 +1,2 @@
+offload_pool_GiB,recall_GiB,effective_bandwidth_GBps,latency_ms,recall_lower_bound_ms,deadline_ms,required_bandwidth_GBps_for_deadline,classification
+32,4,64,0.05,67.158864,50,85.98533125125125,SCENARIO

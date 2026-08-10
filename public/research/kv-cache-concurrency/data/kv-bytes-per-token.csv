@@ -1,0 +1,4 @@
+case,attention,kv_dtype,layers,kv_heads,head_dim,bytes_per_element,bytes_per_token,KiB_per_token,MiB_per_token,classification
+Qwen2.5-72B-Instruct,GQA,BF16,80,8,128,2,327680,320.0,0.3125,FACT+CALCULATION
+Qwen2.5-72B-Instruct sensitivity,GQA,FP8 one-byte scenario,80,8,128,1,163840,160.0,0.15625,SCENARIO
+same dimensions sensitivity,hypothetical MHA,BF16,80,64,128,2,2621440,2560.0,2.5,SCENARIO

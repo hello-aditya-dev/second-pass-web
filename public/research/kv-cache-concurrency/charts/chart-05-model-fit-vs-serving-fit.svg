@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="572.76pt" height="381.906473pt" viewBox="0 0 572.76 381.906473" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-08-10T11:27:54.776644</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 381.906473 
+L 572.76 381.906473 
+L 572.76 0 
+L 0 0 
+z
+" style="fill: #f2efe7"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 51.2388 251.044072 
+L 166.0752 251.044072 
+L 166.0752 167.976472 
+L 51.2388 167.976472 
+z
+" clip-path="url(#pa355e32a76)" style="fill: #c9c3b7"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 51.2388 251.044072 
+L 166.0752 251.044072 
+L 166.0752 223.176232 
+L 51.2388 223.176232 
+z
+" clip-path="url(#pa355e32a76)" style="fill: #2f5bff"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 220.7592 251.044072 
+L 335.5956 251.044072 
+L 335.5956 167.976472 
+L 220.7592 167.976472 
+z
+" clip-path="url(#pa355e32a76)" style="fill: #c9c3b7"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 220.7592 251.044072 
+L 335.5956 251.044072 
+L 335.5956 223.176232 
+L 220.7592 223.176232 
+z
+" clip-path="url(#pa355e32a76)" style="fill: #2f5bff"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 390.2796 251.044072 
+L 505.116 251.044072 
+L 505.116 167.976472 
+L 390.2796 167.976472 
+z
+" clip-path="url(#pa355e32a76)" style="fill: #c9c3b7"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 390.2796 251.044072 
+L 505.116 251.044072 
+L 505.116 223.176232 
+L 390.2796 223.176232 
+z
+" clip-path="url(#pa355e32a76)" style="fill: #2f5bff"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #2f5bff" x="12.96" y="19.798594" transform="rotate(-0 12.96 19.798594)">FIGURE 05 / SYSTEMS</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 17px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #11110f" x="12.96" y="37.295151" transform="rotate(-0 12.96 37.295151)">The weights can fit while sequence slots collapse</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 9.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #5a5953" x="12.96" y="65.867308" transform="rotate(-0 12.96 65.867308)">Fixed non-KV footprint scenario; only reserved sequence length changes inside the 80 GiB KV budget.</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #11110f" x="108.657" y="125.102873" transform="rotate(-0 108.657 125.102873)">8K</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #5a5953" x="108.657" y="202.61511" transform="rotate(-0 108.657 202.61511)">160 GiB non-KV</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 8.8px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #f2efe7" x="108.657" y="239.504028" transform="rotate(-0 108.657 239.504028)">80 GiB KV budget</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #5a5953" x="108.657" y="282.127432" transform="rotate(-0 108.657 282.127432)">2.5 GiB KV / sequence</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 17px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #2f5bff" x="108.657" y="308.923432" transform="rotate(-0 108.657 308.923432)">32 ideal slots</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #11110f" x="278.1774" y="125.102873" transform="rotate(-0 278.1774 125.102873)">32K</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #5a5953" x="278.1774" y="202.61511" transform="rotate(-0 278.1774 202.61511)">160 GiB non-KV</text>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 8.8px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #f2efe7" x="278.1774" y="239.504028" transform="rotate(-0 278.1774 239.504028)">80 GiB KV budget</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #5a5953" x="278.1774" y="282.127432" transform="rotate(-0 278.1774 282.127432)">10 GiB KV / sequence</text>
+   </g>
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 17px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #2f5bff" x="278.1774" y="308.923432" transform="rotate(-0 278.1774 308.923432)">8 ideal slots</text>
+   </g>
+   <g id="text_14">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #11110f" x="447.6978" y="125.102873" transform="rotate(-0 447.6978 125.102873)">128K*</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #5a5953" x="447.6978" y="202.61511" transform="rotate(-0 447.6978 202.61511)">160 GiB non-KV</text>
+   </g>
+   <g id="text_16">
+    <text style="font-weight: 700; font-size: 8.8px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #f2efe7" x="447.6978" y="239.504028" transform="rotate(-0 447.6978 239.504028)">80 GiB KV budget</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #5a5953" x="447.6978" y="282.127432" transform="rotate(-0 447.6978 282.127432)">40 GiB KV / sequence</text>
+   </g>
+   <g id="text_18">
+    <text style="font-weight: 700; font-size: 17px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #2f5bff" x="447.6978" y="308.923432" transform="rotate(-0 447.6978 308.923432)">2 ideal slots</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #5a5953" x="51.2388" y="342.150472" transform="rotate(-0 51.2388 342.150472)">* 128K long-context case requires the model's long-context/YaRN configuration; default config is 32,768.</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pa355e32a76">
+   <rect x="12.96" y="47.394473" width="546.84" height="321.552"/>
+  </clipPath>
+ </defs>
+</svg>

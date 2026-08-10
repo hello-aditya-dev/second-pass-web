@@ -1,0 +1,8 @@
+factor,value,unit
+layers,80,layers
+KV heads,8,heads
+head dimension,128,elements/head
+K+V,2,tensors
+BF16 bytes,2,bytes/element
+result,327680,bytes/token
+result,320,KiB/token

@@ -1,0 +1,4 @@
+context_tokens,logical_kv_GiB_per_sequence,ideal_slots_in_80GiB,fixed_non_kv_GiB_scenario,kv_budget_GiB_scenario
+8192,2.5,32,160,80
+32768,10,8,160,80
+131072,40,2,160,80

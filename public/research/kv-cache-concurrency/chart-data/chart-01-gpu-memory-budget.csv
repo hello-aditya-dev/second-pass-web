@@ -1,0 +1,3 @@
+quantity,value_GiB,classification,note
+KV budget scenario,80,SCENARIO,aggregate budget after non-KV allocations
+non-KV components,,SYMBOLIC,weights + activations + workspace + runtime + communication + margin

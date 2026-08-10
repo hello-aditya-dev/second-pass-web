@@ -1,0 +1,2 @@
+model,runtime,runtime_version,layers,query_heads,kv_heads,head_dim,kv_bytes_per_element,kv_budget_GiB,runtime_reported_token_capacity,block_size_tokens,prompt_p50,prompt_p95,prompt_p99,output_p50,output_p95,output_p99,prefix_hit_rate,shared_prefix_tokens,offload_capacity_GiB,offload_effective_GBps,offload_latency_ms,tp_degree,pp_degree,notes
+,,,,,,,,,,,,,,,,,,,,,,,,

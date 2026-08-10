@@ -1,0 +1,4 @@
+current_tokens,output_reserve_tokens,reserved_tokens,logical_kv_GiB_per_sequence,ideal_concurrency_80GiB
+8192,2048,10240,3.125,25
+32768,2048,34816,10.625,7
+131072,2048,133120,40.625,1

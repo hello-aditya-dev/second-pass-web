@@ -1,0 +1,5 @@
+case,kv_heads,bytes_per_element,bytes_per_token,memory_ratio_vs_qwen_gqa_bf16,ideal_concurrency_multiplier_vs_qwen_gqa_bf16
+Qwen GQA BF16,8,2,327680,1.0,1.0
+Qwen GQA FP8 one-byte scenario,8,1,163840,0.5,2.0
+Hypothetical same-dimension MHA BF16,64,2,2621440,8.0,0.125
+Hypothetical MQA BF16,1,2,40960,0.125,8.0

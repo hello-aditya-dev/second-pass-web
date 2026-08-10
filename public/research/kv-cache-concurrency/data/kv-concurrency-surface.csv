@@ -1,0 +1,7 @@
+reserved_tokens_per_sequence,kv_budget_GiB_scenario,bf16_gqa_ideal_concurrency,fp8_gqa_ideal_concurrency,bf16_mha_hypothetical_concurrency,bf16_gqa_with_2048_output_reserve
+4096,80,64,128,8,42
+8192,80,32,64,4,25
+16384,80,16,32,2,14
+32768,80,8,16,1,7
+65536,80,4,8,0,3
+131072,80,2,4,0,1

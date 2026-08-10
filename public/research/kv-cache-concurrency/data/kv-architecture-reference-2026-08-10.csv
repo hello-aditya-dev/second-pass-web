@@ -1,0 +1,2 @@
+model,layers,hidden_size,query_heads,kv_heads,head_dim,default_dtype,default_config_context_tokens,advertised_full_context_tokens,notes,source,formula_applicable
+Qwen2.5-72B-Instruct,80,8192,64,8,128,bfloat16,32768,131072,full attention; use_sliding_window=false,https://huggingface.co/Qwen/Qwen2.5-72B-Instruct/blob/main/config.json,yes
