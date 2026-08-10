@@ -1,0 +1,4283 @@
+# Z.ai — PUBLISH SECOND / PASS COMPUTE #03
+
+Repository:
+
+witejackel-eng/second-pass-web
+
+Production:
+
+https://second-pass.vercel.app
+
+Existing Vercel project:
+
+second-pass
+
+ATTACHED APPROVED PACKAGE:
+
+second-pass-ai-cluster-network-2026-08-10(1).zip
+
+ARTICLE:
+
+How much network does an AI GPU cluster actually need?
+
+SLUG:
+
+how-much-network-does-an-ai-gpu-cluster-actually-need
+
+SECTION:
+
+COMPUTE
+
+FORMAT:
+
+SECOND PASS
+
+AUTHOR:
+
+Aditya
+
+PUBLICATION DATE:
+
+2026-08-10
+
+TIMEZONE:
+
+Asia/Kolkata
+
+THIS PROMPT IS EXPLICIT HUMAN PUBLICATION APPROVAL.
+
+The research package deliberately contains:
+
+status: review
+publishedAt: ""
+changeLog: []
+
+because the research workflow required a human publication gate.
+
+That gate is now APPROVED.
+
+Your task is NOT to research this article again.
+
+Your task is to:
+
+READ THE CURRENT SECOND / PASS PUBLICATION SYSTEM
+→
+INSPECT LATEST MAIN
+→
+VERIFY THE APPROVED PACKAGE
+→
+IMPORT THE CANONICAL ARTICLE
+→
+IMPORT ITS FIVE RESEARCH FIGURES
+→
+IMPORT THE NETWORK CAPACITY WORKBOOK + INPUT TEMPLATE
+→
+APPLY THE EXISTING HOUSE RENDERER
+→
+POLISH THE LIVE PRESENTATION TO >=9.5
+→
+CHANGE THE ARTICLE TO PUBLISHED
+→
+RUN ALL CONTENT / MATH / VISUAL / RESPONSIVE QA
+→
+DEPLOY TO THE EXISTING VERCEL PROJECT
+→
+VERIFY ACTUAL PRODUCTION
+→
+RETURN THE LIVE URL AND FINAL ACCEPTANCE REPORT.
+
+Do NOT reopen the research.
+
+Do NOT change verified calculations.
+
+Do NOT simplify network units.
+
+Do NOT reinterpret scale-up vs scale-out.
+
+Do NOT create a new repository.
+
+Do NOT create a new Vercel project.
+
+Do NOT convert the article to MDX.
+
+Do NOT add React.
+
+Do NOT add a runtime charting library.
+
+Do NOT build an interactive network calculator today.
+
+Do NOT automatically post social distribution.
+
+This is now a publication/integration task.
+
+────────────────────────────────────────
+0. READ REPOSITORY MEMORY FIRST
+────────────────────────────────────────
+
+Before touching content, read completely:
+
+AGENT.md
+
+PUBLICATION_STANDARD.md
+
+CURRENT_STATE.md
+
+DECISIONS.md
+
+README.md
+
+package.json
+
+and any current publication/runbook documentation.
+
+The site is LIVE.
+
+It is NOT pre-launch.
+
+`PUBLICATION_STANDARD.md` is authoritative for:
+
+SECOND / PASS visual identity
+
+9.5+ publication quality
+
+research SVG safe zones
+
+semantic figures
+
+figure captions
+
+CalculationBlock
+
+ClaimCheck
+
+Assumption
+
+QUESTION
+
+INTELLIGENCE
+
+tables
+
+KaTeX
+
+math safety
+
+responsive behavior
+
+accessibility
+
+source/evidence presentation
+
+downloads
+
+footer
+
+production-state truth.
+
+The authority split is:
+
+APPROVED ZIP:
+research facts
+equations
+calculations
+article meaning
+datasets
+
+REPOSITORY:
+presentation
+rendering
+routing
+SEO
+responsive behavior
+publication state.
+
+Do not invent a competing system.
+
+────────────────────────────────────────
+1. START FROM LATEST MAIN
+────────────────────────────────────────
+
+Before editing run:
+
+git status
+git branch
+git log -10 --oneline
+git diff
+
+Fetch/pull latest main safely.
+
+Preserve all current production work.
+
+Especially preserve:
+
+semantic figure renderer
+
+research SVG safe-zone rules
+
+research-svg:audit if implemented
+
+CalculationBlock
+
+ClaimCheck
+
+Assumption
+
+automatic table wrapping
+
+KaTeX pipeline
+
+single-dollar currency protection
+
+visual:audit
+
+responsive:audit
+
+production-state:audit
+
+prepublish
+
+Pagefind
+
+RSS
+
+sitemap
+
+social asset generation
+
+five-column footer
+
+production Privacy / Terms / formalities
+
+all previously published articles.
+
+Do not regress live site formalities while publishing this article.
+
+────────────────────────────────────────
+2. VERIFY THE ACTUAL ATTACHED ZIP
+────────────────────────────────────────
+
+Extract into a temporary working directory.
+
+Expected root:
+
+second-pass-ai-cluster-network/
+
+Expected real file count:
+
+57
+
+Canonical article:
+
+02_ARTICLE/how-much-network-does-an-ai-gpu-cluster-actually-need.md
+
+Package includes:
+
+03_RESEARCH/
+  ai-cluster-network-input-template.csv
+  collective-communication-model.csv
+  fabric-capacity-scenarios.csv
+  network-exposure-sensitivity.csv
+  network-hardware-reference-2026-08-10.csv
+  required-network-bandwidth-surface.csv
+
+04_MODEL/
+  ai-cluster-network-capacity-model.xlsx
+
+05_CHARTS/
+  chart-01-bandwidth-domains.svg
+  chart-01-bandwidth-domains.png
+  chart-02-ring-allreduce.svg
+  chart-02-ring-allreduce.png
+  chart-03-bandwidth-frontier.svg
+  chart-03-bandwidth-frontier.png
+  chart-04-fabric-oversubscription.svg
+  chart-04-fabric-oversubscription.png
+  chart-05-gpu-network-exposure.svg
+  chart-05-gpu-network-exposure.png
+  chart-specs.md
+  data/*.csv
+
+06_QA/
+
+07_DISTRIBUTION/
+
+08_BRIEF/
+
+09_FOLLOWUPS/
+
+10_PROOF_HANDOFF.md
+
+11_DATA_HANDOFF.md
+
+12_COMMERCIAL_HANDOFF.md
+
+13_SITE_HANDOFF.md.
+
+Read at minimum:
+
+00_MANIFEST.md
+
+01_EDITORIAL_DECISION.md
+
+canonical article
+
+all six primary research CSVs
+
+workbook
+
+chart-specs.md
+
+all five SVGs
+
+all five chart-data CSVs
+
+SOURCE_LEDGER.md
+
+CLAIM_LEDGER.md
+
+CALCULATION_LEDGER.md
+
+BENCHMARK_LEDGER.md
+
+NETWORK_SPEC_RECONCILIATION.md
+
+NETWORK_UNIT_AUDIT.md
+
+COLLECTIVE_MODEL_AUDIT.md
+
+LATENCY_MODEL_AUDIT.md
+
+TOPOLOGY_AUDIT.md
+
+OVERLAP_AUDIT.md
+
+VENDOR_FAIRNESS_AUDIT.md
+
+CONTROL_CHARACTER_AUDIT.md
+
+FACT_CHECK.md
+
+PUBLICATION_GATE.md
+
+13_SITE_HANDOFF.md.
+
+Do not publish from the extraction directory.
+
+Import only public-safe materials.
+
+────────────────────────────────────────
+3. PACKAGE INTEGRITY
+────────────────────────────────────────
+
+Before implementation verify:
+
+correct root:
+PASS
+
+canonical article:
+1
+
+MDX duplicate:
+0
+
+body H1:
+0
+
+FIRST PASS:
+5
+
+unexpected control characters:
+0
+
+local filesystem paths:
+0
+
+previous-package contamination:
+0
+
+five SVGs:
+PASS
+
+five PNGs:
+PASS
+
+workbook:
+PASS.
+
+Known final research-package SHA-256:
+
+1a6c3d812b1185f246579cef8a0f4451d944c1c8598794e07b2abb5b79f5c709
+
+If the supplied archive does not match expected structure:
+
+STOP.
+
+Do not publish the wrong package.
+
+────────────────────────────────────────
+4. HUMAN PUBLICATION STATE
+────────────────────────────────────────
+
+Change:
+
+publishedAt: ""
+
+to:
+
+publishedAt: "2026-08-10"
+
+Change:
+
+status: "review"
+
+to:
+
+status: "published"
+
+Change:
+
+changeLog: []
+
+to repository-schema equivalent of:
+
+changeLog:
+  - at: "2026-08-10"
+    type: "published"
+    note: "Initial publication."
+
+Do not add:
+
+correction
+
+updated
+
+visual update
+
+or other history.
+
+This is the article's initial publication.
+
+────────────────────────────────────────
+5. CANONICAL ARTICLE
+────────────────────────────────────────
+
+Import exactly ONE canonical source.
+
+Expected destination approximately:
+
+src/content/articles/how-much-network-does-an-ai-gpu-cluster-actually-need.md
+
+but inspect current repository conventions first.
+
+Do NOT create:
+
+.mdx
+
+-v2.md
+
+-final.md
+
+-published.md
+
+duplicate article source.
+
+ONE SLUG
+=
+ONE CANONICAL MARKDOWN.
+
+Renderer owns H1.
+
+FIRST PASS comes from frontmatter.
+
+────────────────────────────────────────
+6. TITLE — FROZEN
+────────────────────────────────────────
+
+Use exactly:
+
+# How much network does an AI GPU cluster actually need?
+
+Do not change this to:
+
+Ethernet vs InfiniBand
+
+Why 800G is not enough
+
+The network is the new GPU
+
+or another sensational framing.
+
+This article is about:
+
+COMMUNICATION REQUIREMENT
+
+not:
+
+network vendor ranking.
+
+────────────────────────────────────────
+7. DEK — PRESERVE APPROVED MEANING
+────────────────────────────────────────
+
+Approved dek:
+
+AI clusters are sold in GPU counts and link rates. Neither tells you whether a workload will scale. Count the collective bytes, give them a deadline, subtract the latency floor, then test whether the endpoint and fabric can actually deliver the required payload.
+
+Preserve unless current schema requires cosmetic punctuation normalization.
+
+Do not weaken it into generic:
+
+“AI workloads need fast networking.”
+
+────────────────────────────────────────
+8. CENTRAL THESIS — FROZEN
+────────────────────────────────────────
+
+Preserve the central result:
+
+There is no universal:
+
+REQUIRED Gb/s PER GPU.
+
+The useful network requirement depends on:
+
+collective payload
+
+rank count
+
+startup latency
+
+communication deadline
+
+achieved payload efficiency
+
+topology
+
+fabric capacity
+
+overlap.
+
+The core decision rule is:
+
+COUNT THE BYTES
+
+GIVE THEM A DEADLINE
+
+SUBTRACT THE LATENCY FLOOR
+
+THEN TEST:
+
+ENDPOINT
++
+FABRIC.
+
+Do not change this.
+
+────────────────────────────────────────
+9. CURRENT HARDWARE REFERENCE — FROZEN
+────────────────────────────────────────
+
+Preserve approved current hardware references.
+
+### HGX B300
+
+GPU count:
+8
+
+NIC:
+ConnectX-8 SuperNIC
+
+NIC/GPU:
+1:1 in current NVIDIA reference architecture
+
+endpoint:
+up to 800 Gb/s per ConnectX-8 endpoint
+
+Ethernet reference architecture:
+
+2×400 GbE breakout
+
+one 400 Gb/s connection from each GPU position to each of two network planes
+
+dual-plane
+
+rail-optimized
+
+Spectrum-X leaf-spine.
+
+────────────────────────────────────────
+10. GB300 NVL72 — FROZEN
+────────────────────────────────────────
+
+Preserve:
+
+GPU count:
+72
+
+scale-up domain:
+all 72 GPUs in one NVLink domain
+
+NVLink:
+
+900 GB/s one-way per GPU
+
+1,800 GB/s bidirectional per GPU
+
+current NVIDIA platform figure:
+130 TB/s NVLink bandwidth across NVL72 system
+
+scale-out:
+
+72 ConnectX-8 endpoints
+
+18 compute trays
+
+4 NICs / compute tray
+
+current Ethernet architecture:
+2×400 Gb/s per adapter
+
+rail-optimized dual-plane scale-out fabric.
+
+Do NOT add:
+
+130 TB/s NVLink
+
+to:
+
+scale-out network bandwidth.
+
+They are different communication domains.
+
+────────────────────────────────────────
+11. HARDWARE NUMBER SCOPE
+────────────────────────────────────────
+
+Every network number must retain scope labels.
+
+Examples:
+
+PER GPU
+
+PER NIC
+
+PER PORT
+
+PER NODE
+
+PER RACK
+
+AGGREGATE
+
+ONE-WAY
+
+BIDIRECTIONAL
+
+SCALE-UP
+
+SCALE-OUT
+
+RAW LINE RATE.
+
+Never show a naked:
+
+800 Gb/s
+
+or:
+
+130 TB/s
+
+without nearby scope.
+
+────────────────────────────────────────
+12. HGX AGGREGATE DISCREPANCY
+────────────────────────────────────────
+
+Preserve the article's careful reconciliation.
+
+The current HGX reference architecture makes clear:
+
+8 × 800 Gb/s endpoints
+
+=
+
+6.4 Tb/s
+
+=
+
+800 GB/s
+
+one-direction raw endpoint sum.
+
+Current NVIDIA public platform material may display a larger:
+
+1.6 TB/s networking bandwidth
+
+headline.
+
+Do NOT silently force that top-line value into the workload model.
+
+The approved article uses:
+
+clearly scoped endpoint values
+
+and:
+
+explicit 2×400 Gb/s breakout.
+
+Preserve.
+
+────────────────────────────────────────
+13. GB300 AGGREGATE HANDLING
+────────────────────────────────────────
+
+Preserve:
+
+72 × 800 Gb/s
+
+=
+
+57.6 Tb/s
+
+=
+
+7.2 TB/s
+
+one-direction raw endpoint sum.
+
+Do not import a larger vendor aggregate into workload calculations unless directionality/scope is explicit.
+
+The article's rule must remain:
+
+Before using a network number, attach:
+
+PER-PORT OR AGGREGATE
+
+BITS OR BYTES
+
+ONE-WAY OR BIDIRECTIONAL
+
+SCALE-UP OR SCALE-OUT.
+
+This is one of the core information-gain points.
+
+────────────────────────────────────────
+14. BITS VS BYTES — HARD GATE
+────────────────────────────────────────
+
+Preserve:
+
+800 Gb/s
+
+=
+
+100 GB/s
+
+raw unit conversion.
+
+Do NOT write:
+
+800 Gb/s = 800 GB/s.
+
+Do NOT write:
+
+100 GB/s useful collective throughput.
+
+100 GB/s is:
+
+RAW LINE-RATE UNIT CONVERSION.
+
+Actual effective bandwidth requires:
+
+measurement
+
+or:
+
+explicit scenario efficiency.
+
+Any bit/byte error:
+
+PUBLICATION BLOCKED.
+
+────────────────────────────────────────
+15. EFFECTIVE BANDWIDTH
+────────────────────────────────────────
+
+Preserve:
+
+$$
+B_{\text{eff}}
+=
+\eta_nB_{\text{line}}
+$$
+
+where:
+
+0 < η_n <= 1.
+
+The worked case uses:
+
+80%
+
+as:
+
+SCENARIO
+
+not:
+
+measured efficiency
+
+not:
+
+typical efficiency.
+
+Keep visible.
+
+────────────────────────────────────────
+16. NCCL / RING BOUNDARY
+────────────────────────────────────────
+
+This is important.
+
+The article uses an:
+
+ANALYTICAL RING MODEL.
+
+It does NOT claim:
+
+NCCL always uses ring.
+
+Preserve current primary-source statement that NCCL can choose multiple algorithm families.
+
+Do not rewrite:
+
+“ring AllReduce”
+
+as:
+
+“NCCL AllReduce always...”
+
+Any such wording is wrong.
+
+────────────────────────────────────────
+17. RING ALLREDUCE FORMULA — FROZEN
+────────────────────────────────────────
+
+Preserve:
+
+$$
+V_{\text{AR}}
+=
+2\frac{n-1}{n}S
+$$
+
+for idealized per-rank ring AllReduce payload.
+
+Primary case:
+
+n = 64
+
+S = 1 GiB
+
+=
+
+1,073,741,824 bytes.
+
+Approved result:
+
+2,113,929,216 bytes
+
+=
+
+2.113929216 GB decimal
+
+=
+
+1.96875 GiB per rank.
+
+Analytical steps:
+
+2(n-1)
+
+=
+
+126.
+
+Do not change.
+
+────────────────────────────────────────
+18. IMPORTANT SCALE RESULT
+────────────────────────────────────────
+
+Preserve:
+
+As n grows:
+
+per-rank ring-AllReduce payload approaches:
+
+2S.
+
+But:
+
+startup/communication step count continues increasing.
+
+This is why rank scaling changes latency even when per-rank byte volume approaches a constant.
+
+Do not simplify this to:
+
+AllReduce costs 2S.
+
+The finite-n factor matters.
+
+────────────────────────────────────────
+19. LATENCY-BANDWIDTH MODEL — FROZEN
+────────────────────────────────────────
+
+Preserve:
+
+$$
+T_{\text{AR}}
+\approx
+2(n-1)\lambda
++
+\frac{
+2(n-1)S
+}{
+nB_{\text{eff}}
+}
+$$
+
+where:
+
+λ
+
+is:
+
+effective per-step startup/latency term in the analytical model.
+
+Do NOT describe λ as:
+
+physical propagation delay only.
+
+It represents the simplified startup/latency term.
+
+────────────────────────────────────────
+20. REQUIRED BANDWIDTH EQUATION — FROZEN
+────────────────────────────────────────
+
+Preserve:
+
+$$
+B_{\text{req}}
+\ge
+\frac{
+2(n-1)S/n
+}{
+T_{\text{budget}}-2(n-1)\lambda
+}
+$$
+
+provided:
+
+$$
+T_{\text{budget}}
+>
+2(n-1)\lambda.
+$$
+
+This is one of the article's most valuable equations.
+
+Do not change its algebra.
+
+────────────────────────────────────────
+21. NO-FINITE-BANDWIDTH REGION
+────────────────────────────────────────
+
+Preserve:
+
+If:
+
+$$
+T_{\text{budget}}
+\le
+2(n-1)\lambda
+$$
+
+then under this analytical ring model:
+
+NO FINITE BANDWIDTH
+
+can satisfy the deadline.
+
+This must remain visually prominent.
+
+Do not soften it into:
+
+“faster bandwidth might not help.”
+
+The mathematical boundary is stronger.
+
+But always attach:
+
+UNDER THIS ANALYTICAL RING MODEL.
+
+────────────────────────────────────────
+22. PRIMARY WORKED CASE — FROZEN
+────────────────────────────────────────
+
+Preserve:
+
+Ranks:
+64
+
+Message:
+1 GiB
+
+Compute time:
+270 ms
+
+Communication budget:
+30 ms
+
+Latency assumption:
+2 μs per analytical startup/step
+
+Network efficiency:
+80% SCENARIO.
+
+Per-rank payload:
+
+2.113929216 GB.
+
+Latency floor:
+
+0.252 ms.
+
+Serialization budget:
+
+29.748 ms.
+
+Required effective bandwidth:
+
+71.061 GB/s.
+
+Required raw line rate under 80% scenario:
+
+710.612 Gb/s.
+
+800 Gb/s endpoint:
+
+FEASIBLE UNDER THESE ASSUMPTIONS.
+
+Do not describe:
+
+71.061 GB/s
+
+as:
+
+measured NCCL bandwidth.
+
+It is a derived requirement.
+
+────────────────────────────────────────
+23. PRIMARY CASE AT 800 Gb/s
+────────────────────────────────────────
+
+Preserve:
+
+800 Gb/s raw
+
+=
+
+100 GB/s raw.
+
+At modeled 80% efficiency:
+
+80 GB/s effective.
+
+Approved analytical communication:
+
+bandwidth term:
+26.424 ms
+
+latency term:
+0.252 ms
+
+total:
+26.676 ms
+
+no-overlap exposed communication share:
+8.99%.
+
+Do not call:
+
+8.99%
+
+measured GPU idle time.
+
+It is:
+
+NO-OVERLAP ANALYTICAL EXPOSED COMMUNICATION SHARE.
+
+────────────────────────────────────────
+24. SECOND WORKED CASE — FROZEN
+────────────────────────────────────────
+
+Preserve:
+
+Ranks:
+256
+
+Message:
+1 MiB
+
+Latency assumption:
+2 μs
+
+Deadline:
+1.00 ms.
+
+Analytical startup floor:
+
+1.02 ms.
+
+Result:
+
+NO FINITE BANDWIDTH
+
+under selected simplified ring model.
+
+Corrective levers may include:
+
+lower latency
+
+smaller communication group
+
+fewer startup steps
+
+different algorithm/topology
+
+placement
+
+overlap.
+
+Do not suggest:
+
+“upgrade to faster NIC”
+
+as the answer to this case.
+
+────────────────────────────────────────
+25. FABRIC SCENARIO — FROZEN
+────────────────────────────────────────
+
+Preserve illustrative scenario:
+
+128 endpoints
+
+800 Gb/s each
+
+aggregate endpoint line-rate sum:
+
+102.4 Tb/s.
+
+Modeled fabric cross-section:
+
+51.2 Tb/s.
+
+Oversubscription:
+
+2:1.
+
+Crossing traffic:
+
+60%.
+
+Crossing demand:
+
+61.44 Tb/s.
+
+Deficit:
+
+10.24 Tb/s.
+
+This is:
+
+SCENARIO
+
+not:
+
+measured Spectrum-X performance
+
+not:
+
+measured InfiniBand performance
+
+not:
+
+a claim that 2:1 oversubscription causes 2× slowdown.
+
+Keep these labels attached.
+
+────────────────────────────────────────
+26. GPU-EQUIVALENT EXPOSURE — FROZEN
+────────────────────────────────────────
+
+Preserve:
+
+$$
+G_{\text{equiv,exposed}}
+=
+Gf_{\text{comm}}
+$$
+
+For:
+
+G = 1,024
+
+f = 5%
+
+result:
+
+51.2 GPU-equivalents.
+
+This means:
+
+NORMALIZED WALL-CLOCK CAPACITY EXPOSURE.
+
+It does NOT mean:
+
+51.2 GPUs powered off
+
+51.2 GPUs failed
+
+51.2 GPUs always idle.
+
+No public dollar value is used.
+
+Dollar economics remain:
+
+buyer input.
+
+────────────────────────────────────────
+27. ARTICLE FIGURE ORDER — FROZEN
+────────────────────────────────────────
+
+Use the exact SITE_HANDOFF order:
+
+1.
+chart-01-bandwidth-domains.svg
+
+2.
+chart-02-ring-allreduce.svg
+
+3.
+chart-03-bandwidth-frontier.svg
+
+4.
+chart-04-fabric-oversubscription.svg
+
+5.
+chart-05-gpu-network-exposure.svg.
+
+Do not reorder alphabetically.
+
+Do not dump all five charts together.
+
+Keep each figure near the argument it answers.
+
+────────────────────────────────────────
+28. STABLE PUBLIC ASSET PATHS
+────────────────────────────────────────
+
+Package-relative image references such as:
+
+../05_CHARTS/chart-01-bandwidth-domains.svg
+
+MUST NOT survive into production.
+
+Copy public assets to a clean established namespace.
+
+Suggested:
+
+/research/ai-cluster-network/charts/
+
+and:
+
+/research/ai-cluster-network/downloads/
+
+or the current repository-standard equivalent.
+
+Example:
+
+/research/ai-cluster-network/charts/bandwidth-domains.svg
+
+/research/ai-cluster-network/charts/ring-allreduce.svg
+
+/research/ai-cluster-network/charts/bandwidth-frontier.svg
+
+/research/ai-cluster-network/charts/fabric-oversubscription.svg
+
+/research/ai-cluster-network/charts/gpu-network-exposure.svg.
+
+Use stable descriptive filenames.
+
+Do not rename existing public conventions unnecessarily.
+
+ZERO production occurrences of:
+
+../05_CHARTS/
+
+../03_RESEARCH/
+
+../04_MODEL/
+
+/mnt/data/
+
+sandbox:
+
+file://
+
+temporary extraction paths.
+
+────────────────────────────────────────
+29. SEMANTIC FIGURES — MANDATORY
+────────────────────────────────────────
+
+All five figures must render through the current semantic research-figure pipeline.
+
+Conceptual HTML:
+
+<figure class="research-figure">
+  <div class="research-figure-scroll">
+    <img ...>
+  </div>
+  <figcaption>
+    ...
+  </figcaption>
+</figure>
+
+Do NOT publish analytical figures as:
+
+<p><img></p>.
+
+Use:
+
+05_CHARTS/chart-specs.md
+
+for:
+
+title
+
+decision question
+
+classification
+
+alt text
+
+caption
+
+assumptions
+
+caveat
+
+mobile behavior.
+
+────────────────────────────────────────
+30. FIGURE 01 — THREE BANDWIDTH DOMAINS
+────────────────────────────────────────
+
+Question:
+
+Which bandwidth boundary is being discussed?
+
+Preserve three distinct domains:
+
+LOCAL HBM
+
+SCALE-UP
+
+SCALE-OUT.
+
+Example values remain scope-labelled:
+
+B300 local HBM:
+8 TB/s per GPU
+
+GB300 NVLink:
+900 GB/s one-way per GPU
+
+ConnectX-8:
+800 Gb/s
+=
+100 GB/s raw line-rate units per GPU.
+
+Do NOT make these look like a hardware-performance leaderboard.
+
+The figure's purpose is:
+
+DO NOT COLLAPSE THEM.
+
+Mobile:
+
+stack cards below ~430px.
+
+Text must remain inside boundaries.
+
+No border/text overlap.
+
+────────────────────────────────────────
+31. FIGURE 02 — RING ALLREDUCE
+────────────────────────────────────────
+
+Question:
+
+How does S bytes become communication payload?
+
+Preserve:
+
+ReduceScatter
+
++
+
+AllGather
+
+=
+
+2(n-1)S/n.
+
+For worked example:
+
+64 ranks
+
+1 GiB tensor
+
+1.96875 GiB/rank
+
+126 analytical steps.
+
+Keep:
+
+ANALYTICAL RING MODEL
+
+visible.
+
+Do not imply:
+
+NCCL always uses ring.
+
+Mobile:
+
+stack phases.
+
+────────────────────────────────────────
+32. FIGURE 03 — BANDWIDTH FRONTIER
+────────────────────────────────────────
+
+This is probably the article's flagship visual.
+
+Question:
+
+How much effective bandwidth is required to meet a deadline?
+
+Preserve:
+
+shaded:
+
+NO FINITE BANDWIDTH
+
+region.
+
+Latency floor:
+
+0.252 ms
+
+for primary scenario.
+
+Curve:
+
+required effective bandwidth
+
+against:
+
+deadline.
+
+30 ms worked case:
+
+~71.1 GB/s.
+
+80 GB/s effective reference:
+
+only the explicit:
+
+800 Gb/s × 80%
+
+SCENARIO.
+
+Do NOT make the curve look like benchmark measurements.
+
+Required labels:
+
+SCENARIO
+
+ANALYTICAL RING MODEL
+
+NO FINITE BANDWIDTH.
+
+Mobile:
+
+internal horizontal scroll below ~390 if required.
+
+Never remove infeasible region to make chart smaller.
+
+────────────────────────────────────────
+33. FIGURE 04 — FABRIC OVERSUBSCRIPTION
+────────────────────────────────────────
+
+Question:
+
+Why can fast endpoint NICs still hit a fabric limit?
+
+Preserve:
+
+128 × 800 Gb/s endpoints
+
+102.4 Tb/s endpoint sum
+
+51.2 Tb/s modeled cross-section
+
+60% crossing traffic
+
+61.44 Tb/s crossing demand
+
+10.24 Tb/s deficit.
+
+Make clear:
+
+endpoint injection
+≠
+fabric cross-section.
+
+Do not imply:
+
+every 2:1 fabric causes this exact outcome.
+
+This is scenario-specific.
+
+Mobile:
+
+stack endpoint/cross-section/demand modules.
+
+────────────────────────────────────────
+34. FIGURE 05 — GPU NETWORK EXPOSURE
+────────────────────────────────────────
+
+Question:
+
+What does exposed communication share mean at cluster scale?
+
+Preserve:
+
+1%
+→
+10.24 GPU-equivalents
+
+2%
+→
+20.48
+
+5%
+→
+51.2
+
+10%
+→
+102.4
+
+20%
+→
+204.8
+
+for a 1,024-GPU mathematical sensitivity.
+
+If exact CSV values use slightly different display rounding:
+
+follow source CSV.
+
+Use Signal Blue for the key 5% scenario if current chart does.
+
+Do not imply actual measured fleet loss.
+
+Caption must state:
+
+normalized capacity fraction.
+
+No public GPU price.
+
+────────────────────────────────────────
+35. SVG SAFE-ZONE QUALITY
+────────────────────────────────────────
+
+The site recently had a text-overlap defect in another research SVG.
+
+Do NOT repeat it.
+
+The network package already reports Figure 01 and Figure 03 were rebuilt after visual QA.
+
+Preserve those safe-zone corrections.
+
+For every SVG inspect:
+
+text inside boxes
+
+titles
+
+axis labels
+
+annotations
+
+arrow labels
+
+legends
+
+figure edges.
+
+Required:
+
+text-border collisions:
+0
+
+text-arrow collisions:
+0
+
+clipped labels:
+0
+
+labels outside viewBox:
+0
+
+microscopic mobile labels:
+0.
+
+Use the current research SVG safe-zone rule from PUBLICATION_STANDARD.md.
+
+────────────────────────────────────────
+36. FIGCAPTIONS
+────────────────────────────────────────
+
+Every analytical figure requires a meaningful caption.
+
+Do not use title-only captions.
+
+Figure 01 caption must reinforce:
+
+scope and units.
+
+Figure 02:
+
+per-rank payload approaches 2S while steps grow.
+
+Figure 03:
+
+bandwidth requirement uses serialization budget remaining after latency.
+
+Figure 04:
+
+endpoint injection and fabric cross-section differ.
+
+Figure 05:
+
+GPU-equivalent exposure is normalized wall-clock capacity.
+
+Captions must remain readable and sufficiently contrasted.
+
+────────────────────────────────────────
+37. `/ QUESTION`
+────────────────────────────────────────
+
+Preserve:
+
+/ QUESTION
+
+Given our communication pattern and timing budget, what scale-out network must exist before adding another GPU actually increases useful cluster throughput?
+
+Use current QUESTION house treatment.
+
+Do not create giant UI card.
+
+────────────────────────────────────────
+38. `/ CLAIM CHECK` #1
+────────────────────────────────────────
+
+Approved claim:
+
+“An 800 Gb/s NIC means my GPU gets 100 GB/s of useful collective bandwidth.”
+
+Render using house ClaimCheck.
+
+Preserve:
+
+WHAT IS TRUE
+
+WHAT IS MISSING
+
+SECOND / PASS.
+
+Final logic:
+
+800 Gb/s converts to 100 GB/s raw line-rate units.
+
+It does NOT prove:
+
+100 GB/s useful collective payload.
+
+Use restrained Signal Blue on final verdict if standard supports it.
+
+────────────────────────────────────────
+39. `/ CLAIM CHECK` #2
+────────────────────────────────────────
+
+Approved claim:
+
+“GB300 NVL72 has 130 TB/s of NVLink, so external network bandwidth is no longer important.”
+
+Preserve core distinction:
+
+NVLink:
+scale-up
+
+external scale-out fabric:
+another communication boundary.
+
+Use house treatment.
+
+Do not turn into Ethernet-vs-NVLink comparison.
+
+────────────────────────────────────────
+40. `/ CALCULATION` OBJECTS
+────────────────────────────────────────
+
+Use existing CalculationBlock renderer.
+
+Important calculations include:
+
+RING ALLREDUCE PAYLOAD
+
+REQUIRED BANDWIDTH
+
+NO-FINITE-BANDWIDTH CONDITION
+
+GPU-EQUIVALENT CAPACITY EXPOSURE
+
+where article semantics support dedicated blocks.
+
+The house result state should make major outputs easy to scan.
+
+Examples:
+
+2.1139 GB / rank
+
+71.061 GB/s effective
+
+710.612 Gb/s line rate
+
+NO FINITE BANDWIDTH
+
+51.2 GPU-equivalents.
+
+Do not turn every equation into a giant boxed card.
+
+Use visual restraint.
+
+────────────────────────────────────────
+41. `/ ASSUMPTION`
+────────────────────────────────────────
+
+Worked scenarios must visually separate assumptions from observed hardware facts.
+
+Primary scenario assumptions:
+
+64 ranks
+
+1 GiB tensor
+
+270 ms compute
+
+30 ms communication budget
+
+2 μs startup term
+
+80% network efficiency.
+
+These are not all measured production values.
+
+Use house Assumption treatment where the article provides a semantic assumption block.
+
+Do not make scenarios look like benchmarks.
+
+────────────────────────────────────────
+42. ARTICLE MATH
+────────────────────────────────────────
+
+Use the current KaTeX pipeline.
+
+All equations must render.
+
+No raw:
+
+\frac
+
+\text
+
+\lambda
+
+\ge
+
+\le
+
+outside math.
+
+No malformed delimiters.
+
+No accidental Markdown H1 from equation syntax.
+
+The research package previously passes:
+
+display math balanced
+
+raw LaTeX outside math:
+0
+
+unexpected controls:
+0.
+
+Preserve.
+
+────────────────────────────────────────
+43. CONTROL-CHARACTER HARD GATE
+────────────────────────────────────────
+
+Because prior SECOND / PASS work exposed LaTeX/control-character serialization problems, scan the imported canonical Markdown again.
+
+Required:
+
+UTF-8:
+PASS
+
+BOM:
+ABSENT
+
+TAB corruption in LaTeX:
+0
+
+FORM FEED:
+0
+
+NULL:
+0
+
+unexpected C0:
+0
+
+DEL:
+0
+
+sentinels:
+0.
+
+Forbidden sentinel strings:
+
+24182
+
+24183
+
+24190
+
+24191.
+
+Specifically verify:
+
+\frac
+
+\text
+
+remain literal backslash commands.
+
+Do not serialize LaTeX through a layer that interprets escape sequences.
+
+────────────────────────────────────────
+44. WORKBOOK — PUBLIC DOWNLOAD
+────────────────────────────────────────
+
+Publish:
+
+04_MODEL/ai-cluster-network-capacity-model.xlsx
+
+as static research download.
+
+Suggested:
+
+/research/ai-cluster-network/downloads/ai-cluster-network-capacity-model.xlsx
+
+or current established convention.
+
+Do NOT rebuild it.
+
+Do NOT turn it into a runtime web calculator.
+
+Do NOT add an email gate.
+
+────────────────────────────────────────
+45. WORKBOOK STRUCTURE — PRESERVE
+────────────────────────────────────────
+
+Workbook has 11 sheets:
+
+1. README
+2. HARDWARE
+3. WORKLOAD
+4. COLLECTIVES
+5. LATENCY
+6. FABRIC
+7. OVERLAP
+8. CAPACITY
+9. ECONOMICS
+10. SENSITIVITY
+11. SOURCES
+
+Formula errors:
+0.
+
+Do not delete sheets.
+
+Do not simplify formula logic.
+
+────────────────────────────────────────
+46. WORKBOOK GUARDS — PRESERVE
+────────────────────────────────────────
+
+Critical tested safeguards:
+
+UNIT GUARDS:
+PASS
+
+NO-FINITE-BANDWIDTH BRANCH:
+PASS
+
+FABRIC GUARD:
+PASS
+
+OVERLAP GUARD:
+PASS
+
+MEASURED > LINE-RATE GUARD:
+PASS.
+
+Known negative tests:
+
+256 ranks / 1 ms:
+NO FINITE BANDWIDTH.
+
+Overlap > min(compute,communication):
+REJECTED.
+
+120 GB/s effective measurement against 100 GB/s raw endpoint:
+INVALID.
+
+Do not break these protections.
+
+────────────────────────────────────────
+47. PUBLIC INPUT TEMPLATE
+────────────────────────────────────────
+
+Publish:
+
+03_RESEARCH/ai-cluster-network-input-template.csv
+
+as static public download.
+
+Suggested path:
+
+/research/ai-cluster-network/downloads/ai-cluster-network-input-template.csv
+
+No email gate.
+
+No analytics requirement.
+
+No fake “request access.”
+
+────────────────────────────────────────
+48. OPTIONAL SUPPORTING PUBLIC DATA
+────────────────────────────────────────
+
+Public-safe supporting CSVs may include:
+
+collective-communication-model.csv
+
+fabric-capacity-scenarios.csv
+
+network-exposure-sensitivity.csv
+
+network-hardware-reference-2026-08-10.csv
+
+required-network-bandwidth-surface.csv.
+
+Use judgment.
+
+Do not clutter the article with six download links.
+
+Primary reader-facing downloads should be:
+
+XLSX network model
+
+CSV input template.
+
+Selected source data may be linked in a:
+
+DATA / REPRODUCE
+
+object if current design supports it.
+
+────────────────────────────────────────
+49. DOWNLOAD HOUSE OBJECT
+────────────────────────────────────────
+
+Add a restrained supporting research object near the company decision section.
+
+Suggested direction:
+
+/ USE THE MODEL
+
+AI CLUSTER NETWORK CAPACITY MODEL
+XLSX
+
+COMPANY INPUT TEMPLATE
+CSV
+
+Replace:
+
+GPU count
+collective
+message size
+latency
+deadline
+fabric capacity
+overlap
+GPU economics
+
+with your own measurements.
+
+DOWNLOAD →
+
+Keep this editorial.
+
+No lead magnet.
+
+No giant button.
+
+No signup gate.
+
+────────────────────────────────────────
+50. PRIVATE PACKAGE MATERIAL
+────────────────────────────────────────
+
+Do NOT publish/index:
+
+00_MANIFEST.md
+
+01_EDITORIAL_DECISION.md
+
+06_QA/*
+
+07_DISTRIBUTION/*
+
+09_FOLLOWUPS/*
+
+10_PROOF_HANDOFF.md
+
+11_DATA_HANDOFF.md
+
+12_COMMERCIAL_HANDOFF.md
+
+13_SITE_HANDOFF.md.
+
+These are internal newsroom/handoff documents.
+
+Do not expose them through:
+
+Pagefind
+
+RSS
+
+sitemap
+
+routes.
+
+────────────────────────────────────────
+51. `/ INTELLIGENCE`
+────────────────────────────────────────
+
+Use current house INTELLIGENCE object.
+
+Suggested approved copy direction:
+
+Planning a multi-rack AI cluster?
+
+SECOND / PASS research sprints apply this model to your actual collective traces, parallelism strategy, latency budget and candidate fabric.
+
+START A RESEARCH BRIEF →
+
+Destination:
+
+/intelligence
+
+No price.
+
+No urgency.
+
+No promise of vendor endorsement.
+
+Do not publish the full commercial handoff.
+
+────────────────────────────────────────
+52. FEATURED STATE
+────────────────────────────────────────
+
+Package frontmatter says:
+
+featured: true.
+
+Preserve according to current repository feature policy.
+
+If exactly one article can be primary homepage feature:
+
+inspect current behavior and use the intended newest flagship logic.
+
+Do NOT:
+
+unpublish previous articles
+
+delete previous featured metadata blindly
+
+break older article discoverability.
+
+Current newest publication may become homepage lead through existing sort logic.
+
+Use existing system.
+
+────────────────────────────────────────
+53. COMPUTE DESK
+────────────────────────────────────────
+
+After publication:
+
+/compute
+
+must include at minimum current COMPUTE work such as:
+
+A GB300 NVL72 rack can require up to 142 kW. What can your facility support?
+
+When FLOPs stop being the binding spec: the HBM roofline for LLM inference
+
+How much network does an AI GPU cluster actually need?
+
+in correct publication ordering.
+
+Do not redesign `/compute`.
+
+This publication should make the COMPUTE desk feel like a coherent research program:
+
+POWER
+→
+HBM
+→
+NETWORK.
+
+────────────────────────────────────────
+54. RESEARCH SURFACE
+────────────────────────────────────────
+
+This article format is:
+
+SECOND PASS.
+
+Do not force it into `/research` unless existing taxonomy includes SECOND PASS there.
+
+Follow current route logic.
+
+Do not hard-code category duplication.
+
+────────────────────────────────────────
+55. AUTHOR / RSS / SITEMAP / SEARCH
+────────────────────────────────────────
+
+Verify:
+
+/authors/aditya
+
+RSS
+
+sitemap
+
+Pagefind.
+
+Useful Pagefind queries:
+
+GPU cluster network
+
+800 Gb/s
+
+71.061
+
+710.612
+
+AllReduce
+
+NCCL
+
+NVLink
+
+51.2 GPU
+
+bandwidth frontier
+
+no finite bandwidth
+
+oversubscription.
+
+────────────────────────────────────────
+56. FIRST SCREEN
+────────────────────────────────────────
+
+At desktop target:
+
+>=9.7/10.
+
+Need:
+
+COMPUTE / SECOND PASS
+
+headline
+
+dek
+
+Aditya
+
+Published Aug 10, 2026
+
+TOC
+
+FIRST PASS
+
+evidence rail.
+
+No hero image.
+
+No switch photograph.
+
+No rack render.
+
+Typography remains hero.
+
+────────────────────────────────────────
+57. FIRST PASS
+────────────────────────────────────────
+
+Preserve exactly 5 bullets.
+
+They must communicate:
+
+scale-up vs scale-out
+
+ring payload equation
+
+deadline-based bandwidth requirement
+
+no-finite-bandwidth latency boundary
+
+GPU-equivalent exposed capacity.
+
+Do not dilute with generic network claims.
+
+Do not add a sixth bullet.
+
+────────────────────────────────────────
+58. ARTICLE RHYTHM
+────────────────────────────────────────
+
+Article length:
+
+~3,043 words.
+
+Five figures.
+
+Expected argument rhythm approximately:
+
+opening
+
+QUESTION
+
+Figure 01
+
+bandwidth-domain explanation
+
+spec reconciliation
+
+800 Gb/s unit trap
+
+Claim Check
+
+collective mechanics
+
+Figure 02
+
+ring calculation
+
+deadline model
+
+Figure 03
+
+no-finite-bandwidth case
+
+scale-up / scale-out implications
+
+Claim Check
+
+fabric oversubscription
+
+Figure 04
+
+overlap
+
+GPU-equivalent exposure
+
+Figure 05
+
+company decision rule
+
+downloads
+
+SECOND PASS conclusion
+
+INTELLIGENCE
+
+Sources
+
+BRIEF.
+
+Follow canonical article if its order is stronger.
+
+Do not create a chart dump.
+
+────────────────────────────────────────
+59. SOURCE/EVIDENCE RAIL
+────────────────────────────────────────
+
+Use load-bearing primary sources only.
+
+Likely:
+
+NVIDIA HGX networking logical architecture
+
+NVIDIA NVL72 networking logical architecture
+
+ConnectX-8 port configurations
+
+NCCL collectives
+
+NCCL algorithm configuration
+
+Megatron tensor-parallel API
+
+where relevant.
+
+Do not place:
+
+internal QA ledgers
+
+secondary sources
+
+every source
+
+into the evidence rail.
+
+Full structured sources remain at article end.
+
+────────────────────────────────────────
+60. LAST-MINUTE SOURCE CHECK
+────────────────────────────────────────
+
+Do NOT reopen broad research.
+
+Before publication only verify that load-bearing primary URLs still resolve.
+
+Verify current source pages still support:
+
+800 Gb/s ConnectX-8 endpoint
+
+2×400 GbE configuration
+
+72-GPU NVLink domain
+
+900 GB/s one-way per GPU
+
+current NCCL collective semantics
+
+NCCL not ring-only.
+
+If a LOAD-BEARING FACT materially changed:
+
+STOP.
+
+Report:
+
+PUBLICATION BLOCKED — SOURCE CHANGED
+
+with exact discrepancy.
+
+Do not silently rewrite research.
+
+────────────────────────────────────────
+61. VISUAL 9.5+ STANDARD
+────────────────────────────────────────
+
+Do not merely copy SVGs.
+
+Inspect them in the live article.
+
+Target for every figure:
+
+>=9.5/10.
+
+Assess:
+
+hierarchy
+
+unit clarity
+
+text size
+
+safe zones
+
+annotation placement
+
+Signal Blue meaning
+
+caption quality
+
+mobile readability
+
+lack of collisions
+
+lack of decorative noise.
+
+Allowed changes:
+
+font size
+
+spacing
+
+alignment
+
+padding
+
+line weight
+
+annotation placement
+
+mobile layout.
+
+Forbidden:
+
+change data
+
+change calculations
+
+change meaning
+
+add vendor colors.
+
+────────────────────────────────────────
+62. SIGNAL BLUE
+────────────────────────────────────────
+
+Use Signal Blue only for meaningful state such as:
+
+active bandwidth boundary
+
+key calculation
+
+scenario point
+
+threshold
+
+infeasible boundary
+
+selected 5% exposure.
+
+Do not recolor NVIDIA/AMD/InfiniBand/Ethernet according to vendor brand colors.
+
+SECOND / PASS owns the visual language.
+
+────────────────────────────────────────
+63. NO DECORATIVE NETWORK VISUALS
+────────────────────────────────────────
+
+Do NOT add:
+
+server-rack photo
+
+switch photo
+
+network cables
+
+glowing topology
+
+cloud diagram
+
+generic internet icon
+
+GPU render
+
+AI brain.
+
+The five research figures are sufficient.
+
+────────────────────────────────────────
+64. RESPONSIVE QA — FULL SUITE
+────────────────────────────────────────
+
+Run:
+
+1440 × 1000
+
+1024 × 1366
+
+820 × 1180
+
+768 × 1024
+
+430 × 932
+
+390 × 844
+
+375 × 812.
+
+This is a flagship-level technical publication.
+
+Do NOT use quick-only responsive QA as the final gate.
+
+────────────────────────────────────────
+65. FIGURE RESPONSIVE RULES
+────────────────────────────────────────
+
+Figure 01:
+
+stack cards below ~430px.
+
+Figure 02:
+
+stack ReduceScatter / AllGather phases.
+
+Figure 03:
+
+internal horizontal scroll below ~390px if needed.
+
+DO NOT remove:
+
+NO FINITE BANDWIDTH region.
+
+Figure 04:
+
+stack endpoint/fabric/crossing-demand objects.
+
+Figure 05:
+
+keep bar/data labels readable.
+
+Captions remain OUTSIDE scrollable figure region.
+
+No page-level horizontal overflow.
+
+────────────────────────────────────────
+66. TABLES
+────────────────────────────────────────
+
+Use existing automatic table wrapper.
+
+No new table system.
+
+Every table:
+
+semantic
+
+readable
+
+internally scrollable if needed
+
+no page overflow.
+
+Units must remain visible.
+
+────────────────────────────────────────
+67. MATH RESPONSIVE QA
+────────────────────────────────────────
+
+Inspect every major equation at:
+
+375px.
+
+Especially:
+
+AllReduce payload
+
+latency-bandwidth model
+
+required-bandwidth equation
+
+finite condition
+
+communication share
+
+GPU-equivalent exposure.
+
+Long equations may scroll internally.
+
+Page itself must not scroll horizontally.
+
+────────────────────────────────────────
+68. ACCESSIBILITY
+────────────────────────────────────────
+
+Required:
+
+semantic `<figure>`
+
+useful alt text ×5
+
+visible figcaption ×5
+
+no color-only chart meaning
+
+semantic headings
+
+one H1 only
+
+keyboard-safe internal scrollers
+
+descriptive download links
+
+descriptive source links
+
+reasonable focus states
+
+adequate contrast.
+
+────────────────────────────────────────
+69. SOCIAL ASSETS
+────────────────────────────────────────
+
+Generate current SECOND / PASS house social assets:
+
+1200×630
+
+1080×1350
+
+1080×1080.
+
+No networking photography.
+
+No vendor-logo collage.
+
+Primary direction:
+
+HOW MUCH
+NETWORK DOES
+AN AI GPU CLUSTER
+ACTUALLY NEED?
+
+BYTES
+÷
+DEADLINE
+
+NOT JUST
+Gb/s / GPU
+
+SECOND / PASS
+
+or stronger house-compliant equivalent.
+
+────────────────────────────────────────
+70. SECONDARY SOCIAL CARD
+────────────────────────────────────────
+
+Optional research card:
+
+NO FINITE
+BANDWIDTH
+
+if:
+
+LATENCY
+≥
+DEADLINE
+
+or a readable form of:
+
+T_budget <= 2(n-1)λ
+
+with clear label:
+
+ANALYTICAL RING MODEL.
+
+Do not use it without context.
+
+────────────────────────────────────────
+71. SEO
+────────────────────────────────────────
+
+Preserve reviewed metadata.
+
+SEO title:
+
+How much network bandwidth does an AI GPU cluster need?
+
+SEO description:
+
+A source-backed AI cluster network model: collective bytes, ring AllReduce timing, latency floors, required effective bandwidth, oversubscription, overlap and GPU-equivalent network exposure.
+
+Verify:
+
+canonical
+
+Article JSON-LD
+
+Person
+
+Organization
+
+section COMPUTE
+
+format SECOND PASS
+
+published date
+
+tags
+
+OG
+
+Twitter/OpenGraph
+
+social image
+
+alt.
+
+────────────────────────────────────────
+72. PRODUCTION STATE
+────────────────────────────────────────
+
+The site is already LIVE.
+
+Do NOT:
+
+re-enable pre-launch
+
+add noindex
+
+restore launch-stage language
+
+restore reserved fake advertisements
+
+regress Privacy / Terms
+
+regress cookie/storage state.
+
+Current canonical remains:
+
+https://second-pass.vercel.app
+
+until custom-domain migration is separately performed.
+
+────────────────────────────────────────
+73. PREPUBLISH
+────────────────────────────────────────
+
+Run current equivalent of:
+
+bun run prepublish -- how-much-network-does-an-ai-gpu-cluster-actually-need
+
+Do not bypass failures.
+
+Expected checks may include:
+
+content-source-audit
+
+article verify
+
+content audit
+
+Astro check
+
+build
+
+render audit
+
+visual audit
+
+research SVG audit
+
+responsive audit
+
+production-state audit
+
+social generation
+
+currency regression
+
+Pagefind.
+
+Use actual current scripts.
+
+Do not invent PASS results.
+
+────────────────────────────────────────
+74. FULL RELEASE REGRESSION
+────────────────────────────────────────
+
+Also run current full release suite.
+
+At minimum:
+
+bun run content-source-audit
+
+bun run content:audit
+
+bun run check
+
+bun run build
+
+bun run render-audit -- --all
+
+bun run visual:audit -- --all
+
+bun run responsive:audit
+
+bun run research-svg:audit
+
+bun run production-state:audit
+
+where those scripts exist.
+
+If current script names differ:
+
+use current equivalents.
+
+Do not weaken shared QA.
+
+────────────────────────────────────────
+75. NO REGRESSION TO EXISTING PUBLICATIONS
+────────────────────────────────────────
+
+At minimum preserve:
+
+a-142-kw-ai-rack-turns-gpu-procurement-into-a-power-problem
+
+when-flops-stop-mattering-hbm-roofline-llm-inference
+
+when-should-a-company-run-its-own-ai-model
+
+an-ai-agent-is-no-longer-priced-in-tokens
+
+cheapest-ai-model-not-cheapest-system
+
+cheapest-ai-model-not-cheapest-system-proof
+
+ai-inference-price-surface-v0-1
+
+no-universal-long-context-premium
+
+prompt-cache-second-use-break-even
+
+sonnet-5-price-effective-date
+
+plus any newer article.
+
+Do not fix this article by breaking another.
+
+────────────────────────────────────────
+76. SCREENSHOT REVIEW
+────────────────────────────────────────
+
+Generate temporary screenshots at all seven target widths.
+
+Actually inspect them.
+
+Pay particular attention to:
+
+first screen
+
+Figure 01
+
+800 Gb/s Claim Check
+
+Figure 02
+
+AllReduce CalculationBlock
+
+Figure 03
+
+NO FINITE BANDWIDTH region
+
+second worked case
+
+130 TB/s Claim Check
+
+Figure 04
+
+overlap section
+
+Figure 05
+
+download object
+
+INTELLIGENCE
+
+Sources
+
+BRIEF
+
+footer.
+
+Temporary screenshots must not be committed.
+
+────────────────────────────────────────
+77. VISUAL SCORECARD
+────────────────────────────────────────
+
+Score actual rendered article:
+
+FIRST-SCREEN HIERARCHY
+
+TYPOGRAPHY
+
+ARTICLE RHYTHM
+
+INFORMATION DESIGN
+
+FIGURE QUALITY
+
+MATHEMATICAL PRESENTATION
+
+TABLE QUALITY
+
+HOUSE OBJECT CONSISTENCY
+
+SOURCE/EVIDENCE PRESENTATION
+
+RESPONSIVE DESIGN
+
+ACCESSIBILITY
+
+POLISH.
+
+Requirements:
+
+NO dimension below 9.0.
+
+Average:
+
+>=9.5.
+
+For this article specifically:
+
+Information Design:
+>=9.5
+
+Figure Quality:
+>=9.5
+
+Mathematical Presentation:
+>=9.5.
+
+Do not fake scores.
+
+If something is below standard:
+
+fix it before deploy.
+
+────────────────────────────────────────
+78. LIVE FIGURE OVERLAP GATE
+────────────────────────────────────────
+
+This is a HARD GATE.
+
+Every research SVG:
+
+no text-border overlap
+
+no text-arrow overlap
+
+no clipped label
+
+no annotation outside safe zone.
+
+The recent GB300 thermal SVG bug must not recur.
+
+If a live screenshot shows any collision:
+
+fix SVG source
+
+not CSS masking.
+
+────────────────────────────────────────
+79. GIT HYGIENE
+────────────────────────────────────────
+
+Before commit:
+
+git status
+git diff
+git diff --stat
+
+Do NOT commit:
+
+the ZIP
+
+temporary extraction directory
+
+internal QA files
+
+distribution drafts
+
+screenshots
+
+Playwright traces
+
+logs
+
+.env
+
+secrets
+
+node_modules.
+
+Commit only:
+
+canonical article
+
+public SVG/PNG research assets
+
+public workbook
+
+public input CSV
+
+selected supporting public data
+
+required presentation/integration changes.
+
+────────────────────────────────────────
+80. COMMIT
+────────────────────────────────────────
+
+Preferred commit:
+
+feat: publish AI cluster network analysis
+
+One coherent commit preferred.
+
+No force push.
+
+No history rewrite.
+
+────────────────────────────────────────
+81. DEPLOYMENT
+────────────────────────────────────────
+
+Deploy ONLY to existing Vercel project:
+
+second-pass.
+
+Do not create a new Vercel project.
+
+Do not change team.
+
+Do not change canonical.
+
+Do not create another deployment architecture.
+
+────────────────────────────────────────
+82. EXPECTED LIVE URL
+────────────────────────────────────────
+
+Expected:
+
+https://second-pass.vercel.app/articles/how-much-network-does-an-ai-gpu-cluster-actually-need
+
+Fetch ACTUAL production.
+
+HTTP:
+
+200 REQUIRED.
+
+Preview/local is not enough.
+
+────────────────────────────────────────
+83. LIVE STATIC-ASSET VERIFICATION
+────────────────────────────────────────
+
+Fetch all five production SVGs.
+
+Each:
+
+HTTP 200.
+
+Fetch:
+
+ai-cluster-network-capacity-model.xlsx
+
+200.
+
+Fetch:
+
+ai-cluster-network-input-template.csv
+
+200.
+
+Fetch social assets.
+
+200.
+
+No package-relative paths remain.
+
+────────────────────────────────────────
+84. PRODUCTION HTML QA
+────────────────────────────────────────
+
+Fetch actual production HTML.
+
+Verify:
+
+one H1
+
+one FIRST PASS
+
+five FIRST PASS bullets
+
+COMPUTE
+
+SECOND PASS
+
+Published Aug 10, 2026
+
+five semantic research figures
+
+five useful figcaptions
+
+QUESTION
+
+CalculationBlocks
+
+ClaimChecks
+
+Assumption objects where applicable
+
+KaTeX
+
+structured Sources
+
+Initial publication change log
+
+download object
+
+INTELLIGENCE link
+
+article-bottom BRIEF
+
+canonical
+
+OG metadata
+
+JSON-LD.
+
+Zero:
+
+raw package paths
+
+raw LaTeX
+
+unexpected control chars
+
+sentinels
+
+duplicate H1
+
+duplicate FIRST PASS
+
+duplicate Sources.
+
+────────────────────────────────────────
+85. LIVE CORE-NUMBER QA
+────────────────────────────────────────
+
+Verify production visibly preserves:
+
+800 Gb/s
+=
+100 GB/s raw conversion.
+
+Ring AllReduce:
+
+2(n-1)S/n.
+
+64-rank 1 GiB:
+
+2.113929216 GB/rank.
+
+Latency floor:
+
+0.252 ms.
+
+Required effective bandwidth:
+
+71.061 GB/s.
+
+Required raw line rate:
+
+710.612 Gb/s
+
+at explicit 80% scenario.
+
+Primary analytical communication:
+
+26.676 ms.
+
+Primary no-overlap share:
+
+8.99%.
+
+Second case:
+
+1.02 ms startup floor
+
+vs:
+
+1.00 ms deadline.
+
+Result:
+
+NO FINITE BANDWIDTH.
+
+Fabric scenario:
+
+102.4 Tb/s endpoint sum
+
+51.2 Tb/s cross-section
+
+61.44 Tb/s crossing demand
+
+10.24 Tb/s deficit.
+
+GPU exposure:
+
+51.2 GPU-equivalents at 5% of 1,024 GPUs.
+
+Any mismatch:
+
+BLOCK.
+
+────────────────────────────────────────
+86. LIVE LANGUAGE QA
+────────────────────────────────────────
+
+Search production article for prohibited misstatements.
+
+Must NOT say:
+
+800 Gb/s = 100 GB/s useful bandwidth
+
+NCCL always uses ring
+
+130 TB/s NVLink replaces scale-out networking
+
+2:1 oversubscription means half speed
+
+51.2 GPUs are idle/off
+
+80% network efficiency is typical
+
+71 GB/s is measured bandwidth
+
+710 Gb/s is a universal requirement
+
+no finite bandwidth applies universally.
+
+All scenario/model labels must remain.
+
+────────────────────────────────────────
+87. LIVE COMPUTE PAGE
+────────────────────────────────────────
+
+Fetch:
+
+https://second-pass.vercel.app/compute
+
+Verify new article appears.
+
+Correct:
+
+headline
+
+dek
+
+date
+
+format
+
+link.
+
+No empty state.
+
+No stale pre-launch copy.
+
+No visual collision.
+
+────────────────────────────────────────
+88. LIVE SEARCH
+────────────────────────────────────────
+
+Verify Pagefind finds:
+
+How much network
+
+800 Gb/s
+
+NCCL
+
+AllReduce
+
+71.061
+
+710.612
+
+no finite bandwidth
+
+51.2 GPU
+
+oversubscription
+
+NVLink.
+
+Internal QA files must NOT be indexed.
+
+────────────────────────────────────────
+89. RSS / SITEMAP / AUTHOR
+────────────────────────────────────────
+
+Verify:
+
+RSS contains article
+
+sitemap contains article
+
+author page contains article.
+
+No private research package paths in output.
+
+────────────────────────────────────────
+90. PRODUCTION SCREENSHOTS
+────────────────────────────────────────
+
+After deployment capture at least:
+
+1440
+
+1024
+
+390
+
+375.
+
+Prefer all seven.
+
+Inspect actual production.
+
+Do not assume local rendering equals Vercel.
+
+Especially inspect:
+
+Figure 01 safe zones
+
+Figure 03 labels/infeasible region
+
+Figure 04 topology layout
+
+Figure 05 labels
+
+CalculationBlocks
+
+footer.
+
+If production differs:
+
+fix
+
+redeploy
+
+reverify.
+
+────────────────────────────────────────
+91. DISTRIBUTION
+────────────────────────────────────────
+
+Do NOT automatically publish external posts.
+
+The package already includes distribution drafts.
+
+Final report:
+
+DISTRIBUTION PACKAGE:
+READY
+
+AUTOMATICALLY POSTED:
+NO.
+
+Do not send daily BRIEF unless separately instructed.
+
+────────────────────────────────────────
+92. PROOF / DATA FOLLOWUPS
+────────────────────────────────────────
+
+Do not publish:
+
+PROOF_HANDOFF
+
+DATA_HANDOFF
+
+FOLLOWUP_EXTRACTIONS
+
+in this task.
+
+Article #03 only.
+
+Those remain newsroom inputs.
+
+────────────────────────────────────────
+93. FINAL CONTENT GATE
+────────────────────────────────────────
+
+Require:
+
+✓ scale-up vs scale-out separated
+
+✓ bits vs bytes correct
+
+✓ per-port/per-GPU/aggregate correct
+
+✓ one-way/bidirectional labels retained
+
+✓ 130 TB/s scope retained
+
+✓ 800 Gb/s endpoint scope retained
+
+✓ ring is analytical model
+
+✓ NCCL not ring-only
+
+✓ AllReduce formula correct
+
+✓ primary case correct
+
+✓ latency floor correct
+
+✓ bandwidth requirement correct
+
+✓ no-finite condition correct
+
+✓ 256-rank example correct
+
+✓ fabric scenario explicit
+
+✓ oversubscription not universalized
+
+✓ overlap bounded
+
+✓ GPU-equivalent exposure not literal idle GPUs
+
+✓ no vendor winner
+
+✓ no benchmark fabricated
+
+✓ workbook protections preserved.
+
+────────────────────────────────────────
+94. FINAL VISUAL GATE
+────────────────────────────────────────
+
+Require:
+
+Figure 01:
+>=9.5
+
+Figure 02:
+>=9.5
+
+Figure 03:
+>=9.5
+
+Figure 04:
+>=9.5
+
+Figure 05:
+>=9.5
+
+Semantic figures:
+5
+
+Captions:
+5
+
+Alt text:
+5
+
+Text-border collisions:
+0
+
+Text-arrow collisions:
+0
+
+Clipped labels:
+0
+
+Page overflow:
+0
+
+Signal Blue semantic:
+PASS
+
+No vendor-color war:
+PASS
+
+No decorative imagery:
+PASS.
+
+────────────────────────────────────────
+95. FINAL DOWNLOAD GATE
+────────────────────────────────────────
+
+Workbook:
+
+HTTP 200
+
+11 sheets
+
+formula errors:
+0
+
+no-finite guard:
+PASS
+
+line-rate guard:
+PASS
+
+overlap guard:
+PASS
+
+fabric guard:
+PASS.
+
+Input CSV:
+
+HTTP 200.
+
+No email gate.
+
+No broken filenames.
+
+────────────────────────────────────────
+96. FINAL RESPONSIVE GATE
+────────────────────────────────────────
+
+1440:
+PASS
+
+1024:
+PASS
+
+820:
+PASS
+
+768:
+PASS
+
+430:
+PASS
+
+390:
+PASS
+
+375:
+PASS
+
+Horizontal page overflow:
+0
+
+Math:
+PASS
+
+Figure internal scroll:
+PASS
+
+Captions:
+PASS
+
+House objects:
+PASS
+
+Downloads:
+PASS
+
+Sources:
+PASS
+
+BRIEF:
+PASS
+
+Footer:
+PASS.
+
+────────────────────────────────────────
+97. FINAL PRODUCTION-STATE GATE
+────────────────────────────────────────
+
+Site remains:
+
+LIVE.
+
+robots:
+PUBLIC
+
+noindex:
+ABSENT
+
+pre-launch copy introduced:
+0
+
+stale launch-stage language introduced:
+0
+
+Privacy regression:
+0
+
+Terms regression:
+0
+
+cookie/storage behavior changed:
+NO
+
+unless this article implementation genuinely introduced a new technology, which it must not.
+
+────────────────────────────────────────
+98. FINAL RESPONSE FORMAT
+────────────────────────────────────────
+
+Return:
+
+# SECOND / PASS — COMPUTE #03 PUBLICATION
+
+## STATUS
+
+PASS / FAIL
+
+## ARTICLE
+
+Title:
+How much network does an AI GPU cluster actually need?
+
+Slug:
+how-much-network-does-an-ai-gpu-cluster-actually-need
+
+Section:
+COMPUTE
+
+Format:
+SECOND PASS
+
+Author:
+Aditya
+
+Status:
+published / FAIL
+
+Published:
+2026-08-10 / FAIL
+
+Featured:
+true / repository-policy equivalent / FAIL
+
+Live URL:
+
+HTTP:
+200 / FAIL
+
+## HARDWARE REFERENCE
+
+HGX B300 GPUs:
+8 / FAIL
+
+ConnectX-8:
+PASS / FAIL
+
+NIC/GPU:
+1:1 / FAIL
+
+Endpoint:
+800 Gb/s / FAIL
+
+2×400 GbE:
+PASS / FAIL
+
+GB300 NVL72 GPUs:
+72 / FAIL
+
+NVLink one-way:
+900 GB/s/GPU / FAIL
+
+NVLink bidirectional:
+1,800 GB/s/GPU / FAIL
+
+NVL72 aggregate:
+130 TB/s / FAIL
+
+Scale-up / scale-out separation:
+PASS / FAIL
+
+## NETWORK UNITS
+
+800 Gb/s:
+100 GB/s raw / FAIL
+
+Bits/bytes:
+PASS / FAIL
+
+Per-port/per-GPU/aggregate:
+PASS / FAIL
+
+Directionality:
+PASS / FAIL
+
+Line-rate ≠ effective:
+PASS / FAIL
+
+## RING MODEL
+
+AllReduce equation:
+PASS / FAIL
+
+64-rank payload:
+2.113929216 GB / FAIL
+
+1.96875 GiB:
+PASS / FAIL
+
+Analytical steps:
+126 / FAIL
+
+NCCL ring-only claim:
+0 REQUIRED
+
+## PRIMARY WORKED CASE
+
+Compute:
+270 ms / FAIL
+
+Budget:
+30 ms / FAIL
+
+Lambda:
+2 μs / FAIL
+
+Efficiency:
+80% SCENARIO / FAIL
+
+Latency floor:
+0.252 ms / FAIL
+
+Effective requirement:
+71.061 GB/s / FAIL
+
+Raw line requirement:
+710.612 Gb/s / FAIL
+
+800 Gb/s feasible:
+YES UNDER SCENARIO / FAIL
+
+Analytical communication:
+26.676 ms / FAIL
+
+No-overlap communication share:
+8.99% / FAIL
+
+Measured bandwidth claimed:
+NO REQUIRED
+
+## LATENCY BOUNDARY
+
+Required-bandwidth equation:
+PASS / FAIL
+
+Finite condition:
+PASS / FAIL
+
+256-rank latency floor:
+1.02 ms / FAIL
+
+Deadline:
+1.00 ms / FAIL
+
+NO FINITE BANDWIDTH:
+PASS / FAIL
+
+Model qualifier visible:
+PASS / FAIL
+
+## FABRIC
+
+Endpoint sum:
+102.4 Tb/s / FAIL
+
+Cross-section:
+51.2 Tb/s / FAIL
+
+Oversubscription:
+2:1 SCENARIO / FAIL
+
+Crossing fraction:
+60% / FAIL
+
+Demand:
+61.44 Tb/s / FAIL
+
+Deficit:
+10.24 Tb/s / FAIL
+
+Measured Spectrum-X claim:
+NO REQUIRED
+
+Universal 2× slowdown claim:
+NO REQUIRED
+
+## GPU EXPOSURE
+
+GPU count:
+1,024 / FAIL
+
+Scenario:
+5% / FAIL
+
+GPU-equivalent exposure:
+51.2 / FAIL
+
+Literal idle-GPU claim:
+NO REQUIRED
+
+Public dollar assumption:
+NO REQUIRED
+
+## VISUALS
+
+01 Bandwidth domains:
+/10
+
+02 Ring AllReduce:
+/10
+
+03 Bandwidth frontier:
+/10
+
+04 Fabric oversubscription:
+/10
+
+05 GPU exposure:
+/10
+
+All >=9.5:
+YES / NO
+
+Semantic figures:
+5 / FAIL
+
+Captions:
+5 / FAIL
+
+Alt text:
+5 / FAIL
+
+Text-border overlap:
+0 REQUIRED
+
+Text-arrow overlap:
+0 REQUIRED
+
+Clipped labels:
+0 REQUIRED
+
+## HOUSE OBJECTS
+
+QUESTION:
+PASS / FAIL
+
+CalculationBlock:
+PASS / FAIL
+
+ClaimChecks:
+PASS / FAIL
+
+Assumption:
+PASS / N/A / FAIL
+
+INTELLIGENCE:
+PASS / FAIL
+
+INTELLIGENCE destination:
+/intelligence / FAIL
+
+## DOWNLOADS
+
+Network model:
+PASS / FAIL
+
+Live URL:
+
+Input template:
+PASS / FAIL
+
+Live URL:
+
+Workbook sheets:
+11 / FAIL
+
+Formula errors:
+0 REQUIRED
+
+Unit guards:
+PASS / FAIL
+
+No-finite guard:
+PASS / FAIL
+
+Fabric guard:
+PASS / FAIL
+
+Overlap guard:
+PASS / FAIL
+
+Measured > line-rate guard:
+PASS / FAIL
+
+## MATH SOURCE
+
+UTF-8:
+PASS / FAIL
+
+Unexpected controls:
+0 REQUIRED
+
+FORM FEED:
+0 REQUIRED
+
+Raw LaTeX:
+0 REQUIRED
+
+Sentinels:
+0 REQUIRED
+
+KaTeX:
+PASS / FAIL
+
+## VISUAL SCORE
+
+First screen:
+/10
+
+Typography:
+/10
+
+Article rhythm:
+/10
+
+Information design:
+/10
+
+Figures:
+/10
+
+Mathematics:
+/10
+
+House objects:
+/10
+
+Sources:
+/10
+
+Responsive:
+/10
+
+Accessibility:
+/10
+
+Polish:
+/10
+
+OVERALL:
+/10
+
+Average >=9.5:
+YES / NO
+
+Any dimension <9.0:
+YES / NO
+
+## RESPONSIVE
+
+1440:
+PASS / FAIL
+
+1024:
+PASS / FAIL
+
+820:
+PASS / FAIL
+
+768:
+PASS / FAIL
+
+430:
+PASS / FAIL
+
+390:
+PASS / FAIL
+
+375:
+PASS / FAIL
+
+Horizontal overflow:
+0 REQUIRED
+
+## PIPELINE
+
+content-source-audit:
+PASS / FAIL
+
+article verify:
+PASS / FAIL
+
+content audit:
+PASS / FAIL
+
+Astro check:
+PASS / FAIL
+
+build:
+PASS / FAIL
+
+render audit:
+PASS / FAIL
+
+visual audit:
+PASS / FAIL
+
+research SVG audit:
+PASS / N/A / FAIL
+
+responsive audit:
+PASS / FAIL
+
+production-state audit:
+PASS / N/A / FAIL
+
+prepublish:
+PASS / FAIL
+
+Pagefind:
+PASS / FAIL
+
+social generation:
+PASS / FAIL
+
+## PUBLICATION SURFACES
+
+Homepage:
+PASS / FAIL
+
+Compute:
+PASS / FAIL
+
+Author:
+PASS / FAIL
+
+RSS:
+PASS / FAIL
+
+Sitemap:
+PASS / FAIL
+
+Pagefind:
+PASS / FAIL
+
+robots:
+PUBLIC / BLOCKED
+
+noindex:
+ABSENT / PRESENT
+
+## PRODUCTION
+
+Git branch:
+
+Git commit SHA:
+
+Vercel deployment ID:
+
+Deployment commit SHA:
+
+SHA match:
+YES / NO
+
+## DISTRIBUTION
+
+Distribution package:
+READY / FAIL
+
+Automatically posted:
+NO REQUIRED
+
+Daily BRIEF sent:
+NO REQUIRED
+
+## BLOCKERS
+
+None
+
+OR exact blocker.
+
+If every publication-critical gate passes, end exactly:
+
+SECOND / PASS COMPUTE #03: LIVE — 9.5+ PUBLICATION STANDARD PASS
+
+If factual/math/unit integrity fails:
+
+SECOND / PASS COMPUTE #03: PUBLICATION BLOCKED — <exact defect>
+
+If integration is correct but visual quality remains below standard:
+
+SECOND / PASS COMPUTE #03: VISUAL GATE BLOCKED — <exact defects>
+
+────────────────────────────────────────
+99. BEGIN NOW
+────────────────────────────────────────
+
+Do not return a plan.
+
+Execute:
+
+read AGENT.md
+→
+read PUBLICATION_STANDARD.md
+→
+read CURRENT_STATE.md
+→
+inspect latest main
+→
+inspect approved COMPUTE #03 ZIP
+→
+verify package integrity
+→
+import canonical article
+→
+apply human publication state
+→
+copy five SVGs / PNGs
+→
+copy workbook + input template
+→
+replace package-relative paths
+→
+apply semantic figure renderer
+→
+apply five figcaptions
+→
+apply QUESTION / CALCULATION / CLAIM CHECK / ASSUMPTION house treatments
+→
+add `/ USE THE MODEL` downloads
+→
+link `/INTELLIGENCE`
+→
+run control-character scan
+→
+reproduce load-bearing math
+→
+verify network units
+→
+verify no ring-only NCCL wording
+→
+run content/render/visual/SVG audits
+→
+run full seven-width responsive QA
+→
+inspect screenshots
+→
+fix every overlap or visual defect
+→
+verify >=9.5 visual standard
+→
+run prepublish
+→
+run full-site regression
+→
+commit
+→
+deploy existing Vercel project
+→
+fetch actual production URL
+→
+fetch five live SVGs
+→
+fetch workbook/input CSV
+→
+inspect live HTML
+→
+inspect live math
+→
+verify `/compute`
+→
+verify Pagefind/RSS/sitemap/author
+→
+capture production screenshots
+→
+fix/redeploy if needed
+→
+return final report.
+
+THE RESEARCH IS ALREADY APPROVED.
+
+DO NOT SPEND THIS TURN RESEARCHING IT AGAIN.
+
+THE FINISH LINE IS:
+
+“HOW MUCH NETWORK DOES AN AI GPU CLUSTER ACTUALLY NEED?”
+IS LIVE AS A 9.5+ SECOND / PASS COMPUTE PUBLICATION,
+
+WITH:
+
+CORRECT BITS/BYTES,
+CORRECT SCALE-UP/SCALE-OUT SCOPING,
+CORRECT COLLECTIVE MATH,
+THE NO-FINITE-BANDWIDTH BOUNDARY,
+FIVE SEMANTIC RESEARCH FIGURES,
+ZERO SVG TEXT COLLISIONS,
+THE DOWNLOADABLE NETWORK CAPACITY MODEL,
+FULL RESPONSIVE QA,
+AND ZERO REGRESSION TO THE LIVE PUBLICATION.
+
+Proceed.
