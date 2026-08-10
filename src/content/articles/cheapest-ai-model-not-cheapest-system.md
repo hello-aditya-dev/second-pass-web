@@ -58,7 +58,7 @@ sources:
 changeLog:
   - at: "2026-08-09"
     type: "published"
-    note: "Initial review package."
+    note: "Initial publication."
 seoTitle: "The cheapest AI model is often not the cheapest system"
 seoDescription: "A quantitative framework for AI inference cost that includes success, retries, human review, caching, batch processing and routing—not just token price."
 ---
@@ -135,7 +135,7 @@ This is not a replacement for quality measurement. It is a way to make the denom
 
 ## A 25× price gap that costs eight cents
 
-Current OpenAI short-context list pricing puts GPT-5.6 Sol at $5/M input and $30/M output. GPT-5.6 Luna is $0.20/M input and $1.20/M output. Sol is therefore 25× Luna on each of those token rates. ([S1], [S2], [S3])
+Current OpenAI short-context list pricing puts GPT-5.6 Sol at $5/M input and $30/M output. GPT-5.6 Luna is $0.20/M input and $1.20/M output. Sol is therefore 25× Luna on each of those token rates. ([OpenAI pricing](https://developers.openai.com/api/docs/pricing), [GPT-5.6 Sol](https://developers.openai.com/api/docs/models/gpt-5.6-sol), [GPT-5.6 Luna](https://developers.openai.com/api/docs/models/gpt-5.6-luna))
 
 Use an illustrative analyst-style request:
 
@@ -264,7 +264,7 @@ The break-even equations tell the team how much improvement is required before i
 
 There is another problem with a pure $/M-token table: one million tokens is not necessarily the same amount of text.
 
-Anthropic documents that Claude 4.7-and-later models use a newer tokenizer and that Claude Sonnet 5 can produce approximately 30% more tokens for the same text than Sonnet 4.6, with the exact change depending on content and workload shape. ([S4], [S5])
+Anthropic documents that Claude 4.7-and-later models use a newer tokenizer and that Claude Sonnet 5 can produce approximately 30% more tokens for the same text than Sonnet 4.6, with the exact change depending on content and workload shape. ([Anthropic pricing](https://docs.anthropic.com/en/docs/about-claude/pricing), [Sonnet 5](https://docs.anthropic.com/en/docs/about-claude/models/whats-new-sonnet-5))
 
 That is enough to invalidate a common shortcut:
 
@@ -278,18 +278,26 @@ This is also why the public DATA artifact in this package stores provider prices
 
 The price pages show something else: the name of the model does not uniquely define its economics.
 
-OpenAI GPT-5.6 moves to a long-context band above 272k input tokens. For Sol, input price doubles and output price rises 1.5× for the full request. Batch pricing is half the standard token rate. OpenAI also exposes Fast mode at a premium. ([S1], [S2])
+OpenAI GPT-5.6 moves to a long-context band above 272k input tokens. For Sol, input price doubles and output price rises 1.5× for the full request. Batch pricing is half the standard token rate. OpenAI also exposes Fast mode at a premium. ([OpenAI pricing](https://developers.openai.com/api/docs/pricing), [GPT-5.6 Sol](https://developers.openai.com/api/docs/models/gpt-5.6-sol))
 
-Anthropic prices cache writes, cache hits, Batch and Fast separately. Claude 4.6-and-later models include the full 1M-token context window at standard per-token pricing. Claude Sonnet 5 also has a scheduled price change: introductory $2/M input and $10/M output through August 31, 2026, then $3/M and $15/M beginning September 1. ([S4], [S5])
+Anthropic prices cache writes, cache hits, Batch and Fast separately. Claude 4.6-and-later models include the full 1M-token context window at standard per-token pricing. Claude Sonnet 5 also has a scheduled price change: introductory $2/M input and $10/M output through August 31, 2026, then $3/M and $15/M beginning September 1. ([Anthropic pricing](https://docs.anthropic.com/en/docs/about-claude/pricing), [Sonnet 5](https://docs.anthropic.com/en/docs/about-claude/models/whats-new-sonnet-5))
 
-Google exposes Standard, Batch, Flex and Priority tiers, plus context-cache token charges and cache-storage charges. ([S6])
+Google exposes Standard, Batch, Flex and Priority tiers, plus context-cache token charges and cache-storage charges. ([Gemini pricing](https://ai.google.dev/gemini-api/docs/pricing))
 
-xAI's Grok 4.5 changes from $2/$6 short-context input/output rates to $4/$12 once input reaches the 200k long-context threshold. Its Batch API currently does not support Grok 4.5. ([S8], [S10])
+xAI's Grok 4.5 changes from $2/$6 short-context input/output rates to $4/$12 once input reaches the 200k long-context threshold. Its Batch API currently does not support Grok 4.5. ([xAI pricing](https://docs.x.ai/developers/pricing), [xAI Batch](https://docs.x.ai/developers/advanced-api-usage/batch-api))
 
 So the atom of analysis is closer to:
 
 $$
-a=(model,\ context,\ cache,\ tier,\ batch,\ reasoning,\ region)
+a = (
+\text{model},
+\text{context},
+\text{cache},
+\text{tier},
+\text{batch},
+\text{reasoning},
+\text{region}
+)
 $$
 
 not simply `model`.
@@ -301,7 +309,7 @@ not simply `model`.
 
 ## Caching has a simple break-even test
 
-OpenAI's current GPT-5.6 cache write price is 1.25× the uncached input rate and cached input is 0.10×. Anthropic's five-minute cache uses the same multipliers; its one-hour cache write is 2× base input. ([S1], [S4])
+OpenAI's current GPT-5.6 cache write price is 1.25× the uncached input rate and cached input is 0.10×. Anthropic's five-minute cache uses the same multipliers; its one-hour cache write is 2× base input. ([OpenAI pricing](https://developers.openai.com/api/docs/pricing), [Anthropic pricing](https://docs.anthropic.com/en/docs/about-claude/pricing))
 
 Normalize uncached input cost to 1.
 
@@ -358,7 +366,7 @@ The operational lesson is straightforward: teams should measure **eligible stabl
 
 ## Batch is not a model optimization
 
-OpenAI, Anthropic and Google currently publish Batch rates that are 50% below standard input/output token rates for the configurations used in our snapshot. ([S1], [S4], [S6])
+OpenAI, Anthropic and Google currently publish Batch rates that are 50% below standard input/output token rates for the configurations used in our snapshot. ([OpenAI pricing](https://developers.openai.com/api/docs/pricing), [Anthropic pricing](https://docs.anthropic.com/en/docs/about-claude/pricing), [Gemini pricing](https://ai.google.dev/gemini-api/docs/pricing))
 
 That creates a discontinuity larger than many prompt-level micro-optimizations.
 
@@ -379,7 +387,7 @@ The chart uses the same **nominal** 10k-input / 1k-output token counts for each 
 
 ## Routing is an escalation problem
 
-Research on LLM routing already shows that dynamic selection can reduce cost on benchmark workloads. FrugalGPT explored cascades; RouteLLM learned strong-versus-weak routing from preference data; newer work treats routing as budget-aware or sequential. ([S14]–[S17])
+Research on LLM routing already shows that dynamic selection can reduce cost on benchmark workloads. FrugalGPT explored cascades; RouteLLM learned strong-versus-weak routing from preference data; newer work treats routing as budget-aware or sequential. ([RouteLLM](https://arxiv.org/abs/2406.18665), [FrugalGPT](https://arxiv.org/abs/2305.05176), [SeqRoute](https://arxiv.org/abs/2605.25424), [Budget-Aware Routing](https://arxiv.org/abs/2602.21227))
 
 The production version should be even broader than "choose model A or B."
 
@@ -507,9 +515,9 @@ It does not claim that a benchmark point maps to a percentage point of business 
 
 It does not infer enterprise discounts from public list prices.
 
-It does not compute owned-GPU TCO from a cloud rental rate. AWS currently lists H200 Capacity Blocks as an observable rental price, and NVIDIA publishes H200 memory, bandwidth and maximum TDP specifications, but neither provides the workload throughput, utilization, engineering cost and hardware purchase terms required for a defensible owned-fleet break-even. ([S11], [S12])
+It does not compute owned-GPU TCO from a cloud rental rate. AWS currently lists H200 Capacity Blocks as an observable rental price, and NVIDIA publishes H200 memory, bandwidth and maximum TDP specifications, but neither provides the workload throughput, utilization, engineering cost and hardware purchase terms required for a defensible owned-fleet break-even. ([AWS H200](https://aws.amazon.com/ec2/capacityblocks/pricing/), [NVIDIA H200](https://www.nvidia.com/en-us/data-center/h200/))
 
-The IEA's data-centre electricity projections are relevant to infrastructure strategy, but data-centre electricity is not equivalent to AI-inference electricity per request. ([S13])
+The IEA's data-centre electricity projections are relevant to infrastructure strategy, but data-centre electricity is not equivalent to AI-inference electricity per request. ([IEA](https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary))
 
 Those questions remain in the research program.
 
@@ -562,23 +570,3 @@ SECOND / PASS runs source-backed research sprints that apply this framework to a
 Get the compressed version: three signals, one number, one chart, and what changes operationally.
 
 [READ SECOND / PASS / BRIEF →](/brief)
-
----
-
-## Sources
-
-[S1] OpenAI, API Pricing — https://developers.openai.com/api/docs/pricing
-[S2] OpenAI, GPT-5.6 Sol — https://developers.openai.com/api/docs/models/gpt-5.6-sol
-[S3] OpenAI, GPT-5.6 Luna — https://developers.openai.com/api/docs/models/gpt-5.6-luna
-[S4] Anthropic, Claude Pricing — https://docs.anthropic.com/en/docs/about-claude/pricing
-[S5] Anthropic, What's new in Claude Sonnet 5 — https://docs.anthropic.com/en/docs/about-claude/models/whats-new-sonnet-5
-[S6] Google, Gemini Developer API Pricing — https://ai.google.dev/gemini-api/docs/pricing
-[S8] xAI, Pricing — https://docs.x.ai/developers/pricing
-[S10] xAI, Batch API — https://docs.x.ai/developers/advanced-api-usage/batch-api
-[S11] AWS, EC2 Capacity Blocks for ML Pricing — https://aws.amazon.com/ec2/capacityblocks/pricing/
-[S12] NVIDIA, H200 Tensor Core GPU — https://www.nvidia.com/en-us/data-center/h200/
-[S13] IEA, Key Questions on Energy and AI — https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary
-[S14] Ong et al., RouteLLM — https://arxiv.org/abs/2406.18665
-[S15] Chen et al., FrugalGPT — https://arxiv.org/abs/2305.05176
-[S16] Xu et al., SeqRoute — https://arxiv.org/abs/2605.25424
-[S17] Zhang et al., Budget-Aware Agentic Routing — https://arxiv.org/abs/2602.21227

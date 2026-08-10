@@ -22,6 +22,7 @@
     "render-audit": "node scripts/render-audit.mjs",
     "content-source-audit": "node scripts/content-source-audit.mjs",
     "currency-regression": "node scripts/currency-regression-test.mjs",
+    "responsive:audit": "node scripts/responsive-audit.mjs",
     "prepublish": "node scripts/prepublish.mjs"
   },
   "dependencies": {
@@ -35,11 +36,14 @@
     "katex": "^0.18.3",
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0",
-    "sharp": "^0.35.3"
+    "sharp": "^0.35.3",
+    "unist-util-visit": "^5.1.0"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
+    "@playwright/test": "^1.62.1",
     "pagefind": "1.5.2",
+    "playwright": "^1.62.1",
     "typescript": "^5.9.3"
   },
   "packageManager": "bun@1.2.19",

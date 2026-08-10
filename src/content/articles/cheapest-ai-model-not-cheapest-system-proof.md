@@ -47,7 +47,7 @@ sources:
 changeLog:
   - at: "2026-08-09"
     type: "published"
-    note: "Initial methodology package."
+    note: "Initial publication."
 seoTitle: "Proof: AI inference cost per accepted outcome"
 seoDescription: "The equations, assumptions and routing formulation behind SECOND / PASS's accepted-outcome model for AI inference economics."
 ---

@@ -35,7 +35,7 @@ sources:
 changeLog:
   - at: "2026-08-09"
     type: "published"
-    note: "Draft."
+    note: "Initial publication."
 seoTitle: "Long-context AI pricing is provider-specific"
 seoDescription: "OpenAI, xAI and Anthropic currently encode long-context economics differently, so one universal context-cost rule is wrong."
 ---

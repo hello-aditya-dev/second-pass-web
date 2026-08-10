@@ -29,7 +29,7 @@ sources:
 changeLog:
   - at: "2026-08-09"
     type: "published"
-    note: "Draft."
+    note: "Initial publication."
 seoTitle: "Prompt caching break-even: two eligible uses"
 seoDescription: "A simple equation shows how quickly current 1.25× write / 0.10× read prompt-cache pricing can pay back."
 ---

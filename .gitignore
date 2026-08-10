@@ -4,3 +4,6 @@ node_modules/
 dist/
 tool-results/
 dev.log
+test-results/
+playwright-report/
+playwright/.cache/

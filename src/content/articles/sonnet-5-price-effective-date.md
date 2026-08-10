@@ -30,7 +30,7 @@ sources:
 changeLog:
   - at: "2026-08-09"
     type: "published"
-    note: "Draft."
+    note: "Initial publication."
 seoTitle: "Claude Sonnet 5 pricing changes September 1"
 seoDescription: "Why AI price datasets need effective dates: Anthropic has already published Sonnet 5's post-introductory price."
 ---

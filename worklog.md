@@ -435,3 +435,112 @@ Stage Summary:
 - currency-regression-test.mjs: 5 built-HTML verifications for currency/KaTeX safety, exits 0/1, tested PASS
 - Both scripts registered in package.json
 - No defects found in current source files
+
+---
+Task ID: 2
+Agent: rehype-table-wrap-agent
+Task: Create a rehype plugin that auto-wraps article tables in scrollable containers
+
+Work Log:
+- Read worklog.md, astro.config.mjs, global.css for current state
+- Checked unist-util-visit availability: present as transitive dep (v5.1.0) but not direct; installed as direct dependency via `bun add unist-util-visit`
+- Created src/lib/rehype-table-wrap.mjs: rehype plugin that wraps every <table> in a <div class="table-wrap" role="region" tabindex="0" aria-label="Scrollable data table"> with double-wrap guard (skips tables already inside .table-wrap)
+- Updated astro.config.mjs: added `import rehypeTableWrap from "@/lib/rehype-table-wrap.mjs"` and added `rehypeTableWrap` to rehypePlugins array after `rehypeKatex`
+- Updated global.css: expanded `.table-wrap` rule from single-line to multi-property block with `width: 100%; max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 2rem 0;` and added `.table-wrap table { margin: 0; }` to remove table margin inside wrapper
+- astro check: 0 errors, 0 warnings, 0 hints
+- astro build: succeeds, all pages generated
+- Verified built HTML: tables in articles are wrapped with `<div class="table-wrap" role="region" tabindex="0" aria-label="Scrollable data table">` (confirmed in sonnet-5-price-effective-date and no-universal-long-context-premium)
+
+Stage Summary:
+- rehype-table-wrap plugin created and integrated into Astro markdown pipeline
+- Markdown-generated tables now auto-wrapped in scrollable container with ARIA semantics
+- 620px min-width tables will scroll within .table-wrap on 375px/390px/430px viewports instead of overflowing
+- CSS hardened: .table-wrap has width/max-width/overflow-x/touch-scrolling; .table-wrap table has margin:0
+- Build passes: 0 errors, all pages generated
+
+---
+Task ID: 3
+Agent: content-fixes-agent
+Task: Fix content issues in article files
+
+Work Log:
+- Read worklog.md and all 6 real article files plus [slug].astro renderer
+- Fix 1 (Section 26): Removed duplicate manual `## Sources` section (lines 568-584) from flagship article. The renderer in [slug].astro already produces a structured `/ SOURCES` section from frontmatter `sources` array. Removed the entire `## Sources` heading plus [S1]-[S17] entries. Also cleaned trailing `---` separator before the removed section. Frontmatter `sources` array kept intact.
+- Fix 2 (Section 29): Fixed contradictory changeLog entries across 5 articles:
+  - Flagship: "Initial review package." → "Initial publication." (published article with review-package note)
+  - Proof: "Initial methodology package." → "Initial publication." (published article with methodology-package note)
+  - no-universal-long-context-premium: "Draft." → "Initial publication." (published article with Draft note — contradictory)
+  - prompt-cache-second-use-break-even: "Draft." → "Initial publication." (published article with Draft note — contradictory)
+  - sonnet-5-price-effective-date: "Draft." → "Initial publication." (published article with Draft note — contradictory)
+  - ai-inference-price-surface-v0-1: "Dataset v0.1 generated." left as-is (not contradictory for a DATA article)
+- Fix 3 (Section 27): Converted all 11 opaque source ID references ([S1], [S2], etc.) in flagship article body to natural-language markdown links with actual URLs. Examples:
+  - `([S1], [S2], [S3])` → `([OpenAI pricing](url), [GPT-5.6 Sol](url), [GPT-5.6 Luna](url))`
+  - `([S4], [S5])` → `([Anthropic pricing](url), [Sonnet 5](url))`
+  - `([S6])` → `([Gemini pricing](url))`
+  - `([S8], [S10])` → `([xAI pricing](url), [xAI Batch](url))`
+  - `([S14]–[S17])` → `([RouteLLM](url), [FrugalGPT](url), [SeqRoute](url), [Budget-Aware Routing](url))`
+  - `([S11], [S12])` → `([AWS H200](url), [NVIDIA H200](url))`
+  - `([S13])` → `([IEA](url))`
+  - All other inline references similarly converted. Zero remaining `[S#]` patterns.
+- Fix 4 (Section 14): Wrapped configuration equation words in `\text{}` in flagship article. Changed:
+  `a=(model,\ context,\ cache,\ tier,\ batch,\ reasoning,\ region)` →
+  `a = (\text{model}, \text{context}, \text{cache}, \text{tier}, \text{batch}, \text{reasoning}, \text{region})`
+  This prevents KaTeX from rendering each word as separate italic math variables (m-o-d-e-l).
+- astro check: 0 errors, 0 warnings, 0 hints
+- astro build: succeeds, all pages generated
+
+Stage Summary:
+- 4 content fixes applied across 5 article files (flagship touched for fixes 1+3+4, 4 other articles for fix 2)
+- Duplicate manual Sources section eliminated from flagship (renderer produces it from frontmatter)
+- 5 contradictory changeLog entries corrected (3 "Draft." + 1 "Initial review package." + 1 "Initial methodology package." → "Initial publication.")
+- 11 inline source references converted from opaque [S#] IDs to clickable natural-language markdown links
+- Configuration equation typography improved with \text{} wrapping for readable word rendering
+- Build passes: 0 errors, all pages generated
+
+---
+Task ID: 1
+Agent: css-responsive-agent
+Task: Implement all CSS responsive hardening for the SECOND / PASS Astro publication
+
+Work Log:
+- Read worklog.md and all required files: global.css, [slug].astro, ArticleShare.astro, NewsletterCTA.astro, BriefForm.astro
+- Read global.css in full (694 lines) to understand current state and identify existing vs. needed changes
+- Noted 3 changes already applied from prior work:
+  - overflow-wrap: normal / word-break: normal / hyphens: none on .article-header h1 (Section 9)
+  - max-width: 100% on .article-body pre (Section 8/12)
+  - .article-body :not(pre) > code overflow-wrap/word-break rule (Section 7/11)
+- Applied 12 remaining changes to global.css via MultiEdit:
+
+1. Section 5 — Article Grid Centering on Tablet: Added margin-inline: auto to .article-grid in @media(max-width:1040px)
+2. Section 6 — Evidence Rail Desktop-Only: Added .article-grid > aside:nth-child(3) and aside:last-child { display: none } in @media(max-width:1040px)
+3. Section 7 — Article TOC Responsiveness: Added .article-rail { display: none } in @media(max-width:720px)
+4. Section 8 — Mobile Headlines: Changed .article-header h1 to clamp(2.3rem, 10.5vw, 4.5rem); line-height: .92; letter-spacing: -.06em
+5. Section 9 — Remove Aggressive Word Breaking: Already applied (overflow-wrap: normal; word-break: normal; hyphens: none)
+6. Section 10 — Article Body Typography: Verified 1.16rem/1.68 is fine; no break-all or overflow-wrap: anywhere on prose
+7. Section 11 — Inline Code Wrapping: Already applied (.article-body :not(pre) > code)
+8. Section 12 — Code Blocks: Already applied (max-width: 100% on pre)
+9. Section 13 — Math Responsiveness: Added max-width: 100%, overscroll-behavior-inline: contain, -webkit-overflow-scrolling: touch to .article-body .katex-display
+10. Sections 15-17 — Figure Responsiveness: Added .research-figure--scroll rules in @media(max-width:720px)
+11. Section 21 — Share Controls Mobile: Added .share-btn/.share-link touch targets (min-height: 42px) in both global.css form-responsive section and ArticleShare.astro scoped styles
+12. Section 22 — Newsletter/BRIEF CTA Mobile: Added .brief-input/.brief-submit width: 100% and min-height: 44px in @media(max-width:720px)
+13. Section 25 — Anchor Offset: Added scroll-margin-top: 90px base and 20px mobile for .article-body h2/h3, #first-pass, #sources
+14. Section 30 — Article-End Mobile: Added overflow-wrap: anywhere to .article-end
+15. Section 31 — Source Row Mobile: Added .source-row a overflow-wrap: anywhere and word-break: break-word
+16. Section 32 — Footer Mobile: Added overflow-wrap: anywhere to .footer-bottom
+17. Section 33 — Article Width Invariant: Added .article-grid > * { min-width: 0 } (prevents wide children from expanding grid)
+18. Section 4 — Table Scroll Cue: Added .table-wrap::after pseudo-element with "Scroll table →" hint on hover/focus
+
+- Updated ArticleShare.astro: Added @media(max-width:720px) block with mobile touch target styles in scoped <style>
+- Verified no overflow-x: hidden or overflow-x: clip added to body/html
+- Verified no client JavaScript added for layout
+- Verified all existing desktop styles preserved
+- Verified all design tokens preserved
+- astro check: 0 errors, 0 warnings, 0 hints
+- astro build: succeeds, all pages generated, Pagefind indexed
+
+Stage Summary:
+- All 18 CSS responsive hardening sections implemented across global.css and ArticleShare.astro
+- 3 sections were pre-applied (9, 11, 12); 15 required new edits
+- Critical fixes: grid centering, evidence rail hiding, TOC hiding, headline reduction, word-breaking normalization, math containment, scroll offsets, width invariant (min-width: 0), table scroll cue
+- Mobile touch targets: share buttons 42px min-height, brief form inputs 44px min-height
+- Build passes: 0 errors, all pages generated
