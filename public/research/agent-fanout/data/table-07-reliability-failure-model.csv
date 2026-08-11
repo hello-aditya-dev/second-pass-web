@@ -1,0 +1,19 @@
+mandatory_operations,per_operation_success,run_success_probability,run_failure_probability,model,status
+1,0.995,0.995,0.0050000000000000044,mandatory independent serial/parallel operations,HOUSE ASSUMPTION / DERIVED
+1,0.99,0.99,0.010000000000000009,mandatory independent serial/parallel operations,HOUSE ASSUMPTION / DERIVED
+1,0.98,0.98,0.020000000000000018,mandatory independent serial/parallel operations,HOUSE ASSUMPTION / DERIVED
+3,0.995,0.985074875,0.014925124999999984,mandatory independent serial/parallel operations,HOUSE ASSUMPTION / DERIVED
+3,0.99,0.970299,0.029700999999999977,mandatory independent serial/parallel operations,HOUSE ASSUMPTION / DERIVED
+3,0.98,0.9411919999999999,0.05880800000000008,mandatory independent serial/parallel operations,HOUSE ASSUMPTION / DERIVED
+5,0.995,0.975248753121875,0.02475124687812502,mandatory independent serial/parallel operations,HOUSE ASSUMPTION / DERIVED
+5,0.99,0.9509900498999999,0.04900995010000009,mandatory independent serial/parallel operations,HOUSE ASSUMPTION / DERIVED
+5,0.98,0.9039207967999999,0.09607920320000007,mandatory independent serial/parallel operations,HOUSE ASSUMPTION / DERIVED
+6,0.995,0.9703725093562656,0.029627490643734378,mandatory independent serial/parallel operations,HOUSE ASSUMPTION / DERIVED
+6,0.99,0.941480149401,0.058519850599,mandatory independent serial/parallel operations,HOUSE ASSUMPTION / DERIVED
+6,0.98,0.8858423808639999,0.11415761913600009,mandatory independent serial/parallel operations,HOUSE ASSUMPTION / DERIVED
+10,0.995,0.9511101304657719,0.048889869534228136,mandatory independent serial/parallel operations,HOUSE ASSUMPTION / DERIVED
+10,0.99,0.9043820750088044,0.09561792499119559,mandatory independent serial/parallel operations,HOUSE ASSUMPTION / DERIVED
+10,0.98,0.8170728068875467,0.1829271931124533,mandatory independent serial/parallel operations,HOUSE ASSUMPTION / DERIVED
+20,0.995,0.9046104802746175,0.09538951972538245,mandatory independent serial/parallel operations,HOUSE ASSUMPTION / DERIVED
+20,0.99,0.8179069375972308,0.18209306240276923,mandatory independent serial/parallel operations,HOUSE ASSUMPTION / DERIVED
+20,0.98,0.6676079717550942,0.33239202824490577,mandatory independent serial/parallel operations,HOUSE ASSUMPTION / DERIVED

@@ -1,0 +1,4 @@
+scenario,description,model_calls_base,web_search_calls,file_search_calls,other_tool_calls,specialist_calls,verifier_calls,expected_retries,parallel_branches,model_mix,input_tokens_per_model_call,output_tokens_per_model_call,critical_path_s,peak_internal_concurrency,per_operation_success,mandatory_operations,status
+A_SIMPLE_TOOL_AGENT,"Primary model selects and uses a tool, then produces final answer.",2.0,1.0,0.0,0.5,0.0,0.0,0.1,1,gpt-5.6-luna,1600,500,2.8,1,0.995,3,HOUSE ASSUMPTION
+B_RESEARCH_AGENT,"Planner, parallel web search, synthesis, verification; occasional retry.",3.0,6.0,2.0,0.0,0.0,1.0,0.25,6,gpt-5.6-terra,3500,1000,8.5,6,0.992,7,HOUSE ASSUMPTION
+C_MULTI_AGENT_ENTERPRISE,"Router, four specialists in parallel, mixed tools, evaluator and final synthesis.",7.0,4.0,6.0,2.0,4.0,1.0,0.6,4,mixed luna/terra/sol,4200,1200,12.5,6,0.99,10,HOUSE ASSUMPTION

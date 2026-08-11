@@ -1,0 +1,15 @@
+from,to,edge_type,depth
+user_request,router_model,dependency,1
+router_model,specialist_1,parallel_branch,2
+router_model,specialist_2,parallel_branch,2
+router_model,specialist_3,parallel_branch,2
+router_model,specialist_4,parallel_branch,2
+specialist_1,web_search_1,tool,3
+specialist_2,file_search_1,tool,3
+specialist_3,external_api_1,tool,3
+specialist_4,code_sandbox_1,tool,3
+specialist_1,evaluator,join,4
+specialist_2,evaluator,join,4
+specialist_3,evaluator,join,4
+specialist_4,evaluator,join,4
+evaluator,final_synthesis,dependency,5

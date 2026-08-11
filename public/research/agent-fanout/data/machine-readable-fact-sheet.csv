@@ -1,0 +1,8 @@
+claim,value,unit,source,source_date,assumption_status,derivation,confidence,notes
+OpenAI Agents SDK trace can record each model call/tool/handoff,categorical,,https://developers.openai.com/api/docs/guides/agents/integrations-observability,2026-08-11,OBSERVED SOURCE DATA,Direct source statement,high,Platform-specific.
+OpenAI web search direct tool meter,10,USD/1000 calls,https://developers.openai.com/api/docs/pricing,2026-08-11,OBSERVED SOURCE DATA,pricing table,high,Search content tokens also billed at model rates.
+OpenAI file search tool-call meter,2.5,USD/1000 calls,https://developers.openai.com/api/docs/pricing,2026-08-11,OBSERVED SOURCE DATA,pricing table,high,Storage separately billed.
+Anthropic web search direct tool meter,10,USD/1000 searches,https://platform.claude.com/docs/en/about-claude/pricing,2026-08-11,OBSERVED SOURCE DATA,pricing table,high,Plus token charges.
+Google Agent Engine session events,0.25,USD/1000 stored events,https://cloud.google.com/blog/products/ai-machine-learning/new-enhanced-tool-governance-in-vertex-ai-agent-builder,2026-08-11,OBSERVED SOURCE DATA,pricing table,high,LLM costs separate.
+"Bounded tree expected work, bp=2,d=4",31,operations,,2026-08-11,DERIVED RESULT,sum k=0..4 of 2^k,high,Toy bounded-tree model.
+10 mandatory operations at 99% independent success,0.904382075,success probability,,2026-08-11,DERIVED RESULT,0.99^10,high,Independence assumption can be unrealistic.

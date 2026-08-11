@@ -1,0 +1,11 @@
+boundary,case,result,assumptions,equation,status
+Mandatory independent operations,run success <95%,n >= 11,per-operation success=0.995,p^n < .95,DERIVED
+Mandatory independent operations,run success <95%,n >= 6,per-operation success=0.99,p^n < .95,DERIVED
+Mandatory independent operations,run success <95%,n >= 3,per-operation success=0.98,p^n < .95,DERIVED
+Retry amplification,expected attempts +25%,per-attempt failure >=20%,unbounded retries; same cost per attempt,1/(1-r)>=1.25,DERIVED
+Retry amplification,one-retry capped +25%,per-attempt failure >=25%,max one retry; retry attempted only after failure,1+r>=1.25,DERIVED
+Cheap-vs-expensive model,Luna token-only calls equal one Terra call,N_c=10.00,2k input +800 output each; no tools/failures,Nc*0.001360=0.013600,DERIVED CURRENT PRICE
+Tool-vs-model spend,OpenAI web-search direct meter exceeds one Luna 2k/800 token call,searches per Luna call > 0.136,"Excludes search-content token charges, so conservative for tool share",N_search*0.01>0.001360,DERIVED CURRENT PRICE
+Upstream RPS amplification,A_SIMPLE_TOOL_AGENT,model RPS≈210.0; tool RPS≈150.0,100 external req/s; mean fanout,R_upstream=R_user*E[N_j],DERIVED
+Upstream RPS amplification,B_RESEARCH_AGENT,model RPS≈325.0; tool RPS≈800.0,100 external req/s; mean fanout,R_upstream=R_user*E[N_j],DERIVED
+Upstream RPS amplification,C_MULTI_AGENT_ENTERPRISE,model RPS≈760.0; tool RPS≈1200.0,100 external req/s; mean fanout,R_upstream=R_user*E[N_j],DERIVED

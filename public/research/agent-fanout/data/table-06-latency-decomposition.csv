@@ -1,0 +1,12 @@
+scenario,stage,critical_path_contribution_s,execution_mode,status
+A_SIMPLE_TOOL_AGENT,route/model,1.0,serial,HOUSE ASSUMPTION
+A_SIMPLE_TOOL_AGENT,tool,0.8,serial,HOUSE ASSUMPTION
+A_SIMPLE_TOOL_AGENT,final model,1.0,serial,HOUSE ASSUMPTION
+B_RESEARCH_AGENT,planner,1.2,serial,HOUSE ASSUMPTION
+B_RESEARCH_AGENT,6 parallel searches,2.3,parallel max,HOUSE ASSUMPTION
+B_RESEARCH_AGENT,synthesis,3.2,serial,HOUSE ASSUMPTION
+B_RESEARCH_AGENT,verification,1.8,serial,HOUSE ASSUMPTION
+C_MULTI_AGENT_ENTERPRISE,router,0.8,serial,HOUSE ASSUMPTION
+C_MULTI_AGENT_ENTERPRISE,4 parallel specialists incl tools,6.2,parallel max,HOUSE ASSUMPTION
+C_MULTI_AGENT_ENTERPRISE,evaluator,2.3,serial,HOUSE ASSUMPTION
+C_MULTI_AGENT_ENTERPRISE,final synthesis,3.2,serial,HOUSE ASSUMPTION

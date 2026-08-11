@@ -1,0 +1,71 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 560' width='900' height='560' font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-rendering='geometricPrecision'>
+<rect width="900" height="560" fill="#F2EFE7"/>
+<text x="450.0" y="34" fill="#11110F" font-size="18" font-weight="700" text-anchor="middle" style="">EXTERNAL USER RPS AMPLIFIES INTO UPSTREAM MODEL-CALL RPS</text>
+<text x="450.0" y="56" fill="#5A5953" font-size="12" font-weight="400" text-anchor="middle" style="">HOUSE SCENARIO / DERIVED RESULT — the 1:1 line is a reference, not typical traffic</text>
+<line x1="90" y1="100" x2="840" y2="100" stroke="#11110F" stroke-width="1.2" opacity="1"/>
+<line x1="90" y1="100" x2="90" y2="470" stroke="#11110F" stroke-width="1.2" opacity="1"/>
+<line x1="840" y1="100" x2="840" y2="470" stroke="#11110F" stroke-width="1.2" opacity="1"/>
+<line x1="90" y1="470" x2="840" y2="470" stroke="#11110F" stroke-width="1.2" opacity="1"/>
+<line x1="183.75" y1="100" x2="183.75" y2="470" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="183.75" y="488" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">25</text>
+<line x1="277.5" y1="100" x2="277.5" y2="470" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="277.5" y="488" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">50</text>
+<line x1="465.0" y1="100" x2="465.0" y2="470" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="465.0" y="488" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">100</text>
+<line x1="652.5" y1="100" x2="652.5" y2="470" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="652.5" y="488" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">150</text>
+<line x1="840.0" y1="100" x2="840.0" y2="470" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="840.0" y="488" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">200</text>
+<line x1="90" y1="423.75" x2="840" y2="423.75" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="427.75" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">200</text>
+<line x1="90" y1="377.5" x2="840" y2="377.5" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="381.5" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">400</text>
+<line x1="90" y1="331.25" x2="840" y2="331.25" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="335.25" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">600</text>
+<line x1="90" y1="285.0" x2="840" y2="285.0" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="289.0" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">800</text>
+<line x1="90" y1="238.75" x2="840" y2="238.75" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="242.75" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">1000</text>
+<line x1="90" y1="192.5" x2="840" y2="192.5" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="196.5" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">1200</text>
+<line x1="90" y1="146.25" x2="840" y2="146.25" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="150.25" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">1400</text>
+<line x1="90" y1="100.0" x2="840" y2="100.0" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="104.0" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">1600</text>
+<text x="465.0" y="514" fill="#11110F" font-size="13" font-weight="600" text-anchor="middle" style="">External user requests / second</text>
+<text x="28" y="285.0" fill="#11110F" font-size="13" font-weight="600" text-anchor="middle" style="writing-mode:tb;transform:rotate(180deg);">Upstream model calls / second</text>
+<line x1="90.0" y1="470.0" x2="840.0" y2="423.75" stroke="#5A5953" stroke-width="1.3" stroke-dasharray="5,4" opacity="1"/>
+<text x="660.5" y="427.3125" fill="#5A5953" font-size="10.5" font-weight="400" text-anchor="start" style="">1:1 reference</text>
+<path d="M93.8,469.5 L93.8,469.5 L127.5,465.1 L183.8,457.9 L277.5,445.7 L465.0,421.4 L840.0,372.9" fill="none" stroke="#8A8A82" stroke-width="2.4"/>
+<circle cx="93.8" cy="469.5" r="3.5" fill="#8A8A82"/>
+<circle cx="127.5" cy="465.1" r="3.5" fill="#8A8A82"/>
+<circle cx="183.8" cy="457.9" r="3.5" fill="#8A8A82"/>
+<circle cx="277.5" cy="445.7" r="3.5" fill="#8A8A82"/>
+<circle cx="465.0" cy="421.4" r="3.5" fill="#8A8A82"/>
+<circle cx="840.0" cy="372.9" r="3.5" fill="#8A8A82"/>
+<path d="M93.8,469.2 L93.8,469.2 L127.5,462.5 L183.8,451.2 L277.5,432.4 L465.0,394.8 L840.0,319.7" fill="none" stroke="#2F5BFF" stroke-width="2.4"/>
+<circle cx="93.8" cy="469.2" r="3.5" fill="#2F5BFF"/>
+<circle cx="127.5" cy="462.5" r="3.5" fill="#2F5BFF"/>
+<circle cx="183.8" cy="451.2" r="3.5" fill="#2F5BFF"/>
+<circle cx="277.5" cy="432.4" r="3.5" fill="#2F5BFF"/>
+<circle cx="465.0" cy="394.8" r="3.5" fill="#2F5BFF"/>
+<circle cx="840.0" cy="319.7" r="3.5" fill="#2F5BFF"/>
+<path d="M93.8,468.2 L93.8,468.2 L127.5,452.4 L183.8,426.1 L277.5,382.1 L465.0,294.2 L840.0,118.5" fill="none" stroke="#3A3A35" stroke-width="2.4"/>
+<circle cx="93.8" cy="468.2" r="3.5" fill="#3A3A35"/>
+<circle cx="127.5" cy="452.4" r="3.5" fill="#3A3A35"/>
+<circle cx="183.8" cy="426.1" r="3.5" fill="#3A3A35"/>
+<circle cx="277.5" cy="382.1" r="3.5" fill="#3A3A35"/>
+<circle cx="465.0" cy="294.2" r="3.5" fill="#3A3A35"/>
+<circle cx="840.0" cy="118.5" r="3.5" fill="#3A3A35"/>
+<line x1="110" y1="496" x2="132" y2="496" stroke="#8A8A82" stroke-width="2.4" opacity="1"/>
+<text x="140" y="500" fill="#11110F" font-size="11.5" font-weight="400" text-anchor="start" style="">A — Simple tool agent (2.10 model calls/req)</text>
+<line x1="110" y1="518" x2="132" y2="518" stroke="#2F5BFF" stroke-width="2.4" opacity="1"/>
+<text x="140" y="522" fill="#11110F" font-size="11.5" font-weight="400" text-anchor="start" style="">B — Research agent (3.25 model calls/req)</text>
+<line x1="110" y1="540" x2="132" y2="540" stroke="#3A3A35" stroke-width="2.4" opacity="1"/>
+<text x="140" y="544" fill="#11110F" font-size="11.5" font-weight="400" text-anchor="start" style="">C — Multi-agent enterprise (7.60 model calls/req)</text>
+<line x1="465.0" y1="100" x2="465.0" y2="470" stroke="#2F5BFF" stroke-width="1.0" stroke-dasharray="3,3" opacity="0.5"/>
+<text x="469.0" y="114" fill="#2F5BFF" font-size="10.5" font-weight="600" text-anchor="start" style="">100 RPS</text>
+<text x="473.0" y="390.84375" fill="#2F5BFF" font-size="11" font-weight="700" text-anchor="start" style="">325</text>
+<text x="473.0" y="290.25" fill="#3A3A35" font-size="11" font-weight="700" text-anchor="start" style="">760</text>
+<text x="473.0" y="417.4375" fill="#8A8A82" font-size="11" font-weight="700" text-anchor="start" style="">210</text>
+</svg>

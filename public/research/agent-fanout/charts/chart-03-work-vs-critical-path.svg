@@ -1,0 +1,84 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 560' width='900' height='560' font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-rendering='geometricPrecision'>
+<rect width="900" height="560" fill="#F2EFE7"/>
+<text x="450.0" y="34" fill="#11110F" font-size="18" font-weight="700" text-anchor="middle" style="">PARALLELISM AMPLIFIES WORK FASTER THAN CRITICAL-PATH LATENCY</text>
+<text x="450.0" y="56" fill="#5A5953" font-size="12" font-weight="400" text-anchor="middle" style="">HOUSE TEACHING MODEL — IID exponential branches; real branch-latency distributions differ</text>
+<line x1="90" y1="100" x2="840" y2="100" stroke="#11110F" stroke-width="1.2" opacity="1"/>
+<line x1="90" y1="100" x2="90" y2="470" stroke="#11110F" stroke-width="1.2" opacity="1"/>
+<line x1="840" y1="100" x2="840" y2="470" stroke="#11110F" stroke-width="1.2" opacity="1"/>
+<line x1="90" y1="470" x2="840" y2="470" stroke="#11110F" stroke-width="1.2" opacity="1"/>
+<line x1="183.75" y1="100" x2="183.75" y2="470" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="183.75" y="488" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">2</text>
+<line x1="277.5" y1="100" x2="277.5" y2="470" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="277.5" y="488" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">4</text>
+<line x1="371.25" y1="100" x2="371.25" y2="470" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="371.25" y="488" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">6</text>
+<line x1="465.0" y1="100" x2="465.0" y2="470" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="465.0" y="488" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">8</text>
+<line x1="558.75" y1="100" x2="558.75" y2="470" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="558.75" y="488" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">10</text>
+<line x1="652.5" y1="100" x2="652.5" y2="470" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="652.5" y="488" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">12</text>
+<line x1="746.25" y1="100" x2="746.25" y2="470" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="746.25" y="488" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">14</text>
+<line x1="840.0" y1="100" x2="840.0" y2="470" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="840.0" y="488" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">16</text>
+<line x1="90" y1="426.47058823529414" x2="840" y2="426.47058823529414" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="430.47058823529414" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">2s</text>
+<line x1="90" y1="382.94117647058823" x2="840" y2="382.94117647058823" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="386.94117647058823" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">4s</text>
+<line x1="90" y1="339.4117647058823" x2="840" y2="339.4117647058823" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="343.4117647058823" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">6s</text>
+<line x1="90" y1="295.88235294117646" x2="840" y2="295.88235294117646" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="299.88235294117646" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">8s</text>
+<line x1="90" y1="252.35294117647058" x2="840" y2="252.35294117647058" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="256.3529411764706" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">10s</text>
+<line x1="90" y1="208.8235294117647" x2="840" y2="208.8235294117647" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="212.8235294117647" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">12s</text>
+<line x1="90" y1="165.29411764705884" x2="840" y2="165.29411764705884" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="169.29411764705884" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">14s</text>
+<line x1="90" y1="121.76470588235293" x2="840" y2="121.76470588235293" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="125.76470588235293" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">16s</text>
+<text x="465.0" y="514" fill="#11110F" font-size="13" font-weight="600" text-anchor="middle" style="">Parallel branches (all required)</text>
+<text x="28" y="285.0" fill="#11110F" font-size="13" font-weight="600" text-anchor="middle" style="writing-mode:tb;transform:rotate(180deg);">Seconds (1 s mean per branch)</text>
+<path d="M136.9,448.2 L136.9,448.2 L183.8,426.5 L230.6,404.7 L277.5,382.9 L324.4,361.2 L371.2,339.4 L418.1,317.6 L465.0,295.9 L511.9,274.1 L558.8,252.4 L605.6,230.6 L652.5,208.8 L699.4,187.1 L746.2,165.3 L793.1,143.5 L840.0,121.8" fill="none" stroke="#2F5BFF" stroke-width="2.6"/>
+<circle cx="136.9" cy="448.2" r="3.5" fill="#2F5BFF"/>
+<circle cx="183.8" cy="426.5" r="3.5" fill="#2F5BFF"/>
+<circle cx="230.6" cy="404.7" r="3.5" fill="#2F5BFF"/>
+<circle cx="277.5" cy="382.9" r="3.5" fill="#2F5BFF"/>
+<circle cx="324.4" cy="361.2" r="3.5" fill="#2F5BFF"/>
+<circle cx="371.2" cy="339.4" r="3.5" fill="#2F5BFF"/>
+<circle cx="418.1" cy="317.6" r="3.5" fill="#2F5BFF"/>
+<circle cx="465.0" cy="295.9" r="3.5" fill="#2F5BFF"/>
+<circle cx="511.9" cy="274.1" r="3.5" fill="#2F5BFF"/>
+<circle cx="558.8" cy="252.4" r="3.5" fill="#2F5BFF"/>
+<circle cx="605.6" cy="230.6" r="3.5" fill="#2F5BFF"/>
+<circle cx="652.5" cy="208.8" r="3.5" fill="#2F5BFF"/>
+<circle cx="699.4" cy="187.1" r="3.5" fill="#2F5BFF"/>
+<circle cx="746.2" cy="165.3" r="3.5" fill="#2F5BFF"/>
+<circle cx="793.1" cy="143.5" r="3.5" fill="#2F5BFF"/>
+<circle cx="840.0" cy="121.8" r="3.5" fill="#2F5BFF"/>
+<path d="M136.9,448.2 L136.9,448.2 L183.8,437.4 L230.6,430.1 L277.5,424.7 L324.4,420.3 L371.2,416.7 L418.1,413.6 L465.0,410.8 L511.9,408.4 L558.8,406.3 L605.6,404.3 L652.5,402.5 L699.4,400.8 L746.2,399.2 L793.1,397.8 L840.0,396.4" fill="none" stroke="#5A5953" stroke-width="2.4"/>
+<circle cx="136.9" cy="448.2" r="3.5" fill="#5A5953"/>
+<circle cx="183.8" cy="437.4" r="3.5" fill="#5A5953"/>
+<circle cx="230.6" cy="430.1" r="3.5" fill="#5A5953"/>
+<circle cx="277.5" cy="424.7" r="3.5" fill="#5A5953"/>
+<circle cx="324.4" cy="420.3" r="3.5" fill="#5A5953"/>
+<circle cx="371.2" cy="416.7" r="3.5" fill="#5A5953"/>
+<circle cx="418.1" cy="413.6" r="3.5" fill="#5A5953"/>
+<circle cx="465.0" cy="410.8" r="3.5" fill="#5A5953"/>
+<circle cx="511.9" cy="408.4" r="3.5" fill="#5A5953"/>
+<circle cx="558.8" cy="406.3" r="3.5" fill="#5A5953"/>
+<circle cx="605.6" cy="404.3" r="3.5" fill="#5A5953"/>
+<circle cx="652.5" cy="402.5" r="3.5" fill="#5A5953"/>
+<circle cx="699.4" cy="400.8" r="3.5" fill="#5A5953"/>
+<circle cx="746.2" cy="399.2" r="3.5" fill="#5A5953"/>
+<circle cx="793.1" cy="397.8" r="3.5" fill="#5A5953"/>
+<circle cx="840.0" cy="396.4" r="3.5" fill="#5A5953"/>
+<line x1="465.0" y1="100" x2="465.0" y2="470" stroke="#C9C3B7" stroke-width="1.0" stroke-dasharray="3,3" opacity="1"/>
+<text x="471.0" y="299.88235294117646" fill="#2F5BFF" font-size="11" font-weight="700" text-anchor="start" style="">8 s work</text>
+<text x="471.0" y="426.84352941176473" fill="#5A5953" font-size="11" font-weight="700" text-anchor="start" style="">2.7 s max latency</text>
+<line x1="130" y1="496" x2="152" y2="496" stroke="#2F5BFF" stroke-width="2.6" opacity="1"/>
+<text x="160" y="500" fill="#11110F" font-size="11.5" font-weight="400" text-anchor="start" style="">Total branch work (cost / rate dimension)</text>
+<line x1="130" y1="518" x2="152" y2="518" stroke="#5A5953" stroke-width="2.4" opacity="1"/>
+<text x="160" y="522" fill="#11110F" font-size="11.5" font-weight="400" text-anchor="start" style="">Expected max latency (critical path)</text>
+</svg>
