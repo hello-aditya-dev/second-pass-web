@@ -1,0 +1,3 @@
+system,duration_s,gpu_count,requests_issued,requests_completed,requests_failed,mean_osl,output_tokens,output_tps,request_throughput_rps,ttft_slo_ms,tpot_slo_ms,slo_compliant_requests,slo_goodput_rps,slo_goodput_per_gpu,p95_ttft_ms,p95_tpot_ms,classification
+A_SLO_STRONG,100,4,1000,1000,0,100,100000,1000,10,500,50,900,9,2.25,420,38,MATHEMATICAL SCENARIO — not production measurement
+B_SLO_WEAK,100,4,1000,1000,0,100,100000,1000,10,500,50,500,5,1.25,900,82,MATHEMATICAL SCENARIO — not production measurement

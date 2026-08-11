@@ -1,0 +1,6 @@
+metric,numerator,denominator,scope,unit,what_it_answers
+INPUT TOKENS/S,input tokens,wall time,aggregate run,tok/s,prompt-work rate
+OUTPUT TOKENS/S,output sequence tokens,wall time,aggregate run,tok/s,system generation capacity
+TOTAL TOKENS/S,input + output sequence tokens,wall time,aggregate run,tok/s,combined token workload rate
+PER-USER OUTPUT TOKENS/S,1,ITL seconds,one request/user,tok/s/user,individual streaming rate
+SLO REQUEST GOODPUT,SLO-passing requests,wall time,benchmark run,req/s,useful request capacity under latency constraints

@@ -1,0 +1,8 @@
+section,required_fields
+METRIC,name; semantic ID; numerator; denominator; aggregation; event boundaries
+WORKLOAD,ISL; OSL; sampling/output rule; benchmark dataset/task identity
+LOAD,offline/serving; offered request rate and/or concurrency; duration/warmup
+SYSTEM,model/revision; precision; runtime/version; parallelism; accelerator count/hosts/interconnect
+LATENCY,TTFT; TPOT/ITL; E2E; relevant p50/p95/p99
+GOODPUT,SLO thresholds; SLO-compliant requests/s; per-GPU if needed; failures
+QUALITY,accuracy/quality gate and status
