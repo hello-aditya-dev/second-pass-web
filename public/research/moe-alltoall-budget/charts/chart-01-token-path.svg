@@ -1,0 +1,45 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 460' width='900' height='460' font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-rendering='geometricPrecision'>
+<rect width="900" height="460" fill="#F2EFE7"/>
+<text x="450.0" y="30" fill="#11110F" font-size="18" font-weight="700" text-anchor="middle" style="">ONE ROUTED TOKEN: WHERE THE NETWORK CROSSES</text>
+<text x="450.0" y="52" fill="#5A5953" font-size="12" font-weight="400" text-anchor="middle" style="">HOUSE PATH SCHEMATIC — Signal Blue marks stages that cross the constrained fabric</text>
+<rect x="25.0" y="195.0" width="130" height="50" fill="#F2EFE7" stroke="#11110F" stroke-width="1.8" rx="4" ry="4" opacity="1"/>
+<text x="90.0" y="224" fill="#11110F" font-size="12" font-weight="600" text-anchor="middle" style="">ROUTER</text>
+<text x="90.0" y="185.0" fill="#5A5953" font-size="10" font-weight="400" text-anchor="middle" style="">stage 1</text>
+<rect x="169.0" y="195.0" width="130" height="50" fill="#F2EFE7" stroke="#11110F" stroke-width="1.8" rx="4" ry="4" opacity="1"/>
+<text x="234.0" y="224" fill="#11110F" font-size="12" font-weight="600" text-anchor="middle" style="">PERMUTE</text>
+<text x="234.0" y="185.0" fill="#5A5953" font-size="10" font-weight="400" text-anchor="middle" style="">stage 2</text>
+<rect x="313.0" y="195.0" width="130" height="50" fill="#F2EFE7" stroke="#2F5BFF" stroke-width="1.8" rx="4" ry="4" opacity="1"/>
+<text x="378.0" y="224" fill="#11110F" font-size="12" font-weight="600" text-anchor="middle" style="">DISPATCH</text>
+<text x="378.0" y="185.0" fill="#5A5953" font-size="10" font-weight="400" text-anchor="middle" style="">stage 3</text>
+<rect x="457.0" y="195.0" width="130" height="50" fill="#F2EFE7" stroke="#11110F" stroke-width="1.8" rx="4" ry="4" opacity="1"/>
+<text x="522.0" y="224" fill="#11110F" font-size="12" font-weight="600" text-anchor="middle" style="">REMOTE EXPERT</text>
+<text x="522.0" y="185.0" fill="#5A5953" font-size="10" font-weight="400" text-anchor="middle" style="">stage 4</text>
+<rect x="601.0" y="195.0" width="130" height="50" fill="#F2EFE7" stroke="#2F5BFF" stroke-width="1.8" rx="4" ry="4" opacity="1"/>
+<text x="666.0" y="224" fill="#11110F" font-size="12" font-weight="600" text-anchor="middle" style="">COMBINE</text>
+<text x="666.0" y="185.0" fill="#5A5953" font-size="10" font-weight="400" text-anchor="middle" style="">stage 5</text>
+<rect x="745.0" y="195.0" width="130" height="50" fill="#F2EFE7" stroke="#11110F" stroke-width="1.8" rx="4" ry="4" opacity="1"/>
+<text x="810.0" y="224" fill="#11110F" font-size="12" font-weight="600" text-anchor="middle" style="">UNPERMUTE</text>
+<text x="810.0" y="185.0" fill="#5A5953" font-size="10" font-weight="400" text-anchor="middle" style="">stage 6</text>
+<line x1="155.0" y1="220" x2="169.0" y2="220" stroke="#5A5953" stroke-width="1.3" opacity="1"/>
+<path d="M169.0,220 L162.7,223.0 M169.0,220 L162.7,217.0" stroke="#5A5953" stroke-width="1.3" fill="none"/>
+<text x="162.0" y="238.0" fill="#5A5953" font-size="10.5" font-weight="600" text-anchor="middle" style="">local</text>
+<line x1="299.0" y1="220" x2="313.0" y2="220" stroke="#2F5BFF" stroke-width="1.8" opacity="1"/>
+<path d="M313.0,220 L306.7,223.0 M313.0,220 L306.7,217.0" stroke="#2F5BFF" stroke-width="1.8" fill="none"/>
+<text x="306.0" y="210.0" fill="#2F5BFF" font-size="10.5" font-weight="600" text-anchor="middle" style="">network</text>
+<line x1="443.0" y1="220" x2="457.0" y2="220" stroke="#2F5BFF" stroke-width="1.8" opacity="1"/>
+<path d="M457.0,220 L450.7,223.0 M457.0,220 L450.7,217.0" stroke="#2F5BFF" stroke-width="1.8" fill="none"/>
+<text x="450.0" y="210.0" fill="#2F5BFF" font-size="10.5" font-weight="600" text-anchor="middle" style="">network</text>
+<line x1="587.0" y1="220" x2="601.0" y2="220" stroke="#2F5BFF" stroke-width="1.8" opacity="1"/>
+<path d="M601.0,220 L594.7,223.0 M601.0,220 L594.7,217.0" stroke="#2F5BFF" stroke-width="1.8" fill="none"/>
+<text x="594.0" y="210.0" fill="#2F5BFF" font-size="10.5" font-weight="600" text-anchor="middle" style="">network</text>
+<line x1="731.0" y1="220" x2="745.0" y2="220" stroke="#2F5BFF" stroke-width="1.8" opacity="1"/>
+<path d="M745.0,220 L738.7,223.0 M745.0,220 L738.7,217.0" stroke="#2F5BFF" stroke-width="1.8" fill="none"/>
+<text x="738.0" y="210.0" fill="#2F5BFF" font-size="10.5" font-weight="600" text-anchor="middle" style="">network</text>
+<text x="450.0" y="360" fill="#11110F" font-size="12" font-weight="600" text-anchor="middle" style="">Stage 3 DISPATCH: routed hidden states move to expert owners.</text>
+<text x="450.0" y="380" fill="#11110F" font-size="12" font-weight="600" text-anchor="middle" style="">Stage 5 COMBINE: expert outputs return and token order is restored.</text>
+<text x="450.0" y="410" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">Logical routed payload is NkHs bytes. Physical cross-fabric payload is that times p_remote.</text>
+<rect x="150" y="80" width="16" height="12" fill="#F2EFE7" stroke="#2F5BFF" stroke-width="1.8" rx="2" ry="2" opacity="1"/>
+<text x="172" y="90" fill="#11110F" font-size="11" font-weight="400" text-anchor="start" style="">stage crosses the network</text>
+<rect x="380" y="80" width="16" height="12" fill="#F2EFE7" stroke="#11110F" stroke-width="1.8" rx="2" ry="2" opacity="1"/>
+<text x="402" y="90" fill="#11110F" font-size="11" font-weight="400" text-anchor="start" style="">local stage (no cross-fabric traffic)</text>
+</svg>

@@ -1,0 +1,5 @@
+scenario,expert_compute_ms,network_time_ms,exposed_comm_ms,stage_ms
+A — intra-node NVLink domain,8.0,2.07520896,1.03760448,9.037604479999999
+"B — two nodes, one 400 Gb/s-class rail",8.0,15.708734933333336,13.308734933333337,21.308734933333337
+C — cross-node plus routing/link skew,8.0,23.5381024,21.1381024,29.1381024
+D — wider/top-16 cross-node,12.0,35.861394133333334,29.861394133333338,41.86139413333334

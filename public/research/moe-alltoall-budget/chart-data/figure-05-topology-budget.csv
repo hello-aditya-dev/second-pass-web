@@ -1,0 +1,4 @@
+level,vendor_rate,nominal_GBps,status,source_id,caveat
+H100 SXM NVLink,900 GB/s,900,SOURCE SPEC,S05,Per-GPU interconnect specification; not all-to-all application bandwidth.
+ConnectX-7 NDR,400 Gb/s,50,SOURCE SPEC + unit conversion,S06,Nominal port rate; protocol/topology/contention reduce useful payload bandwidth.
+ConnectX-8,800 Gb/s,100,SOURCE SPEC + unit conversion,S06,Nominal throughput; not an application collective measurement.

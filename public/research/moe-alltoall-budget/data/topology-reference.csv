@@ -1,0 +1,7 @@
+level,vendor_rate,nominal_GBps,status,source_id,caveat
+H100 SXM NVLink,900 GB/s,900,SOURCE SPEC,S05,Per-GPU interconnect specification; not all-to-all application bandwidth.
+ConnectX-7 NDR,400 Gb/s,50,SOURCE SPEC + unit conversion,S06,Nominal port rate; protocol/topology/contention reduce useful payload bandwidth.
+ConnectX-8,800 Gb/s,100,SOURCE SPEC + unit conversion,S06,Nominal throughput; not an application collective measurement.
+DeepEP SM90 CX7 EP8x2 dispatch,90 GB/s logical,90,MEASURED LOGICAL BANDWIDTH,S03,DeepEP explicitly notes logical bandwidth includes local-rank traffic.
+DeepEP SM90 CX7 EP8x2 combine,81 GB/s logical,81,MEASURED LOGICAL BANDWIDTH,S03,Not directly comparable to raw NIC line rate.
+DeepEP SM100 NVLink EP8 dispatch,726 GB/s logical,726,MEASURED LOGICAL BANDWIDTH,S03,"SM100 NVLink configuration, not H100."

@@ -1,0 +1,60 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 560' width='900' height='560' font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-rendering='geometricPrecision'>
+<rect width="900" height="560" fill="#F2EFE7"/>
+<text x="450.0" y="34" fill="#11110F" font-size="18" font-weight="700" text-anchor="middle" style="">BREAK-EVEN NETWORK BOUNDARY FOR EXPERT-PARALLEL ALL-TO-ALL</text>
+<text x="450.0" y="56" fill="#5A5953" font-size="12" font-weight="400" text-anchor="middle" style="">DERIVED — max payload that fits in budget T_available = T_d − (1−η)·T_e; HOUSE: T_d=18, T_e=8, η=0.30</text>
+<line x1="90" y1="100" x2="840" y2="100" stroke="#11110F" stroke-width="1.2" opacity="1"/>
+<line x1="90" y1="100" x2="90" y2="460" stroke="#11110F" stroke-width="1.2" opacity="1"/>
+<line x1="840" y1="100" x2="840" y2="460" stroke="#11110F" stroke-width="1.2" opacity="1"/>
+<line x1="90" y1="460" x2="840" y2="460" stroke="#11110F" stroke-width="1.2" opacity="1"/>
+<line x1="173.33333333333331" y1="100" x2="173.33333333333331" y2="460" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="173.33333333333331" y="478" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">20</text>
+<line x1="256.66666666666663" y1="100" x2="256.66666666666663" y2="460" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="256.66666666666663" y="478" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">40</text>
+<line x1="340.0" y1="100" x2="340.0" y2="460" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="340.0" y="478" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">60</text>
+<line x1="423.3333333333333" y1="100" x2="423.3333333333333" y2="460" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="423.3333333333333" y="478" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">80</text>
+<line x1="506.6666666666667" y1="100" x2="506.6666666666667" y2="460" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="506.6666666666667" y="478" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">100</text>
+<line x1="590.0" y1="100" x2="590.0" y2="460" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="590.0" y="478" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">120</text>
+<line x1="673.3333333333334" y1="100" x2="673.3333333333334" y2="460" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="673.3333333333334" y="478" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">140</text>
+<line x1="756.6666666666666" y1="100" x2="756.6666666666666" y2="460" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="756.6666666666666" y="478" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">160</text>
+<line x1="840.0" y1="100" x2="840.0" y2="460" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="840.0" y="478" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">180</text>
+<line x1="90" y1="403.75" x2="840" y2="403.75" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="407.75" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">0.5 GB</text>
+<line x1="90" y1="347.5" x2="840" y2="347.5" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="351.5" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">1.0 GB</text>
+<line x1="90" y1="291.25" x2="840" y2="291.25" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="295.25" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">1.5 GB</text>
+<line x1="90" y1="235.0" x2="840" y2="235.0" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="239.0" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">2.0 GB</text>
+<line x1="90" y1="178.75" x2="840" y2="178.75" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="182.75" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">2.5 GB</text>
+<line x1="90" y1="122.5" x2="840" y2="122.5" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="126.5" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">3.0 GB</text>
+<text x="465.0" y="504" fill="#11110F" font-size="13" font-weight="600" text-anchor="middle" style="">Effective all-to-all bandwidth (GB/s)</text>
+<text x="28" y="280.0" fill="#11110F" font-size="13" font-weight="600" text-anchor="middle" style="writing-mode:tb;transform:rotate(180deg);">Max payload that fits the budget</text>
+<path d="M173.3,442.0 L173.3,442.0 L194.2,437.5 L215.0,433.0 L235.8,428.5 L256.7,424.0 L277.5,419.5 L298.3,415.0 L319.2,410.5 L340.0,406.0 L360.8,401.5 L381.7,397.0 L402.5,392.5 L423.3,388.0 L444.2,383.5 L465.0,379.0 L485.8,374.5 L506.7,370.0 L527.5,365.5 L548.3,361.0 L569.2,356.5 L590.0,352.0 L610.8,347.5 L631.7,343.0 L652.5,338.5 L673.3,334.0 L694.2,329.5 L715.0,325.0 L735.8,320.5 L756.7,316.0 L777.5,311.5 L798.3,307.0 L819.2,302.5 L840.0,298.0" fill="none" stroke="#5A5953" stroke-width="2.2"/>
+<path d="M173.3,432.1 L173.3,432.1 L194.2,425.1 L215.0,418.1 L235.8,411.2 L256.7,404.2 L277.5,397.2 L298.3,390.2 L319.2,383.3 L340.0,376.3 L360.8,369.3 L381.7,362.4 L402.5,355.4 L423.3,348.4 L444.2,341.4 L465.0,334.5 L485.8,327.5 L506.7,320.5 L527.5,313.5 L548.3,306.6 L569.2,299.6 L590.0,292.6 L610.8,285.6 L631.7,278.7 L652.5,271.7 L673.3,264.7 L694.2,257.7 L715.0,250.8 L735.8,243.8 L756.7,236.8 L777.5,229.8 L798.3,222.9 L819.2,215.9 L840.0,208.9" fill="none" stroke="#2F5BFF" stroke-width="2.8"/>
+<path d="M173.3,419.5 L173.3,419.5 L194.2,409.4 L215.0,399.2 L235.8,389.1 L256.7,379.0 L277.5,368.9 L298.3,358.8 L319.2,348.6 L340.0,338.5 L360.8,328.4 L381.7,318.2 L402.5,308.1 L423.3,298.0 L444.2,287.9 L465.0,277.8 L485.8,267.6 L506.7,257.5 L527.5,247.4 L548.3,237.3 L569.2,227.1 L590.0,217.0 L610.8,206.9 L631.7,196.8 L652.5,186.6 L673.3,176.5 L694.2,166.4 L715.0,156.3 L735.8,146.1 L756.7,136.0 L777.5,125.9 L798.3,115.8 L819.2,105.6 L840.0,95.5" fill="none" stroke="#5A5953" stroke-width="2.2" stroke-dasharray="5,4"/>
+<circle cx="277.5" cy="380.7" r="6" fill="#2F5BFF" stroke="#11110F" stroke-width="1.4"/>
+<text x="287.5" y="368.7276544" fill="#2F5BFF" font-size="11" font-weight="700" text-anchor="start" style="">HOUSE cross-node case</text>
+<text x="287.5" y="384.7276544" fill="#11110F" font-size="11" font-weight="600" text-anchor="start" style="">0.705 GB @ 45 GB/s</text>
+<text x="287.5" y="398.7276544" fill="#5A5953" font-size="10.5" font-weight="400" text-anchor="start" style="">(H=7168, top-8, p_remote=0.50)</text>
+<line x1="277.5" y1="100" x2="277.5" y2="380.7276544" stroke="#2F5BFF" stroke-width="1.0" stroke-dasharray="3,3" opacity="1"/>
+<line x1="90" y1="380.7276544" x2="277.5" y2="380.7276544" stroke="#2F5BFF" stroke-width="1.0" stroke-dasharray="3,3" opacity="1"/>
+<line x1="327.75" y1="100" x2="327.75" y2="380.7276544" stroke="#11110F" stroke-width="1.2" stroke-dasharray="4,3" opacity="1"/>
+<text x="331.75" y="134" fill="#11110F" font-size="11" font-weight="700" text-anchor="start" style="">break-even ≈ 57.06 GB/s</text>
+<text x="331.75" y="150" fill="#2F5BFF" font-size="10.5" font-weight="600" text-anchor="start" style="">45 GB/s HOUSE path → EXCEEDS BUDGET</text>
+<line x1="150" y1="496" x2="172" y2="496" stroke="#5A5953" stroke-width="2.2" opacity="1"/>
+<text x="180" y="500" fill="#11110F" font-size="11" font-weight="400" text-anchor="start" style="">budget = 8 ms (T_e alone)</text>
+<line x1="420" y1="496" x2="442" y2="496" stroke="#2F5BFF" stroke-width="2.8" opacity="1"/>
+<text x="450" y="500" fill="#11110F" font-size="11" font-weight="400" text-anchor="start" style="">budget = 12.4 ms (T_d − (1−η)·T_e) — HOUSE</text>
+<line x1="150" y1="514" x2="172" y2="514" stroke="#5A5953" stroke-width="2.2" stroke-dasharray="5,4" opacity="1"/>
+<text x="180" y="518" fill="#11110F" font-size="11" font-weight="400" text-anchor="start" style="">budget = 18 ms (T_d, no overlap credit)</text>
+<text x="90" y="540" fill="#5A5953" font-size="10.5" font-weight="400" text-anchor="start" style="">HOUSE cross-node case using source-backed H=7168, top-8 shape. NOT a DeepSeek-V3 production measurement.</text>
+</svg>

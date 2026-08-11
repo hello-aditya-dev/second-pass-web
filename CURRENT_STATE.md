@@ -1,7 +1,7 @@
 # Current State
 
 **Brand:** SECOND / PASS
-**Phase:** LIVE PUBLICATION (post-production-repair + Research #10/#11/#12/#13)
+**Phase:** LIVE PUBLICATION (post-production-repair + Research #10/#11/#12/#13/#14/#15)
 **Architecture:** Astro 7 hybrid — static read path, Vercel Functions for writes only
 **Date:** 2026-08-11
 **Launch date:** 2026-08-10
@@ -112,9 +112,9 @@ Five canonical formats are live in the schema:
 - **DATA** — structured table, one or more analytical views, clear units, downloadable data where appropriate.
 - **DEEP** — long-form; 3–6 meaningful visual objects where warranted. Quality beats volume.
 
-## Published articles (21 total)
+## Published articles (23 total)
 
-Articles are listed by section cluster. Total: 21 published, 6 draft (demo-* and torture-*).
+Articles are listed by section cluster. Total: 23 published, 6 draft (demo-* and torture-*).
 
 ### AI — 7 articles (3 NOW, 3 SECOND PASS, 1 PROOF)
 
@@ -126,7 +126,7 @@ Articles are listed by section cluster. Total: 21 published, 6 draft (demo-* and
 - `sonnet-5-price-effective-date` — NOW — 2026-08-09
 - `when-should-a-company-run-its-own-ai-model` — SECOND PASS — 2026-08-09 (featuredRank 8, editorialOrder 1)
 
-### Compute — 3 articles (2 SECOND PASS, 1 PROOF)
+### Compute — 5 articles (2 SECOND PASS, 3 PROOF)
 
 - `a-142-kw-ai-rack-turns-gpu-procurement-into-a-power-problem` — SECOND PASS — 2026-08-10 (featuredRank 4, editorialOrder 1)
   - 5 charts (SVG+PNG+CSV), XLSX workbook, 7 research CSVs
@@ -137,6 +137,20 @@ Articles are listed by section cluster. Total: 21 published, 6 draft (demo-* and
   - 5 charts (SVG+PNG+CSV), XLSX workbook, 7 research CSVs + 1 input template CSV
   - 6 sources, 5 FIRST PASS bullets, 2 CLAIM CHECKs, 1 CALCULATION
   - Full math (KaTeX, 37 display blocks), house editorial objects (/ QUESTION, / CALCULATION, / CLAIM CHECK, / INTELLIGENCE)
+- `4-bit-is-not-automatically-cheaper` — PROOF — 2026-08-11 (featuredRank 0, editorialOrder 2)
+  - 5 charts (SVG+PNG+CSV), XLSX workbook, 5 chart-data CSVs, 11 research data CSVs, company-quantization input template
+  - 13 sources (NVIDIA H100/H200/A100/DGX B200, TensorRT-LLM ×3, vLLM, Transformer Engine NVFP4, AWQ, GPTQ, SmoothQuant), 5 FIRST PASS bullets
+  - 3 CALCULATION blocks, 2 CLAIM CHECK blocks, 1 ASSUMPTION block, 1 INTELLIGENCE
+  - Full math (KaTeX, 413 elements): M_total = M_weights + M_KV + M_activations + M_workspace + M_runtime + M_fragmentation; G(b) = ceil(M_required / M_usable/GPU); q_q/q_h > r_G/g; ΔT_transfer/token = (M_h − M_q)/(B_eff · B)
+  - Frozen scenarios: 70B BF16 158.74 GB → 2 H200s vs W4A16 54.83 GB → 1 H200; Scenario A break-even q_q > 0.6806; Scenario B 9.1% throughput gain → q_q/q_h > 0.909; long-context 70B KV-boundary where W4 + FP8 KV crosses to 1 H200
+  - Stable namespace: `/research/quantization-break-even/`
+- `when-moe-becomes-a-network-problem` — PROOF — 2026-08-11 (featuredRank 0, editorialOrder 1)
+  - 6 charts (SVG+PNG+CSV), XLSX workbook, 6 chart-data CSVs, 6 research data CSVs, company-MoE input template
+  - 10 sources (Megatron Core 0.17.0, Megatron Bridge, DeepEP, NCCL, H100, ConnectX-7, DeepSeek-V3 config.json, DeepSeek-V3 technical report, vLLM EP deployment, NCCL EP paper), 5 FIRST PASS bullets
+  - 3 CALCULATION blocks, 2 CLAIM CHECK blocks, 1 ASSUMPTION block, 1 INTELLIGENCE
+  - Full math (KaTeX, 501 elements): D_logical = NkHs; D_network = NkHs · p_remote; T_n = T_startup + D_network/B_eff; T_exposed = T_n − η·min(T_e,T_n); B_required = D_network / (T_d − (1−η)·T_e); I_load = max(n_j) / (Nk/E); H_GPU,idle = G·Δt·S/3600
+  - Frozen scenarios: 1.409 GB logical payload (8192 × 8 × 7168 × (1+2) bytes); 0.705 GB HOUSE 50%-remote payload; 15.7087 ms raw network time; 13.3087 ms exposed communication; 21.3087 ms MoE stage > 18 ms dense → COMMUNICATION EXCEEDS BUDGET; break-even bandwidth ≈ 57.06 GB/s
+  - Stable namespace: `/research/moe-alltoall-budget/`
 
 ### Systems — 5 articles (3 SECOND PASS, 2 PROOF)
 
@@ -191,7 +205,7 @@ Articles are listed by section cluster. Total: 21 published, 6 draft (demo-* and
   - All 5 figures inserted contextually (package had zero); hero: chart-03-rank-reversal.svg
   - Stable namespace: `/research/reasoning-ttft-ttfo/`
 
-The `/research` hub now aggregates 7 articles: 2 Research-section + 5 cross-section PROOF.
+The `/research` hub now aggregates 9 articles: 2 Research-section + 7 cross-section PROOF.
 
 ## Research hub semantics
 
@@ -201,7 +215,7 @@ The `/research` hub now aggregates 7 articles: 2 Research-section + 5 cross-sect
 section === "Research"  ||  format === "PROOF"
 ```
 
-Original section labels on cards are preserved — a Security / PROOF article is displayed with its real section, not relabeled as Research. Current hub population: 7 articles (2 Research-section + 5 cross-section PROOF): `tokens-per-second-is-not-an-inference-benchmark` (Research/PROOF), `for-reasoning-models-ttft-may-measure-the-wrong-first-token` (Research/SECOND PASS), `cheapest-ai-model-not-cheapest-system-proof`, `can-you-prove-the-ai-system-you-deployed-is-the-one-you-approved`, `kv-cache-is-your-real-concurrency-budget`, `when-flops-stop-mattering-hbm-roofline-llm-inference`, `how-much-warm-capacity-should-an-llm-service-keep` (Systems/PROOF).
+Original section labels on cards are preserved — a Security / PROOF article is displayed with its real section, not relabeled as Research. Current hub population: 9 articles (2 Research-section + 7 cross-section PROOF): `tokens-per-second-is-not-an-inference-benchmark` (Research/PROOF), `for-reasoning-models-ttft-may-measure-the-wrong-first-token` (Research/SECOND PASS), `cheapest-ai-model-not-cheapest-system-proof`, `can-you-prove-the-ai-system-you-deployed-is-the-one-you-approved`, `kv-cache-is-your-real-concurrency-budget`, `when-flops-stop-mattering-hbm-roofline-llm-inference`, `how-much-warm-capacity-should-an-llm-service-keep` (Systems/PROOF), `4-bit-is-not-automatically-cheaper` (Compute/PROOF), `when-moe-becomes-a-network-problem` (Compute/PROOF).
 
 ## Homepage curation contract
 

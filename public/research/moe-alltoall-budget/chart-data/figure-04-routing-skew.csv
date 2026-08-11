@@ -1,0 +1,6 @@
+load_imbalance_I,mean_assignments_per_expert,busiest_expert_assignments,normalized_critical_link_work
+1,256.0,256.0,1
+1.25,256.0,320.0,1.25
+1.5,256.0,384.0,1.5
+2,256.0,512.0,2
+3,256.0,768.0,3
