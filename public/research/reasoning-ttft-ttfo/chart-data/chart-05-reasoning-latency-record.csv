@@ -1,0 +1,13 @@
+field,required_or_conditional
+reasoning setting,required
+reasoning visibility,required
+TTFT definition,required
+TTFT,conditional
+TTFO,conditional
+gap,conditional
+TPOT/ITL semantics,required
+E2E,required
+reasoning tokens,conditional
+answer tokens,required
+tool/version,required
+SLO goodput,conditional

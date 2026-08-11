@@ -1,0 +1,4 @@
+pattern,request_ms,first_any_ms,reasoning_or_summary_ms,first_answer_ms,complete_ms
+hidden_reasoning,0,650,NOT OBSERVABLE,650,2800
+exposed_reasoning,0,150,150,2200,4200
+summary_before_answer,0,300,300,1200,2600
