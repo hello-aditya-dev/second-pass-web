@@ -1,0 +1,45 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 560' width='900' height='560' font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-rendering='geometricPrecision'>
+<rect width="900" height="560" fill="#F2EFE7"/>
+<text x="450.0" y="34" fill="#11110F" font-size="18" font-weight="700" text-anchor="middle" style="">WHERE GPU MEMORY GOES — LONG-CONTEXT 70B HOUSE CASE</text>
+<text x="450.0" y="56" fill="#5A5953" font-size="12" font-weight="400" text-anchor="middle" style="">HOUSE MEMORY MODEL — W4 footprint assumes group-128 AWQ-style metadata; not a TRT-LLM measured deployment</text>
+<line x1="272.0" y1="110" x2="272.0" y2="430" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="272.0" y="448" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">50 GB</text>
+<line x1="414.0" y1="110" x2="414.0" y2="430" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="414.0" y="448" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">100 GB</text>
+<line x1="556.0" y1="110" x2="556.0" y2="430" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="556.0" y="448" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">150 GB</text>
+<line x1="698.0" y1="110" x2="698.0" y2="430" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="698.0" y="448" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">200 GB</text>
+<line x1="840.0" y1="110" x2="840.0" y2="430" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="840.0" y="448" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">250 GB</text>
+<text x="485.0" y="474" fill="#11110F" font-size="13" font-weight="600" text-anchor="middle" style="">Memory footprint (GB) on H200 141 GB / 90% usable = 126.9 GB</text>
+<line x1="490.396" y1="110" x2="490.396" y2="430" stroke="#2F5BFF" stroke-width="1.8" stroke-dasharray="6,4" opacity="1"/>
+<text x="496.396" y="124" fill="#2F5BFF" font-size="11" font-weight="600" text-anchor="start" style="">1-GPU usable threshold (126.9 GB)</text>
+<rect x="210.0" y="250.79999999999998" width="130" height="179.20000000000002" fill="#5A5953" stroke="none" stroke-width="0" rx="2" ry="2" opacity="0.85"/>
+<rect x="210.0" y="140.84883722239996" width="130" height="109.95116277760002" fill="#E6E1D5" stroke="none" stroke-width="0" rx="2" ry="2" opacity="0.85"/>
+<rect x="210.0" y="128.04883722239995" width="130" height="12.8" fill="#11110F" stroke="none" stroke-width="0" rx="2" ry="2" opacity="0.6"/>
+<text x="275.0" y="118.04883722239995" fill="#11110F" font-size="12" font-weight="700" text-anchor="middle" style="">235.9 GB</text>
+<text x="275.0" y="102.04883722239995" fill="#5A5953" font-size="11.5" font-weight="700" text-anchor="middle" style="">2 GPU</text>
+<text x="275.0" y="492" fill="#11110F" font-size="11" font-weight="600" text-anchor="middle" style="">BF16 weights + BF16 KV</text>
+<rect x="420.0" y="383.8" width="130" height="46.2" fill="#2F5BFF" stroke="none" stroke-width="0" rx="2" ry="2" opacity="0.85"/>
+<rect x="420.0" y="273.8488372224" width="130" height="109.95116277760002" fill="#E6E1D5" stroke="none" stroke-width="0" rx="2" ry="2" opacity="0.85"/>
+<rect x="420.0" y="261.0488372224" width="130" height="12.8" fill="#11110F" stroke="none" stroke-width="0" rx="2" ry="2" opacity="0.6"/>
+<text x="485.0" y="251.04883722239998" fill="#11110F" font-size="12" font-weight="700" text-anchor="middle" style="">132.0 GB</text>
+<text x="485.0" y="235.04883722239998" fill="#5A5953" font-size="11.5" font-weight="700" text-anchor="middle" style="">2 GPU</text>
+<text x="485.0" y="492" fill="#11110F" font-size="11" font-weight="600" text-anchor="middle" style="">W4A16 weights + BF16 KV</text>
+<rect x="630.0" y="383.8" width="130" height="46.2" fill="#2F5BFF" stroke="none" stroke-width="0" rx="2" ry="2" opacity="0.85"/>
+<rect x="630.0" y="328.82441861120003" width="130" height="54.97558138880001" fill="#E6E1D5" stroke="none" stroke-width="0" rx="2" ry="2" opacity="0.85"/>
+<rect x="630.0" y="316.0244186112" width="130" height="12.8" fill="#11110F" stroke="none" stroke-width="0" rx="2" ry="2" opacity="0.6"/>
+<text x="695.0" y="306.0244186112" fill="#11110F" font-size="12" font-weight="700" text-anchor="middle" style="">89.0 GB</text>
+<text x="695.0" y="290.0244186112" fill="#2F5BFF" font-size="11.5" font-weight="700" text-anchor="middle" style="">1 GPU</text>
+<text x="695.0" y="492" fill="#11110F" font-size="11" font-weight="600" text-anchor="middle" style="">W4A16 weights + FP8 KV</text>
+<rect x="150" y="500" width="16" height="12" fill="#5A5953" stroke="#C9C3B7" stroke-width="0.8" rx="2" ry="2" opacity="0.85"/>
+<text x="172" y="510" fill="#11110F" font-size="11" font-weight="400" text-anchor="start" style="">BF16 weights</text>
+<rect x="290" y="500" width="16" height="12" fill="#2F5BFF" stroke="#C9C3B7" stroke-width="0.8" rx="2" ry="2" opacity="0.85"/>
+<text x="312" y="510" fill="#11110F" font-size="11" font-weight="400" text-anchor="start" style="">W4A16 weights (HOUSE footprint)</text>
+<rect x="540" y="500" width="16" height="12" fill="#E6E1D5" stroke="#C9C3B7" stroke-width="0.8" rx="2" ry="2" opacity="0.85"/>
+<text x="562" y="510" fill="#11110F" font-size="11" font-weight="400" text-anchor="start" style="">KV cache</text>
+<rect x="680" y="500" width="16" height="12" fill="#11110F" stroke="#C9C3B7" stroke-width="0.8" rx="2" ry="2" opacity="0.6"/>
+<text x="702" y="510" fill="#11110F" font-size="11" font-weight="400" text-anchor="start" style="">Other runtime</text>
+<text x="130" y="540" fill="#5A5953" font-size="10.5" font-weight="400" text-anchor="start" style="">Sources: NVIDIA H200 product specifications (141 GB HBM3e). Weight metadata, KV model and runtime are HOUSE teaching assumptions.</text>
+</svg>

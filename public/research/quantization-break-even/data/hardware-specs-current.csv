@@ -1,0 +1,6 @@
+gpu,architecture,memory_gb,memory_bandwidth_tb_s,relevant_precisions,source,accessed_at,status,caveat
+A100 80GB SXM,Ampere,80,2.039,BF16/FP16/INT8; no native FP8/FP4 Tensor Core entry on product spec,https://www.nvidia.com/en-us/data-center/a100/,2026-08-11,OBSERVED SOURCE DATA,INT4 may use framework/kernel paths; do not infer native FP4.
+H100 SXM,Hopper,80,3.35,BF16/FP16/FP8/INT8,https://www.nvidia.com/en-us/data-center/h100/,2026-08-11,OBSERVED SOURCE DATA,Hopper Tensor Cores add FP8; no Blackwell FP4 support.
+H200 SXM,Hopper,141,4.8,BF16/FP16/FP8/INT8,https://www.nvidia.com/en-in/data-center/h200/,2026-08-11,OBSERVED SOURCE DATA,"141GB HBM3e, 4.8TB/s."
+B200 (DGX B200),Blackwell,180,8.0,BF16/FP16/FP8/FP6/FP4/INT8,https://www.nvidia.com/en-au/data-center/dgx-b200/,2026-08-11,OBSERVED SOURCE DATA,"DGX B200 total 1,440GB and 64TB/s across 8 GPUs => 180GB and 8TB/s/GPU."
+GB200 GPU (derived from Grace Blackwell Superchip),Blackwell,186,8.0,BF16/FP16/FP8/FP6/NVFP4/INT8,https://www.nvidia.com/en-in/data-center/gb200-nvl72/,2026-08-11,OBSERVED + SIMPLE NORMALIZATION,Superchip lists 372GB/16TB/s for 2 GPUs; per-GPU normalization 186GB/8TB/s. Current perf page may label GB200 192GB; do not mix without disclosure.

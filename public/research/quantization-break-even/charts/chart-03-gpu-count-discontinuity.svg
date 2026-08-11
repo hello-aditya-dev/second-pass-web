@@ -1,0 +1,61 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 560' width='900' height='560' font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-rendering='geometricPrecision'>
+<rect width="900" height="560" fill="#F2EFE7"/>
+<text x="450.0" y="34" fill="#11110F" font-size="18" font-weight="700" text-anchor="middle" style="">GPU-COUNT DISCONTINUITY: A SMALL BYTE SAVING CAN REMOVE A GPU</text>
+<text x="450.0" y="56" fill="#5A5953" font-size="12" font-weight="400" text-anchor="middle" style="">HOUSE WORKLOAD on H200 141 GB / 90% usable — W4 footprint assumes group-128 metadata</text>
+<line x1="90" y1="100" x2="840" y2="100" stroke="#11110F" stroke-width="1.2" opacity="1"/>
+<line x1="90" y1="100" x2="90" y2="460" stroke="#11110F" stroke-width="1.2" opacity="1"/>
+<line x1="840" y1="100" x2="840" y2="460" stroke="#11110F" stroke-width="1.2" opacity="1"/>
+<line x1="90" y1="460" x2="840" y2="460" stroke="#11110F" stroke-width="1.2" opacity="1"/>
+<line x1="152.5" y1="100" x2="152.5" y2="460" stroke="#C9C3B7" stroke-width="0.6" opacity="1"/>
+<text x="152.5" y="478" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">25B</text>
+<line x1="215.0" y1="100" x2="215.0" y2="460" stroke="#C9C3B7" stroke-width="0.6" opacity="1"/>
+<text x="215.0" y="478" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">50B</text>
+<line x1="277.5" y1="100" x2="277.5" y2="460" stroke="#C9C3B7" stroke-width="0.6" opacity="1"/>
+<text x="277.5" y="478" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">75B</text>
+<line x1="340.0" y1="100" x2="340.0" y2="460" stroke="#C9C3B7" stroke-width="0.6" opacity="1"/>
+<text x="340.0" y="478" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">100B</text>
+<line x1="402.5" y1="100" x2="402.5" y2="460" stroke="#C9C3B7" stroke-width="0.6" opacity="1"/>
+<text x="402.5" y="478" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">125B</text>
+<line x1="465.0" y1="100" x2="465.0" y2="460" stroke="#C9C3B7" stroke-width="0.6" opacity="1"/>
+<text x="465.0" y="478" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">150B</text>
+<line x1="527.5" y1="100" x2="527.5" y2="460" stroke="#C9C3B7" stroke-width="0.6" opacity="1"/>
+<text x="527.5" y="478" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">175B</text>
+<line x1="590.0" y1="100" x2="590.0" y2="460" stroke="#C9C3B7" stroke-width="0.6" opacity="1"/>
+<text x="590.0" y="478" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">200B</text>
+<line x1="652.5" y1="100" x2="652.5" y2="460" stroke="#C9C3B7" stroke-width="0.6" opacity="1"/>
+<text x="652.5" y="478" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">225B</text>
+<line x1="715.0" y1="100" x2="715.0" y2="460" stroke="#C9C3B7" stroke-width="0.6" opacity="1"/>
+<text x="715.0" y="478" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">250B</text>
+<line x1="777.5" y1="100" x2="777.5" y2="460" stroke="#C9C3B7" stroke-width="0.6" opacity="1"/>
+<text x="777.5" y="478" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">275B</text>
+<line x1="840.0" y1="100" x2="840.0" y2="460" stroke="#C9C3B7" stroke-width="0.6" opacity="1"/>
+<text x="840.0" y="478" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">300B</text>
+<line x1="90" y1="400.0" x2="840" y2="400.0" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="404.0" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">1</text>
+<line x1="90" y1="340.0" x2="840" y2="340.0" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="344.0" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">2</text>
+<line x1="90" y1="280.0" x2="840" y2="280.0" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="284.0" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">3</text>
+<line x1="90" y1="220.0" x2="840" y2="220.0" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="224.0" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">4</text>
+<line x1="90" y1="160.0" x2="840" y2="160.0" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="164.0" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">5</text>
+<line x1="90" y1="100.0" x2="840" y2="100.0" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="104.0" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">6</text>
+<text x="465.0" y="504" fill="#11110F" font-size="13" font-weight="600" text-anchor="middle" style="">Model parameter count (B)</text>
+<text x="28" y="280.0" fill="#11110F" font-size="13" font-weight="600" text-anchor="middle" style="writing-mode:tb;transform:rotate(180deg);">Required H200 GPUs</text>
+<path d="M140.0,400.0 L152.5,400.0 L152.5,400.0 L165.0,400.0 L165.0,400.0 L177.5,400.0 L177.5,400.0 L190.0,400.0 L190.0,400.0 L202.5,400.0 L202.5,400.0 L215.0,400.0 L215.0,400.0 L227.5,400.0 L227.5,340.0 L240.0,340.0 L240.0,340.0 L252.5,340.0 L252.5,340.0 L265.0,340.0 L265.0,340.0 L277.5,340.0 L277.5,340.0 L290.0,340.0 L290.0,340.0 L302.5,340.0 L302.5,340.0 L315.0,340.0 L315.0,340.0 L327.5,340.0 L327.5,340.0 L340.0,340.0 L340.0,340.0 L352.5,340.0 L352.5,340.0 L365.0,340.0 L365.0,340.0 L377.5,340.0 L377.5,340.0 L390.0,340.0 L390.0,280.0 L402.5,280.0 L402.5,280.0 L415.0,280.0 L415.0,280.0 L427.5,280.0 L427.5,280.0 L440.0,280.0 L440.0,280.0 L452.5,280.0 L452.5,280.0 L465.0,280.0 L465.0,280.0 L477.5,280.0 L477.5,280.0 L490.0,280.0 L490.0,280.0 L502.5,280.0 L502.5,280.0 L515.0,280.0 L515.0,280.0 L527.5,280.0 L527.5,280.0 L540.0,280.0 L540.0,280.0 L552.5,280.0 L552.5,220.0 L565.0,220.0 L565.0,220.0 L577.5,220.0 L577.5,220.0 L590.0,220.0 L590.0,220.0 L602.5,220.0 L602.5,220.0 L615.0,220.0 L615.0,220.0 L627.5,220.0 L627.5,220.0 L640.0,220.0 L640.0,220.0 L652.5,220.0 L652.5,220.0 L665.0,220.0 L665.0,220.0 L677.5,220.0 L677.5,220.0 L690.0,220.0 L690.0,220.0 L702.5,220.0 L702.5,160.0 L715.0,160.0 L715.0,160.0 L727.5,160.0 L727.5,160.0 L740.0,160.0 L740.0,160.0 L752.5,160.0 L752.5,160.0 L765.0,160.0 L765.0,160.0 L777.5,160.0 L777.5,160.0 L790.0,160.0 L790.0,160.0 L802.5,160.0 L802.5,160.0 L815.0,160.0 L815.0,160.0 L827.5,160.0 L827.5,160.0 L840.0,160.0 L840.0,160.0" fill="none" stroke="#5A5953" stroke-width="2.6"/>
+<path d="M140.0,400.0 L152.5,400.0 L152.5,400.0 L165.0,400.0 L165.0,400.0 L177.5,400.0 L177.5,400.0 L190.0,400.0 L190.0,400.0 L202.5,400.0 L202.5,400.0 L215.0,400.0 L215.0,400.0 L227.5,400.0 L227.5,400.0 L240.0,400.0 L240.0,400.0 L252.5,400.0 L252.5,400.0 L265.0,400.0 L265.0,400.0 L277.5,400.0 L277.5,400.0 L290.0,400.0 L290.0,400.0 L302.5,400.0 L302.5,400.0 L315.0,400.0 L315.0,400.0 L327.5,400.0 L327.5,400.0 L340.0,400.0 L340.0,400.0 L352.5,400.0 L352.5,400.0 L365.0,400.0 L365.0,400.0 L377.5,400.0 L377.5,400.0 L390.0,400.0 L390.0,400.0 L402.5,400.0 L402.5,400.0 L415.0,400.0 L415.0,400.0 L427.5,400.0 L427.5,400.0 L440.0,400.0 L440.0,400.0 L452.5,400.0 L452.5,400.0 L465.0,400.0 L465.0,400.0 L477.5,400.0 L477.5,400.0 L490.0,400.0 L490.0,400.0 L502.5,400.0 L502.5,400.0 L515.0,400.0 L515.0,400.0 L527.5,400.0 L527.5,400.0 L540.0,400.0 L540.0,400.0 L552.5,400.0 L552.5,400.0 L565.0,400.0 L565.0,400.0 L577.5,400.0 L577.5,400.0 L590.0,400.0 L590.0,400.0 L602.5,400.0 L602.5,400.0 L615.0,400.0 L615.0,340.0 L627.5,340.0 L627.5,340.0 L640.0,340.0 L640.0,340.0 L652.5,340.0 L652.5,340.0 L665.0,340.0 L665.0,340.0 L677.5,340.0 L677.5,340.0 L690.0,340.0 L690.0,340.0 L702.5,340.0 L702.5,340.0 L715.0,340.0 L715.0,340.0 L727.5,340.0 L727.5,340.0 L740.0,340.0 L740.0,340.0 L752.5,340.0 L752.5,340.0 L765.0,340.0 L765.0,340.0 L777.5,340.0 L777.5,340.0 L790.0,340.0 L790.0,340.0 L802.5,340.0 L802.5,340.0 L815.0,340.0 L815.0,340.0 L827.5,340.0 L827.5,340.0 L840.0,340.0 L840.0,340.0" fill="none" stroke="#2F5BFF" stroke-width="2.8"/>
+<circle cx="265.0" cy="340.0" r="5" fill="#5A5953"/>
+<circle cx="265.0" cy="400.0" r="5" fill="#2F5BFF"/>
+<text x="273.0" y="344.0" fill="#5A5953" font-size="11" font-weight="700" text-anchor="start" style="">70B BF16: 2 GPUs</text>
+<text x="273.0" y="418.0" fill="#2F5BFF" font-size="11" font-weight="700" text-anchor="start" style="">70B W4: 1 GPU</text>
+<line x1="265.0" y1="100" x2="265.0" y2="460" stroke="#C9C3B7" stroke-width="1.0" stroke-dasharray="3,3" opacity="1"/>
+<circle cx="615.0" cy="340.0" r="4" fill="#2F5BFF"/>
+<text x="611.0" y="330.0" fill="#2F5BFF" font-size="10.5" font-weight="600" text-anchor="end" style="">W4 crosses 1→2 GPUs at ~209 B</text>
+<line x1="150" y1="496" x2="172" y2="496" stroke="#5A5953" stroke-width="2.6" opacity="1"/>
+<text x="180" y="500" fill="#11110F" font-size="11.5" font-weight="400" text-anchor="start" style="">BF16 weights (16 bits/param)</text>
+<line x1="420" y1="496" x2="442" y2="496" stroke="#2F5BFF" stroke-width="2.8" opacity="1"/>
+<text x="450" y="500" fill="#11110F" font-size="11.5" font-weight="400" text-anchor="start" style="">W4A16 weights (HOUSE 4.125 bits/param, group 128)</text>
+<text x="90" y="540" fill="#5A5953" font-size="10.5" font-weight="400" text-anchor="start" style="">Sources: NVIDIA H200 specifications; HOUSE 90% usable-memory policy; HOUSE W4 group-128 footprint model.</text>
+</svg>

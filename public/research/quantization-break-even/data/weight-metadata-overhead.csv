@@ -1,0 +1,4 @@
+format,base_bits,group_size,scale_bits_per_group,effective_bits_per_weight,caveat,status
+BF16,16,,,16.0,No quantization metadata in simple weight-size model,REFERENCE
+AWQ W4A16 g128 HOUSE,4,128,16,4.125,Assume one 16-bit scale per 128 weights and no zero point solely for teaching footprint; serialized implementation can differ.,HOUSE ASSUMPTION
+NVFP4 1D block representation,4,16,8,4.5,4-bit E2M1 + one FP8 E4M3 scale per 16; global FP32 tensor scale negligible at model scale. Default weight scaling may be 2D.,OBSERVED FORMAT + DERIVED

@@ -1,0 +1,47 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 560' width='900' height='560' font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-rendering='geometricPrecision'>
+<rect width="900" height="560" fill="#F2EFE7"/>
+<text x="450.0" y="34" fill="#11110F" font-size="18" font-weight="700" text-anchor="middle" style="">COST PER SUCCESSFUL TASK — SCENARIO B (SAME GPU COUNT)</text>
+<text x="450.0" y="56" fill="#5A5953" font-size="12" font-weight="400" text-anchor="middle" style="">HOUSE SCENARIO / DERIVED RESULT — a 9.1% raw cost saving disappears quickly as task success declines</text>
+<line x1="90" y1="100" x2="840" y2="100" stroke="#11110F" stroke-width="1.2" opacity="1"/>
+<line x1="90" y1="100" x2="90" y2="460" stroke="#11110F" stroke-width="1.2" opacity="1"/>
+<line x1="840" y1="100" x2="840" y2="460" stroke="#11110F" stroke-width="1.2" opacity="1"/>
+<line x1="90" y1="460" x2="840" y2="460" stroke="#11110F" stroke-width="1.2" opacity="1"/>
+<line x1="652.5" y1="100" x2="652.5" y2="460" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="652.5" y="478" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">75%</text>
+<line x1="690.0" y1="100" x2="690.0" y2="460" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="690.0" y="478" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">80%</text>
+<line x1="727.5" y1="100" x2="727.5" y2="460" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="727.5" y="478" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">85%</text>
+<line x1="765.0" y1="100" x2="765.0" y2="460" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="765.0" y="478" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">90%</text>
+<line x1="802.5" y1="100" x2="802.5" y2="460" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="802.5" y="478" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">95%</text>
+<line x1="840.0" y1="100" x2="840.0" y2="460" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="840.0" y="478" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">100%</text>
+<line x1="90" y1="370.0" x2="840" y2="370.0" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="374.0" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">$0.0003</text>
+<line x1="90" y1="310.0" x2="840" y2="310.0" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="314.0" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">$0.0005</text>
+<line x1="90" y1="250.0" x2="840" y2="250.0" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="254.0" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">$0.0007</text>
+<line x1="90" y1="190.0" x2="840" y2="190.0" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="194.0" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">$0.0009</text>
+<line x1="90" y1="129.99999999999994" x2="840" y2="129.99999999999994" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="133.99999999999994" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">$0.0011</text>
+<text x="465.0" y="504" fill="#11110F" font-size="13" font-weight="600" text-anchor="middle" style="">Quantized task success  q_q</text>
+<text x="28" y="280.0" fill="#11110F" font-size="13" font-weight="600" text-anchor="middle" style="writing-mode:tb;transform:rotate(180deg);">Cost per successful task ($)</text>
+<line x1="90" y1="194.78373478373476" x2="840" y2="194.78373478373476" stroke="#5A5953" stroke-width="2.6" opacity="1"/>
+<text x="832" y="186.78373478373476" fill="#5A5953" font-size="10.5" font-weight="600" text-anchor="end" style="">higher-precision: $0.000884 / success (q_h=0.99)</text>
+<path d="M652.5,141.7 L652.5,141.7 L654.4,142.8 L656.2,143.8 L658.1,144.9 L660.0,145.9 L661.9,147.0 L663.8,148.0 L665.6,149.0 L667.5,150.0 L669.4,151.0 L671.2,152.0 L673.1,153.0 L675.0,154.0 L676.9,155.0 L678.8,155.9 L680.6,156.9 L682.5,157.9 L684.4,158.8 L686.2,159.8 L688.1,160.7 L690.0,161.6 L691.9,162.6 L693.8,163.5 L695.6,164.4 L697.5,165.3 L699.4,166.2 L701.2,167.1 L703.1,168.0 L705.0,168.9 L706.9,169.8 L708.8,170.7 L710.6,171.5 L712.5,172.4 L714.4,173.3 L716.2,174.1 L718.1,175.0 L720.0,175.8 L721.9,176.7 L723.8,177.5 L725.6,178.4 L727.5,179.2 L729.4,180.0 L731.2,180.8 L733.1,181.6 L735.0,182.4 L736.9,183.3 L738.8,184.1 L740.6,184.8 L742.5,185.6 L744.4,186.4 L746.2,187.2 L748.1,188.0 L750.0,188.8 L751.9,189.5 L753.8,190.3 L755.6,191.0 L757.5,191.8 L759.4,192.6 L761.2,193.3 L763.1,194.0 L765.0,194.8 L766.9,195.5 L768.8,196.2 L770.6,197.0 L772.5,197.7 L774.4,198.4 L776.2,199.1 L778.1,199.8 L780.0,200.5 L781.9,201.3 L783.8,202.0 L785.6,202.6 L787.5,203.3 L789.4,204.0 L791.2,204.7 L793.1,205.4 L795.0,206.1 L796.9,206.7 L798.8,207.4 L800.6,208.1 L802.5,208.7 L804.4,209.4 L806.2,210.1 L808.1,210.7 L810.0,211.4 L811.9,212.0 L813.8,212.6 L815.6,213.3 L817.5,213.9 L819.4,214.6 L821.2,215.2 L823.1,215.8 L825.0,216.4 L826.9,217.1 L828.8,217.7 L830.6,218.3 L832.5,218.9 L834.4,219.5 L836.2,220.1 L838.1,220.7 L840.0,221.3" fill="none" stroke="#2F5BFF" stroke-width="2.8"/>
+<line x1="765.0" y1="100" x2="765.0" y2="194.78373478373476" stroke="#11110F" stroke-width="1.4" stroke-dasharray="4,3" opacity="1"/>
+<circle cx="765.0" cy="194.8" r="5" fill="#11110F"/>
+<text x="773.0" y="182.78373478373476" fill="#11110F" font-size="11" font-weight="700" text-anchor="start" style="">break-even: q_q ≈ 0.90</text>
+<text x="679.0" y="139.99999999999994" fill="#5A5953" font-size="10.5" font-weight="400" text-anchor="start" style="">quantized loses</text>
+<text x="679.0" y="153.99999999999994" fill="#5A5953" font-size="10.5" font-weight="400" text-anchor="start" style="">(cost/success higher)</text>
+<text x="814.0" y="214.99999999999997" fill="#2F5BFF" font-size="10.5" font-weight="600" text-anchor="start" style="">quantized wins</text>
+<line x1="150" y1="496" x2="172" y2="496" stroke="#5A5953" stroke-width="2.6" opacity="1"/>
+<text x="180" y="500" fill="#11110F" font-size="11.5" font-weight="400" text-anchor="start" style="">BF16 higher-precision (constant)</text>
+<line x1="420" y1="496" x2="442" y2="496" stroke="#2F5BFF" stroke-width="2.8" opacity="1"/>
+<text x="450" y="500" fill="#11110F" font-size="11.5" font-weight="400" text-anchor="start" style="">W4 quantized (varies with q_q)</text>
+<text x="90" y="540" fill="#5A5953" font-size="10.5" font-weight="400" text-anchor="start" style="">HOUSE Scenario B: 32B model, single H200, BF16 650 tok/s vs W4 715 tok/s, $4/GPU-hour, q_h = 0.99.</text>
+</svg>
