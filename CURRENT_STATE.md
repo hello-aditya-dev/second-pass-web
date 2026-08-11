@@ -1,9 +1,9 @@
 # Current State
 
 **Brand:** SECOND / PASS
-**Phase:** LIVE PUBLICATION (post-production-repair)
+**Phase:** LIVE PUBLICATION (post-production-repair + Research #10/#11)
 **Architecture:** Astro 7 hybrid — static read path, Vercel Functions for writes only
-**Date:** 2026-08-10
+**Date:** 2026-08-11
 **Launch date:** 2026-08-10
 **Canonical origin:** `https://second-pass.vercel.app`
 
@@ -112,9 +112,9 @@ Five canonical formats are live in the schema:
 - **DATA** — structured table, one or more analytical views, clear units, downloadable data where appropriate.
 - **DEEP** — long-form; 3–6 meaningful visual objects where warranted. Quality beats volume.
 
-## Published articles (17 total)
+## Published articles (19 total)
 
-Articles are listed by section cluster. Total: 17 published, 6 draft (demo-* and torture-*).
+Articles are listed by section cluster. Total: 19 published, 6 draft (demo-* and torture-*).
 
 ### AI — 7 articles (3 NOW, 3 SECOND PASS, 1 PROOF)
 
@@ -159,9 +159,25 @@ Articles are listed by section cluster. Total: 17 published, 6 draft (demo-* and
     - `/research/142kw-ai-rack` → `/articles/a-142-kw-ai-rack-turns-gpu-procurement-into-a-power-problem`
     - `/research/hbm-roofline-llm-inference` → `/articles/when-flops-stop-mattering-hbm-roofline-llm-inference`
 
-### Research — 0 articles published directly
+### Research — 2 articles (1 PROOF, 1 SECOND PASS)
 
-The `/research` hub does not list a Research-section article today. It aggregates PROOF-format articles from any section (see "Research hub semantics" below).
+- `tokens-per-second-is-not-an-inference-benchmark` — PROOF — 2026-08-11 (featuredRank 0, editorialOrder 1)
+  - 5 charts (SVG+PNG+CSV), XLSX workbook, input template CSV, 5 chart-data CSVs
+  - 5 sources (vLLM, AIPerf, MLCommons, TensorRT-LLM, SGLang), 5 FIRST PASS bullets
+  - 4 CALCULATION blocks, 3 CLAIM CHECK blocks (split from one giant ClaimCheck), 1 INTELLIGENCE
+  - Full math (KaTeX, 92 elements): M=(N,D,S,A,E), R_out=R_req×O_bar, SLO goodput proofs
+  - Frozen scenarios: 1,000 tok/s → 10 vs 1 req/s; 400 tok/s aggregate (20×20 vs 80×5); 9 vs 5 SLO goodput (2.25 vs 1.25 per GPU, 1.8×)
+  - Stable namespace: `/research/tokens-per-second-benchmark/`
+- `for-reasoning-models-ttft-may-measure-the-wrong-first-token` — SECOND PASS — 2026-08-11 (featuredRank 0, editorialOrder 2)
+  - 5 charts (SVG+PNG+CSV), XLSX workbook, input template CSV, 5 chart-data CSVs
+  - 8 structured sources (AIPerf×2, OpenAI, Gemini×3, vLLM, MLCommons) — normalized from raw URL strings
+  - 5 FIRST PASS bullets, 3 CALCULATION blocks, 3 CLAIM CHECK blocks, 1 INTELLIGENCE
+  - Full math (KaTeX, 68 elements): TTFT=t_any−t0, TTFO=t_out−t0, Δ_R→O=2050ms, rank reversal inequality
+  - Frozen scenarios: TTFT 150ms/TTFO 2200ms gap 2050ms (93.18%); rank reversal 2050>450; migration -770ms semantic shift
+  - All 5 figures inserted contextually (package had zero); hero: chart-03-rank-reversal.svg
+  - Stable namespace: `/research/reasoning-ttft-ttfo/`
+
+The `/research` hub now aggregates 6 articles: 2 Research-section + 4 cross-section PROOF.
 
 ## Research hub semantics
 
@@ -171,7 +187,7 @@ The `/research` hub does not list a Research-section article today. It aggregate
 section === "Research"  ||  format === "PROOF"
 ```
 
-Original section labels on cards are preserved — a Security / PROOF article is displayed with its real section, not relabeled as Research. Current hub population: 4 PROOF articles (`cheapest-ai-model-not-cheapest-system-proof`, `can-you-prove-the-ai-system-you-deployed-is-the-one-you-approved`, `kv-cache-is-your-real-concurrency-budget`, `when-flops-stop-mattering-hbm-roofline-llm-inference`).
+Original section labels on cards are preserved — a Security / PROOF article is displayed with its real section, not relabeled as Research. Current hub population: 6 articles (2 Research-section + 4 cross-section PROOF): `tokens-per-second-is-not-an-inference-benchmark` (Research/PROOF), `for-reasoning-models-ttft-may-measure-the-wrong-first-token` (Research/SECOND PASS), `cheapest-ai-model-not-cheapest-system-proof`, `can-you-prove-the-ai-system-you-deployed-is-the-one-you-approved`, `kv-cache-is-your-real-concurrency-budget`, `when-flops-stop-mattering-hbm-roofline-llm-inference`.
 
 ## Homepage curation contract
 
