@@ -5,6 +5,19 @@
  *   / CLAIM CHECK  → <section class="claim-check">
  *   / ASSUMPTION   → <section class="assumption-block">
  *   / INTELLIGENCE → <section class="intelligence-block">
+ *
+ * Key design decisions:
+ * - Labels (QUESTION, RESULT, CLAIM, etc.) may appear on their own line as
+ *   a separate <p><strong>LABEL</strong></p>. When this happens, the content
+ *   follows in subsequent sibling paragraphs/tables/lists. The processor
+ *   must consume those subsequent siblings as the label's content.
+ * - When content is a single <p> with only inline children, the children are
+ *   extracted into the emphasis-tag container (e.g. <p class="calc-result">)
+ *   so the visual styling is preserved.
+ * - When content contains block-level elements (table, list, display-math),
+ *   a <div> container is used to keep HTML valid.
+ * - Each / CALCULATION or / CLAIM CHECK heading creates exactly one section.
+ *   Content is collected until the next heading of the same or higher level.
  */
 import { visit } from "unist-util-visit";
 
@@ -36,9 +49,80 @@ function text(value) {
   return { type: "text", value };
 }
 
-/** Check if an element has a specific class. */
-function hasClass(node, cls) {
-  return node.properties?.className?.includes(cls);
+/** Block-level HTML tags that cannot be nested inside <p>. */
+const BLOCK_TAGS = new Set([
+  "p", "table", "ul", "ol", "pre", "blockquote", "div", "figure", "hr",
+]);
+
+/** Check if a list of nodes contains any block-level element. */
+function hasBlockChild(nodes) {
+  return nodes.some(
+    (n) => n.type === "element" && BLOCK_TAGS.has(n.tagName)
+  );
+}
+
+/**
+ * Build a content container that preserves emphasis styling when possible.
+ *
+ * - If content is a single <p> with only inline children → re-tag to
+ *   preferredTag with the class (e.g. <p class="calc-result">text</p>).
+ * - If content is all inline → wrap in preferredTag.
+ * - If content has block-level children → use <div> to keep HTML valid.
+ */
+function buildContainer(preferredTag, className, content) {
+  // Case 1: single <p> with only inline children → extract children
+  if (
+    content.length === 1 &&
+    content[0].type === "element" &&
+    content[0].tagName === "p" &&
+    !hasBlockChild(content[0].children)
+  ) {
+    return elem(preferredTag, { className: [className] }, content[0].children);
+  }
+
+  // Case 2: all inline content → wrap in preferredTag
+  if (!hasBlockChild(content)) {
+    return elem(preferredTag, { className: [className] }, content);
+  }
+
+  // Case 3: has block children → use div
+  return elem("div", { className: [className] }, content);
+}
+
+/**
+ * Check if a node is a <p> whose first non-whitespace child is a <strong>
+ * matching one of the given label set. Returns the label string or null.
+ */
+function getParagraphLabel(node, labelSet) {
+  if (node.type !== "element" || node.tagName !== "p") return null;
+  for (const child of node.children) {
+    if (child.type === "text" && /^\s*$/.test(child.value)) continue;
+    if (child.type === "element" && child.tagName === "strong") {
+      const t = textContent(child).trim();
+      if (labelSet.has(t)) return t;
+    }
+    return null; // first non-whitespace child is not a matching <strong>
+  }
+  return null; // empty or whitespace-only paragraph
+}
+
+/**
+ * Extract inline content from a label paragraph (everything except the
+ * <strong> label node itself). Returns an array of nodes.
+ */
+function extractInlineContent(labelP) {
+  const remaining = labelP.children.filter(
+    (c) => !(c.type === "element" && c.tagName === "strong")
+  );
+  // Trim leading whitespace text
+  while (remaining.length && remaining[0].type === "text" && /^\s*$/.test(remaining[0].value)) {
+    remaining.shift();
+  }
+  // Trim trailing whitespace text
+  while (remaining.length && remaining[remaining.length - 1].type === "text" && /^\s*$/.test(remaining[remaining.length - 1].value)) {
+    remaining.pop();
+  }
+  return remaining;
 }
 
 // ---------------------------------------------------------------------------
@@ -50,89 +134,103 @@ const CALC_LABELS = new Set([
 ]);
 
 /**
- * Process <strong> elements inside a calculation-block section.
+ * Process <p> elements inside a calculation-block section.
+ *
+ * Strategy: scan forward through section.children. When a paragraph with a
+ * known label is found, collect all subsequent siblings until the next
+ * labeled paragraph (or end of section) as that label's content.
+ *
+ * This handles both:
+ *   **QUESTION** What is the result?       (inline — label + content same paragraph)
+ *   **QUESTION**                            (block — label on own line, content follows)
+ *   What is the result?
+ *
  * Mutates section.children in place.
  */
 function processCalculationLabels(section) {
-  // We iterate children and may splice, so go backwards
-  for (let i = section.children.length - 1; i >= 0; i--) {
+  // Find all label positions
+  const labelIndices = [];
+  for (let i = 0; i < section.children.length; i++) {
     const child = section.children[i];
-    if (child.type !== "element" || child.tagName !== "p") continue;
+    const label = getParagraphLabel(child, CALC_LABELS);
+    if (label) {
+      labelIndices.push({ index: i, label });
+    }
+  }
 
-    // Find a <strong> that matches a known label
-    const strongIdx = child.children.findIndex((c) => {
-      if (c.type !== "element" || c.tagName !== "strong") return false;
-      const t = textContent(c).trim();
-      return CALC_LABELS.has(t);
-    });
+  if (labelIndices.length === 0) return;
 
-    if (strongIdx === -1) continue;
+  // Build new children array
+  const newChildren = [];
 
-    const strongNode = child.children[strongIdx];
-    const label = textContent(strongNode).trim();
+  // Preserve any children before the first label
+  for (let i = 0; i < labelIndices[0].index; i++) {
+    newChildren.push(section.children[i]);
+  }
 
-    // Build the label div
-    const labelDiv = elem("div", { className: ["calc-label"] }, [text(label)]);
+  // For each label, collect its content
+  for (let li = 0; li < labelIndices.length; li++) {
+    const { index, label } = labelIndices[li];
+    const labelP = section.children[index];
 
-    // Remaining content = everything in the <p> except the <strong>
-    const remaining = child.children.filter((_, idx) => idx !== strongIdx);
+    // Content within the same paragraph as the label (after <strong>)
+    const inlineContent = extractInlineContent(labelP);
 
-    // Trim leading whitespace text from remaining
-    while (remaining.length && remaining[0].type === "text" && /^\s*$/.test(remaining[0].value)) {
-      remaining.shift();
+    // Content from subsequent siblings until the next label (or end of section)
+    const nextLabelStart =
+      li + 1 < labelIndices.length
+        ? labelIndices[li + 1].index
+        : section.children.length;
+
+    const followingContent = [];
+    for (let i = index + 1; i < nextLabelStart; i++) {
+      followingContent.push(section.children[i]);
     }
 
-    let replacement;
+    const allContent = [...inlineContent, ...followingContent];
+    const labelDiv = elem("div", { className: ["calc-label"] }, [text(label)]);
+
     switch (label) {
       case "QUESTION":
-        replacement = [
-          labelDiv,
-          elem("div", { className: ["calc-question"] }, remaining),
-        ];
+        newChildren.push(labelDiv);
+        newChildren.push(buildContainer("p", "calc-question", allContent));
         break;
 
       case "ASSUMPTIONS":
-        replacement = [
-          elem("div", { className: ["calc-section"] }, [
-            labelDiv,
-            ...remaining,
-          ]),
-        ];
+        // Assumptions is always a <div> container (may have lists, tables)
+        newChildren.push(
+          elem("div", { className: ["calc-section"] }, [labelDiv, ...allContent])
+        );
         break;
 
       case "EQUATION":
-        // Just add the label, leave math as-is
-        replacement = [labelDiv, ...remaining];
+        // Label + raw content (math stays as-is, no wrapper)
+        newChildren.push(labelDiv);
+        newChildren.push(...allContent);
         break;
 
       case "RESULT":
-        replacement = [
-          labelDiv,
-          elem("p", { className: ["calc-result"] }, remaining),
-        ];
+        newChildren.push(labelDiv);
+        newChildren.push(buildContainer("p", "calc-result", allContent));
         break;
 
       case "SO WHAT":
       case "SO WHAT?":
-        replacement = [
-          labelDiv,
-          elem("p", { className: ["calc-so-what"] }, remaining),
-        ];
+        newChildren.push(labelDiv);
+        newChildren.push(buildContainer("p", "calc-so-what", allContent));
         break;
 
       case "CAVEAT":
-        replacement = [
-          labelDiv,
-          elem("p", { className: ["calc-caveat"] }, remaining),
-        ];
+        newChildren.push(labelDiv);
+        newChildren.push(buildContainer("p", "calc-caveat", allContent));
         break;
 
       default:
-        replacement = [child]; // no-op fallback
+        newChildren.push(labelP);
     }
-
-    section.children.splice(i, 1, ...replacement);
   }
+
+  section.children = newChildren;
 }
 
 // ---------------------------------------------------------------------------
@@ -152,45 +250,62 @@ const CLAIM_LABELS = new Set([
 ]);
 
 /**
- * Process <strong> elements inside a claim-check section.
+ * Process <p> elements inside a claim-check section.
+ * Same forward-scan strategy as processCalculationLabels.
  * Mutates section.children in place.
  */
 function processClaimLabels(section) {
-  for (let i = section.children.length - 1; i >= 0; i--) {
+  const labelIndices = [];
+  for (let i = 0; i < section.children.length; i++) {
     const child = section.children[i];
-    if (child.type !== "element" || child.tagName !== "p") continue;
+    const label = getParagraphLabel(child, CLAIM_LABELS);
+    if (label) {
+      labelIndices.push({ index: i, label });
+    }
+  }
 
-    const strongIdx = child.children.findIndex((c) => {
-      if (c.type !== "element" || c.tagName !== "strong") return false;
-      const t = textContent(c).trim();
-      return CLAIM_LABELS.has(t);
-    });
+  if (labelIndices.length === 0) return;
 
-    if (strongIdx === -1) continue;
+  const newChildren = [];
 
-    const strongNode = child.children[strongIdx];
-    const label = textContent(strongNode).trim();
+  // Preserve any children before the first label
+  for (let i = 0; i < labelIndices[0].index; i++) {
+    newChildren.push(section.children[i]);
+  }
 
+  for (let li = 0; li < labelIndices.length; li++) {
+    const { index, label } = labelIndices[li];
+    const labelP = section.children[index];
+
+    const inlineContent = extractInlineContent(labelP);
+
+    const nextLabelStart =
+      li + 1 < labelIndices.length
+        ? labelIndices[li + 1].index
+        : section.children.length;
+
+    const followingContent = [];
+    for (let i = index + 1; i < nextLabelStart; i++) {
+      followingContent.push(section.children[i]);
+    }
+
+    const allContent = [...inlineContent, ...followingContent];
     const labelDiv = elem("div", { className: ["claim-label"] }, [text(label)]);
 
-    const remaining = child.children.filter((_, idx) => idx !== strongIdx);
-
-    // Trim leading whitespace text from remaining
-    while (remaining.length && remaining[0].type === "text" && /^\s*$/.test(remaining[0].value)) {
-      remaining.shift();
-    }
-
-    let contentP;
+    let contentClass;
     if (label === "CLAIM") {
-      contentP = elem("p", { className: ["claim-statement"] }, remaining);
+      contentClass = "claim-statement";
     } else if (label === "SECOND / PASS") {
-      contentP = elem("p", { className: ["claim-verdict"] }, remaining);
+      contentClass = "claim-verdict";
     } else {
-      contentP = elem("p", { className: ["claim-detail"] }, remaining);
+      contentClass = "claim-detail";
     }
 
-    section.children.splice(i, 1, labelDiv, contentP);
+    newChildren.push(labelDiv);
+    newChildren.push(buildContainer("p", contentClass, allContent));
   }
+
+  section.children = newChildren;
 }
 
 // ---------------------------------------------------------------------------
@@ -236,10 +351,17 @@ export default function rehypeHouseObjects() {
       const level = headingLevel(node);
       if (level === Infinity) return;
 
-      // Check if this heading matches any pattern (prefix match for titles like "/ CALCULATION — A price-only break-even")
+      // Check if this heading matches any pattern (prefix match for titles
+      // like "/ CALCULATION — A price-only break-even")
       const headingText = textContent(node).trim();
-      // Use includes() for flexible matching: "/ CALCULATION" can appear with trailing text
-      const pattern = PATTERNS.find((p) => headingText === p.match || headingText.startsWith(p.match + " ") || headingText.startsWith(p.match + " —") || headingText.startsWith(p.match + " –") || headingText.startsWith(p.match + ":"));
+      const pattern = PATTERNS.find(
+        (p) =>
+          headingText === p.match ||
+          headingText.startsWith(p.match + " ") ||
+          headingText.startsWith(p.match + " —") ||
+          headingText.startsWith(p.match + " –") ||
+          headingText.startsWith(p.match + ":")
+      );
       if (!pattern) return;
 
       // Collect sibling elements after this heading until the next heading
@@ -256,14 +378,16 @@ export default function rehypeHouseObjects() {
       transforms.push({ index, endIdx, parent, pattern, collected, headingText });
     });
 
-    // Filter out nested transforms: if a transform's range is entirely inside another transform's range,
-    // skip it (the outer transform will handle the content including the inner heading).
-    // Also, the inner heading will be processed by the outer transform's label processor.
+    // Filter out nested transforms: if a transform's range is entirely inside
+    // another transform's range, skip it (the outer transform will handle it).
     const filteredTransforms = transforms.filter((t, i) => {
       return !transforms.some((other, j) => {
         if (i === j) return false;
-        // t is inside other if other starts before t and other ends after t ends
-        return other.parent === t.parent && other.index < t.index && other.endIdx >= t.endIdx;
+        return (
+          other.parent === t.parent &&
+          other.index < t.index &&
+          other.endIdx >= t.endIdx
+        );
       });
     });
 
@@ -272,7 +396,9 @@ export default function rehypeHouseObjects() {
       const { index, endIdx, parent, pattern, collected } = filteredTransforms[t];
 
       // Build the kicker div
-      const kicker = elem("div", { className: [pattern.kickerClass] }, [text(pattern.match)]);
+      const kicker = elem("div", { className: [pattern.kickerClass] }, [
+        text(pattern.match),
+      ]);
 
       // Build the section with collected content
       const section = elem("section", { className: [pattern.sectionClass] }, collected);

@@ -12,6 +12,8 @@ firstPass:
   - "xAI Grok 4.5 changes price at 200k input tokens."
   - "Anthropic states Claude 4.6+ includes its full 1M context at standard per-token pricing."
 featured: false
+featuredRank: 0
+editorialOrder: 0
 demo: false
 tags:
   - "long context"

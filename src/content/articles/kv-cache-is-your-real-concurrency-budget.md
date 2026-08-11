@@ -14,6 +14,8 @@ firstPass:
   - "Block rounding, future output growth, cache policy and hybrid layouts move real capacity below or away from the simple ideal model."
   - "When the runtime reports group-aware KV token capacity, use that operational number; use the architecture equation to explain and stress-test it."
 featured: false
+featuredRank: 0
+editorialOrder: 1
 demo: false
 hero: "/research/kv-cache-concurrency/charts/chart-03-concurrency-frontier.svg"
 heroAlt: "Concurrency frontier showing how a fixed KV cache budget supports fewer concurrent sequences as reserved context grows."
@@ -87,7 +89,7 @@ The first explains the mechanism. The last is usually the better operational inp
 
 ## / CALCULATION — how many bytes does one token require?
 
-For a conventional transformer with $L$ attention layers, $n_{kv}$ key-value heads, head dimension $d_h$, and $b_{kv}$ bytes per stored KV element, each cached token stores a key and a value at each layer:
+For a conventional transformer with <imath>L</imath> attention layers, <imath>n_{kv}</imath> key-value heads, head dimension <imath>d_h</imath>, and <imath>b_{kv}</imath> bytes per stored KV element, each cached token stores a key and a value at each layer:
 
 $$
 \boxed{m_{KV/token}=2L n_{kv} d_h b_{kv}}
@@ -119,7 +121,7 @@ The arithmetic still tells us something important about architecture. Qwen has e
 
 ## / CALCULATION — one active sequence
 
-For a sequence with $S$ cached tokens:
+For a sequence with <imath>S</imath> cached tokens:
 
 $$
 M_{KV,seq}=S\,m_{KV/token}.
@@ -139,7 +141,7 @@ The memory law itself is linear for this conventional full-attention case: twice
 
 ## / CALCULATION — concurrency is a token budget
 
-For multiple independent sequences with active lengths $S_i$:
+For multiple independent sequences with active lengths <imath>S_i</imath>:
 
 $$
 M_{KV,total}=m_{KV/token}\sum_i S_i.
@@ -202,7 +204,7 @@ That does not prove either distribution is globally representative. It proves th
 
 ## Output is future KV, not just future text
 
-KV grows during decode. If request $i$ currently has $S_i$ cached tokens and policy reserves $R_i$ additional output tokens, a safer planning length is:
+KV grows during decode. If request <imath>i</imath> currently has <imath>S_i</imath> cached tokens and policy reserves <imath>R_i</imath> additional output tokens, a safer planning length is:
 
 $$
 S_{i,reserve}=S_i+R_i.
@@ -229,7 +231,7 @@ But blocks still round.
 
 ![Horizontal bars show used tokens and small tail-block waste for five requests.](/research/kv-cache-concurrency/charts/chart-04-block-rounding.svg)
 
-If a simplified uniform cache uses $B$ tokens per block, a request with $S_i$ reserved tokens consumes:
+If a simplified uniform cache uses <imath>B</imath> tokens per block, a request with <imath>S_i</imath> reserved tokens consumes:
 
 $$
 S_{i,alloc}=B\left\lceil\frac{S_i}{B}\right\rceil.
@@ -273,17 +275,15 @@ In the same 80 GiB scenario, the ideal 8,192-token concurrency moves from 32 to 
 
 That is a capacity result, not a throughput result. Scales, metadata, kernel support and accuracy behavior still matter. If KV memory was not the binding resource, halving its payload may not increase admitted concurrency at all.
 
-## / CLAIM CHECK
-
-### "FP8 KV doubles serving throughput."
+## / CLAIM CHECK — "FP8 KV doubles serving throughput."
 
 **CLAIM**
 
 FP8 approximately halves the ideal KV payload under the one-byte assumption.
 
-**VERDICT: NOT NECESSARILY**
+**SECOND / PASS**
 
-Throughput moves only if the removed KV capacity constraint was actually limiting the system and the rest of the serving path can use the extra concurrency.
+Not necessarily. Throughput moves only if the removed KV capacity constraint was actually limiting the system and the rest of the serving path can use the extra concurrency.
 
 ## Prefix reuse changes physical tokens, not logical request length
 
@@ -315,7 +315,7 @@ KV cache no longer has to live only in GPU HBM. vLLM now supports KV offloading 
 
 Capacity therefore becomes a hierarchy problem.
 
-If $M_{recall}$ bytes must be brought back over a path with effective bandwidth $B_{offload}$ and latency $L_{offload}$, a simple lower bound is:
+If <imath>M_{recall}</imath> bytes must be brought back over a path with effective bandwidth <imath>B_{offload}</imath> and latency <imath>L_{offload}</imath>, a simple lower bound is:
 
 $$
 T_{recall}\gtrsim L_{offload}+\frac{M_{recall}}{B_{offload}}.
@@ -360,29 +360,25 @@ If the runtime prints a group-aware token capacity, start there. For example, vL
 
 The formula remains valuable because it lets you explain why capacity moved. Fewer KV heads? Lower bytes per element? Longer contexts? More output reserve? Block rounding? Shared prefixes? Offload? Each change has a different mechanism.
 
-## / CLAIM CHECK
-
-### "The model fits in GPU memory, so the server can handle long context."
+## / CLAIM CHECK — "The model fits in GPU memory, so the server can handle long context."
 
 **CLAIM**
 
 Weight fit only proves model state can reside under some placement.
 
-**VERDICT: INCOMPLETE**
+**SECOND / PASS**
 
-It does not prove that the remaining memory can sustain the active KV state, workspace, runtime allocations and operating margin needed for the target concurrency.
+Incomplete. It does not prove that the remaining memory can sustain the active KV state, workspace, runtime allocations and operating margin needed for the target concurrency.
 
-## / CLAIM CHECK
-
-### "A 128K context model uses 128K worth of KV memory all the time."
+## / CLAIM CHECK — "A 128K context model uses 128K worth of KV memory all the time."
 
 **CLAIM**
 
 KV follows active cached tokens. A short request does not automatically occupy the entire maximum context.
 
-**VERDICT: NO**
+**SECOND / PASS**
 
-Capacity planning may reserve future output or other headroom, but that is a policy decision and should be modeled as one.
+No. Capacity planning may reserve future output or other headroom, but that is a policy decision and should be modeled as one.
 
 ![Three columns show 8K, 32K and 128K contexts increasing KV per sequence from 2.5 to 40 GiB and reducing ideal slots from 32 to 2.](/research/kv-cache-concurrency/charts/chart-05-model-fit-vs-serving-fit.svg)
 

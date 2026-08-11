@@ -12,6 +12,8 @@ firstPass:
   - "A 2× one-hour write plus 0.10× reads crosses on the third use."
   - "The real metric is eligible stable-prefix reuse inside the TTL."
 featured: false
+featuredRank: 0
+editorialOrder: 0
 demo: false
 tags:
   - "prompt caching"

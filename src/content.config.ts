@@ -23,6 +23,8 @@ const articles = defineCollection({
     status: z.enum(["draft", "review", "published"]),
     firstPass: z.array(z.string()).min(2).max(5),
     featured: z.boolean().default(false),
+    featuredRank: z.number().int().default(0),
+    editorialOrder: z.number().int().default(0),
     demo: z.boolean().default(false),
     tags: z.array(z.string()).default([]),
     hero: z.string().optional(),

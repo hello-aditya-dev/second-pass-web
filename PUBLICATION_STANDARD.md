@@ -40,7 +40,41 @@ Requires: Visual hierarchy, Information density, Original information design, Ma
 - `/ CALCULATION`: Rendered as `<section class="calculation-block">`. Recognize labeled fields: QUESTION, ASSUMPTIONS, EQUATION, RESULT, SO WHAT, CAVEAT. RESULT gets Signal Blue emphasis.
 - `/ CLAIM CHECK`: Rendered as `<section class="claim-check">`. Recognize: CLAIM, WHAT THAT MEASURES, WHAT IT DOES NOT MEASURE, WHEN IT IS USEFUL, WHEN IT IS NOT ENOUGH, SECOND / PASS.
 - `/ ASSUMPTION`: Rendered as `<section class="assumption-block">`. Thin top rule, mono kicker, compact label, slightly differentiated background, clear list spacing. Purpose: make scenario assumptions impossible to confuse with observed facts.
+- `/ INTELLIGENCE`: Rendered as `<section class="intelligence-block">`. The canonical end-of-article CTA. The CTA itself must be a Markdown link: `[START A RESEARCH BRIEF →](/intelligence)`. Do not use the older `**START A RESEARCH BRIEF →**` + `` `/intelligence` `` backtick-literal form.
 - Content pipeline: Writers write `### / CALCULATION` etc. in Markdown and receive house treatment automatically. No HTML required. No Astro imports in Markdown. The renderer owns presentation.
+
+### HOUSE OBJECT SOURCE SYNTAX
+Canonical heading forms (see `src/lib/rehype-house-objects.mjs`):
+
+```markdown
+## / CALCULATION — "title"
+## / CLAIM CHECK — "title"
+### / ASSUMPTION — "title"
+## / INTELLIGENCE
+```
+
+The `— "title"` portion is optional for CALCULATION and CLAIM CHECK; omit it for INTELLIGENCE.
+
+### LABEL-ON-OWN-LINE PATTERN
+Labels (QUESTION, ASSUMPTIONS, EQUATION, RESULT, SO WHAT, CAVEAT, CLAIM, WHAT THAT MEASURES, WHAT IT DOES NOT MEASURE, WHEN IT IS USEFUL, WHEN IT IS NOT ENOUGH, SECOND / PASS) may appear on their own line as a separate paragraph containing only `**LABEL**`. When this happens, the renderer consumes subsequent sibling paragraphs/tables/lists as that label's content. Example:
+
+```markdown
+## / CALCULATION — break-even utilization
+
+**QUESTION**
+
+At what GPU utilization does disaggregation pay back the extra network hop?
+
+**RESULT**
+
+~63%, under the assumptions below.
+```
+
+Rules:
+- A label and its content must NOT share a paragraph. The forward-scan label processor only triggers when the label is alone in its paragraph.
+- If content is a single inline paragraph, the renderer re-tags it to the label's preferred element (e.g. `<p class="calc-result">`).
+- If content contains block-level elements (table, list, display-math), the renderer wraps it in a `<div>` to keep HTML valid. CSS handles both cases.
+- `bun run house-object:audit` verifies structural integrity. Treat any failure as build-breaking.
 
 ## EVERY VISUAL MUST ANSWER A QUESTION
 Before creating a figure, define: DECISION QUESTION. Each figure must have: figure_id, question, title, data/source basis, observed/calculated/scenario status, main takeaway, caveat, alt text, caption, mobile behavior.
@@ -48,6 +82,24 @@ Before creating a figure, define: DECISION QUESTION. Each figure must have: figu
 ## MATH STANDARD
 - Ordinary money uses normal `$`. Example: "The request costs $0.0768." Single-dollar inline math is disabled.
 - Display equations use `$$...$$`. No sentinel substitutions. Forbidden: 24182, 24183, 24190, 24191. No raw LaTeX outside math. Math exists to answer a question.
+
+### INLINE MATH CONVENTION
+Single-dollar inline math (`$...$`) is **disabled** in remark-math (`singleDollarTextMath: false`). This is intentional for currency safety — articles routinely use `$0.0768`, `$5`, etc. The canonical inline math syntax is the `<imath>` tag:
+
+| Use case       | Source Markdown                       | Rendered as                            |
+| -------------- | ------------------------------------- | -------------------------------------- |
+| Inline math    | `<imath>...</imath>`                  | KaTeX inline `<span>` (post-build)     |
+| Display math   | `$$...$$`                             | KaTeX `<div class="math display">`     |
+| Currency       | `$0.0768`, `\$5`                      | Plain text (untouched)                 |
+
+`<imath>` is a non-standard HTML tag that does not render in the browser. After `astro build`, `scripts/process-inline-math.mjs` walks `dist/` and replaces every `<imath>` with rendered KaTeX inline HTML. The build pipeline runs this automatically (`bun run math:inline` is part of `bun run build`). If you skip the post-build step, inline math will not render — the audit will fail.
+
+`bun run math:audit` (`scripts/math-render-audit.mjs`) detects:
+- Single-dollar math patterns in source Markdown (would silently render as plain text)
+- Unrendered `<imath>` tags remaining in built HTML
+- Display math that failed to render
+
+Treat any report as build-breaking.
 
 ## TABLE STANDARD
 - All Markdown tables automatically receive `.table-wrap` with internal horizontal scroll. Page itself never horizontally scrolls. Units explicit. Numeric columns aligned. Headers compact. No tiny unreadable table on mobile.
@@ -99,6 +151,56 @@ Text inside a bounded rectangle must maintain deliberate internal padding. Recom
 
 ## PRODUCTION-STATE TRUTH
 Public copy must reflect actual current functionality. Never leave temporary language such as pre-launch, coming soon, no newsletter, no forms, reserved advertisement after those facts change. Whenever a new analytics provider, newsletter system, lead form, advertising provider, payment system, database, authentication system, or cookie/storage technology is enabled, privacy/legal documentation must be reviewed in the SAME implementation. No feature ships first with policy cleanup deferred indefinitely.
+
+## PRODUCTION INDEXING CONTRACT
+`SITE_PRELAUNCH` is fail-safe by design. Both `src/layouts/BaseLayout.astro` and `src/pages/robots.txt.ts` use `import.meta.env.SITE_PRELAUNCH !== "false"`:
+
+- missing → PRELAUNCH (noindex + `Disallow: /`)
+- `"true"` → PRELAUNCH
+- `"false"` → PUBLIC (`Allow: /`, indexable)
+
+Missing or unset always falls back to prelaunch, never to public. The committed `.env` file is gitignored and local-only — it does NOT affect Vercel deployments. To make production indexable, `SITE_PRELAUNCH=false` MUST be set in the Vercel project Environment Variables (Settings → Environment Variables → Production), then a redeploy triggered. This is a Vercel-side step; it cannot be performed from the repo.
+
+Never weaken the fail-safe. Never commit a real `.env`. Public copy ("LIVE / PUBLIC" in CURRENT_STATE.md) is a repo-side declaration — it must be cross-checked against built HTML and `dist/robots.txt` by `bun run indexability:audit`. If the audit fails, either fix the build or update CURRENT_STATE.md to reflect actual state.
+
+## HOMEPAGE CURATION CONTRACT
+The homepage is editorially curated via two frontmatter fields, not filesystem order:
+
+- **`featured`** (boolean) — gates hero eligibility. Only `featured: true` articles can become the hero.
+- **`featuredRank`** (integer) — lower = higher hero priority. `featuredRank: 0` means "not a hero candidate" — used on featured articles that should not be the hero.
+
+Hero = `featured: true` AND lowest `featuredRank`. The hero is then excluded from secondary sections so it never appears twice.
+
+Secondary sections filter by `format` ONLY — no cross-format mixing:
+- `/ NOW` → `format === "NOW"` (slice 5)
+- `/ SECOND PASS` → `format === "SECOND PASS"` ONLY (slice 3) — never include PROOF
+- `/ PROOF` → `format === "PROOF"` ONLY (slice 2)
+
+Never relax the format-purity filter. Never select the hero by filesystem order or `publishedAt` alone. Always set `featured` and `featuredRank` explicitly on every published article.
+
+## DETERMINISTIC ORDERING CONTRACT
+Section pages and feeds sort by a stable three-key contract (see `src/lib/content.ts`):
+
+```
+1. publishedAt    DESC  (newest first)
+2. editorialOrder DESC  (higher = higher in section list)
+3. slug            ASC  (stable tie-breaker)
+```
+
+`editorialOrder` is an integer frontmatter field. Within a single publish date, assign higher `editorialOrder` to the article that should appear first in its section. Always set `editorialOrder` explicitly — never rely on filesystem order or slug alphabetical to control section order.
+
+## RESEARCH HUB SEMANTICS
+`/research` aggregates `section === "Research" || format === "PROOF"`. Original section labels on cards are preserved — a Security / PROOF article is displayed with its real section, not relabeled as Research. PROOF articles from other sections are the primary population of the hub today; do not change this filter without considering that PROOF is the hub's source of truth.
+
+## INTERNAL LINK INTEGRITY
+Every internal link in built HTML must resolve to a real route. `bun run link:audit` runs against `dist/` and fails on any 404. Before adding or renaming any route:
+
+1. Search the codebase for references to the old path.
+2. Update every reference (article CTAs, navigation, redirects, JSON-LD).
+3. Add a redirect if the URL was ever public — `src/pages/research/*.astro` files exist as 301 redirect entry points for legacy `/research/<slug>` URLs that now live at `/articles/<slug>`.
+4. Run `bun run link:audit` after building.
+
+Never ship a broken internal link. Never rely on the reader typing a URL correctly.
 
 ## PRIVACY BY MINIMUM COLLECTION
 SECOND / PASS should collect the minimum data needed to perform the reader-requested action. Examples: newsletter: email + justified attribution only; research inquiry: contact + decision context; partner inquiry: contact + commercial context. Do not add fingerprinting, session replay, behavioral advertising, cross-site tracking without explicit business case and separate privacy review.

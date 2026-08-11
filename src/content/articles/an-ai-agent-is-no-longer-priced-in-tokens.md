@@ -14,6 +14,8 @@ firstPass:
   - "With the other quantities fixed, the third web search makes search the largest individual meter. One $0.01 search also equals 10,000 Haiku 4.5 input tokens or 7.5 running minutes at current list prices."
   - "Price the path, not only the model: trace one agent task, attach the provider's real meter to each step, apply product rules, remove overlaps, then measure which meter dominates."
 featured: true
+featuredRank: 2
+editorialOrder: 2
 demo: false
 tags:
   - "AI agent cost"

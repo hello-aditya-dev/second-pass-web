@@ -7,11 +7,24 @@ import NewsletterCTA from "@/components/NewsletterCTA.astro";
 import { publishedArticles, formatDate } from "@/lib/content";
 
 const articles = await publishedArticles();
-const lead = articles.find((item) => item.data.featured) ?? articles[0];
+
+// HERO: explicitly selected through metadata.
+// Use featured + featuredRank (lower rank = higher priority).
+// Never let filesystem/order decide silently.
+const featured = articles
+  .filter((a) => a.data.featured)
+  .sort((a, b) => (a.data.featuredRank ?? 0) - (b.data.featuredRank ?? 0));
+const lead = featured[0] ?? articles[0];
 const rest = articles.filter((item) => item.id !== lead?.id);
+
+// / NOW: format === NOW only
 const now = rest.filter((item) => item.data.format === "NOW").slice(0, 5);
-const analysis = rest.filter((item) => item.data.format !== "NOW").slice(0, 3);
-const research = rest.filter((item) => item.data.section === "Research" || item.data.format === "PROOF").slice(0, 2);
+
+// / SECOND PASS: format === SECOND PASS only (no PROOF mixing)
+const secondPass = rest.filter((item) => item.data.format === "SECOND PASS").slice(0, 3);
+
+// / PROOF: format === PROOF only
+const proof = rest.filter((item) => item.data.format === "PROOF").slice(0, 2);
 ---
 <BaseLayout>
   <div class="shell edition-line" data-pagefind-ignore>
@@ -58,7 +71,7 @@ const research = rest.filter((item) => item.data.section === "Research" || item.
       href="/latest"
     />
     <div class="story-grid">
-      {analysis.map((item) => <StoryCard article={item} />)}
+      {secondPass.map((item) => <StoryCard article={item} />)}
     </div>
   </section>
 
@@ -103,7 +116,7 @@ const research = rest.filter((item) => item.data.section === "Research" || item.
       href="/research"
     />
     <div class="story-grid">
-      {(research.length ? research : rest.slice(-2)).map((item) => <StoryCard article={item} />)}
+      {(proof.length ? proof : rest.slice(-2)).map((item) => <StoryCard article={item} />)}
     </div>
   </section>
 

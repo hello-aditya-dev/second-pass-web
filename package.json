@@ -26,6 +26,9 @@
     "responsive:audit": "node scripts/responsive-audit.mjs",
     "visual:audit": "node scripts/visual-audit.mjs",
     "math:audit": "node scripts/math-render-audit.mjs",
+    "indexability:audit": "node scripts/indexability-audit.mjs",
+    "link:audit": "node scripts/link-integrity-audit.mjs",
+    "house-object:audit": "node scripts/house-object-audit.mjs",
     "prepublish": "node scripts/prepublish.mjs"
   },
   "dependencies": {

@@ -14,6 +14,8 @@ firstPass:
   - "That break-even is conditional: at 80% effective utilization it would require about 22,476 useful tasks/hour. We found no compatible primary benchmark that proves the chosen serving setup can deliver that workload under a target SLO."
   - "Quality, utilization, engineering cost and hard constraints can move or remove the self-host break-even. Filter infeasible policies first, then compare cost per accepted outcome."
 featured: true
+featuredRank: 8
+editorialOrder: 1
 demo: false
 tags:
   - "AI deployment"

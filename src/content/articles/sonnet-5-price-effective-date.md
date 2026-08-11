@@ -12,6 +12,8 @@ firstPass:
   - "Anthropic says standard pricing begins September 1, moving input/output from $2/$10 to $3/$15 per million tokens."
   - "Price datasets need effective_from and effective_to fields, not only a scrape date."
 featured: false
+featuredRank: 0
+editorialOrder: 0
 demo: false
 tags:
   - "Claude"

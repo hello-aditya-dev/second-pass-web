@@ -79,6 +79,16 @@ try {
       timeout: 120000
     });
     console.log("   Build succeeded.");
+    // Process inline math tags (post-build step)
+    try {
+      execSync("node scripts/process-inline-math.mjs", {
+        cwd: process.cwd(),
+        stdio: ["pipe", "pipe", "pipe"],
+        timeout: 30000
+      });
+    } catch {
+      // math:inline is best-effort — don't fail the test if it errors
+    }
   } catch (buildErr) {
     console.error("   Build FAILED!");
     console.error(buildErr.stderr?.toString() || buildErr.message);

@@ -14,6 +14,8 @@ firstPass:
   - "KV transfer has a deadline. In the primary 2 GB case, a 25 ms transfer budget with a 0.5 ms fixed term requires about 81.6 GB/s effective bandwidth; if the budget is at or below the fixed term, no finite bandwidth satisfies the lower-bound model."
   - "The enterprise comparison is cost per SLO-compliant completion. Under the sustained-load scenario disaggregation is cheaper; under the low-load counter-case aggregated serving is cheaper."
 featured: true
+featuredRank: 5
+editorialOrder: 3
 demo: false
 tags:
   - "prefill decode disaggregation"
@@ -637,13 +639,11 @@ This is the same kind of lesson as network sizing, but the object is specific:
 
 **the KV state has to cross before its handoff budget expires.**
 
-## / CLAIM CHECK
+## / CLAIM CHECK — “Disaggregation adds a network copy, so it must be slower.”
 
-### “Disaggregation adds a network copy, so it must be slower.”
+**SECOND / PASS**
 
-**Verdict: too broad.**
-
-The useful comparison is not zero copy versus one copy.
+Too broad. The useful comparison is not zero copy versus one copy.
 
 It is:
 
@@ -893,13 +893,11 @@ Not because prefill and decode stopped being different.
 
 Because their difference was not valuable enough to pay the minimum two-pool cost.
 
-## / CLAIM CHECK
+## / CLAIM CHECK — “Prefill is compute-bound and decode is memory-bound, so they should always be separated.”
 
-### “Prefill is compute-bound and decode is memory-bound, so they should always be separated.”
+**SECOND / PASS**
 
-**Verdict: too broad.**
-
-Different phase behavior is a mechanism.
+Too broad. Different phase behavior is a mechanism.
 
 It is not the decision.
 
@@ -1042,6 +1040,4 @@ Planning a production inference deployment?
 
 SECOND / PASS can apply this decision model to your measured prompt/output distribution, SLOs, GPU fleet and transfer fabric.
 
-**START A RESEARCH BRIEF →**
-
-`/intelligence`
+[START A RESEARCH BRIEF →](/intelligence)

@@ -1,4 +1,38 @@
 ---
-import SectionPage from "@/components/SectionPage.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ArticleList from "@/components/ArticleList.astro";
+import { publishedArticles } from "@/lib/content";
+
+// /research is a cross-section research/proof hub.
+// It aggregates published, human-approved research-oriented material.
+//
+// Priority:
+//   1. section === "Research" (genuine Research-section articles, when they exist)
+//   2. format === "PROOF" (research methods, proofs, benchmarks, source-backed analytical work)
+//
+// Original section labels on cards are preserved — a Security / PROOF article
+// is displayed with its real section, not relabeled as "Research".
+const all = await publishedArticles();
+const research = all.filter(
+  (item) => item.data.section === "Research" || item.data.format === "PROOF"
+);
 ---
-<SectionPage title="Research" description="Papers, benchmarks, methodology, replication, and what the evidence can actually support." section="Research" />
+<BaseLayout title="Research" description="Research methods, proofs, benchmarks, and source-backed analytical work from across the publication.">
+  <section class="shell route">
+    <header class="route-head">
+      <div class="kicker">/ RESEARCH</div>
+      <h1>Research methods, proofs, and source-backed analysis.</h1>
+      <p>
+        This hub aggregates the publication's research-oriented work — formal
+        proofs, benchmarks, methodology, and source-backed analytical pieces
+        from across AI, Compute, Systems, and Security. Each article keeps its
+        original section label.
+      </p>
+    </header>
+    {research.length ? <ArticleList articles={research} /> : (
+      <div class="empty-state">
+        No human-approved research stories are published here yet.
+      </div>
+    )}
+  </section>
+</BaseLayout>

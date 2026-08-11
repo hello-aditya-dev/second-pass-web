@@ -7,9 +7,19 @@ export async function publishedArticles() {
     import.meta.env.PROD ? data.status === "published" : data.status !== "draft"
   );
 
-  return entries.sort(
-    (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
-  );
+  // Deterministic sort:
+  //   1. publishedAt descending (newest first)
+  //   2. editorialOrder descending (higher = newer/higher in section list)
+  //   3. slug ascending (stable tie-breaker)
+  return entries.sort((a, b) => {
+    const dateDiff = b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf();
+    if (dateDiff !== 0) return dateDiff;
+
+    const orderDiff = (b.data.editorialOrder ?? 0) - (a.data.editorialOrder ?? 0);
+    if (orderDiff !== 0) return orderDiff;
+
+    return a.data.slug.localeCompare(b.data.slug);
+  });
 }
 
 export function formatDate(date: Date) {

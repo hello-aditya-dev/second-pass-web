@@ -14,6 +14,8 @@ firstPass:
   - "The model does not always need the raw credential. Current OpenAI and Anthropic architectures demonstrate proxy-mediated patterns where credentials can remain outside model-visible sandbox state and be applied only on approved paths."
   - "A narrow fixed allowlist is not always enough. In the variable-source research counter-case, broader public reach is required by the declared task trace; the decision therefore remains workload-dependent."
 featured: true
+featuredRank: 1
+editorialOrder: 2
 demo: false
 tags:
   - "AI agent security"
@@ -510,9 +512,7 @@ The output becomes:
 
 **INSUFFICIENT INPUT.**
 
-## / CLAIM CHECK
-
-### “Sandboxed means the agent cannot leak data.”
+## / CLAIM CHECK — "Sandboxed means the agent cannot leak data."
 
 **WHAT IS TRUE**
 
@@ -538,29 +538,7 @@ The boundary inventory should separately cover:
 
 Incomplete. Do not use **sandboxed** as a synonym for **safe**.
 
-A filesystem sandbox and an egress policy solve different problems.
-
-A process may be unable to write outside a workspace but still be able to transmit workspace content over the network.
-
-Or it may have no network while still seeing sensitive mounted files locally.
-
-The boundary inventory should separately cover:
-
-- filesystem visibility;
-- write scope;
-- process privilege;
-- device/host access;
-- network policy;
-- credential visibility;
-- persistence.
-
-Do not use **sandboxed** as a synonym for **safe**.
-
-
-
-
-
-### “An allowlisted domain is safe to receive any data the agent has.”
+## / CLAIM CHECK — "An allowlisted domain is safe to receive any data the agent has."
 
 **WHAT IS TRUE**
 
@@ -582,23 +560,7 @@ A documentation host can be legitimate and still be an invalid destination for p
 
 No. Destination approval and data authorization are separate security dimensions.
 
-Destination approval answers:
-
-**may the agent reach this resource?**
-
-Data authorization answers:
-
-**which bytes may cross this path for this purpose?**
-
-They are not equivalent.
-
-A documentation host can be legitimate and still be an invalid destination for proprietary source, logs or credentials.
-
-
-
-
-
-### “If the task needs an API key, put the key in the agent environment.”
+## / CLAIM CHECK — "If the task needs an API key, put the key in the agent environment."
 
 **WHAT IS TRUE**
 
@@ -606,19 +568,13 @@ Some applications genuinely need direct credential handling.
 
 **WHAT IS MISSING**
 
-But current hosted-agent architectures demonstrate another option: keep the raw secret outside model8-visible state and apply it at a proxy/egress boundary scoped to the approved destination or resource.
+But current hosted-agent architectures demonstrate another option: keep the raw secret outside model-visible state and apply it at a proxy/egress boundary scoped to the approved destination or resource.
 
-MCP authorization guidance adds a related identity principle/ resource. MCP authorization guidance adds a related identity principle: access tokens should be audience/resource bound and must not be blindly passed through to downstream systems.
+MCP authorization guidance adds a related identity principle: access tokens should be audience/resource bound and must not be blindly passed through to downstream systems.
 
 **SECOND / PASS**
 
 Not necessarily. Proxy-mediated credential application can narrow raw-secret visibility while preserving approved authenticated actions.
-
-Some applications genuinely need direct credential handling.
-
-But current hosted-agent architectures demonstrate another option: keep the raw secret outside model-visible state and apply it at a proxy/egress boundary scoped to the approved destination or resource.
-
-MCP authorization guidance adds a related identity principle: access tokens should be audience/resource bound and must not be blindly passed through to downstream systems.
 
 ## / CALCULATION — does the narrower policy preserve utility?
 
@@ -921,6 +877,4 @@ Giving coding or research agents network access?
 
 SECOND / PASS can map the destinations, credentials and data flows your workflows actually require and identify authority that can be removed without breaking useful work.
 
-**START A RESEARCH BRIEF →**
-
-`/intelligence`
+[START A RESEARCH BRIEF →](/intelligence)

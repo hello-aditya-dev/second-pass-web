@@ -14,6 +14,8 @@ firstPass:
   - "Prefill is a different phase: an illustrative BF16 GEMM with m=2048 and k=n=8192 has a simple one-pass arithmetic intensity of about 1,365 FLOP/byte, above both BF16 ridge points."
   - "For Qwen2.5-72B-Instruct, a 72.7B-parameter BF16 payload is 145.4 GB in the ideal model. At 8 TB/s, the weight-stream ceiling is about 55 tokens/s while B300's 2P arithmetic ceiling is about 15,475 tokens/s; both are theoretical upper bounds, not measured throughput."
 featured: true
+featuredRank: 3
+editorialOrder: 3
 demo: false
 tags:
   - "LLM inference"
@@ -751,4 +753,4 @@ Evaluating inference hardware for a real model and latency target?
 
 SECOND / PASS runs source-backed infrastructure research sprints that replace the peak Roofline with measured model, batch, context, precision and serving data.
 
-**START A RESEARCH BRIEF →**
+[START A RESEARCH BRIEF →](/intelligence)

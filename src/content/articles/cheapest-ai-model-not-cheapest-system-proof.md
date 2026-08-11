@@ -13,6 +13,8 @@ firstPass:
   - "A review-rate break-even can be derived without assuming which model is better."
   - "Multi-stage AI agents require a sequential routing formulation because earlier actions change later state."
 featured: false
+featuredRank: 0
+editorialOrder: 0
 demo: false
 tags:
   - "AI inference economics"

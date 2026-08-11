@@ -92,7 +92,21 @@ for (const s of targetSlugs) {
   }
 
   // 9. No raw LaTeX outside KaTeX
-  const cleanHtml = html.replace(/<span class="katex[^"]*">[\s\S]*?<\/span>/g, "");
+  // Remove annotation elements first (contain LaTeX source for accessibility)
+  let cleanHtml = html.replace(/<annotation[^>]*>[\s\S]*?<\/annotation>/gi, "");
+  // Remove katex spans (multiple passes for nesting)
+  for (let pass = 0; pass < 15; pass++) {
+    const next = cleanHtml
+      .replace(/<span[^>]*class="[^"]*katex[^"]*"[^>]*>[\s\S]*?<\/span>/gi, "")
+      .replace(/<span[^>]*class="[^"]*katex-display[^"]*"[^>]*>[\s\S]*?<\/span>/gi, "");
+    if (next === cleanHtml) break;
+    cleanHtml = next;
+  }
+  // Also remove math-inline spans (post-build KaTeX)
+  cleanHtml = cleanHtml.replace(/<span[^>]*class="math-inline"[^>]*>[\s\S]*?<\/span>/gi, "");
+  // Remove code blocks to avoid false positives
+  cleanHtml = cleanHtml.replace(/<pre[^>]*>[\s\S]*?<\/pre>/gi, "");
+  cleanHtml = cleanHtml.replace(/<code[^>]*>[\s\S]*?<\/code>/gi, "");
   if (/\\frac\{/.test(cleanHtml) || /\\sum_/.test(cleanHtml) || /\\text\{/.test(cleanHtml)) {
     failures.push("Raw LaTeX outside KaTeX");
   }

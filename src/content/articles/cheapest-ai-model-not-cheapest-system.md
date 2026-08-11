@@ -14,6 +14,8 @@ firstPass:
   - "Prompt caching can become cheaper from the second eligible use under 1.25× write / 0.10× read pricing; one-hour 2× writes require three uses."
   - "Routing should choose among configurations and escalation paths—not model names—and should be trained on the organization's own acceptance and failure data."
 featured: true
+featuredRank: 9
+editorialOrder: 0
 demo: false
 tags:
   - "AI inference economics"

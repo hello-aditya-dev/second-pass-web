@@ -14,6 +14,8 @@ firstPass:
   - "High-impact sinks should be blocked or independently approval-gated when they are not necessary to complete an untrusted-content workflow."
   - "For operations, trust deterministic authorization, credential scope, sandbox and egress policy more than model-visible descriptions or generic safety prompts."
 featured: false
+featuredRank: 0
+editorialOrder: 1
 demo: false
 adPolicy: "none"
 tags:
@@ -109,25 +111,25 @@ $$
 
 Nodes may represent an untrusted source, model or planner, policy gate, credential, tool, data resource, approval boundary and consequential sink. Edges represent data flow or authorized action flow.
 
-For an action edge $e$ under request context $x$, define an external policy decision:
+For an action edge <imath>e</imath> under request context <imath>x</imath>, define an external policy decision:
 
 $$
 P(e,x)\in\{0,1\}.
 $$
 
-$P=1$ means the transition is allowed. The important word is **external**. If the same model that proposes an action simply says "I checked and this is allowed," that is not an independent authorization boundary.
+<imath>P=1</imath> means the transition is allowed. The important word is **external**. If the same model that proposes an action simply says "I checked and this is allowed," that is not an independent authorization boundary.
 
 A real policy decision may depend on an RBAC rule, resource ACL, OAuth scope, tenant check, destination allowlist, approval token, sandbox boundary, network policy or another deterministic control.
 
-For an untrusted source $s$, define:
+For an untrusted source <imath>s</imath>, define:
 
 $$
 R(s)=\operatorname{Reach}_G(s;P).
 $$
 
-$R(s)$ is the set of nodes or sinks reachable after assuming the model has been manipulated but external policies still apply.
+<imath>R(s)</imath> is the set of nodes or sinks reachable after assuming the model has been manipulated but external policies still apply.
 
-This is **not** probability. If `SEND_EXTERNAL` is in $R(s)$, the architecture permits a path. It does not mean an attacker succeeds 20% or 80% of the time. There is no need to invent an attack rate to learn something useful.
+This is **not** probability. If `SEND_EXTERNAL` is in <imath>R(s)</imath>, the architecture permits a path. It does not mean an attacker succeeds 20% or 80% of the time. There is no need to invent an attack rate to learn something useful.
 
 ## The security invariant
 
@@ -177,7 +179,7 @@ $$
 c=(a,r,d),
 $$
 
-where $a$ is the action, $r$ is the resource scope and $d$ is the destination or visibility scope.
+where <imath>a</imath> is the action, <imath>r</imath> is the resource scope and <imath>d</imath> is the destination or visibility scope.
 
 The minimum required set is:
 
@@ -288,7 +290,7 @@ Now apply deterministic controls in sequence.
 
 **1. Replace broad credentials with task-scoped credentials.** Delete and admin permissions disappear from the graph. The agent keeps only ticket/customer reads and ticket write for the intended tenant and resource.
 
-**2. Move external send behind independent approval.** The sink still exists, but it moves out of $R_{\text{auto}}$ and into $R_{\text{approval}}$.
+**2. Move external send behind independent approval.** The sink still exists, but it moves out of <imath>R_{\text{auto}}</imath> and into <imath>R_{\text{approval}}</imath>.
 
 **3. Restrict destinations.** Arbitrary egress is removed; only policy-approved endpoints required by the workflow remain.
 
@@ -326,9 +328,7 @@ This is consequence containment again. Blocking arbitrary egress does not make p
 
 ![Containment stack](/research/agent-authority/charts/chart-05-containment-stack.svg "How does the modeled autonomous consequence set change as controls are added?")
 
-## / CLAIM CHECK
-
-### "If the model is resistant to prompt injection, broad tool permissions are safe."
+## / CLAIM CHECK — "If the model is resistant to prompt injection, broad tool permissions are safe."
 
 **WHAT IS TRUE**
 
@@ -342,7 +342,7 @@ Model robustness does not make excessive authorization a good design. OpenAI, OW
 
 No. Resistance is not a substitute for least privilege. The manipulated-model assumption exists precisely because resistance can fail.
 
-### "Read-only tools cannot create data-exfiltration risk."
+## / CLAIM CHECK — "Read-only tools cannot create data-exfiltration risk."
 
 **WHAT IS TRUE**
 
@@ -356,7 +356,7 @@ Read can supply sensitive data to the model. Exfiltration becomes possible when 
 
 Incomplete. Source–sink composition determines the exfiltration path, not the read label alone.
 
-### "Human approval makes an agent action safe."
+## / CLAIM CHECK — "Human approval makes an agent action safe."
 
 **WHAT IS TRUE**
 
@@ -400,7 +400,7 @@ An enterprise does not need a perfect prompt-injection detector before it can im
 
 Take one workflow at a time.
 
-Define the legitimate objective. Enumerate every untrusted source the model may consume. List the tools, but then go underneath them and inventory the real credentials. Write each authority unit as action × resource × destination. Build $C_{\text{req}}$ from the minimum workflow. Build $C_{\text{grant}}$ from what production actually exposes. Compute the overhang set.
+Define the legitimate objective. Enumerate every untrusted source the model may consume. List the tools, but then go underneath them and inventory the real credentials. Write each authority unit as action × resource × destination. Build <imath>C_{\text{req}}</imath> from the minimum workflow. Build <imath>C_{\text{grant}}</imath> from what production actually exposes. Compute the overhang set.
 
 Then enumerate consequential sinks: writes, external sends, deletes, execution, financial actions, deployments and administration. Calculate whether each source can reach each sink under the current deterministic policies. Separate autonomous, approval-gated, blocked and unknown.
 
@@ -432,6 +432,4 @@ Deploying agents with access to company data or write-capable tools?
 
 SECOND / PASS can map the real source-to-sink paths, credential scopes and delegated authority in your architecture.
 
-**START A RESEARCH BRIEF →**
-
-`/intelligence`
+[START A RESEARCH BRIEF →](/intelligence)

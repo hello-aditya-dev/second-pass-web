@@ -14,6 +14,8 @@ firstPass:
   - "Transitive verification terminates at named trust anchors and aggregate boundaries. It does not recurse indefinitely."
   - "Verification coverage is a ratio of verified components to closure components. It is not a risk probability. A strict gate requires 100% coverage of required components."
 featured: false
+featuredRank: 0
+editorialOrder: 3
 demo: false
 adPolicy: "none"
 tags:
@@ -81,7 +83,7 @@ $$
 G = (V, E)
 $$
 
-where each node $v \in V$ is a deployable artifact — model weights, tokenizer, chat template, configuration, custom code, adapter, serving container, base image, runtime lockfile, or startup/policy configuration — and each edge $e \in E$ is a dependency relationship.
+where each node <imath>v \in V</imath> is a deployable artifact — model weights, tokenizer, chat template, configuration, custom code, adapter, serving container, base image, runtime lockfile, or startup/policy configuration — and each edge <imath>e \in E</imath> is a dependency relationship.
 
 The root of the graph is the inference service. Under it:
 
@@ -99,7 +101,7 @@ $$
 \text{Identity}(G) = \{ d(v) : v \in V \}
 $$
 
-where $d(v)$ is the cryptographic digest of artifact $v$.
+where <imath>d(v)</imath> is the cryptographic digest of artifact <imath>v</imath>.
 
 ![Deployment graph](/research/ai-deployment-provenance/charts/chart-01-deployment-graph.svg "A deployment is a dependency graph of model files, executable code, configuration, containers and transitive dependencies.")
 
@@ -109,7 +111,7 @@ A deployment verification policy needs to answer four distinct questions about e
 
 ### Digest — Are these the expected bytes?
 
-A cryptographic digest $d(v) = \text{SHA-256}(v)$ confirms content identity. The observed digest is compared to an expected digest from the approved manifest:
+A cryptographic digest <imath>d(v) = \text{SHA-256}(v)</imath> confirms content identity. The observed digest is compared to an expected digest from the approved manifest:
 
 $$
 \text{DIGEST}(v): \quad d_{\text{observed}}(v) \stackrel{?}{=} d_{\text{approved}}(v)
@@ -125,7 +127,7 @@ $$
 \text{SIGNATURE}(v): \quad \text{Verify}(s, d(v), k_{\text{expected}})
 $$
 
-where $s$ is the signature over digest $d(v)$ and $k_{\text{expected}}$ is the expected signing key or certificate identity. Sigstore/Cosign verification uses certificate identity and OIDC issuer constraints to bind the signer to a specific identity.
+where <imath>s</imath> is the signature over digest <imath>d(v)</imath> and <imath>k_{\text{expected}}</imath> is the expected signing key or certificate identity. Sigstore/Cosign verification uses certificate identity and OIDC issuer constraints to bind the signer to a specific identity.
 
 A valid signature tells you who signed. It does not tell you that the signer is approved for this component, that the artifact is safe, or that the build source and parameters were reviewed.
 
@@ -153,7 +155,7 @@ Policy does not establish universal safety. It encodes what the organization has
 
 ## The approved manifest
 
-An approved manifest $M_{\text{approved}}$ is a record of what the organization has reviewed and approved for deployment. For each component in the deployment graph, it records:
+An approved manifest <imath>M_{\text{approved}}</imath> is a record of what the organization has reviewed and approved for deployment. For each component in the deployment graph, it records:
 
 - the component identifier and role;
 - the approved artifact identity;
@@ -195,7 +197,7 @@ Now the observed deployment at deploy time differs in two ways:
 
 **EQUATION**
 
-For each component $c$ in the approved manifest, compare observed identity to approved identity:
+For each component <imath>c</imath> in the approved manifest, compare observed identity to approved identity:
 
 $$
 \text{state}(c) =
@@ -205,7 +207,7 @@ $$
 \end{cases}
 $$
 
-For each component $u$ in the observed deployment but not in the approved manifest:
+For each component <imath>u</imath> in the observed deployment but not in the approved manifest:
 
 $$
 \text{state}(u) = \text{UNEXPECTED}
@@ -292,7 +294,7 @@ $$
 \text{Verify}(G) = \bigwedge_{v \in V_{\text{boundary}}} \text{Verify}(v)
 $$
 
-where $V_{\text{boundary}} \subset V$ is the set of boundary nodes — trust anchors and aggregate roots — rather than the full transitive closure.
+where <imath>V_{\text{boundary}} \subset V</imath> is the set of boundary nodes — trust anchors and aggregate roots — rather than the full transitive closure.
 
 This means a deployment with a signed, provenanced serving image and a pinned model snapshot can be verified without enumerating every system package in the base image. The image aggregate identity and the model snapshot identity are the boundaries.
 
@@ -356,7 +358,7 @@ $$
 C_{\text{verified}} = \frac{|V_{\text{verified}}|}{|V_{\text{closure}}|}
 $$
 
-where $V_{\text{verified}} \subseteq V_{\text{closure}}$ is the set of components that passed all required verification checks.
+where <imath>V_{\text{verified}} \subseteq V_{\text{closure}}</imath> is the set of components that passed all required verification checks.
 
 This is a coverage ratio, not a probability. A deployment with 90% verification coverage does not have a 10% risk of compromise. It has a specific set of unverified components, and each unverified component is a specific unknown.
 
@@ -451,6 +453,4 @@ Deploying open-weight or customized models into production?
 
 SECOND / PASS can map the artifacts your inference service actually consumes and build a verification policy around immutable identity, signatures and provenance.
 
-**START A RESEARCH BRIEF →**
-
-`/intelligence`
+[START A RESEARCH BRIEF →](/intelligence)

@@ -14,6 +14,8 @@ firstPass:
   - "In the illustrative 4 MW facility-input case with PUE 1.20 and a 90% usable-capacity factor, the power model supports 21 racks / 1,512 GPUs. A 24-rack target needs about 4.544 MW of modeled facility input."
   - "If 24 racks were procured against that 21-rack power limit, 3 racks / 216 GPUs would be stranded. Actual rack distribution, cooling and redundancy can reduce usable capacity further."
 featured: true
+featuredRank: 4
+editorialOrder: 1
 demo: false
 tags:
   - "GB300 NVL72"
@@ -169,9 +171,7 @@ This is **rack electrical power per installed GPU**. It is not B300 chip TDP. Th
 
 ![How many racks fit in one MW?](/research/142kw-ai-rack/charts/chart-02-racks-per-mw.svg "Two bars compare seven racks from one megawatt of usable IT power with five racks from one megawatt of facility-input power under PUE 1.20 and 90% usable-capacity factor.")
 
-## / CLAIM CHECK
-
-### "A 1 MW data center can support seven 142 kW AI racks."
+## / CLAIM CHECK — "A 1 MW data center can support seven 142 kW AI racks."
 
 **WHAT IS TRUE**
 
@@ -231,11 +231,9 @@ If the user selects **USABLE IT MW**, PUE is **not** applied to rack capacity ag
 
 That prevents one of the easiest mistakes in AI facility planning: taking an IT-capacity number that is already downstream of facility overhead and dividing it by PUE a second time.
 
-## / CLAIM CHECK
+## / CLAIM CHECK — "A PUE of 1.2 means cooling uses 20% of IT power."
 
-### "A PUE of 1.2 means cooling uses 20% of IT power."
-
-**VERDICT**
+**SECOND / PASS**
 
 Incorrect.
 
@@ -616,4 +614,4 @@ Planning an AI rack deployment or data-center capacity expansion?
 
 SECOND / PASS runs source-backed infrastructure research sprints that apply this capacity model to a specific rack, site and deployment schedule.
 
-**START A RESEARCH BRIEF →**
+[START A RESEARCH BRIEF →](/intelligence)

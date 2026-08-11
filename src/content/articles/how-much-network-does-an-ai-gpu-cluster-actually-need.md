@@ -14,6 +14,8 @@ firstPass:
   - "Latency creates a hard boundary: if the analytical ring startup term already exceeds the communication deadline, no finite bandwidth can satisfy that model. A 256-rank, 1 MiB scenario with a 1 ms budget and 2 µs startup term lands in that region."
   - "Network delay becomes an accelerator-capacity question. A 5% exposed communication share across 1,024 GPUs is 51.2 GPU-equivalents of normalized wall-clock capacity exposure, not 51.2 literally powered-off GPUs."
 featured: true
+featuredRank: 7
+editorialOrder: 2
 demo: false
 tags:
   - "AI cluster networking"
@@ -833,4 +835,4 @@ Planning a multi-node or multi-rack AI cluster?
 
 SECOND / PASS runs source-backed fabric-sizing research sprints that replace the public scenarios here with the buyer's actual collective traces, topology, message distribution, latency budget and measured effective bandwidth.
 
-**START A RESEARCH BRIEF →**
+[START A RESEARCH BRIEF →](/intelligence)

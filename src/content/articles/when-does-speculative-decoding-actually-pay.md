@@ -14,6 +14,8 @@ firstPass:
   - "More speculative tokens are not automatically faster. With the primary timing curve, modeled speedup peaks at k*=4 and then falls as verification and proposal cost grow faster than marginal accepted-token gain."
   - "The production metric is SLO goodput and cost per SLO-compliant request. The same four-GPU primary case favors speculation; the high-load counter-case favors standard decode."
 featured: true
+featuredRank: 6
+editorialOrder: 2
 demo: false
 tags:
   - "speculative decoding"
@@ -723,9 +725,7 @@ The same `alpha` and `k` can therefore have a different `T_v(k)` and a different
 
 That is the production reason to measure cycle cost, not just acceptance.
 
-## / CLAIM CHECK
-
-### "Speculative decoding gives free tokens."
+## / CLAIM CHECK — "Speculative decoding gives free tokens."
 
 **WHAT IS TRUE**
 
@@ -739,7 +739,7 @@ The cost of drafting, verification and runtime overhead that produced those toke
 
 No. It exchanges serial target steps for proposer work, target verification and runtime overhead. The gain comes only when multiple useful tokens per verification cycle are cheaper than the serial target steps they replace.
 
-### "Higher speculation depth is always faster."
+## / CLAIM CHECK — "Higher speculation depth is always faster."
 
 **WHAT IS TRUE**
 
@@ -753,7 +753,7 @@ Verification and drafting cost can grow faster than marginal accepted-token gain
 
 No. Expected token gain diminishes with depth while proposer and verification cost may keep growing. `k*` is a workload/runtime result.
 
-### "Lossless means every run returns the exact same string."
+## / CLAIM CHECK — "Lossless means every run returns the exact same string."
 
 **WHAT IS TRUE**
 
@@ -1098,6 +1098,4 @@ Evaluating speculative decoding for a production inference stack?
 
 SECOND / PASS can apply this model to your acceptance traces, runtime timings, traffic distribution and SLOs.
 
-**START A RESEARCH BRIEF →**
-
-`/intelligence`
+[START A RESEARCH BRIEF →](/intelligence)

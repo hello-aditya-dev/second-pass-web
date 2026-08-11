@@ -66,6 +66,18 @@
       "default": false,
       "type": "boolean"
     },
+    "featuredRank": {
+      "default": 0,
+      "type": "integer",
+      "minimum": -9007199254740991,
+      "maximum": 9007199254740991
+    },
+    "editorialOrder": {
+      "default": 0,
+      "type": "integer",
+      "minimum": -9007199254740991,
+      "maximum": 9007199254740991
+    },
     "demo": {
       "default": false,
       "type": "boolean"
