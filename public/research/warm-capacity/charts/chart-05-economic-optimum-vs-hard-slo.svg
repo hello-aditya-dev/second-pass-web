@@ -1,0 +1,83 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 580' width='900' height='580' font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-rendering='geometricPrecision'>
+<rect width="900" height="580" fill="#F2EFE7"/>
+<text x="450.0" y="34" fill="#11110F" font-size="18" font-weight="700" text-anchor="middle" style="">ECONOMIC OPTIMUM (7) ≠ HARD SLO FLOOR (11)</text>
+<text x="450.0" y="56" fill="#5A5953" font-size="12" font-weight="400" text-anchor="middle" style="">HOUSE SCENARIO / DERIVED RESULT — the two boundaries answer different questions</text>
+<line x1="90" y1="110" x2="840" y2="110" stroke="#11110F" stroke-width="1.2" opacity="1"/>
+<line x1="90" y1="110" x2="90" y2="470" stroke="#11110F" stroke-width="1.2" opacity="1"/>
+<line x1="840" y1="110" x2="840" y2="470" stroke="#11110F" stroke-width="1.2" opacity="1"/>
+<line x1="90" y1="470" x2="840" y2="470" stroke="#11110F" stroke-width="1.2" opacity="1"/>
+<line x1="398.8235294117647" y1="110" x2="398.8235294117647" y2="470" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="398.8235294117647" y="488" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">7</text>
+<line x1="442.94117647058823" y1="110" x2="442.94117647058823" y2="470" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="442.94117647058823" y="488" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">8</text>
+<line x1="487.05882352941177" y1="110" x2="487.05882352941177" y2="470" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="487.05882352941177" y="488" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">9</text>
+<line x1="531.1764705882354" y1="110" x2="531.1764705882354" y2="470" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="531.1764705882354" y="488" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">10</text>
+<line x1="575.2941176470588" y1="110" x2="575.2941176470588" y2="470" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="575.2941176470588" y="488" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">11</text>
+<line x1="619.4117647058824" y1="110" x2="619.4117647058824" y2="470" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="619.4117647058824" y="488" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">12</text>
+<line x1="663.5294117647059" y1="110" x2="663.5294117647059" y2="470" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="663.5294117647059" y="488" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">13</text>
+<line x1="707.6470588235294" y1="110" x2="707.6470588235294" y2="470" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="707.6470588235294" y="488" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">14</text>
+<line x1="751.7647058823529" y1="110" x2="751.7647058823529" y2="470" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="751.7647058823529" y="488" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">15</text>
+<line x1="795.8823529411765" y1="110" x2="795.8823529411765" y2="470" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="795.8823529411765" y="488" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">16</text>
+<line x1="840.0" y1="110" x2="840.0" y2="470" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="840.0" y="488" fill="#5A5953" font-size="11" font-weight="400" text-anchor="middle" style="">17</text>
+<line x1="90" y1="470.0" x2="840" y2="470.0" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="474.0" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">$0</text>
+<line x1="90" y1="426.0975609756098" x2="840" y2="426.0975609756098" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="430.0975609756098" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">$10</text>
+<line x1="90" y1="382.1951219512195" x2="840" y2="382.1951219512195" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="386.1951219512195" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">$20</text>
+<line x1="90" y1="338.29268292682923" x2="840" y2="338.29268292682923" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="342.29268292682923" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">$30</text>
+<line x1="90" y1="294.390243902439" x2="840" y2="294.390243902439" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="298.390243902439" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">$40</text>
+<line x1="90" y1="250.4878048780488" x2="840" y2="250.4878048780488" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="254.4878048780488" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">$50</text>
+<line x1="90" y1="206.58536585365852" x2="840" y2="206.58536585365852" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="210.58536585365852" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">$60</text>
+<line x1="90" y1="162.6829268292683" x2="840" y2="162.6829268292683" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="166.6829268292683" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">$70</text>
+<line x1="90" y1="118.78048780487808" x2="840" y2="118.78048780487808" stroke="#C9C3B7" stroke-width="0.7" opacity="1"/>
+<text x="80" y="122.78048780487808" fill="#5A5953" font-size="11" font-weight="400" text-anchor="end" style="">$80</text>
+<text x="465.0" y="514" fill="#11110F" font-size="13" font-weight="600" text-anchor="middle" style="">Warm replicas (k)</text>
+<text x="28" y="290.0" fill="#11110F" font-size="13" font-weight="600" text-anchor="middle" style="writing-mode:tb;transform:rotate(180deg);">USD / hour</text>
+<path d="M398.8,324.9 L398.8,324.9 L442.9,304.2 L487.1,283.5 L531.2,262.8 L575.3,242.1 L619.4,221.3 L663.5,200.6 L707.6,179.9 L751.8,159.2 L795.9,138.4 L840.0,117.7" fill="none" stroke="#5A5953" stroke-width="2.2"/>
+<path d="M398.8,396.7 L398.8,396.7 L442.9,408.5 L487.1,422.3 L531.2,438.4 L575.3,449.4 L619.4,470.0 L663.5,470.0 L707.6,470.0 L751.8,470.0 L795.9,470.0 L840.0,470.0" fill="none" stroke="#9C968A" stroke-width="2.2" stroke-dasharray="5,3"/>
+<path d="M398.8,251.7 L398.8,251.7 L442.9,242.8 L487.1,235.8 L531.2,231.2 L575.3,221.4 L619.4,221.3 L663.5,200.6 L707.6,179.9 L751.8,159.2 L795.9,138.4 L840.0,117.7" fill="none" stroke="#2F5BFF" stroke-width="2.8"/>
+<circle cx="398.8" cy="251.7" r="3.5" fill="#2F5BFF"/>
+<circle cx="442.9" cy="242.8" r="3.5" fill="#2F5BFF"/>
+<circle cx="487.1" cy="235.8" r="3.5" fill="#2F5BFF"/>
+<circle cx="531.2" cy="231.2" r="3.5" fill="#2F5BFF"/>
+<circle cx="575.3" cy="221.4" r="3.5" fill="#2F5BFF"/>
+<circle cx="619.4" cy="221.3" r="3.5" fill="#2F5BFF"/>
+<circle cx="663.5" cy="200.6" r="3.5" fill="#2F5BFF"/>
+<circle cx="707.6" cy="179.9" r="3.5" fill="#2F5BFF"/>
+<circle cx="751.8" cy="159.2" r="3.5" fill="#2F5BFF"/>
+<circle cx="795.9" cy="138.4" r="3.5" fill="#2F5BFF"/>
+<circle cx="840.0" cy="117.7" r="3.5" fill="#2F5BFF"/>
+<line x1="398.8235294117647" y1="110" x2="398.8235294117647" y2="251.67317073170733" stroke="#2F5BFF" stroke-width="1.6" stroke-dasharray="4,3" opacity="1"/>
+<text x="390.8235294117647" y="241.67317073170733" fill="#2F5BFF" font-size="10.5" font-weight="700" text-anchor="end" style="">k=7
+$49.73/h
+economic
+minimum</text>
+<circle cx="398.8" cy="251.7" r="6" fill="none" stroke="#2F5BFF" stroke-width="2.2"/>
+<line x1="575.2941176470588" y1="110" x2="575.2941176470588" y2="221.42439024390245" stroke="#11110F" stroke-width="1.6" stroke-dasharray="4,3" opacity="1"/>
+<text x="583.2941176470588" y="211.42439024390245" fill="#11110F" font-size="10.5" font-weight="700" text-anchor="start" style="">k=11
+$56.62/h
+hard SLO
+floor</text>
+<circle cx="575.3" cy="221.4" r="6" fill="none" stroke="#11110F" stroke-width="2.2"/>
+<line x1="140" y1="506" x2="162" y2="506" stroke="#5A5953" stroke-width="2.2" opacity="1"/>
+<text x="170" y="510" fill="#11110F" font-size="11.5" font-weight="400" text-anchor="start" style="">Warm holding cost</text>
+<line x1="320" y1="506" x2="342" y2="506" stroke="#9C968A" stroke-width="2.2" stroke-dasharray="5,3" opacity="1"/>
+<text x="350" y="510" fill="#11110F" font-size="11.5" font-weight="400" text-anchor="start" style="">Expected undercapacity loss</text>
+<line x1="560" y1="506" x2="582" y2="506" stroke="#2F5BFF" stroke-width="2.8" opacity="1"/>
+<text x="590" y="510" fill="#11110F" font-size="11.5" font-weight="400" text-anchor="start" style="">Expected total cost</text>
+</svg>

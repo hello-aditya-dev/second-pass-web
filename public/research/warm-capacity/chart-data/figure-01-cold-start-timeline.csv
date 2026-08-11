@@ -1,0 +1,8 @@
+stage,duration_s,classification,source_ids
+Detection + autoscaler decision,5,HOUSE ASSUMPTION,S01
+GPU/node provisioning,20,HOUSE ASSUMPTION,"S02,S09,S14"
+Image pull,10,HOUSE ASSUMPTION,S02
+Weights download/transfer,25,HOUSE ASSUMPTION,"S02,S05,S06"
+Runtime/model initialization,10,HOUSE ASSUMPTION,S02
+Compile + memory profiling,10,HOUSE ASSUMPTION,"S02,S07"
+Health check + traffic registration,10,HOUSE ASSUMPTION,"S02,S06"

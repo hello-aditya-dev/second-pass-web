@@ -1,0 +1,10 @@
+claim,value,unit,source,source_date,assumption_status,derivation,confidence,notes
+Ray Serve min_replicas=0 can create cold-start tail latency,true,boolean,S01,2026-08-11,SOURCE DATA,direct documentation,high,Framework-specific.
+vLLM exposes waiting-request and queue-time metrics,true,boolean,S03,2026-08-11,SOURCE DATA,direct documentation,high,Useful for capacity/SLO observation.
+AWS SageMaker MME loading can continue up to 360 seconds after first-load request path,360,seconds,S05,2026-08-11,SOURCE DATA,direct documentation,high,Specific MME behavior; not universal.
+Google Compute quota guarantees capacity,false,boolean,S09,2026-08-11,SOURCE DATA,direct documentation,high,Quota and availability are separate.
+AWS Capacity Block p5.4xlarge Mumbai effective rate,4.720,USD/H100-hour,S08,2026-08-11,SOURCE DATA,pricing table,high,"Capacity Block rate, not universal on-demand."
+M/M/10 utilization where p95 queue reaches 0.5s in teaching model,0.793408,fraction,DERIVED,2026-08-11,CALCULATION,"Erlang-C wait-tail inversion, mu=2 RPS/server",high within model,Exponential service/Poisson arrivals only.
+Economic teaching case baseline queue minimum,7,replicas,DERIVED,2026-08-11,HOUSE SCENARIO,smallest k with M/M/k p95 queue <=3s,model,"lam0=12, mu=2."
+Economic teaching case strict burst-survival minimum,11,replicas,DERIVED,2026-08-11,HOUSE SCENARIO,ceil(lambda1*Tscale/[mu*(Tscale+Dq)]),model,"fluid burst, deterministic 20s scale delay, 3s queue budget."
+Economic teaching case unconstrained economic optimum,7,replicas,DERIVED,2026-08-11,HOUSE SCENARIO,min warm cost + expected modeled undercapacity loss,scenario only,Does not enforce strict burst SLO.

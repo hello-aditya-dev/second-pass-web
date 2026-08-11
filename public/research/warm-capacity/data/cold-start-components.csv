@@ -1,0 +1,6 @@
+component,provider_platform,documented_value,unit,source_id,conditions,caveat
+Node/GPU provisioning,Ray Serve LLM,Step exists; duration not fixed,n/a,S02,No GPU node already available,Cloud/provider dependent.
+Image download,Ray Serve LLM,Latency correlated with image size,qualitative,S02,Image not already local,No universal time.
+Weights/model load,AWS SageMaker MME,Request may time out at 60s; loading can continue up to 360s,seconds,S05,Specific MME first-load path,Not general real-time endpoint timing.
+Model setup,AWS SageMaker Serverless/MME,ModelSetupTime and model download/load metrics exposed,microseconds metrics,S06,Supported endpoint modes,Observe your own distribution.
+Compile,SageMaker optimized LLM / Ray-vLLM,AOT compilation can reduce deployment/autoscaling latency; torch compile is a startup step in Ray-vLLM,qualitative,"S02,S07",Supported model/runtime,Benefit depends on stack.

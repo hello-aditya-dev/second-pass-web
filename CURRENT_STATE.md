@@ -1,7 +1,7 @@
 # Current State
 
 **Brand:** SECOND / PASS
-**Phase:** LIVE PUBLICATION (post-production-repair + Research #10/#11)
+**Phase:** LIVE PUBLICATION (post-production-repair + Research #10/#11/#12/#13)
 **Architecture:** Astro 7 hybrid — static read path, Vercel Functions for writes only
 **Date:** 2026-08-11
 **Launch date:** 2026-08-10
@@ -112,9 +112,9 @@ Five canonical formats are live in the schema:
 - **DATA** — structured table, one or more analytical views, clear units, downloadable data where appropriate.
 - **DEEP** — long-form; 3–6 meaningful visual objects where warranted. Quality beats volume.
 
-## Published articles (19 total)
+## Published articles (21 total)
 
-Articles are listed by section cluster. Total: 19 published, 6 draft (demo-* and torture-*).
+Articles are listed by section cluster. Total: 21 published, 6 draft (demo-* and torture-*).
 
 ### AI — 7 articles (3 NOW, 3 SECOND PASS, 1 PROOF)
 
@@ -138,9 +138,23 @@ Articles are listed by section cluster. Total: 19 published, 6 draft (demo-* and
   - 6 sources, 5 FIRST PASS bullets, 2 CLAIM CHECKs, 1 CALCULATION
   - Full math (KaTeX, 37 display blocks), house editorial objects (/ QUESTION, / CALCULATION, / CLAIM CHECK, / INTELLIGENCE)
 
-### Systems — 3 articles (2 SECOND PASS, 1 PROOF)
+### Systems — 5 articles (3 SECOND PASS, 2 PROOF)
 
-- `when-should-you-split-prefill-from-decode` — SECOND PASS — 2026-08-10 (featuredRank 5, editorialOrder 3) — top of section
+- `one-user-request-can-become-n-model-and-tool-calls` — SECOND PASS — 2026-08-11 (featuredRank 0, editorialOrder 2) — top of section (agent fan-out)
+  - 4 charts (SVG+PNG+CSV), XLSX workbook, 7 chart-data CSVs, 11 research data tables, company-input template
+  - 6 sources (OpenAI Agents SDK ×2, OpenAI pricing, Anthropic, Google, LangGraph), 5 FIRST PASS bullets
+  - 2 CALCULATION blocks, 2 CLAIM CHECK blocks, 1 INTELLIGENCE
+  - Full math (KaTeX, 75 inline + display): E[N]=Σ q_i A_i, bounded fan-out F=b·p, R_upstream=R_user×E[N_j], Little's Law L_j=R_upstream·τ_j, harmonic-number max latency, 0.99^6=0.9415, (NC+T)/P break-even
+  - Frozen scenarios: 100 external RPS → 325 model + 800 tool (research); 760 model + 1,200 tool (multi-agent); F=2/d=4 → 31 ops; 5 Luna + 1 search = $0.0168 > 1 Terra $0.0136
+  - Stable namespace: `/research/agent-fanout/`
+- `how-much-warm-capacity-should-an-llm-service-keep` — PROOF — 2026-08-11 (featuredRank 0, editorialOrder 1)
+  - 6 charts (SVG+PNG+CSV), XLSX workbook, 7 chart-data CSVs, 13 research data CSVs, company-capacity input template
+  - 14 sources (Ray ×2, vLLM, Triton, AWS SageMaker ×3, AWS EC2 Capacity Blocks ×2, Google Cloud ×3, Vertex AI, Kingman, AWS InsufficientInstanceCapacity), 5 FIRST PASS bullets
+  - 2 CLAIM CHECK blocks, 1 ASSUMPTION block, 1 INTELLIGENCE
+  - Full math (KaTeX, 63 inline + 16 display): Erlang-C, M/M/k queue-tail, Pollaczek–Khinchine M/G/1, Q_scale=(λ−C_warm)·T_scale, burst-survival inequality k≥λ₁T/(μ(T+D_q)), economic J(k)=k·C_r+E[L_under]
+  - Frozen scenarios: 7 replicas economic optimum @ $49.73/h vs 11 replicas hard SLO floor; 200 queued vs 42 allowable; 79.34% M/M/10 crossing; 0.283s vs 0.723s p95 at 80% utilization
+  - Stable namespace: `/research/warm-capacity/`
+- `when-should-you-split-prefill-from-decode` — SECOND PASS — 2026-08-10 (featuredRank 5, editorialOrder 3)
 - `when-does-speculative-decoding-actually-pay` — SECOND PASS — 2026-08-10 (featuredRank 6, editorialOrder 2)
 - `kv-cache-is-your-real-concurrency-budget` — PROOF — 2026-08-10 (featuredRank 0, editorialOrder 1)
 
@@ -177,7 +191,7 @@ Articles are listed by section cluster. Total: 19 published, 6 draft (demo-* and
   - All 5 figures inserted contextually (package had zero); hero: chart-03-rank-reversal.svg
   - Stable namespace: `/research/reasoning-ttft-ttfo/`
 
-The `/research` hub now aggregates 6 articles: 2 Research-section + 4 cross-section PROOF.
+The `/research` hub now aggregates 7 articles: 2 Research-section + 5 cross-section PROOF.
 
 ## Research hub semantics
 
@@ -187,7 +201,7 @@ The `/research` hub now aggregates 6 articles: 2 Research-section + 4 cross-sect
 section === "Research"  ||  format === "PROOF"
 ```
 
-Original section labels on cards are preserved — a Security / PROOF article is displayed with its real section, not relabeled as Research. Current hub population: 6 articles (2 Research-section + 4 cross-section PROOF): `tokens-per-second-is-not-an-inference-benchmark` (Research/PROOF), `for-reasoning-models-ttft-may-measure-the-wrong-first-token` (Research/SECOND PASS), `cheapest-ai-model-not-cheapest-system-proof`, `can-you-prove-the-ai-system-you-deployed-is-the-one-you-approved`, `kv-cache-is-your-real-concurrency-budget`, `when-flops-stop-mattering-hbm-roofline-llm-inference`.
+Original section labels on cards are preserved — a Security / PROOF article is displayed with its real section, not relabeled as Research. Current hub population: 7 articles (2 Research-section + 5 cross-section PROOF): `tokens-per-second-is-not-an-inference-benchmark` (Research/PROOF), `for-reasoning-models-ttft-may-measure-the-wrong-first-token` (Research/SECOND PASS), `cheapest-ai-model-not-cheapest-system-proof`, `can-you-prove-the-ai-system-you-deployed-is-the-one-you-approved`, `kv-cache-is-your-real-concurrency-budget`, `when-flops-stop-mattering-hbm-roofline-llm-inference`, `how-much-warm-capacity-should-an-llm-service-keep` (Systems/PROOF).
 
 ## Homepage curation contract
 

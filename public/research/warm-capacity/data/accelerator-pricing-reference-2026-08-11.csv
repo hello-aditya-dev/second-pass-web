@@ -1,0 +1,4 @@
+provider,instance,accelerator,region,effective_hourly_usd,price_scope,source_id
+AWS EC2 Capacity Blocks,p5.4xlarge,1 x H100,Asia Pacific (Mumbai),4.72,Capacity Block effective rate,S08
+AWS EC2 Capacity Blocks,p5.4xlarge,1 x H100,US East (N. Virginia),5.191,Capacity Block effective rate,S08
+AWS EC2 Capacity Blocks,p6-b200.48xlarge,8 x B200,US East (N. Virginia),98.84,Per instance; $12.355 per accelerator-hour,S08

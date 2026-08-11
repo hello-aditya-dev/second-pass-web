@@ -1,0 +1,5 @@
+name,lam0,lam1,mu,B,Tscale,p_alloc,q_budget,gpu_cost,pburst,loss_req,notes,baseline_queue_min_k,strict_burst_survival_k,economic_optimal_k,economic_total_cost_per_h,economic_expected_burst_violations,optimal_baseline_utilization,optimal_baseline_p95_queue_s
+A — Stable SaaS traffic,12,16,2,60,15,0.99,0.5,4.72,0.08,0.05,"Low variance, moderate short peak, strict 0.5s queue budget.",8,8,8,37.76,0.0,0.75,0.4914149485539939
+B — Bursty interactive AI,12,24,2,120,60,0.9,0.5,4.72,0.25,0.25,"Large step burst, long scale delay, strict queue budget.",8,12,12,56.64,0.0,0.5,0.0
+"C — Expensive GPU, relaxed SLO",8,14,2,60,10,0.99,3.0,12.355,0.05,0.03,"High accelerator price reference, low event probability, relaxed queue budget.",5,6,5,61.83695000000001,41.30000000000008,0.8,1.202672413475907
+D — Capacity-constrained region,10,20,2,180,45,0.55,0.75,4.72,0.15,0.3,Scale-out succeeds within required window only 55% in this HOUSE scenario.,7,10,10,47.199999999999996,0.0,0.5,0.0

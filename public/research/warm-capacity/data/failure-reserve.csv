@@ -1,0 +1,4 @@
+warm_replicas,normal_capacity_rps,capacity_after_one_replica_loss_rps,survives_24rps_peak_after_one_loss,incremental_gpu_cost_per_h_vs_N
+12,24,22,False,0.0
+13,26,24,True,4.72
+14,28,26,True,9.44
